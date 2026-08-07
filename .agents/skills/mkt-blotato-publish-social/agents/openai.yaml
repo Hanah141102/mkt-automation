@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blotato Social Publisher"
+  short_description: "Publish content across social platforms"
+  default_prompt: "Use $mkt-blotato-publish-social to publish this video, image, or text content to the selected social platforms."

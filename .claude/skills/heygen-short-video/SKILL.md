@@ -1,6 +1,6 @@
 ---
 name: heygen-short-video
-description: "Create HeyGen AI avatar video clips from a production plan. Takes production-plan.json + MP3 voiceover, splits audio into avatar chunks, uploads to HeyGen, generates lip-synced avatar videos, and downloads completed clips. This skill ONLY handles HeyGen avatar production — use plan-short-video-edit for planning and heygen-remotion-short-video-editor for final composition. USE WHEN user says 'tạo video heygen', 'heygen avatar clips', 'tạo avatar video', 'upload heygen', 'generate heygen clips', 'tạo clip avatar từ plan'."
+description: "Create HeyGen AI avatar video clips from a production plan. Takes production-plan.json + MP3 voiceover, splits audio into avatar chunks, uploads to HeyGen, generates lip-synced avatar videos, and downloads completed clips. Also covers the HeyGen MCP OAuth setup flow for non-host environments (Hermes desktop, custom clients) when MCP tools return 401 or only `mcp__heygen__authenticate` is exposed. This skill ONLY handles HeyGen avatar production — use plan-short-video-edit for planning and heygen-remotion-short-video-editor for final composition. USE WHEN user says 'tạo video heygen', 'heygen avatar clips', 'tạo avatar video', 'upload heygen', 'generate heygen clips', 'tạo clip avatar từ plan', or 'kết nối HeyGen MCP', 'setup HeyGen', 'heygen mcp auth', 'mcp heygen 401', 'heygen oauth'."
 ---
 
 # HeyGen Avatar Video Creator
@@ -11,6 +11,10 @@ Generate lip-synced AI avatar video clips from a production plan + MP3 voiceover
 production-plan.json + MP3 → Split audio (avatar segments only)
   → Upload chunks to HeyGen → Create avatar videos → Poll & Download
 ```
+
+> **MCP server setup & OAuth** — if `mcp__heygen__*` tools 401 / server not in `codex mcp list` / user said "kết nối HeyGen" or "setup HeyGen MCP", read `references/heygen-mcp-setup.md` FIRST. This skill assumes the MCP server is already authenticated.
+>
+> **OAuth from a non-host environment (Hermes desktop, plain curl, custom MCP clients)** — the OAuth flow is different from the Codex CLI `codex mcp login` path documented in §4 of that reference. Use `mcp__heygen__authenticate` to get an authorize URL, the user authorizes in their browser, then call `mcp__heygen__complete_authentication` with the full callback URL. See `references/heygen-mcp-oauth-non-host.md` for the full procedure including SSO work-email gotchas and the localhost callback listener pattern.
 
 ## Default Avatar Looks
 

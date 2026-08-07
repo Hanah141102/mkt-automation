@@ -1,0 +1,4 @@
+interface:
+  display_name: "HyperFrames Media"
+  short_description: "Prepare audio, video, and image assets"
+  default_prompt: "Use $hyperframes-media to preprocess the media assets needed by this HyperFrames composition."

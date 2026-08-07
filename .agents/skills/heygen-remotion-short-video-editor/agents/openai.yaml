@@ -1,0 +1,4 @@
+interface:
+  display_name: "HeyGen Remotion Short Video Editor"
+  short_description: "Compose final short videos from HeyGen clips"
+  default_prompt: "Use $heygen-remotion-short-video-editor to compose the final short video from these HeyGen clips and the production plan."

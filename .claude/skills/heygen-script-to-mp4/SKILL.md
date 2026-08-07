@@ -16,6 +16,8 @@ This is the **TTS sister** of `heygen-mp3-to-mp4`:
 
 The two paths are mutually exclusive — picking this skill means **no MP3 step at all**; HeyGen runs TTS internally using the locked voice ID.
 
+> **MCP server setup & OAuth** — if `mcp__heygen__*` tools 401 / user said "kết nối HeyGen" / first run on a fresh host, see `references/heygen-mcp-setup.md` (under `heygen-short-video`) BEFORE the workflow below. The `[mcp_servers.heygen] url = …` config and host-specific login command (`codex mcp login heygen` for Codex CLI) are the real prerequisites.
+
 ## Hard constraints
 
 | Constraint | Allowed values |

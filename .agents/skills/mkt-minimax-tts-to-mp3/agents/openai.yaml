@@ -1,0 +1,4 @@
+interface:
+  display_name: "MiniMax TTS to MP3"
+  short_description: "Convert Vietnamese or English text to voiceover"
+  default_prompt: "Use $mkt-minimax-tts-to-mp3 to convert this Vietnamese or English script into a MiniMax MP3 voiceover."

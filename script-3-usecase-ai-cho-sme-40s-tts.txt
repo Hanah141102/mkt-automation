@@ -1,0 +1,9 @@
+Mình vừa làm một con agent cho khách bên Mỹ, dịch vụ xe tải kem cho sự kiện. Đội nhỏ thôi. Mà có ba việc nó gánh được ngay, các bạn thử xem có giống bên mình không nhá.
+
+Thứ nhất là trực khách ngoài giờ. Khách nhắn lúc mười giờ đêm, agent trả lời liền, lead không bị nguội tới sáng.
+
+Thứ hai là báo giá. Giá tính theo giờ, theo quãng đường, theo số khách. Agent tính trong mười giây, thay vì chủ ngồi bấm máy tính.
+
+Thứ ba là gom thông tin trước khi chốt. Ngày, địa điểm, số khách, ngân sách. Hỏi đủ rồi mới đẩy sang người. Agent không tự tạo đơn đâu, chỗ đó vẫn là người.
+
+Mà kho kiến thức của nó ấy, chỉ là một file text chưa tới hai trang thôi. Nên các bạn không cần dự án AI to tát gì cả. Chỉ cần chọn một việc lặp đi lặp lại rồi giao thử. Làm được một việc là các bạn đã đi đúng hướng rồi đấy.

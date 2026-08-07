@@ -55,7 +55,7 @@ workspace/content/<YYYY-MM-DD>/<slug>/
 2. **Scene HTML = `<template>` sub-composition** — NO `<html>`, `<head>`, `<body>`, `.stage` wrapper.
 3. **GSAP only** — no anime.js. No CSS `animation: ... infinite`. All repeats finite, computed từ DURATION.
 4. **Seeded PRNG (mulberry32)** — no `Math.random()`. Mỗi scene 1 seed unique.
-5. **Register `window.__timelines["scene-NN-..."] = gsap.timeline({ paused: true })`** — runtime drives playhead.
+5. **Register `window.__timelines["scene-NN-..."] = gsap.timeline({ paused: true })`** — runtime drives playhead. ⚠️ **Paused-seek pitfall**: callbacks (`onUpdate`, `onComplete`, `t.call()`) are SKIPPED when master seeks. Pair proxy-driven animations (count-up, typewriter) with `tl.set()` at explicit positions where values must render correctly during seek — see `references/anti-patterns.md` #25.
 6. **`gsap.fromTo()` cho entrances** (NOT `gsap.from()` — sub-comps load async).
 7. **No exit anims trong scene** (except final scene). Transitions live in MASTER index.html timeline.
 8. **Render bằng `npx hyperframes render`**, KHÔNG dùng Playwright per-scene + ffmpeg concat.

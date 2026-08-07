@@ -1,6 +1,6 @@
 ---
 name: mkt-hyperframe-knowledge-video-heygen-9-16
-description: Tạo video chia sẻ kiến thức / tin tức 9:16 DỌC (1080×1920) cho TikTok/Reels/Shorts — HeyGen avatar lip-synced FULL-SCREEN khi nói trực tiếp, co xuống BOTTOM HALF (1080×960) khi slide motion-graphic hiện ở TOP HALF, với FULL↔SPLIT breath mechanic (avatar expand full cho punchline cuối mỗi beat) + breathing + scene-start punch-in + captions word-level track 60. Pipeline 3 phase như sibling 16:9: (1) TTS — ElevenLabs v3 (mặc định) hoặc MiniMax speech-02 (chọn qua TTS_PROVIDER=minimax hoặc user nói 'dùng minimax'), (2) heygen-mp3-to-mp4 lip-sync portrait 720×1280 + re-encode keyframe dày, (3) fan out parallel sub-agents author scene HTML 1080×960 standalone sub-comp (GSAP only, data-composition-src) → master index.html với #avatar-stage FULL↔SPLIT + SFX + captions → npx hyperframes render. Self-contained: templates ở assets/templates/. USE WHEN user nói 'video kiến thức 9:16 có avatar', 'knowledge video dọc heygen', 'tiktok keynote avatar', 'video dọc slide + avatar', 'avatar full screen và nửa màn hình', 'heygen full + split 9:16', 'video kiến thức tiktok có người dẫn', 'hyperframes heygen 9:16', 'slide trên avatar dưới', hoặc video knowledge 9:16 cần avatar HeyGen + slide motion graphic. KHÁC sibling 16-9 (avatar floating frame phải + SPLIT↔PIP) và KHÁC mkt-hyperframe-talking-head-video (dùng footage quay sẵn, infographic generator Python).
+description: Tạo video chia sẻ kiến thức / tin tức 9:16 DỌC (1080×1920) cho TikTok/Reels/Shorts. HeyGen avatar lip-synced FULL-SCREEN khi nói trực tiếp, co xuống BOTTOM HALF (1080×960) khi slide motion-graphic hiện ở TOP HALF, với FULL↔SPLIT breath mechanic (avatar expand full cho punchline cuối mỗi beat) + breathing + scene-start punch-in + captions word-level track 60. Pipeline 3 phase giống sibling 16:9 — (1) TTS — ElevenLabs v3 (mặc định) hoặc MiniMax speech-02 (chọn qua TTS_PROVIDER=minimax hoặc user nói 'dùng minimax'), (2) heygen-mp3-to-mp4 lip-sync portrait 720×1280 + re-encode keyframe dày, (3) fan out parallel sub-agents author scene HTML 1080×960 standalone sub-comp (GSAP only, data-composition-src) → master index.html với #avatar-stage FULL↔SPLIT + SFX + captions → `npx hyperframes render`. Self-contained: templates ở assets/templates/. USE WHEN user nói 'video kiến thức 9:16 có avatar', 'knowledge video dọc heygen', 'tiktok keynote avatar', 'video dọc slide + avatar', 'avatar full screen và nửa màn hình', 'heygen full + split 9:16', 'video kiến thức tiktok có người dẫn', 'hyperframes heygen 9:16', 'slide trên avatar dưới', hoặc video knowledge 9:16 cần avatar HeyGen + slide motion graphic. KHÁC sibling 16-9 (avatar floating frame phải + SPLIT↔PIP) và KHÁC mkt-hyperframe-talking-head-video (dùng footage quay sẵn, infographic generator Python).
 ---
 
 # HyperFrame Knowledge Video + HeyGen Pipeline (9:16 FULL↔SPLIT)
@@ -49,6 +49,8 @@ KHÔNG dùng khi:
 13. **Sub-agents KHÔNG chạy `npx hyperframes`** — orchestrator validate tập trung (lint + inspect + draft render + frame QA).
 14. **Master select bằng `#root`**; `.avatar-breathing/.avatar-punch` có `data-layout-allow-overflow`; `tl.set(opacity:0)` hard-kill sau mỗi wipe/flash/divider fade.
 15. **Whisper LUÔN `--language vi`** cho audio Việt, không bao giờ model `.en`.
+16. **GSAP layout tween = transform/opacity only.** `top`/`bottom`/`height`/`width`/`left`/`right` device-pixel bị lint `gsap_non_transform_motion` reject. Tween `y` / `xPercent` / `scaleX` / `translate3d` thay thế. Wrap avatar-stage + caption-stage trong wrapper transform-friendly, đừng tween `top: 960` trực tiếp. Chi tiết: `references/anti-patterns.md` #35.
+17. **Sub-agents = single-message batch + `process.wait` cuối.** Fan out N sub-agents trong 1 message parallel; block trên handle cuối, không poll lần lượt. Poll loop = hết iteration budget. Chi tiết: `references/anti-patterns.md` #36.
 
 Chi tiết anti-patterns chung: `references/anti-patterns.md`. Layout chi tiết: `references/full-split-layout.md`.
 
@@ -211,7 +213,9 @@ Báo absolute path của file MP4 cho user + size. Log hive_mind sau khi xong.
 ## References & Scripts
 
 - `references/full-split-layout.md` — geometry + master JS + editorial rules (ĐỌC khi wire master)
-- `references/scene-patterns.md`, `references/sfx-layer.md`, `references/anti-patterns.md`, `references/design-system.md`, `references/heygen-integration.md`, `references/elevenlabs-v3.md`, `references/image-thumbnail-overlay.md` — kế thừa từ sibling 16:9 (aspect-agnostic)
+- `references/scene-patterns.md` — 12 patterns cho scene HTML (incl. `listicle-stack` mới cho tips/top-N content)
+- `references/listicle-recipe.md` — proven 6-scene sequence cho "N tips / top-N" SME content
+- `references/sfx-layer.md`, `references/anti-patterns.md`, `references/design-system.md`, `references/heygen-integration.md`, `references/elevenlabs-v3.md`, `references/image-thumbnail-overlay.md` — kế thừa từ sibling 16:9 (aspect-agnostic)
 - `scripts/tts.py`, `scripts/map_beats.py`, `scripts/prep_source_video.sh`, `scripts/prep_avatar.py` — như sibling
 - `scripts/clean_transcript.py`, `scripts/fix_caption_typos.py`, `scripts/inject_captions.py` — captions pipeline (từ talking-head skill)
 - `assets/templates/master-index.reference.html` — master 9:16 FULL↔SPLIT (markers [1]..[8])

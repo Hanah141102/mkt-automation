@@ -1,6 +1,6 @@
 ---
 name: mkt-hyperframe-knowledge-video-heygen-16-9
-description: Tạo video chia sẻ kiến thức / tin tức 16:9 (1920×1080) dạng "podcast keynote" — slide motion-graphic bên trái (1200×1080) + HeyGen avatar lip-synced floating frame bên phải (540×880 claude-orange border) với SPLIT↔PIP zoom mechanic (slide expand 1920 + avatar shrink 320×420 corner) + breathing + scene-start punch-in. Pipeline 3 phase: (1) TTS parallel chunks + alignment — ElevenLabs v3 (mặc định) hoặc MiniMax speech-02 (chọn qua TTS_PROVIDER=minimax hoặc user nói 'dùng minimax'), (2) delegate `heygen-mp3-to-mp4` lip-sync portrait 720×1280, (3) fan out parallel sub-agents author scene HTML 1200×1080 standalone sub-comp (GSAP only, loaded via `data-composition-src`) → master index.html với slide-mount + #avatar-frame + PIP_EVENTS + SFX → `npx hyperframes render`. **Self-contained: copy templates ở `assets/templates/`, KHÔNG cần đọc folder video khác.** **MUST use this skill when** user nói "video keynote 16:9 có avatar", "podcast keynote video", "slide + avatar lip-sync", "knowledge video heygen", "video kiến thức 16:9 có avatar", "video AI có người dẫn", "talking head + slide", "Claude editorial keynote", "hyperframes heygen 16:9", hoặc video knowledge 16:9 cần avatar HeyGen + slide motion graphic.
+description: "Tạo video chia sẻ kiến thức / tin tức 16:9 (1920×1080) dạng podcast keynote — slide motion-graphic bên trái (1200×1080) + HeyGen avatar lip-synced floating frame bên phải (540×880 claude-orange border) với SPLIT↔PIP zoom mechanic + breathing + scene-start punch-in. Pipeline 3 phase — TTS parallel chunks (ElevenLabs v3 mặc định hoặc MiniMax speech-02), heygen-mp3-to-mp4 lip-sync portrait 720×1280, fan out parallel sub-agents author scene HTML 1200×1080 → master index.html với slide-mount + #avatar-frame + PIP_EVENTS + SFX → npx hyperframes render. Self-contained templates ở assets/templates/. MUST use khi user nói video keynote 16:9 có avatar, podcast keynote video, slide + avatar lip-sync, knowledge video heygen, talking head + slide, Claude editorial keynote, hoặc video knowledge 16:9 cần avatar HeyGen + slide motion graphic."
 ---
 
 # HyperFrame Knowledge Video + HeyGen Pipeline (16:9 SPLIT/PIP)
@@ -27,7 +27,8 @@ Skill này **self-contained**. Copy template proven ở `assets/templates/` vào
 12. **Warning `google_fonts_import` chấp nhận được** — render env có mạng, fonts load OK (proven). Đừng block vì nó.
 13. **Scene-mount KHÔNG overlap/crossfade.** Mount back-to-back; mỗi cái fade-in ở start (DOM sau = nằm trên, che cái trước). (anti-pattern #15 chỉ áp dụng base skill, KHÔNG áp dụng ở đây.)
 14. **Set master TOTAL + mọi data-duration = ffprobe duration của source.mp4 ĐÃ re-encode**, không phải alignment.json.
-15. **Env cần:** `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID`, `HEYGEN_API_KEY`, `HEYGEN_AVATAR_LOOKS`. (KHÔNG dùng `HEYGEN_VOICE_ID` — ta lip-sync MP3.) System `python3` đã có `requests`; không cần venv.
+15. **Sync DURATION constant trong mỗi scene HTML với data-duration của slide-mount trong index.html** — orchestrator own index.html, sau khi wire scene mounts thì sed-replace từng scene file để DURATION trong scene JS khớp với data-duration trong master. Drift → scene timeline kéo dài quá mount window, entrance cuối scene bị scene kế che. (anti-pattern #40)
+16. **Env cần:** `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID`, `HEYGEN_API_KEY`, `HEYGEN_AVATAR_LOOKS`. (KHÔNG dùng `HEYGEN_VOICE_ID` — ta lip-sync MP3.) System `python3` đã có `requests`; không cần venv.
 
 ## Khi nào dùng skill này
 
@@ -428,7 +429,20 @@ Quality: `draft` / `standard` (default) / `high`.
 
 ## Step 11 — Report (AUTOPILOT)
 
-KHÔNG mở preview, KHÔNG dừng hỏi — render xong báo cáo và in absolute path MP4 cho user:
+KHÔNG mở preview, KHÔNG dừng hỏi — render xong **VERIFY trước** rồi báo cáo và in absolute path MP4 cho user:
+
+```bash
+# 1. duration phải ≈ source.mp4 (audio sync check)
+ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $OUT/<slug>.mp4
+# expect: <source.mp4 duration> ±0.05s
+# 2. frames × fps = duration (sanity, no dropped frames)
+ffprobe -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 $OUT/<slug>.mp4
+# expect: ~<duration> × 30 fps
+# 3. bitrate + size reasonable
+ls -lh $OUT/<slug>.mp4  # 30-50MB cho 48s 1080p standard
+```
+
+Nếu duration lệch >0.5s so với source.mp4 → render bị trim/cut ở đâu đó (thường do scene timeline chạy quá DURATION, hoặc data-duration của video/audio ngắn hơn thực tế). KHÔNG báo done nếu 3 check fail — fix và render lại.
 
 ```
 Render xong: <slug>.mp4 (1920×1080, ~<duration>s)

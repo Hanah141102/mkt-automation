@@ -1,0 +1,4 @@
+interface:
+  display_name: "HeyGen MP3 to MP4"
+  short_description: "Create HeyGen avatar video from MP3 voiceover"
+  default_prompt: "Use $heygen-mp3-to-mp4 to turn this MP3 voiceover into a HeyGen avatar video."

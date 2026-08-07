@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vietnamese Short Video Script V2"
+  short_description: "Write natural Vietnamese short-video scripts"
+  default_prompt: "Use $mkt-create-script-short-video-v2-vn to write a natural Vietnamese script for this short video topic."

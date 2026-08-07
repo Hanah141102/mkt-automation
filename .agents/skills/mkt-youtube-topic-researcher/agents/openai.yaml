@@ -1,0 +1,4 @@
+interface:
+  display_name: "YouTube Topic Researcher"
+  short_description: "Research YouTube topics and competing videos"
+  default_prompt: "Use $mkt-youtube-topic-researcher to research this YouTube topic and identify useful reference videos."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "HyperFrames CLI"
+  short_description: "Run the HyperFrames development and render loop"
+  default_prompt: "Use $hyperframes-cli to initialize, lint, inspect, preview, or render this HyperFrames project."

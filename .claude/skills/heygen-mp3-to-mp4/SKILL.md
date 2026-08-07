@@ -9,6 +9,8 @@ Take one MP3 voiceover, return one HeyGen avatar lip-sync MP4. Nothing else.
 
 This skill exists because the existing `heygen-short-video` skill requires a full production plan + SRT + chunked segments — overkill when the user just has a finished voiceover and wants a talking-head video.
 
+> **MCP server setup & OAuth** — if `mcp__heygen__*` tools 401 / user said "kết nối HeyGen" / first run on a fresh host, see `references/heygen-mcp-setup.md` (under `heygen-short-video`) BEFORE invoking the OAuth step below. The `[mcp_servers.heygen] url = …` config and host-specific login command (`codex mcp login heygen` for Codex CLI) are the real prerequisites.
+
 ## Why hybrid REST + MCP (not MCP-only)
 
 Earlier versions of this skill enforced "MCP only — never call REST." That rule is **no longer feasible** as of the 2026 HeyGen MCP reshape: the MCP server only exposes `create_video_from_avatar`, `get_video`, `create_lipsync`, `list_avatar_looks`, etc. — there is **no asset-upload tool** anymore. To lip-sync from a local MP3 the API still requires either an `audioAssetId` (uploaded asset) or an `audioUrl` (public HTTPS URL). Hosting a public URL is fragile (link rot, leakage), so we use the documented REST upload endpoint via a thin helper, then continue through MCP for video creation, polling, and download.

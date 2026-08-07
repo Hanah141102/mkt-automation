@@ -1,0 +1,4 @@
+interface:
+  display_name: "HeyGen Short Video"
+  short_description: "Create avatar clips from a short-video plan"
+  default_prompt: "Use $heygen-short-video to create the HeyGen avatar clips for this short-video production plan."
