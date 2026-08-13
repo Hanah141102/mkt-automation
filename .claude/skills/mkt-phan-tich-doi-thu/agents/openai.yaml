@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Phân Tích Đối Thủ"
+  short_description: "Phân tích đối thủ và khoảng trống chiến lược"
+  default_prompt: "Use $mkt-phan-tich-doi-thu to analyze these competitors and identify strategic gaps."

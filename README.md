@@ -1,45 +1,28 @@
-# HeyGen + HyperFrames Skills Pack
+---
+title: Tony Hoang Company — Bắt Đầu Từ Đây
+tags: [moc, huong-dan]
+---
 
-18 Claude Code skills cho pipeline video ngắn: HeyGen avatar lip-sync + HyperFrames compositing.
+# Tony Hoang Company — Bắt Đầu Từ Đây
 
-## Cài đặt
+> [!tip] Điểm vào nhanh
+> Đọc [[Hồ Sơ Mô Hình Kinh Doanh]] trước khi thiết kế phễu hoặc đưa ra ngưỡng thời gian. Đọc [[Chân Dung Doanh Nghiệp]] và [[Brand Voice — Giọng Thương Hiệu]] trước khi viết nội dung.
 
-1. Copy thư mục `.claude/` vào project root của bạn (giữ nguyên cấu trúc `.claude/skills/...`).
-2. Copy file `.env` vào project root và điền API keys (xem chú thích trong file).
-3. Mở Claude Code tại project đó — skills tự động được load.
+## Bản đồ vault
 
-## Skills bao gồm
+- [[_MOC 00. Business Context|00. Business Context]] — nguồn sự thật về doanh nghiệp.
+- [[_MOC 01. Inbox|01. Inbox]] — nơi thu nhận thông tin thô.
+- [[_MOC 02. Projects|02. Projects]] — chiến dịch và công việc có deadline.
+- [[_MOC 03. Areas|03. Areas]] — trách nhiệm vận hành liên tục.
+- [[_MOC 04. Resources|04. Resources]] — tài liệu, nghiên cứu và tài sản tái sử dụng.
+- [[_MOC 05. Archive|05. Archive]] — việc đã đóng, không xoá.
+- [[_MOC Daily|Daily]] · [[_MOC Nhật Ký CEO|Nhật Ký CEO]] — nhật ký vận hành và chất liệu cá nhân.
+- [[Vault SME — Hướng Dẫn]] — giải thích kiến trúc đầy đủ.
+- [[Hướng Dẫn Dùng Skill]] — danh mục 97 skill đang bật.
+- [[Hướng Dẫn Agent Cài Đặt Skills và ENV]] — clone repo, nhận toàn bộ skill và cấu hình `.env` an toàn.
 
-**HeyGen**
-- `heygen-mp3-to-mp4` — MP3 voiceover → HeyGen avatar lip-sync MP4
-- `heygen-script-to-mp4` — script text → HeyGen MP4 (HeyGen TTS)
-- `heygen-short-video` — pipeline video ngắn HeyGen
-- `heygen-remotion-short-video-editor` — editor Remotion cho clip HeyGen
+## Lớp kỹ thuật
 
-**HyperFrames core**
-- `hyperframes` — authoring composition HTML, captions, transitions, audio-reactive
-- `hyperframes-cli` — init / lint / preview / render
-- `hyperframes-media` — tts, transcribe, remove-background
-- `hyperframes-registry` — registry components
+Xưởng video AI nằm trong `02. Projects/Xưởng Video AI/`; nghiên cứu video nằm trong `04. Resources/Market & Competitor Research/Video AI/`. Hai đường dẫn `videos/` và `research/` ở root là liên kết tương thích để các lệnh cũ tiếp tục hoạt động.
 
-**Pipelines end-to-end**
-- `mkt-full-video-with-11-hyperframe-heygen` — script → MP4 9:16 (TikTok/Reels)
-- `mkt-full-video-with-11-hyperframe-heygen-16-9` — script → MP4 16:9 (podcast keynote)
-- `mkt-hyperframe-knowledge-video` / `-heygen-16-9` / `-heygen-9-16` — knowledge video
-- `mkt-hyperframe-talking-head-video` / `-16-9` — đóng gói footage talking-head
-
-**TTS**
-- `mkt-minimax-tts-to-mp3` — script text → MP3 bằng MiniMax T2A v2 (thay thế ElevenLabs)
-- 2 skill `mkt-hyperframe-knowledge-video-heygen-9-16` / `-16-9` chọn được provider qua
-  `TTS_PROVIDER=elevenlabs|minimax` trong `.env` (đường MiniMax cần `pip install -U openai-whisper`
-  để dựng alignment word-level)
-
-**Converters**
-- `remotion-to-hyperframes`, `website-to-hyperframes`
-
-## Yêu cầu
-
-- Node 20+, Claude Code CLI
-- HeyGen API key (Pro plan cho API)
-- ElevenLabs API key (voiceover)
-- OpenAI API key (Whisper transcribe)
+Kho hướng dẫn và skill dự phòng nằm trong `huong dan/`. Các file runtime như `.env`, `scripts/`, `workspace/` và `package.json` được giữ ở root để pipeline không bị gãy.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Kallaway Hook & Story Engine"
+  short_description: "Thiết kế hook và story đúng brand voice"
+  default_prompt: "Use $mkt-kallaway-hook-story-engine-vn to improve the hooks and story structure for this content."

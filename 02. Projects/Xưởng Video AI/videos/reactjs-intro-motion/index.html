@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --abyss-ink: #061a2b;
+        --deep-current: #0c3358;
+        --blueprint-steel: #3f6470;
+        --tide-teal: #0e7c8b;
+        --aquamarine: #57d6c6;
+        --sea-mist: #e8eff2;
+        --ember: #da3c0c;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--abyss-ink);
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: radial-gradient(
+            ellipse 1200px 800px at 50% 45%,
+            var(--deep-current) 0%,
+            var(--abyss-ink) 70%
+          ),
+          var(--abyss-ink);
+      }
+
+      /* ---------- decoratives ---------- */
+      #glow {
+        position: absolute;
+        left: 50%;
+        top: 42%;
+        width: 1100px;
+        height: 1100px;
+        margin: -550px 0 0 -550px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(87, 214, 198, 0.2) 0%,
+          rgba(14, 124, 139, 0.08) 40%,
+          rgba(14, 124, 139, 0) 68%
+        );
+        pointer-events: none;
+      }
+      #grid {
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+            rgba(63, 100, 112, 0.14) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(63, 100, 112, 0.14) 1px, transparent 1px);
+        background-size: 96px 96px;
+        mask-image: radial-gradient(
+          ellipse 900px 600px at 50% 45%,
+          #000 20%,
+          transparent 75%
+        );
+        -webkit-mask-image: radial-gradient(
+          ellipse 900px 600px at 50% 45%,
+          #000 20%,
+          transparent 75%
+        );
+      }
+
+      /* ---------- content column ---------- */
+      .scene-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 100px 160px;
+        gap: 28px;
+      }
+
+      #atom-wrap {
+        width: 420px;
+        height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #atom {
+        width: 420px;
+        height: 420px;
+        overflow: visible;
+        filter: drop-shadow(0 0 34px rgba(87, 214, 198, 0.42));
+      }
+      #atom .orbit {
+        fill: none;
+        stroke: var(--aquamarine);
+        stroke-width: 1;
+      }
+      #nucleus {
+        fill: var(--ember);
+      }
+
+      #wordmark {
+        font-size: 148px;
+        font-weight: 800;
+        letter-spacing: -6px;
+        color: var(--sea-mist);
+        display: flex;
+        gap: 2px;
+        line-height: 1;
+      }
+      #wordmark span {
+        display: inline-block;
+      }
+
+      #line-stage {
+        position: relative;
+        width: 1400px;
+        height: 120px;
+      }
+      .line {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        text-align: center;
+      }
+      .kw {
+        font-size: 68px;
+        font-weight: 600;
+        letter-spacing: -1px;
+        color: var(--aquamarine);
+      }
+      .kw-sub {
+        font-size: 68px;
+        font-weight: 300;
+        letter-spacing: -1px;
+        color: var(--aquamarine);
+      }
+      #tagline {
+        font-size: 46px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        color: var(--aquamarine);
+        display: block;
+      }
+
+      #rule {
+        width: 340px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          rgba(87, 214, 198, 0) 0%,
+          var(--aquamarine) 50%,
+          rgba(87, 214, 198, 0) 100%
+        );
+        transform-origin: 50% 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="10"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div
+        id="main-clip"
+        class="clip"
+        data-start="0"
+        data-duration="10"
+        data-track-index="1"
+        style="position: absolute; inset: 0"
+      >
+        <div id="grid"></div>
+        <div id="glow"></div>
+
+        <div class="scene-content">
+          <div id="atom-wrap">
+            <svg
+              id="atom"
+              viewBox="-11.5 -10.23174 23 20.46348"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="orbits">
+                <ellipse class="orbit" id="orbit-1" rx="11" ry="4.2" />
+                <ellipse
+                  class="orbit"
+                  id="orbit-2"
+                  rx="11"
+                  ry="4.2"
+                  transform="rotate(60)"
+                />
+                <ellipse
+                  class="orbit"
+                  id="orbit-3"
+                  rx="11"
+                  ry="4.2"
+                  transform="rotate(120)"
+                />
+              </g>
+              <circle id="nucleus" r="2.05" />
+            </svg>
+          </div>
+
+          <div id="wordmark">
+            <span>R</span><span>e</span><span>a</span><span>c</span
+            ><span>t</span>
+          </div>
+
+          <div id="rule"></div>
+
+          <div id="line-stage" data-layout-allow-overlap="true">
+            <div class="line" id="line-1">
+              <span class="kw">Component</span
+              ><span class="kw-sub">based</span>
+            </div>
+            <div class="line" id="line-2">
+              <span class="kw">Declarative</span
+              ><span class="kw-sub">UI</span>
+            </div>
+            <div class="line" id="line-3">
+              <span class="kw">Learn once</span
+              ><span class="kw-sub">write anywhere</span>
+            </div>
+            <div class="line" id="line-4">
+              <span id="tagline"
+                >The library for web and native user interfaces</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // orbit path-draw setup (deterministic, measured at load)
+      const orbits = ["#orbit-1", "#orbit-2", "#orbit-3"].map((s) =>
+        document.querySelector(s)
+      );
+      orbits.forEach((el) => {
+        const len = el.getTotalLength();
+        el.style.strokeDasharray = len;
+        el.style.strokeDashoffset = len;
+      });
+
+      // --- 0.0-0.6 world in ---
+      tl.fromTo(
+        "#glow",
+        { autoAlpha: 0, scale: 0.6 },
+        { autoAlpha: 1, scale: 1, duration: 1.2, ease: "power2.out" },
+        0
+      );
+      tl.fromTo(
+        "#grid",
+        { autoAlpha: 0 },
+        { autoAlpha: 1, duration: 1.4, ease: "power1.out" },
+        0.1
+      );
+
+      // --- 0.15-1.5 orbits draw ---
+      orbits.forEach((el, i) => {
+        const len = el.getTotalLength();
+        tl.fromTo(
+          el,
+          { strokeDashoffset: len },
+          { strokeDashoffset: 0, duration: 1.15, ease: "power2.inOut" },
+          0.15 + i * 0.16
+        );
+      });
+
+      // --- nucleus pop ---
+      tl.fromTo(
+        "#nucleus",
+        { autoAlpha: 0, scale: 0 },
+        { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(2.6)" },
+        0.85
+      );
+
+      // --- continuous atom rotation for the whole piece ---
+      tl.fromTo(
+        "#atom",
+        { rotation: -14, transformOrigin: "50% 50%" },
+        {
+          rotation: 346,
+          transformOrigin: "50% 50%",
+          duration: 10,
+          ease: "none",
+        },
+        0
+      );
+      // gentle breathing scale
+      tl.fromTo(
+        "#atom-wrap",
+        { scale: 0.92, transformOrigin: "50% 50%" },
+        { scale: 1, transformOrigin: "50% 50%", duration: 2.4, ease: "sine.out" },
+        0.2
+      );
+
+      // --- 1.15 wordmark letters slam in ---
+      tl.fromTo(
+        "#wordmark span",
+        { autoAlpha: 0, y: 70, scaleY: 1.4, filter: "blur(14px)" },
+        {
+          autoAlpha: 1,
+          y: 0,
+          scaleY: 1,
+          filter: "blur(0px)",
+          duration: 0.55,
+          ease: "power3.out",
+          stagger: 0.07,
+        },
+        1.15
+      );
+
+      // --- rule sweep ---
+      tl.fromTo(
+        "#rule",
+        { autoAlpha: 0, scaleX: 0 },
+        { autoAlpha: 1, scaleX: 1, duration: 0.7, ease: "power2.out" },
+        1.85
+      );
+
+      // --- keyword lines ---
+      const lines = [
+        { id: "#line-1", in: 2.5, out: 4.3 },
+        { id: "#line-2", in: 4.5, out: 6.3 },
+        { id: "#line-3", in: 6.5, out: 8.2 },
+      ];
+      lines.forEach((l) => {
+        tl.fromTo(
+          l.id,
+          { autoAlpha: 0, y: 46, filter: "blur(10px)" },
+          {
+            autoAlpha: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          l.in
+        );
+        tl.fromTo(
+          l.id + " .kw",
+          { color: "#57d6c6" },
+          {
+            color: "#e8eff2",
+            duration: 0.35,
+            ease: "sine.inOut",
+            immediateRender: false,
+          },
+          l.in + 0.35
+        );
+        tl.fromTo(
+          l.id,
+          { autoAlpha: 1, y: 0, filter: "blur(0px)" },
+          {
+            autoAlpha: 0,
+            y: -40,
+            filter: "blur(10px)",
+            duration: 0.45,
+            ease: "power2.in",
+            immediateRender: false,
+          },
+          l.out
+        );
+      });
+
+      // --- 8.4 final lockup ---
+      tl.fromTo(
+        "#line-4",
+        { autoAlpha: 0, y: 34 },
+        { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" },
+        8.4
+      );
+      tl.fromTo(
+        "#glow",
+        { scale: 1 },
+        {
+          scale: 1.14,
+          duration: 1.6,
+          ease: "sine.inOut",
+          immediateRender: false,
+        },
+        8.4
+      );
+
+      tl.seek(0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

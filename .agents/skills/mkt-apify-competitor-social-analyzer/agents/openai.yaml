@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Apify Competitor Analyzer"
+  short_description: "Phân tích kênh social đối thủ bằng Apify"
+  default_prompt: "Use $mkt-apify-competitor-social-analyzer to compare these competitor social channels with Apify."

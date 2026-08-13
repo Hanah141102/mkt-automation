@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1080" />
+    <link rel="stylesheet" href="../assets/brand-tokens.css" />
+    <style>
+      body { width: 1080px; height: 1080px; overflow: hidden; }
+      .canvas { width: 1080px; height: 1080px; background: var(--brand-mist); color: var(--brand-abyss); }
+      .brand-grid { --grid-size: 54px; opacity: .28; }
+      .left { position: absolute; inset: 0 44% 0 0; overflow: hidden; }
+      .left img { width: 100%; height: 100%; object-fit: cover; object-position: 49% 24%; filter: saturate(.72) contrast(1.06); }
+      .left::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,26,43,.05), rgba(6,26,43,.18)); }
+      .right { position: absolute; left: 48%; right: 68px; top: 70px; bottom: 66px; display: flex; flex-direction: column; }
+      .tag { color: var(--brand-steel); font: 700 17px/1 var(--brand-spec); letter-spacing: .12em; }
+      blockquote { margin: auto 0; font: 900 65px/.98 var(--brand-display); letter-spacing: -.055em; }
+      blockquote span { color: var(--brand-ember); }
+      .sign { padding-top: 28px; border-top: 3px solid var(--brand-tide); }
+      .sign strong { display: block; font: 800 24px/1 var(--brand-display); }
+      .sign small { display: block; margin-top: 10px; color: var(--brand-steel); font: 600 13px/1.4 var(--brand-spec); letter-spacing: .07em; text-transform: uppercase; }
+      .gap { left: 47.2%; top: 158px; width: 11px; height: 104px; z-index: 3; }
+      .mark { position: absolute; left: 42px; top: 42px; width: 70px; height: 70px; z-index: 4; }
+    </style>
+  </head>
+  <body>
+    <main class="canvas brand-canvas">
+      <div class="brand-grid"></div>
+      <section class="left"><img src="../../../../workspace/assets/brand/tony-avatar.jpg" alt="Chân dung Tony Hoang" /></section>
+      <img class="mark" src="../assets/logo-mark-dark.svg" alt="" />
+      <div class="brand-reframe-gap gap"></div>
+      <section class="right">
+        <div class="tag">POINT OF VIEW / 01</div>
+        <blockquote>“AI không cứu được một quy trình mà doanh nghiệp <span>chưa hiểu rõ.</span>”</blockquote>
+        <footer class="sign"><strong>TONY HOANG</strong><small>Kiến trúc sư tái cấu trúc doanh nghiệp bằng AI</small></footer>
+      </section>
+    </main>
+  </body>
+</html>

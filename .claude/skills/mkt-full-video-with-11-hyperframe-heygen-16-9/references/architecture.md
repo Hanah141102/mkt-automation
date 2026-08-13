@@ -183,7 +183,7 @@ Lý do split `<video muted>` + `<audio>` cùng src:
 <div id="brand-mark" class="clip brand-mark"
      data-start="0" data-duration="60.72" data-track-index="2">
   <span class="dot"></span>
-  <span><span class="at">@</span>tranvanhoang.com</span>
+  <span><span class="at">@</span>brand-handle</span>
   <span class="sep">·</span>
   <span>Claude AI workflow</span>
 </div>

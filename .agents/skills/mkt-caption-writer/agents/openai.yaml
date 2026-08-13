@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Caption Writer"
+  short_description: "Viết caption native theo từng nền tảng"
+  default_prompt: "Use $mkt-caption-writer to write platform-native captions for this content."

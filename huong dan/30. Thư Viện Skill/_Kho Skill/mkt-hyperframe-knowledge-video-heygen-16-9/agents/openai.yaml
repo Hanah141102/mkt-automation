@@ -1,0 +1,4 @@
+interface:
+  display_name: "16:9 HeyGen Knowledge Video"
+  short_description: "Create landscape knowledge and news videos"
+  default_prompt: "Use $mkt-hyperframe-knowledge-video-heygen-16-9 to create this 16:9 knowledge or news video with a HeyGen presenter."

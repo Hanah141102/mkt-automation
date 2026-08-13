@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video kiến thức Asset B-roll 9:16"
+  short_description: "Dựng 9:16 với B-roll sát nghĩa và HeyGen"
+  default_prompt: "Dùng $mkt-asset-broll-knowledge-video-heygen-9-16 để dựng video 9:16 với Pexels full-screen độc lập, text/chart reveal đúng keyword, HeyGen an toàn khuôn mặt, nhạc nền và SFX tiết chế."

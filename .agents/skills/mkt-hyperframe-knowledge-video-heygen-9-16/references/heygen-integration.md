@@ -4,7 +4,7 @@ Sau khi ElevenLabs TTS xong (`audio/full.mp3` + `audio/alignment.json`), Phase 2
 
 ## Delegation strategy — KHÔNG re-implement
 
-Skill `heygen-mp3-to-mp4` đã handle toàn bộ:
+Skill `mkt-heygen-mp3-to-mp4` đã handle toàn bộ:
 - Upload MP3 lên HeyGen Assets (REST helper script, vì post-2026 MCP bỏ upload tool)
 - Create video từ avatar look + uploaded audio (HeyGen MCP `create_video_from_avatar`)
 - Poll status (HeyGen MCP `get_video`)
@@ -19,7 +19,7 @@ HEYGEN_API_KEY=...                   # bắt buộc cho REST upload
 HEYGEN_AVATAR_LOOKS=look_id_1,look_id_2,...   # comma-separated, pick random
 ```
 
-Real values ở `~/Documents/GitHub/hoang-ai-marketing/.env`. `.env.local` của project ship với stub.
+Real values ở `<project-root>/.env`. `.env.local` của project ship với stub.
 
 ## Output format
 
@@ -72,10 +72,10 @@ Phase 2 — Convert ElevenLabs MP3 to HeyGen lip-sync MP4.
 - HeyGen avatar look: pick random from HEYGEN_AVATAR_LOOKS env
 - Render aspectRatio="9:16", resolution="720p" (= 720×1280 portrait)
 - Duration must match input MP3 ±50ms
-- Use the `heygen-mp3-to-mp4` skill — its SKILL.md has the full workflow.
+- Use the `mkt-heygen-mp3-to-mp4` skill — its SKILL.md has the full workflow.
 
 # Process
-1. Invoke `heygen-mp3-to-mp4` skill.
+1. Invoke `mkt-heygen-mp3-to-mp4` skill.
 2. Pass --input <mp3 path> --output <mp4 path>.
 3. Wait for completion (HeyGen render 60-180s).
 4. Verify: ffprobe shows 720×1280, duration matches MP3.
@@ -135,9 +135,9 @@ fi
 | Pitfall | Fix |
 |---|---|
 | HeyGen render 1280×720 landscape | Set aspectRatio="9:16" resolution="720p". Avatar frame portrait crops từ portrait source. |
-| MCP báo "tool not found" cho `upload_asset` | Old MCP name. Dùng REST helper script (`heygen-mp3-to-mp4/scripts/upload_asset.py`). |
+| MCP báo "tool not found" cho `upload_asset` | Old MCP name. Dùng REST helper script (`mkt-heygen-mp3-to-mp4/scripts/upload_asset.py`). |
 | MCP chỉ expose `authenticate` / `complete_authentication` | Chưa OAuth — run auth flow trước. |
-| Avatar look ID stub placeholder | `.env.local` ship `avatar_look_id_1` stub. Real values ở marketing repo `~/Documents/GitHub/hoang-ai-marketing/.env`. |
+| Avatar look ID stub placeholder | `.env.local` ship `avatar_look_id_1` stub. Real values ở marketing repo `<project-root>/.env`. |
 | Avatar face crop trán | `object-position: center 25%` ở avatar frame CSS (xem `avatar-pip-layout.md`). Tweak 20-30% per avatar. |
 | HeyGen duration ≠ MP3 duration | Trust ffprobe `source.mp4`, set `data-duration` theo MP4. |
 | Block waiting cho HeyGen 60-180s | Kick background, parallel scaffold + scene-01 + design.md. Wire `source.mp4` khi xong. |

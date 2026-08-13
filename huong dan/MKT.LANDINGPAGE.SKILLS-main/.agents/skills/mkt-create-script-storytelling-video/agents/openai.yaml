@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storytelling Video Script"
+  short_description: "Create complete YouTube storytelling scripts"
+  default_prompt: "Use $mkt-create-script-storytelling-video to create a complete storytelling script for this YouTube video idea."

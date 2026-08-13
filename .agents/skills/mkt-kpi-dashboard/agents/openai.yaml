@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT KPI Dashboard"
+  short_description: "Thiết kế dashboard KPI marketing gọn và hữu ích"
+  default_prompt: "Use $mkt-kpi-dashboard to design a focused KPI dashboard for this marketing goal."

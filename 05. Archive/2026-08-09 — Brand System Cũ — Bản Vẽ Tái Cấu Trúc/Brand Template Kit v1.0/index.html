@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <title>Tony Hoang — Brand Template Kit v1.0</title>
+    <style>
+      html, body { min-height: 100%; background: #dfe7ea; }
+      body { margin: 0; padding: 56px; color: var(--brand-abyss); }
+      header { max-width: 1580px; margin: 0 auto 44px; display: flex; justify-content: space-between; align-items: end; }
+      h1 { margin: 0; font: 900 52px/.95 var(--brand-display); letter-spacing: -.055em; }
+      header p { max-width: 620px; margin: 0; color: var(--brand-steel); font: 500 18px/1.5 var(--brand-body); }
+      .status { display: inline-block; margin-bottom: 14px; padding: 9px 12px; color: var(--brand-mist); background: var(--brand-deep); font: 700 12px/1 var(--brand-spec); letter-spacing: .1em; }
+      .gallery { max-width: 1580px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+      .card { padding: 22px; background: #f5f8f9; border: 1px solid rgba(63,100,112,.24); box-shadow: 0 18px 40px rgba(6,26,43,.11); }
+      .card.wide { grid-column: 1 / -1; }
+      .meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+      .meta strong { font: 800 18px/1 var(--brand-display); }
+      .meta span { color: var(--brand-steel); font: 600 12px/1 var(--brand-spec); letter-spacing: .08em; }
+      .viewport { display: flex; align-items: center; justify-content: center; overflow: hidden; background: #9aabb2; }
+      .viewport img { display: block; width: 100%; height: 100%; object-fit: contain; }
+      .portrait, .carousel, .quote { height: 610px; }
+      .thumb { height: 386px; }
+      .slide { height: 790px; }
+      footer { max-width: 1580px; margin: 34px auto 0; padding: 26px 0; border-top: 1px solid rgba(63,100,112,.35); color: var(--brand-steel); font: 500 15px/1.5 var(--brand-body); }
+      footer b { color: var(--brand-abyss); border-left: 4px solid var(--brand-ember); padding-left: 10px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div><span class="status">ĐÃ DUYỆT / V1.0</span><h1>Bản Vẽ<br />Tái Cấu Trúc</h1></div>
+      <p>Năm template chuyển Brand Voice “thẳng, sắc bén, thực chiến, kèm cặp” thành một hệ hình ảnh: chẩn đoán điểm nghẽn, tách đúng chỗ và căn lại thành dòng vận hành.</p>
+    </header>
+    <main class="gallery">
+      <article class="card"><div class="meta"><strong>Video ngắn</strong><span>9:16 · 1080×1920</span></div><div class="viewport portrait"><img src="previews/short-video-9x16.png" alt="Preview video ngắn" /></div></article>
+      <article class="card"><div class="meta"><strong>YouTube thumbnail</strong><span>16:9 · 1280×720</span></div><div class="viewport thumb"><img src="previews/youtube-thumbnail-16x9.png" alt="Preview YouTube thumbnail" /></div></article>
+      <article class="card"><div class="meta"><strong>Carousel</strong><span>4:5 · 1080×1350</span></div><div class="viewport carousel"><img src="previews/social-carousel-4x5.png" alt="Preview carousel" /></div></article>
+      <article class="card"><div class="meta"><strong>Ảnh quote</strong><span>1:1 · 1080×1080</span></div><div class="viewport quote"><img src="previews/quote-cover-1x1.png" alt="Preview ảnh quote" /></div></article>
+      <article class="card wide"><div class="meta"><strong>Slide framework</strong><span>16:9 · 1920×1080</span></div><div class="viewport slide"><img src="previews/framework-slide-16x9.png" alt="Preview slide framework" /></div></article>
+    </main>
+    <footer><b>Quyết định 2026-08-07:</b> Bản Vẽ Tái Cấu Trúc · Archivo/Inter/JetBrains Mono · Khe Tái Cấu Trúc · dùng chân dung hiện tại.</footer>
+  </body>
+</html>

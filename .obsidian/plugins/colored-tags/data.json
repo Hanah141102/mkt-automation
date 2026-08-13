@@ -1,0 +1,25 @@
+{
+  "palette": {
+    "seed": 0,
+    "selected": "adaptive-soft",
+    "custom": "e12729-f37324-f8cc1b-72b043-007f4e"
+  },
+  "mixColors": true,
+  "transition": true,
+  "accessibility": {
+    "highTextContrast": false
+  },
+  "knownTags": {
+    "business-model": 254,
+    "customer-segment": 255,
+    "guide": 253,
+    "huong-dan": 260,
+    "identity": 256,
+    "moc": 257,
+    "review": 259,
+    "skill": 261,
+    "value-proposition": 258
+  },
+  "tagColors": {},
+  "_version": 4
+}

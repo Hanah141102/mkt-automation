@@ -1,0 +1,4 @@
+interface:
+  display_name: "Talking Head Video"
+  short_description: "Build polished vertical talking-head videos"
+  default_prompt: "Use $mkt-hyperframe-talking-head-video to turn this talking-head footage into a polished 9:16 video."

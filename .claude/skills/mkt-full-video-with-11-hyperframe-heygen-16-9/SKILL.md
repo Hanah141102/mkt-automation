@@ -1,6 +1,6 @@
 ---
 name: mkt-full-video-with-11-hyperframe-heygen-16-9
-description: End-to-end LANDSCAPE 16:9 (1920×1080) talking-head + slide knowledge video pipeline. Orchestrator 3 phase ghép `mkt-elevenlabs-tts-to-mp3` + `heygen-mp3-to-mp4` + HyperFrames để ra MP4 dạng "podcast keynote" — HeyGen avatar trong floating frame bo tròn bên phải (claude-orange border), slide modern AI / Claude editorial bên trái, có PIP zoom-out moments (slide full-screen, avatar shrink xuống corner thumbnail), breathing zoom + beat-driven punch-in trên avatar, optional cream-paper hand-drawn editorial infographic ở root layer (KHÔNG embed trong composition). Phase 3 fan-out N parallel LLM sub-agents (1 per scene) để author composition HTML từ visual-plan.json — không dùng Python template generator. Hỗ trợ listicle 6+ scenes (tip-1..tip-N) với scene-{num}.html naming. Resume mode: nếu MP3 + source.mp4 đã tồn tại thì skip Phase 1 + 2, vào thẳng Phase 3. USE WHEN user nói "tạo video 16:9", "video ngang", "video landscape", "podcast keynote video", "talking head + slide video", "slide + avatar layout", "make a landscape AI video", "Claude editorial video pipeline", "video kiến thức 16:9", "video chia sẻ kiến thức ngang", "video keynote AI", "16-9 short video", "video YouTube ngang từ script", "tạo video knowledge AI dạng ngang", "plan lại video 16:9", "redo phase 3 video keynote". Dùng skill này BẤT CỨ KHI NÀO user nhắc tới video landscape / 16:9 / podcast keynote / slide+avatar — kể cả khi không gọi tên HyperFrames hay HeyGen — vì 99% case đó là pipeline này. KHÁC với sibling `mkt-full-video-with-11-hyperframe-heygen` (sibling là 9:16 vertical TikTok/Reels/Shorts; skill này là 16:9 landscape keynote).
+description: Create a 16:9 landscape talking-head and slide knowledge video using ElevenLabs TTS, HeyGen avatar lip-sync, and HyperFrames. Use for podcast keynotes, slide plus avatar layouts, YouTube explainers, and other landscape knowledge videos.
 ---
 
 # mkt-full-video-with-11-hyperframe-heygen-16-9
@@ -98,7 +98,7 @@ Phase 1 ── mkt-elevenlabs-tts-to-mp3 ─────► voiceover.mp3
     │                              (autopilot — KHÔNG dừng duyệt MP3)
     │                                          │
     │                                          ▼
-Phase 2 ── heygen-mp3-to-mp4 ─────────────► source.mp4 (720×1280 portrait, lip-synced)
+Phase 2 ── mkt-heygen-mp3-to-mp4 ─────────────► source.mp4 (720×1280 portrait, lip-synced)
     │                                          (KHÔNG render 1280×720)
     │
     ▼
@@ -198,7 +198,7 @@ Phase này tách thành 2 sub-step:
 
 (Optional deep-dive: `references/elevenlabs-audio-tags.md` if it exists in the skill folder — currently inline-only. Don't `Read` this path blindly without verifying first; if missing, the inline summary below is enough.) Tóm tắt cốt lõi:
 
-- Brand voice của Hoàng (`K7ewtjKRNtwwt3lKQ6M0`) — giọng nam Việt midrange, conversational. Hợp với `[excited]`, `[curious]`, `[sigh]`, `[chuckles]`, `[sarcastic]`, `[whispers]` (vừa phải). **Tránh** `[shouts]`, `[crying]`, `[sings]`, sound-effect tag (`[applause]`, `[gunshot]`…) — SFX dùng file rời ở composition layer.
+- Dùng `ELEVENLABS_VOICE_ID` của thương hiệu hiện hành. Chỉ chèn audio tag đã test tương thích với voice đó; nếu chưa test, ưu tiên `[curious]`, `[excited]` và dấu câu vừa phải. Tránh tag cực đoan hoặc sound-effect tag; SFX dùng file rời.
 - Density: 1 tag mỗi 8–15s. 60s script ≈ 4–8 tag tổng. Quá nhiều → giật-giật.
 - Default mapping theo scene archetype:
   - **Hook** → `[curious]` mở câu hỏi → `[excited]` payoff số liệu
@@ -214,15 +214,15 @@ Save vào `workspace/content/YYYY-MM-DD/<slug>/script-tagged.txt`.
 #### 1b — Render MP3 từ `script-tagged.txt`
 
 ```bash
-uv run .claude/skills/mkt-elevenlabs-tts-to-mp3/scripts/text_to_mp3.py \
-  --file workspace/content/YYYY-MM-DD/<slug>/script-tagged.txt \
-  -o    workspace/content/YYYY-MM-DD/<slug>/voiceover.mp3
+uv run .agents/skills/mkt-elevenlabs-tts-to-mp3/scripts/elevenlabs_tts.py \
+  --text-file workspace/content/YYYY-MM-DD/<slug>/script-tagged.txt \
+  --out workspace/content/YYYY-MM-DD/<slug>/voiceover.mp3
 ```
 
 Check duration:
 
 ```bash
-uv run .claude/skills/heygen-mp3-to-mp4/scripts/check_duration.py \
+uv run .agents/skills/mkt-heygen-mp3-to-mp4/scripts/check_duration.py \
   workspace/content/YYYY-MM-DD/<slug>/voiceover.mp3
 ```
 
@@ -247,17 +247,17 @@ Skip if `start_at=phase_3`.
 - HeyGen render avatar 9:16 portrait có headroom đủ để `object-fit: cover; object-position: center 25%` crop chuẩn.
 - Render 1280×720 landscape sẽ ra avatar có 2 dải đen hoặc face quá nhỏ → bad.
 
-**Step 3.0 — OAuth check (first call mỗi session):** HeyGen MCP chỉ expose `mcp__heygen__authenticate` + `complete_authentication` cho đến khi auth complete. Nếu các tool video (`create_video_from_avatar`, `get_video`) chưa có trong deferred-tool list, gọi `mcp__heygen__authenticate`, paste authorize URL cho user, đợi callback. Sau auth, các tool thật mới load.
+**Step 3.0 — OAuth check (first call mỗi session):** HeyGen MCP chỉ expose `mcp__codex_apps__heygen_authenticate` + `complete_authentication` cho đến khi auth complete. Nếu các tool video (`create_video_from_avatar`, `get_video`) chưa có trong deferred-tool list, gọi `mcp__codex_apps__heygen_authenticate`, paste authorize URL cho user, đợi callback. Sau auth, các tool thật mới load.
 
 **Step 3.1 — Upload MP3 (REST helper):** MCP **không expose** `upload_asset` nữa. Dùng helper:
 
 ```bash
-uv run .claude/skills/heygen-mp3-to-mp4/scripts/upload_asset.py \
+uv run .agents/skills/mkt-heygen-mp3-to-mp4/scripts/upload_asset.py \
   workspace/content/YYYY-MM-DD/<slug>/voiceover.mp3
 # → prints "OK <asset_id>" on stdout
 ```
 
-Helper resolves `HEYGEN_API_KEY` từ (in order): `--key-file` → env var → `.env.local` → `.env` → `~/Documents/GitHub/hoang-ai-marketing/.env`. Placeholder stubs (`your_*`) auto-skipped.
+Helper resolves `HEYGEN_API_KEY` từ `--key-file` → environment → `.env.local` → `.env`. Placeholder `your_*` được bỏ qua.
 
 **Step 3.2 — Pick avatar look** từ `HEYGEN_AVATAR_LOOKS`:
 
@@ -266,16 +266,15 @@ HEYGEN_AVATAR_LOOKS=$(
   grep -h '^HEYGEN_AVATAR_LOOKS=' .env.local .env 2>/dev/null \
   | head -1 | cut -d'=' -f2- | tr -d '"' | tr -d "'"
 )
-# Fallback nếu placeholder (avatar_look_id_1,…) hoặc empty:
-[[ "$HEYGEN_AVATAR_LOOKS" == avatar_look_id_* || -z "$HEYGEN_AVATAR_LOOKS" ]] && \
-  HEYGEN_AVATAR_LOOKS=$(grep '^HEYGEN_AVATAR_LOOKS=' ~/Documents/GitHub/hoang-ai-marketing/.env | cut -d'=' -f2-)
+# Nếu placeholder hoặc empty: dừng và yêu cầu cấu hình avatar của thương hiệu.
+[[ "$HEYGEN_AVATAR_LOOKS" == avatar_look_id_* || -z "$HEYGEN_AVATAR_LOOKS" ]] && exit 1
 echo "$HEYGEN_AVATAR_LOOKS" | tr ',' '\n' | awk 'BEGIN{srand()} {a[NR]=$0} END{print a[int(rand()*NR)+1]}'
 ```
 
 **Step 3.3 — Generate via MCP** (new schema — `aspectRatio` + `resolution`, NOT `dimension`):
 
 ```yaml
-# mcp__heygen__create_video_from_avatar input
+# mcp__codex_apps__heygen_create_video_from_avatar input
 avatarId:      <picked from allowlist>
 audioAssetId:  <from step 3.1>
 aspectRatio:   "9:16"    # portrait-source — KHÔNG đổi sang 16:9
@@ -285,14 +284,14 @@ title:         "<slug>-16-9-<timestamp>"
 
 Returns `{video_id, status: "waiting"}`.
 
-**Step 3.4 — Poll status** với `mcp__heygen__get_video` mỗi 10–15s. Status: `waiting` / `processing` → keep polling; `completed` → grab `video_url`; `failed` → surface `failure_message`.
+**Step 3.4 — Poll status** với `mcp__codex_apps__heygen_get_video` mỗi 10–15s. Status: `waiting` / `processing` → keep polling; `completed` → grab `video_url`; `failed` → surface `failure_message`.
 
 **zsh trap:** trong polling loop bash/zsh, KHÔNG dùng tên biến `status` (read-only trong zsh — script crash với "read-only variable"). Dùng `vstate`, `phase`, hoặc `ready`.
 
 **Step 3.5 — Download** về workspace:
 
 ```bash
-uv run .claude/skills/heygen-mp3-to-mp4/scripts/download_video.py \
+uv run .agents/skills/mkt-heygen-mp3-to-mp4/scripts/download_video.py \
   "<video_url>" workspace/content/YYYY-MM-DD/<slug>/source.mp4
 ```
 
@@ -308,9 +307,9 @@ Phase 3 là phần "smart" của orchestrator — tách thành 6 sub-step. **Pha
 
 ```bash
 # Word-level transcript via Whisper. The mkt-ai-video-extract-srt-segment skill
-# delegates to heygen-short-video's transcribe_mp3.py — call that path directly
+# delegates to mkt-heygen-short-video's transcribe_mp3.py — call that path directly
 # (the wrapper "extract.py" mentioned in some old docs DOES NOT exist).
-uv run .claude/skills/heygen-short-video/scripts/transcribe_mp3.py \
+uv run .agents/skills/mkt-heygen-short-video/scripts/transcribe_mp3.py \
   workspace/content/YYYY-MM-DD/<slug>/voiceover.mp3 \
   --language vi --model base
 # Output: voiceover.srt + voiceover_segments.json
@@ -367,9 +366,9 @@ Sub-agent được khuyến khích **adapt** pattern khi metaphor đòi hỏi �
 Call `mkt-plan-short-video-edit-16-9`. Outputs `visual-plan.json` (machine-readable plan với tier-letters + b-roll metaphors + items/badges + PIP events) + `prompts.md` (cream-paper editorial prompts ready cho AI33).
 
 ```bash
-python3 .claude/skills/mkt-plan-short-video-edit-16-9/scripts/plan_visuals.py \
+python3 .agents/skills/mkt-plan-short-video-edit-16-9/scripts/plan_visuals.py \
   --workspace workspace/content/YYYY-MM-DD/<slug>/ --brand <brand>
-python3 .claude/skills/mkt-plan-short-video-edit-16-9/scripts/render_infographic_prompts.py \
+python3 .agents/skills/mkt-plan-short-video-edit-16-9/scripts/render_infographic_prompts.py \
   --workspace workspace/content/YYYY-MM-DD/<slug>/
 ```
 
@@ -389,7 +388,7 @@ Then **re-run `render_infographic_prompts.py`** to regenerate `prompts.md` from 
 KHÔNG present plan để hỏi user. Tự duyệt plan (auto_scenes=true là default), in 1 dòng tóm tắt (N scene + variants) rồi chạy thẳng. Call planner's `apply_plan_to_scenes.py`:
 
 ```bash
-python3 .claude/skills/mkt-plan-short-video-edit-16-9/scripts/apply_plan_to_scenes.py \
+python3 .agents/skills/mkt-plan-short-video-edit-16-9/scripts/apply_plan_to_scenes.py \
   --workspace workspace/content/YYYY-MM-DD/<slug>/
 ```
 
@@ -426,8 +425,8 @@ SCENE BRIEF — read full data từ `<workspace>/visual-plan.json` (your block =
 - PIP-IN windows: {PIP events with absolute timestamps + relative seconds}
 
 READ these references FIRST (mandatory — pattern code in composition-patterns.md is copy-paste production-tested):
-- `.claude/skills/mkt-full-video-with-11-hyperframe-heygen-16-9/references/composition-patterns.md` (8 production-shipped patterns — pick the best fit, adapt freely)
-- `.claude/skills/mkt-full-video-with-11-hyperframe-heygen-16-9/references/slide-design-tokens.md` (palette + typography + glass card + tier-letter spec)
+- `.agents/skills/mkt-full-video-with-11-hyperframe-heygen-16-9/references/composition-patterns.md` (8 production-shipped patterns — pick the best fit, adapt freely)
+- `.agents/skills/mkt-full-video-with-11-hyperframe-heygen-16-9/references/slide-design-tokens.md` (palette + typography + glass card + tier-letter spec)
 
 HARD REQUIREMENTS:
 - 1200×1080 viewport · landscape · pure black BG (#000)
@@ -470,21 +469,21 @@ After all sub-agents return, verify `compositions/scene-1.html` … `composition
 
 ```bash
 # 1. Copy sfx/, logos/, avatar.jpg, yt-lower-third.html into workspace
-python3 .claude/skills/mkt-hyperframe-talking-head-video-16-9/scripts/scaffold_project.py \
+python3 .agents/skills/mkt-hyperframe-talking-head-video-16-9/scripts/scaffold_project.py \
   --workspace workspace/content/YYYY-MM-DD/<slug>/
 
 # 2. Render captions overlay from constant Jinja template + captions.json (or
 #    Whisper segments fallback). Style is fixed across videos — only the data
 #    array changes — so this is pure template injection, not LLM authoring.
-uv run .claude/skills/mkt-hyperframe-talking-head-video-16-9/scripts/generate_captions.py \
+uv run .agents/skills/mkt-hyperframe-talking-head-video-16-9/scripts/generate_captions.py \
   --workspace workspace/content/YYYY-MM-DD/<slug>/
 
 # 3. Generate root index.html (mounts scene-N.html, broll layer, PIP, SFX,
 #    brand-mark, AND auto-detects compositions/captions.html → mounts at z-28)
-python3 .claude/skills/mkt-hyperframe-talking-head-video-16-9/scripts/generate_root_index.py \
+python3 .agents/skills/mkt-hyperframe-talking-head-video-16-9/scripts/generate_root_index.py \
   --workspace workspace/content/YYYY-MM-DD/<slug>/ \
-  --brand-handle "@hoanglearnaiautomation" \
-  --brand-label "HOANG · LEARN AI"
+  --brand-handle "@<brand-handle>" \
+  --brand-label "<BRAND LABEL>"
 # Use --no-captions to disable the overlay even when captions.html exists.
 ```
 
@@ -520,7 +519,7 @@ Nếu user chọn `infographic mode = now` (hoặc reply `retry` ở image-gen s
 
 ```bash
 # Parse prompts.md, fan out parallel calls to generate.py
-python3 .claude/skills/image-post-creator/scripts/generate.py \
+python3 .agents/skills/image-post-creator/scripts/generate.py \
   '<PROMPT_<2K_CHARS>' \
   -o workspace/content/YYYY-MM-DD/<slug>/N.png \
   -ar 16:9 -p ai33 --size 2K -v
@@ -680,12 +679,12 @@ Aspect default `16:9` (AI33 không hỗ trợ 16:10).
 | `window.__timelines` register sai key | Phải khớp `data-composition-id` của root div trong template — `window.__timelines["scene-N"]` cho `data-composition-id="scene-N"`. |
 | PIP_EVENTS overlap | Tách ≥ 0.3s giữa 1 `out` event và `in` event tiếp theo. |
 | Planner default metaphor "robot-orb-with-tasks" cho mọi scene | Generic — orchestrator phải hand-edit `visual-plan.json` per scene để fill metaphor scene-specific (scroll-tape-wasted, edit-regenerate-loop, projects-vault-shared-knowledge, right-tool-vehicles, pacific-vs-vietnam-timezone…) trước khi spawn sub-agents. |
-| AI33 `temporary_model_error` khi gen PNG | Retry sau 1-2 phút, hoặc fallback `-p nano` (GEMINI_API_KEY). 7 PNG parallel via ThreadPoolExecutor. Real key thường ở `~/Documents/GitHub/hoang-ai-marketing/.env`. |
-| HeyGen MCP báo "tool not found" cho `upload_asset` / `generate_avatar_video` / `get_avatar_video_status` | Old MCP names — đã bỏ. Dùng `scripts/upload_asset.py` (REST) cho upload, `mcp__heygen__create_video_from_avatar` để gen, `mcp__heygen__get_video` để poll. Xem `heygen-mp3-to-mp4` SKILL đã update. |
-| HeyGen MCP chỉ expose `authenticate` / `complete_authentication` | Chưa OAuth. Gọi `mcp__heygen__authenticate` → paste URL cho user → user authorize → callback URL paste lại → `mcp__heygen__complete_authentication`. Sau đó video tools mới load. |
-| `HEYGEN_AVATAR_LOOKS=avatar_look_id_1,avatar_look_id_2` (placeholder) | `.env.local` ship với stub. Real values ở `~/Documents/GitHub/hoang-ai-marketing/.env`. Helper `upload_asset.py` auto-fallback; nếu pick avatar tay, cần grep marketing repo trước. |
+| AI33 `temporary_model_error` khi gen PNG | Retry sau 1-2 phút, hoặc fallback `-p nano` khi `GEMINI_API_KEY` đã được cấu hình trong workspace. |
+| HeyGen MCP báo "tool not found" cho `upload_asset` / `generate_avatar_video` / `get_avatar_video_status` | Old MCP names — đã bỏ. Dùng `scripts/upload_asset.py` (REST) cho upload, `mcp__codex_apps__heygen_create_video_from_avatar` để gen, `mcp__codex_apps__heygen_get_video` để poll. Xem `mkt-heygen-mp3-to-mp4` SKILL đã update. |
+| HeyGen MCP chỉ expose `authenticate` / `complete_authentication` | Chưa OAuth. Gọi `mcp__codex_apps__heygen_authenticate` → paste URL cho user → user authorize → callback URL paste lại → `mcp__codex_apps__heygen_complete_authentication`. Sau đó video tools mới load. |
+| `HEYGEN_AVATAR_LOOKS=avatar_look_id_1,avatar_look_id_2` (placeholder) | Thêm allowlist avatar thật của thương hiệu vào environment, `.env.local` hoặc `.env`; không fallback sang workspace khác. |
 | `plan_visuals.py` báo `Neither transcript-cleaned.json nor transcript.json found` | Whisper output là `voiceover_segments.json` (nested). Phải flatten thành `transcript.json` (flat `[{word,start,end}]`) — xem Phase 3a code snippet. |
-| `extract.py` không tồn tại trong `mkt-ai-video-extract-srt-segment/scripts/` | Skill này chỉ có `SKILL.md`, nó delegate sang `heygen-short-video/scripts/transcribe_mp3.py`. Gọi path đó trực tiếp. |
+| `extract.py` không tồn tại trong `mkt-ai-video-extract-srt-segment/scripts/` | Skill này chỉ có `SKILL.md`, nó delegate sang `mkt-heygen-short-video/scripts/transcribe_mp3.py`. Gọi path đó trực tiếp. |
 | zsh polling loop crash với `read-only variable: status` | `$status` là read-only trong zsh. Dùng tên khác: `vstate`, `phase`, `ready`. |
 | `cd workspace/...` rồi command sau báo "no such file or directory" | `cd` trong Bash tool persist cwd qua các call sau. Dùng absolute path hoặc đặt `cd` + command trong cùng 1 Bash call (chained `&&`). |
 | References path mismatch (`references/elevenlabs-audio-tags.md` thiếu) | Skill viết theo aspirational structure; 1 số reference doc chưa tạo. Inline summary trong SKILL đã đủ; verify path tồn tại trước khi `Read`, đừng giả định. |
@@ -700,7 +699,7 @@ Aspect default `16:9` (AI33 không hỗ trợ 16:10).
 - KHÔNG dùng Tailwind/Lucide trong compositions (hand-CSS only)
 - **KHÔNG dùng `generate_compositions.py`** (Python Jinja2 generator deprecated)
 - **KHÔNG embed image-slot trong composition** (image ở root broll layer only)
-- KHÔNG override hard constraint của sub-skill (avatar allowlist từ `HEYGEN_AVATAR_LOOKS`, locked ElevenLabs brand voice ID, no-chunking single-clip ≤300s)
+- KHÔNG override hard constraint của sub-skill (avatar allowlist và voice ID theo thương hiệu, no-chunking single-clip ≤300s)
 
 ## References
 
@@ -713,13 +712,11 @@ Aspect default `16:9` (AI33 không hỗ trợ 16:10).
 - `references/render-checklist.md` — pre-render verification
 
 Sub-skills:
-- `mkt-elevenlabs-tts-to-mp3` — Phase 1 (script-tagged.txt → voiceover.mp3 via `text_to_mp3.py`)
-- `heygen-mp3-to-mp4` — Phase 2 (REST `upload_asset.py` → MCP `create_video_from_avatar` → MCP `get_video` → REST `download_video.py`; render 720×1280 portrait via aspectRatio=`9:16` + resolution=`720p`)
-- Whisper transcribe — Phase 3a uses `heygen-short-video/scripts/transcribe_mp3.py` directly (the `mkt-ai-video-extract-srt-segment` skill is a doc-only wrapper that delegates here)
+- `mkt-elevenlabs-tts-to-mp3` — Phase 1 (script-tagged.txt → voiceover.mp3 via `elevenlabs_tts.py`)
+- `mkt-heygen-mp3-to-mp4` — Phase 2 (REST `upload_asset.py` → MCP `create_video_from_avatar` → MCP `get_video` → REST `download_video.py`; render 720×1280 portrait via aspectRatio=`9:16` + resolution=`720p`)
+- Whisper transcribe — Phase 3a uses `mkt-heygen-short-video/scripts/transcribe_mp3.py` directly (the `mkt-ai-video-extract-srt-segment` skill is a doc-only wrapper that delegates here)
 - `mkt-plan-short-video-edit-16-9` — Phase 3b `plan_visuals.py` + `render_infographic_prompts.py` + `apply_plan_to_scenes.py` (planner needs flat `transcript.json`, not nested `voiceover_segments.json`)
 - `mkt-hyperframe-talking-head-video-16-9` — Phase 3e `scaffold_project.py` + `generate_captions.py` (Jinja template `assets/templates/captions.html.j2` injected with `captions.json` or Whisper segments) + `generate_root_index.py` (auto-mounts captions when `compositions/captions.html` exists; disable with `--no-captions`). NOT `generate_compositions.py` — Python Jinja2 scene templater is deprecated; LLM sub-agent fanout owns Phase 3d composition authoring
 - `image-post-creator` — Phase 3.5 PNG gen (AI33 / Nano Banana Pro)
 
-Reference production projects (canonical 16:9 architectures):
-- `/Users/tonyhoang/Documents/GitHub/claudeclaw-os/workspace/content/2026-05-09/5-meo-tiet-kiem-claude-token/` — listicle 7-scene, LLM fanout, scene-{num}.html naming, claude-orange border
-- `/Users/tonyhoang/Documents/GitHub/claudeclaw-os/workspace/content/2026-05-08/loi-ich-claude-ai/` — original 5-scene production project
+Reference production projects phải nằm trong workspace hiện hành hoặc được người dùng cung cấp rõ ràng; không đọc dự án cá nhân ở workspace khác làm mặc định.

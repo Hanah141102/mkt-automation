@@ -1,0 +1,24 @@
+usage: analyze_competitor_social.py [-h] [--input INPUT]
+                                    [--output-dir OUTPUT_DIR] [--check-deps]
+                                    [--dry-run] [--mock-data MOCK_DATA]
+                                    [--max-posts MAX_POSTS]
+                                    [--max-charge-usd MAX_CHARGE_USD]
+                                    [--run-timeout RUN_TIMEOUT]
+
+Analyze public competitor social channels with Apify
+
+options:
+  -h, --help            show this help message and exit
+  --input INPUT         Competitor config JSON
+  --output-dir OUTPUT_DIR
+                        Directory for report artifacts
+  --check-deps          Install and verify apify-client
+  --dry-run             Validate and show Actor calls only
+  --mock-data MOCK_DATA
+                        Mock dataset JSON for an offline end-to-end test
+  --max-posts MAX_POSTS
+                        Override max posts per channel
+  --max-charge-usd MAX_CHARGE_USD
+                        Cost ceiling per run
+  --run-timeout RUN_TIMEOUT
+                        Actor timeout in seconds

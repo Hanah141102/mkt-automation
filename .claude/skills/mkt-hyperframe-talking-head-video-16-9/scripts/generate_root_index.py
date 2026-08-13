@@ -14,7 +14,7 @@ Wires up:
 
 Usage:
     python3 generate_root_index.py --workspace <folder> \
-        [--title "..." --brand-handle "tranvanhoang.com" --brand-label "Claude AI workflow"] \
+        [--title "..." --brand-handle "brand" --brand-label "Brand workflow"] \
         [--no-yt-lower-third]  # disable subscribe banner
         [--yt-lower-third-duration 4.5]  # custom duration
 """
@@ -77,7 +77,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--workspace', '-w', default='.', help='Workspace folder')
     ap.add_argument('--title', default=None, help='Document title (default: workspace name)')
-    ap.add_argument('--brand-handle', default='tranvanhoang.com')
+    ap.add_argument('--brand-handle', default='brand')
     ap.add_argument('--brand-label', default='Claude AI workflow')
     ap.add_argument('--yt-lower-third', dest='yt_lower_third', action='store_true', default=True,
                     help='Mount yt-lower-third subscribe banner at last 3s if composition exists (default: on)')

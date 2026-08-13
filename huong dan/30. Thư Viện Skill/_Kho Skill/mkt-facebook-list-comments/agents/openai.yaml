@@ -1,0 +1,4 @@
+interface:
+  display_name: "Facebook List Comments"
+  short_description: "Đăng 10 comment ngắn cho bài liệt kê"
+  default_prompt: "Use $mkt-facebook-list-comments to turn a Facebook list post into 10 concise numbered comments and publish them to the correct Page post."

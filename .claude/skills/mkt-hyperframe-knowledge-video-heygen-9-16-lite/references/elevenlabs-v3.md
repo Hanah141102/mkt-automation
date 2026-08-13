@@ -99,23 +99,22 @@ ElevenLabs reads punctuation as prosody, so script-prep affects output:
 - **Code / paths / URLs**: ElevenLabs reads `claude-code/CHANGELOG.md`
   literally. Pre-process if you want it cleaner — e.g. rewrite to
   "the changelog file in claude-code".
-- **Headings**: `tts.py` converts `## Heading` to `Heading.` so the
-  narrator says it as a sentence with a period break.
+- **Headings**: `## Heading` is beat metadata and is removed entirely by
+  `tts.py`; the narrator must not say labels such as “Hook” or “Problem”.
+  Run `scripts/validate_tts_alignment.py` before continuing to HeyGen.
 
 ## Cost
 
 Roughly 0.18 credits per character on the standard plan. A 90-second
 script (~800 chars) costs ~144 credits = ~$0.05.
 
-## Failure modes & fallback
+## Failure modes
 
 If the API returns 401 → check `ELEVENLABS_API_KEY` env var.
 If it returns 429 → rate-limited, wait 60s and retry.
 If alignment array lengths don't match characters → re-run; this is a
 transient bug we've seen rarely.
 
-If the API is down entirely, the pipeline can fall back to local TTS
-(`say` on macOS for English, or coqui-TTS) but you lose forced alignment
-— captions would have to be estimated from word count × average WPM
-(~150 WPM English, ~140 WPM Vietnamese). Not implemented in v1 of the
-skill.
+If the API is unavailable after a bounded retry, stop and report BLOCKED.
+This pipeline is ElevenLabs-only and must not fall back to another TTS
+provider because native alignment is required for captions and visual cues.

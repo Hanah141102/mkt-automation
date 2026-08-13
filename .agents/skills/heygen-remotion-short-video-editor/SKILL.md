@@ -17,7 +17,7 @@ production-plan.json + HeyGen clips + Grok/custom videos + MP3
 ## Input
 
 1. **production-plan.json path** (required) — from `plan-short-video-edit` skill
-2. **HeyGen clips directory** (required) — from `heygen-short-video` skill, contains `heygen_manifest.json`
+2. **HeyGen clips directory** (required) — from `mkt-heygen-short-video` skill, contains `heygen_manifest.json`
 3. **Grok/custom video directory** (optional) — visual segment videos
 4. **MP3 voiceover path** (required) — for visual segment audio
 5. **SRT path** (required) — for caption timing
@@ -58,7 +58,7 @@ cp visual_audio/*.mp3 workspace/assets/reels/visual_audio/
 
 ## Step 3: Build Remotion Props JSON
 
-Build `props/heygen-short.json` following the structure in `heygen-short-video/references/remotion-composition.md`.
+Build `props/heygen-short.json` following the structure in `mkt-heygen-short-video/references/remotion-composition.md`.
 
 Key rules:
 - **Avatar clips**: use their built-in audio, set `volume: 1`. NEVER add `audioPath` to avatar clips.
@@ -91,7 +91,7 @@ Copy rendered video to content directory:
 workspace/content/{YYYY-MM-DD}/video-short/{slug}/
 ├── final.mp4              # Rendered video
 ├── plan/                  # From plan-short-video-edit
-├── heygen_clips/          # From heygen-short-video
+├── heygen_clips/          # From mkt-heygen-short-video
 ├── grok_visuals/          # User-provided Grok videos
 └── props/                 # Remotion props used
     └── heygen-short.json

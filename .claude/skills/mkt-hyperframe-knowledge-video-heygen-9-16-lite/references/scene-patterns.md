@@ -1,199 +1,155 @@
-# Scene Patterns — Reference Library, Not Required Menu
+# Scene Patterns — AI-HUB Blueprint Reference
 
-11 canonical patterns covering the most common narrative beats in knowledge / news videos. **Use them when the beat genuinely fits — never force a beat into the wrong pattern.**
+Scene canvas 1080×1920, avatar không hiện và không PIP. Pattern chỉ là **motion route**, không phải layout template. Chọn route theo điều cần chứng minh; nếu phải bẻ nội dung để khớp card/diagram có sẵn thì invent từ metaphor.
 
-> **Canvas note (LITE 9:16 variant):** scene canvas là **1080×1920 FULL-CANVAS dọc** — avatar KHÔNG trên màn hình lúc scene chạy (chỉ có PIP tĩnh nhỏ của master). Patterns dưới đây vẫn áp dụng nhưng adjust:
-> - Hero text **84-120px**, wrap 2-3 dòng thoải mái — canvas cao, dùng vertical rhythm
-> - Grid ngang (card-grid-3x2) đổi thành **cột dọc stack** (card-col-2/3) — khung đứng hẹp
-> - Particle bokeh field 50-70 dots
-> - **Vùng cấm:** không content dưới `y≈1600` (captions), không content trong hộp `x>780 && y<320` (PIP tĩnh top-right); meta-badge top:92 left:48
-> - Scene phủ **cả beat** (12-30s, dài hơn bản gốc) → BẮT BUỘC 2-3 nhịp nội dung (dựng → phát triển → chốt) để frame không đứng yên
-> - Beat có b-roll video (master mount đè full-canvas 3-6s giữa beat): orchestrator sẽ báo khoảng bị che — đừng đặt moment quan trọng vào đó
+## Quy tắc chung
 
-When a beat doesn't fit, **invent**. Hard constraints: `design.md` (colors, fonts) + particle bokeh + brand mark ở master. Layout, animation, decorative elements, visual metaphor là creative territory của sub-agent.
+- Đọc `design.md`, `design-system.md` và `assets/templates/scene-reference-full.html` trước khi author.
+- Headline Be Vietnam Pro 68–84px, tối đa 2 dòng/4–8 từ, line-height ≥1.08, tracking ≥−0.015em.
+- Content kết thúc trước `y=1480`; caption chiếm vùng dưới.
+- Không bokeh, cyberpunk, glassmorphism, neon hoặc `data-layout-allow-overlap` trên text.
+- Một scene có một visual anchor và một hero animation.
+- Một `source_object` phải đổi trạng thái theo ba nhịp: `start → transformation → proof`.
+- Camera chỉ di chuyển để tiết lộ quan hệ, nguyên nhân hoặc thay đổi quy mô; cấm pan/zoom chỉ để frame “có động”.
+- Focal phải thắng supporting bằng ít nhất hai tín hiệu: scale, contrast, timing hoặc vị trí. Không để ba card ngang hàng.
+- Chuyển cảnh phải dùng `carrier + vector` trong seam ledger; shared object phải thật sự tiếp tục qua seam, không crossfade hai object giống nhau.
+- Beat có Pexels che giữa scene: đặt context trước footage, insight/payoff sau footage.
 
-**Rule of thumb**: nếu phải twist beat content để fit template → invent. Nếu beat lays out tự nhiên → reuse. Templates save time khi fit honest, không constrain creativity.
+## Chọn pattern theo nội dung
 
-## How to use this library
-
-1. **Đọc scene-01 reference** (pre-authored bởi orchestrator) end-to-end để absorb design DNA: `<template>` structure, scoped CSS, mulberry32 PRNG, particle field, focal glow, animation easings.
-2. **Đọc `design.md`** cho palette + typography.
-3. Decide approach: **reuse / adapt / invent** (xem SKILL.md Step 3).
-4. Author scene HTML respect `design.md` tokens; layout freely within that.
-
-## Pattern selection
-
-```
-Narrative beat                          → Pattern
-──────────────────────────────────────────────────────────
-"Big number opener / stats announce"    → hero
-"Before vs after / patch fixes"         → diff-window
-"6 things to know / headlines"          → card-grid-3x2
-"4 categories / 2×2 features"           → card-grid-2x2
-"4 items horizontal row"                → card-row-4
-"CLI demo / typewriter commands"        → terminal-typewriter
-"UI behavior demo (scroll, dialog…)"    → mock-app
-"Architecture / data flow"              → network-graph
-"A vs B side-by-side"                   → comparison-2card
-"Real screenshot / demo image reveal"   → image-feature
-"Closing CTA + command"                 → cta-outro
-```
-
-If a beat doesn't fit cleanly, prefer `card-grid-2x2` or `card-row-4` as generic fallbacks (they read well for almost any list of features).
-
-## Inventing new compositions (Approach C)
-
-When the beat content doesn't fit any canonical pattern, invent. Here
-are concrete beat → invention examples to seed your imagination — these
-are NOT templates, they're just demos of what "invention" looks like.
-
-| Beat content | Invented composition idea |
+| Nội dung beat | Pattern ưu tiên |
 |---|---|
-| "In 2023, GPT-4 launched. By 2024, Claude 3.5 was out. In 2025, agents went mainstream." | **Horizontal timeline** — 3 dated nodes connected by a glowing line that draws left-to-right. Year label above each node (JBM large), event label below (Inter 700). Nodes fade in sequentially as the line reaches them. Final node pulses. |
-| "100 million users. 40% in Europe, 35% in US, 25% rest of world." | **Radial split** — one massive number center (count-up to 100M), three arc segments around it filling sequentially (40/35/25). Each arc colored per token palette. Tiny region label at end of each arc. |
-| "The agent took 47 minutes. The human took 4 hours. Same task." | **Side-by-side bars** — two horizontal progress bars stacking vertically. Top: agent (47m, fills fast in coral). Bottom: human (4h, fills slow in muted). Numbers tick up while bars fill. Final state has clear length disparity. |
-| "Every notification you've ignored this week." | **Notification stack cascade** — 6-8 mock notification cards drop in from top in rapid succession, slight rotation per card, settling into a stack at center. Total stack fills ~60% of screen by the end. |
-| Long quote with attribution | **Editorial quote layout** — quote text Inter 700 italic at 56px center-aligned (not hero-sized), oversized opening curly quote " in coral at top-left of quote, attribution below in mono small-caps. Subtle vertical line draws left of quote during entrance. |
-| "Active in 42 countries." | **World map with pulsing pins** — SVG world map (light stroke), 42 small dots pulse in over 2-3 seconds in different colors from the palette. Count-up label "42" in corner. |
-| "Speed jumped from 12 tokens/sec to 89 tokens/sec." | **Speedometer / gauge** — circular arc gauge sweeping from 12 → 89 over 1.5s. Needle animates, value at center counts up. Two zone bands (slow grey, fast coral). |
-| "Imagine 10 agents working in parallel." | **Multi-cursor mock IDE** — single code window with 10 colored cursors blinking at different lines, each editing simultaneously. No single dominant cursor — chaotic but coordinated. |
-| "Three pillars hold this up: speed, safety, scale." | **Greek temple / 3-column architecture** — abstract column SVG (just 3 vertical bars), label on each, with a roof line drawing across top connecting them. Pillars rise from bottom in sequence. |
+| Cùng một vật đổi vai trò/trạng thái | `shared-object-morph` |
+| Cần lùi/gần camera để lộ quan hệ | `camera-reveal` |
+| Hành động A gây ra kết quả B | `causal-chain` |
+| Nhiều mảnh hợp thành một kết luận | `accumulation` |
+| Khái niệm trừu tượng cần thành vật chứng | `evidence-physicalization` |
+| Điều bị thiếu/xóa chính là thông điệp | `semantic-removal` |
+| Trạng thái cũ → trạng thái mới | `before-after-reframe` |
+| Chuỗi bước hoặc quy trình | `blueprint-flow` |
+| Nhiều agent/module phối hợp | `module-lock-system` |
+| Việc chạy song song | `parallel-lanes` |
+| Điểm cần người duyệt | `human-approval-gate` |
+| Bằng chứng/screenshot | `evidence-stack` |
+| Một con số quan trọng | `single-stat` |
+| Một câu kết luận | `editorial-statement` |
 
-### Invention guardrails
+## 1. shared-object-morph
 
-These guardrails keep invented scenes brand-coherent:
+- Chọn một artifact có nghĩa: brief, tài liệu, bảng điều khiển, gateway, con dấu duyệt hoặc output.
+- Giữ cùng DOM object làm focal trong cả scene; thay nội dung, silhouette, scale hoặc quan hệ xung quanh nó.
+- Ba trạng thái phải đọc được ở contact sheet: nguồn → đang biến đổi → bằng chứng cuối.
+- Morph phải trả lời “nó đã trở thành gì?”; đổi màu/opacity đơn thuần không đủ.
 
-- **Pick a dominant element** — there's always one focal element
-  (a big number, a chart, a diagram, an image, a code block). Don't
-  spread visual weight evenly across 5 things.
-- **Limit accent colors to 2-3 per scene** — pick from the palette,
-  don't introduce new ones.
-- **Particle field stays** — even on busy scenes, the background bokeh
-  is non-negotiable.
-- **Meta badge + wordmark stay** — top-left + top-right.
-- **Animation must arrive in waves, not all at once** — entrance
-  choreography is what makes scenes feel alive. Stagger by 100-250ms.
-- **Don't invent typography** — Inter + JetBrains Mono only. Sizing
-  can vary but stay in the token scale.
+## 2. camera-reveal — zoom-to-meaning
 
-### When in doubt — pick a metaphor first
+- Bắt đầu ở crop gần để người xem tin mình đang nhìn một vật riêng lẻ.
+- Zoom-out hoặc reframe để lộ vật đó thuộc một hệ thống, tạo ra hệ quả hoặc bị chi phối bởi một nguyên nhân khác.
+- Camera dừng khi quan hệ mới đã đọc được; không tiếp tục drift sau insight.
+- Hợp với reveal “vấn đề không nằm ở output, mà ở nguồn/brief/quy trình”.
 
-Before laying out anything, ask: "What's the physical metaphor for
-this idea?" A timeline is a road. A growth stat is a rising line. A
-choice is a fork. A network is a constellation. A breakdown is a pie.
-A comparison is a versus screen.
+## 3. causal-chain
 
-Start from the metaphor, then choose the visual primitive (line, arc,
-grid, stack, tree, map, gauge…). Then choose the animation
-(draw-on, scale-in, count-up, cascade, sweep…). That's a strong scene.
+- Mỗi trigger phải có phản ứng nhìn thấy được: click → đường chạy → gate đổi trạng thái → output xuất hiện.
+- Node chỉ phản ứng sau khi tín hiệu thật sự chạm tới; không animate đồng loạt.
+- Lời nói là đồng hồ: causal trigger land đúng từ khóa trong `vo_cues`.
+- Tail tiếp tục resolve bằng trace/output status; không kết thúc timeline giữa beat.
 
-## Sub-agent prompt template
+## 4. accumulation — accumulate/recompose
 
-SKILL.md Step 8 đã chứa prompt template chuẩn cho sub-agent (đầy đủ Hard Rules + Process steps). File này KHÔNG duplicate template đó — chỉ liệt kê **pattern-specific extras** mà orchestrator nên inject vào "Content brief" section của prompt.
+- Các mảnh bằng chứng xuất hiện tuần tự, giữ lịch sử thay vì biến mất sau mỗi câu.
+- Ở payoff, cùng các mảnh đó dịch chuyển/scale để tạo thành một hình hoặc hệ thống mới.
+- Không thêm object payoff hoàn toàn mới để giả cảm giác “recompose”.
+- Dùng khi kết luận mạnh hơn tổng các ý riêng lẻ.
 
-## Animation rhythm guidelines
+## 5. evidence-physicalization
 
-Cho beat duration `D` ms, structure timeline:
+- Biến khái niệm thành vật có hành vi: “độ trễ” thành khoảng cách kéo dài, “thiên kiến” thành lớp mực phủ, “chi phí” thành khối nặng kéo flow xuống.
+- Vật chứng phải tương tác với source object và làm thay đổi kết quả.
+- Annotation chỉ gọi tên điều mắt đã thấy; không gánh phần giải thích chính.
 
-| Time (ms) | What happens |
+## 6. semantic-removal
+
+- Một phần tử có nghĩa bị xóa, che, bỏ trống hoặc không phản hồi để diễn đạt thiếu vắng/silence.
+- Sau hành động xóa, dành 0.35–0.7s deliberate stillness để người xem nhận ra khoảng trống.
+- Khoảng trống phải nằm tại nơi trước đó có kỳ vọng rõ; trống ngẫu nhiên không tạo nghĩa.
+
+## 7. before-after-reframe
+
+- Context: 3–5 task slips/module rời rạc, không dùng card grid đều nhau.
+- Mechanism: các phần tử dịch chuyển theo cùng hướng và khóa thành một brief/system.
+- Conclusion: một câu ngắn mô tả thay đổi vai trò hoặc cách vận hành.
+- Animation: `power3.out`; module lock được phép `back.out(1.15)` một lần.
+
+## 8. blueprint-flow
+
+- SVG path được vẽ theo thứ tự lời nói.
+- Node chỉ hiện khi đường chạm tới node.
+- Một copper trace chạy qua sau khi cấu trúc đã rõ.
+- Không dùng dash-flow loop vô hạn.
+
+## 9. module-lock-system
+
+- 2–4 module có khác biệt vai trò, một module là focal point.
+- Module trượt 18–32px, scale 0.97→1; không bounce.
+- Sau khi khóa đủ module, reveal kết luận hoặc trạng thái `SYSTEM READY` bằng tiếng Việt dễ hiểu.
+
+## 10. parallel-lanes
+
+- Hai hoặc ba lane dùng cùng trục thời gian.
+- Dùng copper trace để cho thấy việc chạy đồng thời.
+- Nếu có quyết định/chi tiền/nhắn khách, lane phải dừng ở approval gate chứ không chạy xuyên qua.
+
+## 11. human-approval-gate
+
+- Gate là cấu trúc kiến trúc, không phải popup đỏ/neon.
+- Flow chạm gate rồi dừng; sau đó label “Người duyệt” xuất hiện.
+- Màu copper biểu thị quyền quyết định, graphite biểu thị hệ thống.
+
+## 12. evidence-stack
+
+- Ảnh/screenshot là focal point; chỉ thêm 1–2 annotation copper.
+- Depth 2.5D rất nhẹ: rotate ≤1.5°, translate ≤24px, scale ≤1.03.
+- Không đặt nhiều khung mockup chồng nhau nếu không giúp chứng minh ý nói.
+
+## 13. single-stat
+
+- Một con số lớn, một đơn vị, một câu giải thích.
+- Chỉ count-up khi sự thay đổi giá trị có ý nghĩa; nếu không, reveal trực tiếp.
+- Không text glow hoặc halo neon.
+
+## 14. editorial-statement
+
+- Một statement 4–10 từ với nhiều whitespace.
+- Có thể dùng một đường copper hoặc dấu ngoặc kiến trúc làm anchor.
+- Không biến toàn bộ caption thành headline.
+
+## Nhịp animation theo voiceover
+
+Không áp một nhịp cố định cho mọi scene. Lấy mốc từ word-level alignment rồi map thành bốn loại cue:
+
+| Cue | Hành động |
 |---|---|
-| 0 | Particles + BG fade in |
-| 400 | Meta badge + wordmark fade in (parallel) |
-| 800 | Eyebrow char-typewriter starts |
-| 2000 | Hero words stagger reveal |
-| 2800-3500 | Main content entrance (cards / window / diagram) |
-| `D - 1500` | Subtitle / closing element fades in |
-| Throughout | Particles drift, focal-element glow pulse loop |
+| `setup` | Source object hiện đủ sớm để người xem nhận dạng |
+| `trigger` | Click, va chạm, xóa, nối hoặc camera move bắt đầu đúng spoken anchor |
+| `transformation` | Vật thể đổi trạng thái; supporting chỉ phản ứng theo sau |
+| `proof` | End state land và giữ đủ lâu để đọc; phần còn lại là live-resolution hoặc deliberate stillness |
 
-Hold final composition visible ít nhất 500ms trước khi scene kế tiếp takeover để viewer's eye register.
+Không để conclusion mặc định xuất hiện ở `D−1.2s` nếu câu kết được nói sớm hơn. Không để timeline chết sau mốc proof; trạng thái cuối có thể tiếp tục xử lý một cách có nghĩa.
 
-## Color-accent rotation
+## Seam handoff
 
-Khi scene có multiple cards/items, rotate accents để visual continuity:
+- `carrier`: source object, đường copper, mask edge, camera direction hoặc hành động Pexels.
+- `exit_vector` phải khớp `entry_vector` nếu muốn tạo cảm giác liên tục.
+- Background có thể dẫn transition sớm khoảng 0.1s, foreground theo sau cùng vector.
+- Clean cut chỉ dùng cho punchline/contrast có chủ đích và vẫn phải ghi trong seam ledger.
 
-`cyan → coral → amber → mint → violet → sky → pink → green`
+## Text–Speech–Image self-review
 
-Tránh 2 scenes liền dùng cùng dominant accent.
+Ghi một câu trước khi bàn giao:
 
-## Pattern details
+```text
+Voiceover nói [ý] → scene cho thấy [cơ chế] → text chốt [kết luận].
+```
 
-### 1. hero
-
-**Use for**: Opening scene, big stats announcement.
-**Anatomy**: eyebrow (small-caps mono) → hero text (massive uppercase, accent word in coral) → underline gradient draw → 3 stat cards (count-up numbers) → subtitle. Particles dense (90-120).
-**Typical duration**: 6-9s.
-**Sub-agent extras**: 3 stat values (number + label + chip) and accent colors (cyan / coral / amber default).
-
-### 2. diff-window
-
-**Use for**: Before/after, patch notes, fix list.
-**Anatomy**: eyebrow + hero on top → mock IDE diff window dominating center → 4 red `-` lines (animated strike-through) → 4 green `+` lines (animated reveal with green glow flash) → "all patched" subtitle.
-**Typical duration**: 9-12s.
-**Sub-agent extras**: 4 diff pairs (broken behavior → fixed behavior).
-
-### 3. card-grid-3x2
-
-**Use for**: 6 parallel items (headlines, features, top-X).
-**Anatomy**: eyebrow + hero on top → 6 cards in 3×2 grid → each card has inline SVG icon (60px, stroke only, per-card accent), title (Inter 700), mono small-caps sub. Stagger scale-in 150-180ms apart.
-**Typical duration**: 10-13s.
-**Sub-agent extras**: 6 items (icon hint + title + sub + accent color from cyan/coral/amber/mint/violet/pink rotation).
-
-### 4. card-grid-2x2
-
-**Use for**: 4 parallel items, more breathing room than 6.
-**Anatomy**: eyebrow + hero → 4 cards in 2×2 grid → each card has icon column on left, title + desc + chip on right. Stagger 200ms.
-**Typical duration**: 7-9s.
-**Sub-agent extras**: 4 items (icon hint + title + 1-line desc + chip label + accent color).
-
-### 5. card-row-4
-
-**Use for**: 4 items horizontal (when 2×2 feels too "boxed").
-**Anatomy**: eyebrow + hero → 4 cards in 1 row → each card has top-left icon, top-right status chip, title, desc, bottom code-style label. Stagger left-to-right.
-**Typical duration**: 7-9s.
-**Sub-agent extras**: 4 items (icon, chip text, title, desc, mono code label, accent color).
-
-### 6. terminal-typewriter
-
-**Use for**: Demo CLI commands, code examples, "before pipeline / after pipeline".
-**Anatomy**: eyebrow + hero up top → mock terminal window (mac chrome, dark surface) → 3-5 commands type out one after another, each followed by green check or "OK". Optional pill callout below for secondary detail.
-**Typical duration**: 9-12s. Allow tail past beat duration if commands need time to type.
-**Sub-agent extras**: 3-5 command lines, terminal title (e.g. `~/projects/repo · zsh`).
-
-### 7. mock-app
-
-**Use for**: Showing UI behavior (terminal scroll, dialog, URL click).
-**Anatomy**: eyebrow + hero → 1 or 2 mock app windows side-by-side showing behavior with animated overlays (arrows, chips, strikethroughs morphing into fixes).
-**Typical duration**: 7-9s.
-**Sub-agent extras**: Which app to mock (iTerm2, Ghostty, VS Code, browser…), behavior to show, visual overlay morphs from broken → fixed.
-
-### 8. network-graph
-
-**Use for**: Architecture, system connections, data flow with proxy / hub / spoke nodes.
-**Anatomy**: eyebrow + hero → central node + 3-4 satellite nodes connected by SVG lines with dash-flow animation → 4 callouts floating around diagram, each tied to one fix.
-**Typical duration**: 8-10s.
-**Sub-agent extras**: Central node label + satellite labels + 4 callout labels.
-
-### 9. comparison-2card
-
-**Use for**: A vs B (e.g. Vertex AI vs Bedrock, Pro vs Flash).
-**Anatomy**: eyebrow + hero → 2 large cards side-by-side → each card has top pill badge, large SVG icon with radial glow halo, title, 2-line feature list, "AVAILABLE NOW" chip at bottom.
-**Typical duration**: 6-8s.
-**Sub-agent extras**: 2 card titles + 2 pill badges + icon hints + 2 features each + accent colors per card.
-
-### 10. cta-outro
-
-**Use for**: Closing scene — big command + social CTAs.
-**Anatomy**: eyebrow → massive command typewriter (`$ <something>`, with verb in coral) → 3 CTA pills (like / comment / subscribe with SVG icons) → big tagline → closing line.
-**Typical duration**: 6-8s. The typewriter sets minimum duration.
-**Sub-agent extras**: The command to type, 3 CTA labels, the tagline.
-
-### 11. image-feature
-
-**Use for**: Beats referencing a specific real image — screenshot, demo UI, GitHub homepage, chart, photo. The image is focal element.
-**Anatomy**: eyebrow + smaller title (Inter 800 56px, not hero 124px — image is star) → large image frame ~80% canvas width, 16:9.5 aspect with soft glow halo, rounded 16px → optional pin annotations anchored to specific points → caption below image (Inter 500, accent-highlighted keywords).
-**Typical duration**: 8-11s. Allow extra time for viewer to read / absorb image.
-**Sub-agent extras**:
-- `image_abs_path` — absolute path to image (set as `<img src>`)
-- `image_caption` — 1-2 sentences with strong + accent highlights
-- `annotations` (optional) — list of `{label, anchor}` to pin parts of image
-- `object-fit`: `cover` for screenshots, `contain` for portraits / full-context shots
+Nếu không cùng một mệnh đề, status là `DONE_WITH_CONCERNS` hoặc `BLOCKED`.

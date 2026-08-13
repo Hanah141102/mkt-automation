@@ -1,0 +1,4 @@
+interface:
+  display_name: "ElevenLabs TTS to MP3"
+  short_description: "Convert Vietnamese or English text to voiceover"
+  default_prompt: "Use $mkt-elevenlabs-tts-to-mp3 to convert this Vietnamese or English script into an ElevenLabs MP3 voiceover."

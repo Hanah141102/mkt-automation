@@ -1,0 +1,4 @@
+interface:
+  display_name: "Biên tập MP4 thô 9:16"
+  short_description: "Cắt ghép MP4 thô, B-roll và subtitle"
+  default_prompt: "Dùng $mkt-hyperframe-raw-mp4-editor-9-16 để biên tập các MP4 dọc thô của tôi thành video ngắn tiếng Việt hoàn chỉnh."

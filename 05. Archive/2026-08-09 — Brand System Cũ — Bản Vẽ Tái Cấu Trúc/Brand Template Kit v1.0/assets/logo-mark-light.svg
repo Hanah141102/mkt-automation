@@ -1,0 +1,17 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Tony Hoang brand mark on light</title>
+  <desc id="desc">A tide teal hexagon containing a single ember flame.</desc>
+  <defs>
+    <linearGradient id="light-ember" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#DA3C0C"/>
+      <stop offset=".55" stop-color="#FF6326"/>
+      <stop offset="1" stop-color="#FFB43D"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="14" fill="#E8EFF2"/>
+  <polygon points="105,60 82.5,98.97 37.5,98.97 15,60 37.5,21.03 82.5,21.03"
+    fill="none" stroke="#0E7C8B" stroke-width="4.5"/>
+  <path d="M60 34 C60 47 73 51 67 66 C64 74 69 79 65 85 C62 90 55 90 51 84
+    C47 78 49 70 54 65 C56 62 57 58 55 54 C60 59 64 56 62 50 C60 44 58 40 60 34 Z"
+    fill="url(#light-ember)"/>
+</svg>

@@ -275,7 +275,7 @@ Thay vào: minimal text-only brand mark top-left:
 <div id="brand-mark" class="clip brand-mark"
      data-start="0" data-duration="<total>" data-track-index="2">
   <span class="dot"></span>
-  <span><span class="at">@</span>tranvanhoang.com</span>
+  <span><span class="at">@</span>brand</span>
   <span class="sep">·</span>
   <span>Knowledge AI</span>
 </div>

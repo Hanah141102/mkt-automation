@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Resolve B-roll Media"
+  short_description: "Reuse and fetch B-roll for video scripts"
+  default_prompt: "Use $mkt-resolve-broll-media to match reusable B-roll to this video script and fetch missing portrait media."

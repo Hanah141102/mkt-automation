@@ -17,6 +17,8 @@ import os
 import sys
 import urllib.request
 
+from validate_spoken_script import validate_or_report
+
 
 def load_env_file(path=".env"):
     if not os.path.exists(path):
@@ -60,6 +62,8 @@ def main():
     text = text.strip()
     if not text:
         sys.exit("Empty text")
+    if not validate_or_report(text, args.text_file or "inline text"):
+        sys.exit(2)
     if len(text) > 10000:
         sys.exit(f"Text too long ({len(text)} chars, limit ~10000). Split it first.")
 

@@ -191,7 +191,7 @@ write('fs-lesson-1.html', 'fs-lesson-1',
             <div class="post-head">
               <div class="post-avatar"></div>
               <div class="post-meta">
-                <div class="post-name">Hoàng · Tư vấn AI</div>
+                <div class="post-name">Thương hiệu · Chuyên gia</div>
                 <div class="post-time">15 ngày trước · 🌐</div>
               </div>
             </div>
@@ -201,7 +201,7 @@ write('fs-lesson-1.html', 'fs-lesson-1',
             <div class="post-head">
               <div class="post-avatar"></div>
               <div class="post-meta">
-                <div class="post-name">Hoàng · Tư vấn AI</div>
+                <div class="post-name">Thương hiệu · Chuyên gia</div>
                 <div class="post-time">22 ngày trước · 🌐</div>
               </div>
             </div>
@@ -211,7 +211,7 @@ write('fs-lesson-1.html', 'fs-lesson-1',
             <div class="post-head">
               <div class="post-avatar"></div>
               <div class="post-meta">
-                <div class="post-name">Hoàng · Tư vấn AI</div>
+                <div class="post-name">Thương hiệu · Chuyên gia</div>
                 <div class="post-time">30 ngày trước · 🌐</div>
               </div>
             </div>
@@ -953,7 +953,7 @@ write('fs-lesson-5.html', 'fs-lesson-5',
             <div class="tt-screen">
               <div class="tt-thumb">▶</div>
               <div class="tt-overlay">
-                <div class="tt-creator">@hoang.ai</div>
+                <div class="tt-creator">@brand</div>
                 <div class="tt-caption">"Skincare routine 10s 🧴"</div>
               </div>
               <div class="tt-engage">
@@ -967,7 +967,7 @@ write('fs-lesson-5.html', 'fs-lesson-5',
             <div class="tt-screen">
               <div class="tt-thumb">▶</div>
               <div class="tt-overlay">
-                <div class="tt-creator">@hoang.ai</div>
+                <div class="tt-creator">@brand</div>
                 <div class="tt-caption">"Pet food unboxing 🐶"</div>
               </div>
             </div>

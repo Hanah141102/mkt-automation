@@ -1,0 +1,4 @@
+interface:
+  display_name: "HyperFrames Registry"
+  short_description: "Discover and wire HyperFrames components"
+  default_prompt: "Use $hyperframes-registry to discover, install, and wire the HyperFrames registry components for this project."

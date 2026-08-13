@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Brand Context Guard"
+  short_description: "Kiểm tra nội dung theo đúng bối cảnh thương hiệu"
+  default_prompt: "Use $mkt-brand-context-guard to validate this brief against the selected brand context."

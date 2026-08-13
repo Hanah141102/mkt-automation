@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Marketing Measurement Designer"
+  short_description: "Thiết kế KPI, tracking và dashboard marketing"
+  default_prompt: "Use $mkt-marketing-measurement-designer to design the KPI, tracking, and dashboard specification."

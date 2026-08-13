@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1350" />
+    <link rel="stylesheet" href="../assets/brand-tokens.css" />
+    <style>
+      body { width: 1080px; height: 1350px; overflow: hidden; }
+      .canvas { width: 1080px; height: 1350px; padding: 78px 78px 72px; background: var(--brand-mist); color: var(--brand-abyss); }
+      .brand-grid { --grid-size: 54px; opacity: .32; }
+      .top { display: flex; justify-content: space-between; align-items: center; }
+      .top img { width: 72px; height: 72px; }
+      .page { color: var(--brand-steel); font: 700 18px/1 var(--brand-spec); letter-spacing: .12em; }
+      .statement { position: relative; margin-top: 112px; width: 890px; }
+      .kicker { color: var(--brand-tide); font: 700 19px/1 var(--brand-spec); letter-spacing: .13em; }
+      h1 { margin: 32px 0 0; font: 900 92px/.95 var(--brand-display); letter-spacing: -.06em; }
+      h1 span { color: var(--brand-ember); }
+      .gap { right: 4px; top: 72px; width: 12px; height: 102px; }
+      .diagram { position: absolute; left: 78px; right: 78px; bottom: 92px; height: 388px; display: grid; grid-template-columns: 1fr 98px 1fr; align-items: center; }
+      .cluster { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .module { height: 142px; padding: 22px; border: 3px solid var(--brand-steel); background: rgba(232,239,242,.86); }
+      .cluster.old .module:nth-child(1) { transform: translate(-7px, 9px) rotate(-1deg); }
+      .cluster.old .module:nth-child(4) { transform: translate(9px, -7px) rotate(1.5deg); }
+      .cluster.new .module { border-color: var(--brand-tide); }
+      .module b { color: var(--brand-steel); font: 700 15px/1 var(--brand-spec); letter-spacing: .09em; }
+      .module span { display: block; margin-top: 27px; font: 800 24px/1.08 var(--brand-display); letter-spacing: -.025em; }
+      .divider { position: relative; height: 100%; }
+      .divider::before { content: ""; position: absolute; left: 48px; top: 25px; bottom: 25px; width: 5px; background: var(--brand-ember); }
+      .divider::after { content: "REBUILD"; position: absolute; left: 23px; top: 171px; color: var(--brand-ember); background: var(--brand-mist); padding: 10px 0; font: 700 14px/1 var(--brand-spec); letter-spacing: .08em; writing-mode: vertical-rl; }
+      .footer { position: absolute; left: 78px; right: 78px; bottom: 44px; display: flex; justify-content: space-between; color: var(--brand-steel); font: 600 14px/1 var(--brand-spec); letter-spacing: .08em; }
+    </style>
+  </head>
+  <body>
+    <main class="canvas brand-canvas brand-registration">
+      <div class="brand-grid"></div>
+      <header class="top"><img src="../assets/logo-mark-light.svg" alt="" /><div class="page">CAROUSEL / 01—06</div></header>
+      <section class="statement">
+        <div class="kicker">LUẬN ĐIỂM / 01</div>
+        <h1>Doanh nghiệp không thiếu <span>công cụ AI.</span></h1>
+        <div class="brand-reframe-gap gap"></div>
+      </section>
+      <section class="diagram">
+        <div class="cluster old">
+          <div class="module"><b>TOOL 01</b><span>Rời rạc</span></div><div class="module"><b>DATA</b><span>Thiếu chuẩn</span></div>
+          <div class="module"><b>OWNER</b><span>Không rõ</span></div><div class="module"><b>OUTPUT</b><span>Không đo</span></div>
+        </div>
+        <div class="divider"></div>
+        <div class="cluster new">
+          <div class="module"><b>START</b><span>Đầu vào rõ</span></div><div class="module"><b>FLOW</b><span>Luồng rõ</span></div>
+          <div class="module"><b>OWNER</b><span>Có người giữ</span></div><div class="module"><b>CHECK</b><span>Đo được</span></div>
+        </div>
+      </section>
+      <footer class="footer"><span>TONY HOANG</span><span>TÁI CẤU TRÚC TRƯỚC · AI HÓA SAU</span></footer>
+    </main>
+  </body>
+</html>

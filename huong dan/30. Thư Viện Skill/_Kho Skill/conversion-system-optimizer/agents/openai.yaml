@@ -1,0 +1,4 @@
+interface:
+  display_name: "conversion-system-optimizer"
+  short_description: "Vận hành Fullstack Marketing có hệ thống"
+  default_prompt: "Use @conversion-system-optimizer to solve this marketing task."

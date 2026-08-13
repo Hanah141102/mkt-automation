@@ -1,6 +1,6 @@
 # Anti-Patterns — Lỗi Thường Gặp
 
-Tổng hợp 24 lỗi đã gặp + cách tránh. SKILL.md tóm tắt HARD RULES; file này chi tiết WHY + cách fix.
+Tổng hợp các lỗi đã gặp + cách tránh. SKILL.md tóm tắt HARD RULES; file này chi tiết WHY + cách fix.
 
 ## Scene HTML structure
 
@@ -55,7 +55,7 @@ Tổng hợp 24 lỗi đã gặp + cách tránh. SKILL.md tóm tắt HARD RULES;
 ## Transitions
 
 21. **Mọi scene boundary đều flash** — flash là cho "loud" moments (premise hit, big stat, finale). Mặc định 5-6/15 boundaries.
-22. **Wipe color không xoay vòng** — 15 wipes cùng coral = monotone. Rotate coral/cyan/cream, alternate LTR/RTL.
+22. **Quá nhiều họ transition** — wipe, zoom, flash và spin trong cùng video phá continuity. Chỉ dùng clean directional reveal + match-motion; copper/ivory theo brand.
 23. **`gsap.fromTo()` với scene-mount mà không có `overwrite: 'auto'`** — sẽ conflict với scene's own internal animations. Master timeline tween luôn dùng `overwrite: 'auto'`.
 
 ## Layout validation
@@ -65,12 +65,38 @@ Tổng hợp 24 lỗi đã gặp + cách tránh. SKILL.md tóm tắt HARD RULES;
 ## HeyGen + master (v1.1 — từ run thật)
 
 25. **Không re-encode HeyGen MP4** — HeyGen = 25fps, keyframe ~8s → renderer warn "sparse keyframes → seek failures / frame freezing", avatar đơ frame. Fix: `prep_source_video.sh reencode raw.mp4 source.mp4` (libx264 -r 30 -g 30 -keyint_min 30). LUÔN làm.
-26. **Tin sub-agent báo HeyGen "stuck N phút"** — nó bịa elapsed time. HeyGen KHÔNG stuck nếu `failure_code`=null; render 110s/720p ~10-15 phút. Poll `mcp__heygen__get_video` trực tiếp từ orchestrator.
+26. **Tin sub-agent báo HeyGen "stuck N phút"** — nó bịa elapsed time. HeyGen KHÔNG stuck nếu `failure_code`=null; render 110s/720p ~10-15 phút. Poll `mcp__codex_apps__heygen_get_video` trực tiếp từ orchestrator.
 27. **Block chờ HeyGen** — tạo placeholder (`prep_source_video.sh placeholder`) để lint/inspect/draft-render full composition song song, swap avatar thật sau.
 28. **Scene meta-badge đè master brand-mark** — cả 2 ở top-left. Scene meta-badge xuống top:92px left:56px; KHÔNG wordmark top-right (avatar ngồi đó).
-29. **Lo lắng PIP stretch** — KHÔNG stretch nếu scene content flex-center intrinsic-width: khi slide-mount tween 1200→1920 content chỉ re-center. Đừng dùng block width:100% bên trong scene.
+29. **Giữ code PIP cũ** — pipeline v1.2 không dùng PIP; không tạo `pip-still.png`, DOM thumbnail hoặc GSAP breathing/toggle cho PIP.
 30. **`#avatar-frame > .avatar-breathing/.avatar-punch` thiếu `data-layout-allow-overflow`** — breathing scale 1.025 vượt clip → inspect flag `container_overflow` (vô hại nhưng noise). Thêm attr.
 31. **Master select root bằng `[data-composition-id="main"]`** → lint `composition_self_attribute_selector`. Dùng `#root`.
 32. **Wipe/flash thiếu hard-kill** → lint `gsap_exit_missing_hard_kill`. Thêm `tl.set('#scene-flash'/'#scene-wipe',{opacity:0}, t)` sau fade.
 33. **Mong `npx hyperframes lint` validate scene** — lint CHỈ check index.html, KHÔNG recurse scene mounted, KHÔNG nhận file path ("Not a directory"). Validate scene qua `inspect` + draft-render frame check.
 34. **Sub-agent chạy `npx hyperframes`** — concurrent + asset chưa có = false error. Sub-agent author + self-review only; orchestrator validate tập trung.
+35. **Bokeh/particle để lấp khoảng trống** — biến video thành cyberpunk template và làm yếu nhận diện AI-HUB. Dùng whitespace, blueprint grid rất nhẹ hoặc một glow copper có mục đích.
+36. **Headline tiếng Việt line-height <1.08 hoặc tracking <−0.015em** — dấu bị đụng nhau. Cấm `data-layout-allow-overlap` trên mọi text node.
+37. **Flash/punch-zoom tại mọi boundary** — gây mệt và lộ cảm giác ghép máy. Chỉ dùng clean cut, mask reveal hoặc match-motion; flash tối đa một loud moment/video.
+38. **Pexels chỉ “cùng chủ đề”** — cảnh văn phòng chung chung không được tính là semantic pass. Footage phải thể hiện đúng hành động/hệ quả đang nói.
+39. **Nhiều card cùng trọng lượng** — mắt không biết nhìn đâu. Mỗi beat có một visual anchor và một hero animation duy nhất.
+
+## Visual thinking + continuity
+
+40. **Đổi danh từ thành icon/card** — “AI”, “quy trình”, “chi phí” được minh họa bằng icon đứng yên không tạo ra lập luận. Chọn một source object và cho nó đổi trạng thái để chứng minh câu nói.
+41. **Fake morph bằng crossfade** — object A mờ đi và object B giống nó hiện lên. Giữ cùng DOM artifact hoặc dùng shared carrier/mask có quan hệ hình học rõ.
+42. **Camera move không sinh thông tin** — zoom/pan chỉ để frame đỡ tĩnh. Camera chỉ được chạy khi reveal nguyên nhân, quan hệ hoặc quy mô mới.
+43. **Animation không có nguyên nhân** — mọi node cùng bật vì timeline đến mốc. Phải có trigger nhìn thấy được; signal chạm đâu, phần tử đó mới phản ứng.
+44. **Contact sheet là ba layout khác nhau** — đẹp nhưng không chứng minh progression. Contact sheet phải là 3–5 state của cùng source object: start → transform → proof.
+45. **Seam không có carrier** — scene A bay sang phải, scene B tự rơi từ trên xuống. Ghi seam ledger trước fan-out và match `exit_vector → entry_vector`.
+46. **Carrier giả** — hai hình giống nhau ở hai scene nhưng không chung hướng, scale hay thời điểm. Dùng mask edge/trace/artifact thật sự nối qua boundary.
+47. **Tail chết** — visual hoàn tất ở giây 4 nhưng beat dài 8 giây. Tiếp tục live-resolution có nghĩa hoặc chủ ý deliberate stillness; không loop breathing trang trí.
+48. **Scale hierarchy quá phẳng** — focal và support chỉ khác nhau chút ít nên đọc như dashboard. Dùng display scale cho focal, tối đa hai supporting và reveal tuần tự.
+49. **Pexels làm wallpaper** — footage chỉ “đúng ngành” nhưng không đúng động từ. Dùng footage như bằng chứng/hành động rồi để HyperFrames giải thích cơ chế hoặc hệ quả.
+50. **Xóa phần tử nhưng không tạo kỳ vọng trước** — khoảng trống vô nghĩa. Semantic removal chỉ hiệu quả khi người xem đã thấy và chờ phần tử đó tồn tại/phản hồi.
+
+## Cold-seek và SVG safety
+
+51. **Chỉ giấu initial state bằng tween** — seek vào giữa composition có thể flash state đích/nguồn sai. Khai báo opacity/transform ban đầu bằng CSS hoặc `gsap.set()` trước timeline, và dùng `fromTo()` với giá trị tuyệt đối.
+52. **Nhiều tween tương đối trên cùng property** — seek lạnh cho kết quả khác playback tuần tự. Không dùng chuỗi `x:'+=20'`; đặt các state tuyệt đối.
+53. **Đo DOM trong callback giữa timeline** — kết quả có thể khác khi render seek từng frame. Đo geometry một lần khi register rồi tween giá trị đã tính.
+54. **SVG path/mask đổi `d` động hoặc round-cap để lộ stray dot** — giữ path geometry tĩnh, animate dash/transform; kiểm tra cap và hidden state ở frame đầu.

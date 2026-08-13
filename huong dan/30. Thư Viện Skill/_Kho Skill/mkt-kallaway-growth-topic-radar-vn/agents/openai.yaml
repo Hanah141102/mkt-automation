@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Kallaway Growth Topic Radar"
+  short_description: "Chấm điểm và chọn topic content có bằng chứng"
+  default_prompt: "Use $mkt-kallaway-growth-topic-radar-vn to rank content topics for this brand."

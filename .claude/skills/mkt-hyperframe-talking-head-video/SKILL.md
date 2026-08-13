@@ -1,6 +1,6 @@
 ---
 name: mkt-hyperframe-talking-head-video
-description: Build a TikTok/Reels 9:16 short video from a pre-recorded talking-head MP4 using HyperFrames — transcribe Vietnamese audio, auto-clean Whisper errors, generate synced caption groups, scaffold a complete preview-ready project with face-cam + 6 sound effects + 4 zoom hooks + ambient ken-burns drifts + full-screen b-roll scenes (each with rich GSAP effects: pulse rings, corner marks, word-slam titles, count-up numbers, light sweeps, scribble underlines, sparkles, particles) + caption track + CTA finale, then render the finished MP4 (1080x1920) and report the output path — runs autopilot end-to-end, no preview, picks sensible defaults for any missing input. USE WHEN user says "tạo video tiktok từ footage", "build hyperframe talking head", "tạo 9:16 video từ mp4 quay sẵn", "make tiktok video from face footage", "hyperframe video từ video quay", "tạo short video có caption + b-roll", "video chia sẻ kiến thức từ footage", "đóng gói video ngắn", or provides a 9:16 talking-head MP4 (with optional b-roll images/videos and stated purposes) asking to turn it into a finished short-form video. ALSO trigger when user has face-cam footage and wants captions + visual hooks + sound effects added to make it shareable on TikTok/Reels/Shorts/Facebook Reels.
+description: Build a 9:16 short video from a pre-recorded talking-head MP4 with HyperFrames. Transcribe audio, create synced captions and visual hooks, add b-roll and sound effects, render the final MP4, and report its path. Use for TikTok, Reels, Shorts, and similar face-cam editing requests.
 ---
 
 # mkt-hyperframe-talking-head-video
@@ -105,7 +105,7 @@ npx hyperframes transcribe source.mp4 --model medium --language vi
 Sau khi xong, clean transcript:
 
 ```bash
-python3 .claude/skills/mkt-hyperframe-talking-head-video/scripts/clean_transcript.py \
+python3 .agents/skills/mkt-hyperframe-talking-head-video/scripts/clean_transcript.py \
   transcript.json
 # writes: transcript.json (in-place clean) + caption-groups.json (auto-grouped)
 ```
@@ -117,7 +117,7 @@ Script đã apply VN Whisper error replacements (`alphabit→Alphabet`, `Cod→C
 ## Step 3: Detect scene structure
 
 ```bash
-python3 .claude/skills/mkt-hyperframe-talking-head-video/scripts/detect_scenes.py \
+python3 .agents/skills/mkt-hyperframe-talking-head-video/scripts/detect_scenes.py \
   transcript.json
 # outputs: scenes.json
 ```
@@ -169,7 +169,7 @@ Nếu user không cung cấp b-roll, dùng text-only scenes (như reference proj
 **Use the infographic v2 generator** for content-driven mockup b-rolls (Hostinger-inspired style: dark glassmorphic + neon glow + UI mockups + floating data badges):
 
 ```bash
-python3 .claude/skills/mkt-hyperframe-talking-head-video/scripts/scaffold_infographic_v2.py \
+python3 .agents/skills/mkt-hyperframe-talking-head-video/scripts/scaffold_infographic_v2.py \
   --output workspace/content/YYYY-MM-DD/<slug>/compositions/ \
   --scenes scenes.json
 ```
@@ -233,7 +233,7 @@ Sub-composition rule: **internal timeline RELATIVE 0 → data-duration**, không
 
 ```bash
 mkdir -p workspace/video-projects/<slug>/sfx
-SFX_SRC="$(pwd)/.claude/skills/mkt-hyperframe-talking-head-video/assets/sfx"
+SFX_SRC="$(pwd)/.agents/skills/mkt-hyperframe-talking-head-video/assets/sfx"
 cp "$SFX_SRC"/{camera-flash.mp3,"búng tay.mp3","Whoosh sound effect (1).mp3",Laser.mp3,ting.mp3,"Discord Notification - Sound Effect.mp3"} workspace/video-projects/<slug>/sfx/
 ```
 
@@ -294,12 +294,12 @@ Architecture:
 **Generate root index.html with split-screen pre-baked:**
 
 ```bash
-python3 .claude/skills/mkt-hyperframe-talking-head-video/scripts/generate_root_index.py \
+python3 .agents/skills/mkt-hyperframe-talking-head-video/scripts/generate_root_index.py \
   --output workspace/content/YYYY-MM-DD/<slug>/index.html \
   --scenes scenes.json \
   --total-duration 108.92 \
   --header-label "6 AI BUSINESS 2026" \
-  --footer-handle "@tranvanhoang.com"
+  --footer-handle "@brand"
 ```
 
 scenes.json must include `brollEnd` + `hasBreath` per scene. See [references/split-screen-pacing.md](references/split-screen-pacing.md) for editorial rules (when full vs split), CSS specifics, and JS animation template.
@@ -319,7 +319,7 @@ scenes.json must include `brollEnd` + `hasBreath` per scene. See [references/spl
 Whisper makes consistent Vietnamese errors (clipped accents, brand misspellings, missing spaces). Run the auto-fix:
 
 ```bash
-python3 .claude/skills/mkt-hyperframe-talking-head-video/scripts/fix_caption_typos.py \
+python3 .agents/skills/mkt-hyperframe-talking-head-video/scripts/fix_caption_typos.py \
   caption-groups.json \
   script.txt    # source spoken script for additional diff check
 ```
@@ -328,7 +328,7 @@ The script applies a curated correction map (~25 known errors from past videos: 
 
 After fixing, re-inject:
 ```bash
-python3 .claude/skills/mkt-hyperframe-talking-head-video/scripts/inject_captions.py \
+python3 .agents/skills/mkt-hyperframe-talking-head-video/scripts/inject_captions.py \
   compositions/captions.html caption-groups.json
 ```
 

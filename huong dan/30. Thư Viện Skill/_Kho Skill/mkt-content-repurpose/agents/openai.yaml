@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Content Repurpose"
+  short_description: "Chuyển thể nội dung sang nhiều định dạng và kênh"
+  default_prompt: "Use $mkt-content-repurpose to adapt this source content for the selected platforms."

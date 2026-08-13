@@ -1,0 +1,26 @@
+usage: research_topic.py [-h] [--min-views MIN_VIEWS]
+                         [--date {today,week,month,year}]
+                         [--max-results MAX_RESULTS]
+                         [--sort {views,ratio,date,relevance}] [--lang LANG]
+                         [--output OUTPUT] [--no-save]
+                         query
+
+Research YouTube videos by topic — filter by views & breakout ratio
+
+positional arguments:
+  query                 Search keyword/topic
+
+options:
+  -h, --help            show this help message and exit
+  --min-views MIN_VIEWS
+                        Minimum view count (default: 10000)
+  --date {today,week,month,year}, -d {today,week,month,year}
+                        Date range (default: month)
+  --max-results MAX_RESULTS
+                        Max results to fetch (default: 20)
+  --sort {views,ratio,date,relevance}
+                        Sort results by (default: views)
+  --lang LANG           Language filter (e.g. vi, en)
+  --output OUTPUT, -o OUTPUT
+                        Custom output file path
+  --no-save             Print only, don't save to file

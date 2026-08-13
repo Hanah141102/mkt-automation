@@ -1,6 +1,6 @@
 ---
 name: mkt-hyperframe-knowledge-video
-description: Tạo video chia sẻ kiến thức / tin tức 16:9 (1920×1080) bằng HyperFrames runtime + ElevenLabs v3 TTS — pipeline design.md → script → TTS parallel chunks → forced alignment → fan out parallel sub-agents author từng scene HTML dạng `<template>` sub-comp (GSAP only, seeded PRNG) → master `index.html` với scene transitions + brand stamp + SFX → `npx hyperframes render` ra MP4. Style dark cinematic navy + particle bokeh + hero Inter 900 + glassmorphic cards. Output `workspace/content/<date>/<slug>/<slug>.mp4`. **MUST use this skill when** user nói "tạo video chia sẻ kiến thức", "tạo video tin tức", "knowledge sharing video", "news video AI/tech", "hyperframe video", "video motion graphic 16:9", "video về github repo hot", "video review tool", "video release notes", "video keynote", "video kiểu Google I/O", "video kiểu Apple keynote", "explainer video AI", "video về repo X kèm screenshots", hoặc tạo video knowledge/news cần motion graphic + voiceover ElevenLabs + render bằng HyperFrames.
+description: Create a 16:9 knowledge or news video with HyperFrames motion graphics and ElevenLabs voiceover. Use for explainers, release notes, tool or repository reviews, keynote-style videos, and other AI or technology knowledge videos that need scripted narration and rendered MP4 output.
 ---
 
 # HyperFrame Knowledge Video Pipeline
@@ -14,7 +14,7 @@ Tạo video chia sẻ kiến thức / tin tức 16:9 bằng HyperFrames runtime 
 User muốn 1 video knowledge-sharing / news có:
 - Không cần talking head, voice-over ElevenLabs
 - Motion graphic chuyên nghiệp (typography, stat counters, diagrams)
-- Footer brand `@tranvanhoang.com` + avatar Hoàng cố định
+- Footer brand `@brand` + avatar do thương hiệu cung cấp
 - Output 1 file MP4 16:9 (1920×1080)
 
 KHÔNG dùng skill này khi:
@@ -30,7 +30,7 @@ KHÔNG dùng skill này khi:
 | Input images (ảnh demo) | Không | Danh sách file paths — screenshots, demos, GitHub headers |
 | Slug | Không | Suy ra từ topic |
 | Ngôn ngữ | Không | Mặc định English; "tiếng Việt" thì dùng VN |
-| ElevenLabs voice ID | Không | Mặc định voice Hoàng |
+| ElevenLabs voice ID | Không | Mặc định voice configured for the selected brand |
 | Tổng thời lượng | Không | 60-90s; long form 5-9 phút OK |
 
 ## Output
@@ -188,7 +188,7 @@ python "$(skill_dir)/scripts/tts.py" \
   --out-alignment $OUT/audio/alignment.json
 ```
 
-Env: `ELEVENLABS_API_KEY`. Optional: `ELEVENLABS_VOICE_ID` (default: voice Hoàng).
+Env: `ELEVENLABS_API_KEY`. Optional: `ELEVENLABS_VOICE_ID` (default: voice configured for the selected brand).
 
 `tts.py` tự fan out HTTP calls qua `ThreadPoolExecutor(max_workers=4)` — script dài 5-9 phút (5-10 chunks) wall-clock ~30s thay vì ~120s. Order preserved bởi index.
 

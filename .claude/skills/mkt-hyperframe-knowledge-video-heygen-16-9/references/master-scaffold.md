@@ -8,7 +8,7 @@ Master `index.html` orchestrate root composition 1920×1080 với slide pane bê
 |---|---|---|---|
 | `<video id="v-source" muted>` HeyGen MP4 | 0 | — | Avatar visual, NO audio |
 | `<audio id="a-source">` HeyGen MP4 audio | 1 | — | Voiceover, volume 1.0 |
-| `#brand-mark` top-left text | 2 | 45 | `@tranvanhoang.com` JBM mono |
+| `#brand-mark` top-left text | 2 | 45 | `@brand` JBM mono |
 | `#slide-bg` black canvas | — | 5 | Full 1920×1080 black bg |
 | `#heygen-bg` right pane | — | 9 | Warm side-light backdrop |
 | Scene mounts `.slide-mount × N` | 40..40+N | 20 | data-composition-src → scene-N.html, animatable width |
@@ -38,7 +38,7 @@ Thay vào text-only brand mark top-left:
 <div id="brand-mark" class="clip brand-mark"
      data-start="0" data-duration="<total>" data-track-index="2">
   <span class="dot"></span>
-  <span><span class="at">@</span>tranvanhoang.com</span>
+  <span><span class="at">@</span>brand</span>
   <span class="sep">·</span>
   <span>Knowledge AI</span>
 </div>

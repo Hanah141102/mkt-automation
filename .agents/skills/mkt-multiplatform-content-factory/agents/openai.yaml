@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Multiplatform Content Factory"
+  short_description: "Tạo gói nội dung native cho nhiều nền tảng"
+  default_prompt: "Use $mkt-multiplatform-content-factory to turn these research packs into a cross-platform content plan."

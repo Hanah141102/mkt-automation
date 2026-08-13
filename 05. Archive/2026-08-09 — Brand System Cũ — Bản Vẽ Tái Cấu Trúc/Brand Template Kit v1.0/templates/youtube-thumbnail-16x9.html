@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280, height=720" />
+    <link rel="stylesheet" href="../assets/brand-tokens.css" />
+    <style>
+      body { width: 1280px; height: 720px; overflow: hidden; }
+      .canvas { width: 1280px; height: 720px; background: var(--brand-abyss); color: var(--brand-mist); }
+      .brand-grid { --grid-size: 64px; opacity: .55; }
+      .photo-zone { position: absolute; right: 0; top: 0; width: 49%; height: 100%; overflow: hidden; }
+      .photo-zone img { width: 100%; height: 100%; object-fit: cover; object-position: 52% 22%; }
+      .photo-zone::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--brand-abyss) 0%, rgba(6,26,43,.15) 42%, rgba(6,26,43,.05) 100%); }
+      .content { position: absolute; z-index: 2; left: 72px; top: 62px; width: 770px; }
+      .eyebrow { display: flex; align-items: center; gap: 16px; color: var(--brand-aqua); font: 600 18px/1 var(--brand-spec); letter-spacing: .12em; }
+      .eyebrow::before { content: ""; width: 48px; height: 3px; background: var(--brand-aqua); }
+      h1 { margin: 86px 0 0; width: 720px; font: 900 95px/.88 var(--brand-display); letter-spacing: -.065em; text-transform: uppercase; }
+      h1 span { color: var(--brand-aqua); }
+      .sub { margin-top: 38px; width: 610px; font: 600 27px/1.28 var(--brand-body); }
+      .mark { position: absolute; z-index: 4; right: 48px; top: 42px; width: 72px; height: 72px; }
+      .gap { left: 64px; top: 178px; width: 11px; height: 82px; z-index: 3; }
+      .proof { position: absolute; z-index: 4; right: 46px; bottom: 42px; padding: 15px 20px; color: var(--brand-abyss); background: var(--brand-aqua); font: 700 16px/1 var(--brand-spec); letter-spacing: .08em; }
+      .node-map { position: absolute; z-index: 3; left: 752px; bottom: 64px; width: 240px; height: 160px; opacity: .82; }
+      .node-map div { position: absolute; width: 72px; height: 54px; border: 2px solid var(--brand-aqua); }
+      .node-map div:nth-child(1) { left: 0; top: 10px; transform: translate(-5px, 7px); border-color: var(--brand-steel); }
+      .node-map div:nth-child(2) { left: 84px; top: 52px; }
+      .node-map div:nth-child(3) { right: 0; top: 2px; }
+      .node-map::after { content: ""; position: absolute; left: 65px; top: 75px; width: 14px; height: 14px; background: var(--brand-aqua); transform: rotate(45deg); }
+    </style>
+  </head>
+  <body>
+    <main class="canvas brand-canvas">
+      <div class="brand-grid"></div>
+      <section class="photo-zone"><img class="brand-photo" src="../../../../workspace/assets/brand/tony-avatar.jpg" alt="Chân dung Tony Hoang" /></section>
+      <img class="mark" src="../assets/logo-mark-dark.svg" alt="" />
+      <div class="brand-reframe-gap gap"></div>
+      <section class="content">
+        <div class="eyebrow">SME / AI OPERATIONS</div>
+        <h1>AI không cứu được <span>quy trình lỗi</span></h1>
+        <p class="sub">Tìm đúng điểm nghẽn trước khi mua thêm công cụ.</p>
+      </section>
+      <div class="node-map"><div></div><div></div><div></div></div>
+      <div class="proof">TÁI CẤU TRÚC TRƯỚC</div>
+    </main>
+  </body>
+</html>

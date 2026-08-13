@@ -1,0 +1,4 @@
+interface:
+  display_name: "Full 16:9 HyperFrames HeyGen Video"
+  short_description: "Create a landscape knowledge video end to end"
+  default_prompt: "Use $mkt-full-video-with-11-hyperframe-heygen-16-9 to create this complete 16:9 video with HyperFrames and HeyGen."

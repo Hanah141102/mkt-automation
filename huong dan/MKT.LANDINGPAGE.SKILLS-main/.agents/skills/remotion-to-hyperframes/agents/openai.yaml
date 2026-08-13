@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remotion to HyperFrames"
+  short_description: "Translate Remotion compositions to HyperFrames"
+  default_prompt: "Use $remotion-to-hyperframes to translate this Remotion composition into a HyperFrames composition."

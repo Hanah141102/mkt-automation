@@ -11,7 +11,7 @@ Master `index.html` orchestrate toàn bộ composition. Scenes chỉ là `<templ
 | Scene mounts (#m1..#mN) | 10..10+N | — | Sub-comp loaded via `data-composition-src` |
 | Scene wipe overlay | 55 | 50 | Color bar sweep ở scene boundary |
 | Scene flash overlay | 56 | 51 | Brief brightness flash ở major boundary |
-| Brand stamp | 60 | 100 | Avatar 112px + handle `@tranvanhoang.com` cố định |
+| Brand stamp | 60 | 100 | Avatar 112px + handle `@brand` cố định |
 | SFX layer | 70..70+M | — | Sound effects (xem `sfx-layer.md`) |
 
 ## Scene-mount overlap rule
@@ -25,9 +25,9 @@ Avatar **112px** không phải 56px. 56px quá nhỏ, viewer không nhìn ra.
 ```html
 <div id="brand-stamp" class="clip brand-stamp"
      data-start="0" data-duration="<total>" data-track-index="60">
-  <span class="handle"><span class="at">@</span>tranvanhoang.com</span>
+  <span class="handle"><span class="at">@</span>brand</span>
   <div class="avatar">
-    <img src="assets/brand/tony-avatar-circle.png" alt="Tony" />
+    <img src="assets/brand/brand-avatar-circle.png" alt="Brand representative" />
   </div>
 </div>
 ```
@@ -57,7 +57,7 @@ Path `../../../` KHÔNG work với hyperframes runtime — copy avatar PNG vào 
 
 ```bash
 mkdir -p $OUT/assets/brand
-cp workspace/assets/brand/tony-avatar-circle.png $OUT/assets/brand/
+cp workspace/assets/brand/brand-avatar-circle.png $OUT/assets/brand/
 ```
 
 Gộp với SFX copy thành 1 parallel bootstrap step.

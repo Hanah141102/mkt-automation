@@ -1,0 +1,4 @@
+interface:
+  display_name: "Full 9:16 HyperFrames HeyGen Video"
+  short_description: "Create a vertical short video end to end"
+  default_prompt: "Use $mkt-full-video-with-11-hyperframe-heygen to create this complete 9:16 video with HyperFrames and HeyGen."

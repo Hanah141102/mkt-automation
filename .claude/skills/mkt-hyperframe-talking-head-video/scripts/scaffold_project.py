@@ -19,7 +19,7 @@ Usage:
   python3 scaffold_project.py \
     --output workspace/content/YYYY-MM-DD/<slug>/ \
     --slug <slug> \
-    --footer-handle "@tranvanhoang.com" \
+    --footer-handle "@brand" \
     --header-label "<topic-summary>"
 """
 import argparse
@@ -141,7 +141,7 @@ def render_index(template_path, scenes, total_duration, header_label, footer_han
     # Replace title
     html = re.sub(
         r'<title>[^<]*</title>',
-        f'<title>{header_label} — Hoàng AI</title>',
+        f'<title>{header_label}</title>',
         html, count=1
     )
     # Replace header pill label
@@ -289,8 +289,8 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('--output', required=True)
     p.add_argument('--slug', required=True)
-    p.add_argument('--footer-handle', default='@tranvanhoang.com')
-    p.add_argument('--header-label', default='Hoàng AI')
+    p.add_argument('--footer-handle', default='@brand')
+    p.add_argument('--header-label', default='BRAND')
     p.add_argument('--scenes', default=None, help='Path to scenes.json (default: <output>/scenes.json)')
     p.add_argument('--captions', default=None, help='Path to caption-groups.json (default: <output>/caption-groups.json)')
     p.add_argument('--broll-map', default=None)

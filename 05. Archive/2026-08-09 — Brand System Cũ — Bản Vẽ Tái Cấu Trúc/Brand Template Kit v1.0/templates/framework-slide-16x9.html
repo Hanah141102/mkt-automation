@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <link rel="stylesheet" href="../assets/brand-tokens.css" />
+    <style>
+      body { width: 1920px; height: 1080px; overflow: hidden; }
+      .canvas { width: 1920px; height: 1080px; padding: 72px 94px 70px; background: var(--brand-abyss); color: var(--brand-mist); }
+      .brand-grid { --grid-size: 72px; opacity: .58; }
+      .top { display: flex; align-items: center; justify-content: space-between; }
+      .identity { display: flex; align-items: center; gap: 22px; }
+      .identity img { width: 68px; height: 68px; }
+      .identity b { font: 800 23px/1 var(--brand-display); }
+      .identity span, .section { display: block; margin-top: 7px; color: var(--brand-aqua); font: 600 15px/1 var(--brand-spec); letter-spacing: .1em; }
+      .heading { margin-top: 66px; display: grid; grid-template-columns: 1.16fr .84fr; gap: 80px; align-items: end; }
+      h1 { margin: 0; font: 900 86px/.93 var(--brand-display); letter-spacing: -.055em; }
+      h1 em { color: var(--brand-aqua); font-style: normal; }
+      .summary { margin: 0 0 7px; color: var(--brand-mist); font: 500 27px/1.42 var(--brand-body); }
+      .process { position: absolute; left: 94px; right: 94px; bottom: 90px; display: grid; grid-template-columns: 1fr 150px 1fr 150px 1fr; align-items: center; }
+      .step { position: relative; min-height: 430px; padding: 38px 36px; border: 3px solid var(--brand-steel); background: rgba(6,26,43,.9); }
+      .step:nth-of-type(3), .step:nth-of-type(5) { border-color: var(--brand-aqua); }
+      .step small { color: var(--brand-aqua); font: 700 16px/1 var(--brand-spec); letter-spacing: .12em; }
+      .step h2 { margin: 54px 0 0; font: 850 48px/1 var(--brand-display); letter-spacing: -.045em; }
+      .step p { margin: 28px 0 0; color: var(--brand-mist); font: 500 23px/1.38 var(--brand-body); }
+      .step .metric { position: absolute; left: 36px; right: 36px; bottom: 30px; padding-top: 18px; border-top: 2px solid var(--brand-steel); color: var(--brand-aqua); font: 600 15px/1.3 var(--brand-spec); letter-spacing: .07em; }
+      .arrow { position: relative; height: 4px; background: var(--brand-aqua); }
+      .arrow::after { content: ""; position: absolute; right: -2px; top: -8px; border-left: 18px solid var(--brand-aqua); border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
+      .ember { position: absolute; left: 50%; top: -6px; width: 16px; height: 16px; background: var(--brand-ember); transform: translateX(-50%) rotate(45deg); }
+    </style>
+  </head>
+  <body>
+    <main class="canvas brand-canvas">
+      <div class="brand-grid"></div>
+      <header class="top">
+        <div class="identity"><img src="../assets/logo-mark-dark.svg" alt="" /><div><b>TONY HOANG</b><span>OPERATING SYSTEM / SME</span></div></div>
+        <div class="section brand-spec">FRAMEWORK / 03</div>
+      </header>
+      <section class="heading">
+        <h1>Từ quy trình rối<br />đến hệ thống <em>dùng được thật.</em></h1>
+        <p class="summary">Không bắt đầu từ tên công cụ. Bắt đầu từ điểm nghẽn, người phụ trách và đầu ra cần đo.</p>
+      </section>
+      <section class="process">
+        <article class="step"><small>01 / SCAN</small><h2>Chẩn đoán</h2><p>Nhìn rõ luồng việc, dữ liệu và tình huống ngoại lệ.</p><div class="metric">OUTPUT · BẢN ĐỒ ĐIỂM NGHẼN</div></article>
+        <div class="arrow"><i class="ember"></i></div>
+        <article class="step"><small>02 / REFRAME</small><h2>Tái cấu trúc</h2><p>Bỏ bước thừa, xác định owner và điểm bàn giao cho người.</p><div class="metric">OUTPUT · QUY TRÌNH MỚI</div></article>
+        <div class="arrow"></div>
+        <article class="step"><small>03 / OPERATE</small><h2>AI hóa</h2><p>Giao phần việc rõ cho AI, kiểm tra bằng tiêu chí đã chốt.</p><div class="metric">OUTPUT · HỆ THỐNG VẬN HÀNH</div></article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Source-video helpers for the HeyGen SPLIT/PIP pipeline.
+# Source-video helpers retained for the HeyGen LITE pipeline (no PIP).
 #
 #   placeholder <project_dir>
 #       Make a dark 720x1280 placeholder source.mp4 (real audio from audio/full.mp3)

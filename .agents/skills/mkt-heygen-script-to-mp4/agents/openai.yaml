@@ -1,0 +1,4 @@
+interface:
+  display_name: "HeyGen Script to MP4"
+  short_description: "Turn a script into a HeyGen MP4 video"
+  default_prompt: "Use $mkt-heygen-script-to-mp4 to convert this script into a HeyGen presenter MP4."

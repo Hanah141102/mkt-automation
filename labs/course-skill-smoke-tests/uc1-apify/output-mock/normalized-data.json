@@ -1,0 +1,253 @@
+{
+  "generated_at": "2026-08-12T02:35:08.272060+00:00",
+  "config": {
+    "competitors": [
+      {
+        "name": "Kênh Mẫu A",
+        "channels": {
+          "facebook": "https://www.facebook.com/example/",
+          "youtube": "https://www.youtube.com/@example"
+        }
+      }
+    ],
+    "max_posts": 3,
+    "newer_than": "30 days",
+    "actor_overrides": {}
+  },
+  "runs": [
+    {
+      "competitor": "Kênh Mẫu A",
+      "platform": "facebook",
+      "actor_id": "mock/facebook",
+      "target": "https://www.facebook.com/example/",
+      "items": 2,
+      "dataset_id": "mock-facebook-dataset"
+    },
+    {
+      "competitor": "Kênh Mẫu A",
+      "platform": "youtube",
+      "actor_id": "mock/youtube",
+      "target": "https://www.youtube.com/@example",
+      "items": 1,
+      "dataset_id": "mock-youtube-dataset"
+    }
+  ],
+  "records": [
+    {
+      "competitor": "Kênh Mẫu A",
+      "platform": "facebook",
+      "actor_id": "mock/facebook",
+      "target": "https://www.facebook.com/example/",
+      "author": "",
+      "content_type": "video",
+      "text": "Ba bước kiểm tra trước khi giao việc cho trợ lý AI",
+      "url": "https://www.facebook.com/example/posts/1",
+      "published_at": "2026-08-01T08:00:00Z",
+      "views": 1200,
+      "likes": 90,
+      "comments": 18,
+      "shares": 12,
+      "engagement": 120,
+      "engagement_rate_by_view": 10.0
+    },
+    {
+      "competitor": "Kênh Mẫu A",
+      "platform": "facebook",
+      "actor_id": "mock/facebook",
+      "target": "https://www.facebook.com/example/",
+      "author": "",
+      "content_type": "image",
+      "text": "Checklist giúp chủ doanh nghiệp kiểm soát nội dung do AI tạo",
+      "url": "https://www.facebook.com/example/posts/2",
+      "published_at": "2026-08-05T08:00:00Z",
+      "views": 900,
+      "likes": 70,
+      "comments": 10,
+      "shares": 8,
+      "engagement": 88,
+      "engagement_rate_by_view": 9.7778
+    },
+    {
+      "competitor": "Kênh Mẫu A",
+      "platform": "youtube",
+      "actor_id": "mock/youtube",
+      "target": "https://www.youtube.com/@example",
+      "author": "",
+      "content_type": "video",
+      "text": "CEO kiểm tra Marketing Agent như thế nào?",
+      "url": "https://www.youtube.com/watch?v=example1",
+      "published_at": "2026-08-03T08:00:00Z",
+      "views": 4500,
+      "likes": 210,
+      "comments": 35,
+      "shares": 0,
+      "engagement": 245,
+      "engagement_rate_by_view": 5.4444
+    }
+  ],
+  "summaries": [
+    {
+      "competitor": "Kênh Mẫu A",
+      "platform": "facebook",
+      "items": 2,
+      "total_views": 2100,
+      "average_views": 1050.0,
+      "total_likes": 160,
+      "total_comments": 28,
+      "total_shares": 20,
+      "total_engagement": 208,
+      "engagement_rate_by_view": 9.9048,
+      "themes": [
+        {
+          "term": "kiểm",
+          "count": 2
+        },
+        {
+          "term": "bước",
+          "count": 1
+        },
+        {
+          "term": "tra",
+          "count": 1
+        },
+        {
+          "term": "trước",
+          "count": 1
+        },
+        {
+          "term": "giao",
+          "count": 1
+        },
+        {
+          "term": "việc",
+          "count": 1
+        },
+        {
+          "term": "trợ",
+          "count": 1
+        },
+        {
+          "term": "checklist",
+          "count": 1
+        },
+        {
+          "term": "chủ",
+          "count": 1
+        },
+        {
+          "term": "doanh",
+          "count": 1
+        },
+        {
+          "term": "nghiệp",
+          "count": 1
+        },
+        {
+          "term": "soát",
+          "count": 1
+        }
+      ],
+      "top_posts": [
+        {
+          "competitor": "Kênh Mẫu A",
+          "platform": "facebook",
+          "actor_id": "mock/facebook",
+          "target": "https://www.facebook.com/example/",
+          "author": "",
+          "content_type": "video",
+          "text": "Ba bước kiểm tra trước khi giao việc cho trợ lý AI",
+          "url": "https://www.facebook.com/example/posts/1",
+          "published_at": "2026-08-01T08:00:00Z",
+          "views": 1200,
+          "likes": 90,
+          "comments": 18,
+          "shares": 12,
+          "engagement": 120,
+          "engagement_rate_by_view": 10.0
+        },
+        {
+          "competitor": "Kênh Mẫu A",
+          "platform": "facebook",
+          "actor_id": "mock/facebook",
+          "target": "https://www.facebook.com/example/",
+          "author": "",
+          "content_type": "image",
+          "text": "Checklist giúp chủ doanh nghiệp kiểm soát nội dung do AI tạo",
+          "url": "https://www.facebook.com/example/posts/2",
+          "published_at": "2026-08-05T08:00:00Z",
+          "views": 900,
+          "likes": 70,
+          "comments": 10,
+          "shares": 8,
+          "engagement": 88,
+          "engagement_rate_by_view": 9.7778
+        }
+      ]
+    },
+    {
+      "competitor": "Kênh Mẫu A",
+      "platform": "youtube",
+      "items": 1,
+      "total_views": 4500,
+      "average_views": 4500.0,
+      "total_likes": 210,
+      "total_comments": 35,
+      "total_shares": 0,
+      "total_engagement": 245,
+      "engagement_rate_by_view": 5.4444,
+      "themes": [
+        {
+          "term": "ceo",
+          "count": 1
+        },
+        {
+          "term": "kiểm",
+          "count": 1
+        },
+        {
+          "term": "tra",
+          "count": 1
+        },
+        {
+          "term": "marketing",
+          "count": 1
+        },
+        {
+          "term": "agent",
+          "count": 1
+        },
+        {
+          "term": "như",
+          "count": 1
+        },
+        {
+          "term": "thế",
+          "count": 1
+        },
+        {
+          "term": "nào",
+          "count": 1
+        }
+      ],
+      "top_posts": [
+        {
+          "competitor": "Kênh Mẫu A",
+          "platform": "youtube",
+          "actor_id": "mock/youtube",
+          "target": "https://www.youtube.com/@example",
+          "author": "",
+          "content_type": "video",
+          "text": "CEO kiểm tra Marketing Agent như thế nào?",
+          "url": "https://www.youtube.com/watch?v=example1",
+          "published_at": "2026-08-03T08:00:00Z",
+          "views": 4500,
+          "likes": 210,
+          "comments": 35,
+          "shares": 0,
+          "engagement": 245,
+          "engagement_rate_by_view": 5.4444
+        }
+      ]
+    }
+  ]
+}

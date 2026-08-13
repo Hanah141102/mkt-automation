@@ -1,0 +1,51 @@
+{
+  "runs": [
+    {
+      "competitor": "Kênh Mẫu A",
+      "platform": "facebook",
+      "actor_id": "mock/facebook",
+      "target": "https://www.facebook.com/example/",
+      "dataset_id": "mock-facebook-dataset",
+      "items": [
+        {
+          "text": "Ba bước kiểm tra trước khi giao việc cho trợ lý AI",
+          "url": "https://www.facebook.com/example/posts/1",
+          "timestamp": "2026-08-01T08:00:00Z",
+          "viewCount": 1200,
+          "likesCount": 90,
+          "commentsCount": 18,
+          "sharesCount": 12,
+          "type": "video"
+        },
+        {
+          "text": "Checklist giúp chủ doanh nghiệp kiểm soát nội dung do AI tạo",
+          "url": "https://www.facebook.com/example/posts/2",
+          "timestamp": "2026-08-05T08:00:00Z",
+          "viewCount": 900,
+          "likesCount": 70,
+          "commentsCount": 10,
+          "sharesCount": 8,
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "competitor": "Kênh Mẫu A",
+      "platform": "youtube",
+      "actor_id": "mock/youtube",
+      "target": "https://www.youtube.com/@example",
+      "dataset_id": "mock-youtube-dataset",
+      "items": [
+        {
+          "title": "CEO kiểm tra Marketing Agent như thế nào?",
+          "url": "https://www.youtube.com/watch?v=example1",
+          "publishedAt": "2026-08-03T08:00:00Z",
+          "viewCount": 4500,
+          "likeCount": 210,
+          "commentCount": 35,
+          "type": "video"
+        }
+      ]
+    }
+  ]
+}

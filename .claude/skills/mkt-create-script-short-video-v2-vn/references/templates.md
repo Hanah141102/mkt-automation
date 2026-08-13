@@ -1,142 +1,168 @@
-# Script Templates V2 — Giọng Việt Tự Nhiên
+# Mẫu đầu ra gói video ngắn + Facebook
 
-## Framework 1: OBSERVATION-ACTION
+## 1. Header
 
-**Dùng khi:** Xu hướng đang thay đổi, người xem cần hành động cụ thể trong thời gian tới.
+```markdown
+# [Tiêu đề làm việc]
 
-```
-[MỞ — Quan sát thực tế]
-Nêu một hiện tượng/xu hướng đang xảy ra mà người xem có thể chưa để ý.
-Dùng bằng chứng cụ thể (công ty X đang làm Y, số liệu Z).
-Kết bằng câu hỏi tu từ: "Các bạn có thấy không?"
-
-[GIỮA — Điều đó có nghĩa gì với bạn]
-Giải thích impact lên người xem.
-Thừa nhận: "Nghe hơi [cảm xúc] đúng không? Nhưng mà đấy là [thực tế]."
-Đặt câu hỏi: "Vậy thì [khoảng thời gian] tới các bạn nên làm gì?"
-
-[CUỐI — Hành động cụ thể]
-Liệt kê 2-4 bước cụ thể, đánh số.
-Mỗi bước = 1-2 câu ngắn, dễ làm ngay.
-Kết: trấn an + khích lệ nhẹ.
+- Nền tảng:
+- Thời lượng đích:
+- Người xem:
+- Một thông điệp:
+- Outcome:
+- CTA:
+- Trạng thái quyền công khai: Public / Anonymize / Need approval / Private
 ```
 
-**Ví dụ mở đầu:**
-> Có một cái cuộc họp có thể chưa diễn ra ở công ty của bạn nhưng mà mình nghĩ nó sẽ tới. Đó chính là cuộc họp về năng suất sử dụng AI. Các bạn có thấy mọi thứ nó đang dịch chuyển không?
+## 2. Source Brief
 
-**Ví dụ kết:**
-> Mình nghĩ các bạn không cần phải hoảng, các bạn chỉ cần đi trước một chút. Để khi mà người khác bắt đầu hỏi là nên làm gì thì các bạn đã thử rồi.
+Chỉ ghi đủ để người duyệt kiểm tra nguồn; không chép chi tiết riêng tư vào tài liệu bàn giao editor.
 
----
+```markdown
+## Nguồn insight
 
-## Framework 2: CHALLENGE-REFRAME
+| Nguồn | Loại | Điều được dùng | Quyền công khai |
+|---|---|---|---|
+| [đường dẫn note] | Trải nghiệm tác giả / Core / Literature / Project | [insight] | Public / Anonymize / Need approval / Private |
 
-**Dùng khi:** Phá vỡ cách hiểu cũ, thay đổi góc nhìn. Người xem đang làm đúng ở thời điểm trước nhưng cần upgrade.
-
-```
-[MỞ — Chỉ ra cách cũ]
-Nêu cách làm hiện tại mà nhiều người đang dùng.
-Thừa nhận: "Mình cũng vậy thôi."
-Mô tả cách cũ cụ thể để người xem nhận ra mình trong đó.
-
-[GIỮA — Tại sao cách cũ không còn đủ]
-Giải thích thế giới đã thay đổi thế nào.
-Nhấn mạnh: không phải cách cũ sai, mà là bây giờ có cách tốt hơn.
-"Bây giờ nếu các bạn vẫn [cách cũ] thì các bạn sẽ không [kết quả mong muốn]."
-
-[CUỐI — Cách mới + lộ trình]
-Đưa ra cách làm mới, chia thành từng ngày/bước nhỏ.
-"Các bạn chỉ cần [X] ngày thôi. Mỗi ngày thay đổi một chút."
-Kết: "Các bạn không cần trở thành chuyên gia, chỉ cần nâng cấp cách [hành động]."
+**Dữ kiện:** ...
+**Góc nhìn thương hiệu/tác giả:** ...
+**Giả thuyết cần gắn nhãn:** ...
+**Chi tiết đã loại vì riêng tư:** chỉ ghi loại dữ liệu, không ghi nội dung.
 ```
 
-**Ví dụ mở đầu:**
-> Nếu cái cách làm việc của bạn với AI không thay đổi trong vài tháng gần đây ấy thì rất có thể các bạn vẫn đang dùng AI theo cái cách của năm 2024. Mình cũng vậy thôi.
+## 3. Ba phương án triple hook
 
-**Ví dụ kết:**
-> Các bạn không cần phải trở thành chuyên gia, không cần hiểu hết codex, các bạn chỉ cần nâng cấp cách các bạn giao việc cho AI.
+```markdown
+## Hook
 
----
+### ⭐ A — [kiểu hook]
+- Chữ: `[3–8 từ, tối đa 2 dòng]`
+- Lời: “...”
+- Hình: [first frame + chuyển động]
+- 4S: Subject [0–2] · Stakes [0–2] · Speed [0–2] · Super clear [0–2]
+- Lý do chọn: ...
 
-## Framework 3: SKILL-SHIFT
+### B — [kiểu hook]
+...
 
-**Dùng khi:** Giới thiệu một kỹ năng mới mà người xem chưa nghĩ tới, hoặc đang hiểu sai bản chất.
-
-```
-[MỞ — Reveal kỹ năng bất ngờ]
-Nêu kỹ năng đang âm thầm trở nên quan trọng.
-"Không phải là [điều người ta nghĩ] mà là [điều bất ngờ]."
-Thừa nhận: "Trước đây mình cũng nghĩ [hiểu lầm phổ biến]."
-
-[GIỮA — Giải thích bản chất thật]
-Định nghĩa lại kỹ năng đó bằng ngôn ngữ đơn giản.
-Tóm gọn thành framework 3-4 bước.
-"Tức là các bạn không còn là [vai trò cũ]. Bạn là [vai trò mới]."
-
-[CUỐI — Liên kết tương lai + kêu gọi thử]
-Vẽ ra kịch bản 6 tháng tới.
-"Cái câu hỏi ở thời điểm đấy không phải là [X] mà là [Y]."
-Kết: "Mình nghĩ tuần này các bạn nên thử đi. Không phải để trở thành chuyên gia mà là để không bị bất ngờ."
+### C — [kiểu hook]
+...
 ```
 
-**Ví dụ mở đầu:**
-> Có một kỹ năng âm thầm trở thành kỹ năng chung của rất là nhiều nghề. Không phải là vibe code mà là quản lý AI agent.
+Không chọn phương án dưới 7/8 nếu chưa sửa. Điểm số chỉ là cổng tự kiểm, không phải dự đoán view.
 
-**Ví dụ kết:**
-> Quản lý agent không phải là một cái kỹ năng ở tương lai xa. Nó đang bắt đầu rồi. Và nếu các bạn vẫn chưa thử ấy, mình nghĩ tuần này các bạn nên thử đi.
+## 4. Storyboard bàn giao editor
 
----
+```markdown
+## Storyboard
 
-## Framework 4: WAKE-UP CALL
-
-**Dùng khi:** Cảnh báo một thay đổi lớn đang tới, giúp người xem chuẩn bị tâm thế và hành động.
-
-```
-[MỞ — Nói thẳng sự thật]
-"Mình muốn nói thẳng một cái điều mà có thể nhiều người vẫn chưa để ý nhá."
-Mô tả sự thay đổi đang xảy ra — cụ thể, rõ ràng.
-
-[GIỮA — Trước vs Bây giờ]
-So sánh cách cũ và cách mới.
-Giải thích tại sao cách cũ khiến người ta thất vọng.
-"Nhưng mà cái vai trò đó nó đang kết thúc nhá."
-Nêu điểm khác biệt cốt lõi của cách mới.
-
-[CUỐI — Kỹ năng mới + tầm nhìn]
-Định nghĩa kỹ năng cần thiết bằng ngôn ngữ đơn giản.
-"Đây không phải kỹ năng kỹ thuật mà là kỹ năng [tổ chức tư duy/giao việc/...]"
-Kết bằng câu hỏi gợi suy nghĩ: "Trong ngày làm việc của bạn, việc nào bạn vẫn đang ôm mà lẽ ra có thể giao cho AI?"
-"Nếu bạn trả lời được câu đó thì bạn đã bắt đầu đi đúng hướng rồi đấy."
+| Thời gian | Mục tiêu beat | Lời thoại | Chữ trên màn hình | Hình/A-roll/B-roll | Proof/nguồn | Nhịp dựng |
+|---|---|---|---|---|---|---|
+| 0–3s | Hook | ... | ... | ... | ... | ... |
+| 3–10s | Lock-in | ... | ... | ... | ... | ... |
+| 10–20s | Cơ chế 1 | ... | ... | ... | ... | ... |
+| 20–35s | Cơ chế 2 | ... | ... | ... | ... | ... |
+| 35–50s | Demo + ranh giới | ... | ... | ... | ... | ... |
+| 50–60s | Câu chốt + CTA | ... | ... | ... | ... | ... |
 ```
 
-**Ví dụ mở đầu:**
-> Mình muốn nói thẳng một cái điều mà có thể nhiều người vẫn chưa để ý nhá. AI bây giờ nó không còn ở cái vai trò trả lời câu hỏi nữa mà nó đang bước sang một cái vai hoàn toàn khác.
+Quy tắc:
 
-**Ví dụ kết:**
-> Ở cái thời điểm này cái điều quan trọng nhất các bạn cần nghĩ đấy là trong ngày làm việc của bạn, việc nào bạn vẫn đang ôm mà lẽ ra có thể giao cho AI. Và nếu bạn trả lời được câu đó thì bạn đã bắt đầu đi đúng hướng rồi đấy.
+- Để editor thấy ngay clip nào là A-roll, screen recording, sơ đồ, ảnh thật hay B-roll.
+- Dùng `[CẦN QUAY]`, `[CẦN XIN PHÉP]`, `[CẦN NGUỒN]` cho phần chưa sẵn sàng.
+- Không đưa tên khách hoặc dữ liệu nhận diện vào cột hình nếu chưa được phép.
+- Chỉ dùng B-roll khi nó hỗ trợ đúng câu nói tại beat đó.
 
----
+## 5. Bản thoại sạch
 
-## Bảng Tham Khảo Giọng Văn
+```markdown
+## Bản thoại quay/TTS
 
-### Mở đầu — KHÔNG dùng câu hỏi giật gân
+[Chỉ lời nói. Không để chỉ dẫn dựng, timestamp hoặc text overlay trong phần này.]
+```
 
-| Thay vì | Dùng |
-|---------|------|
-| "Bạn có biết AI sắp thay thế bạn không?" | "Có một cái cuộc họp có thể chưa diễn ra ở công ty bạn nhưng mà mình nghĩ nó sẽ tới." |
-| "5 cách dùng AI tăng năng suất gấp 10!" | "Nếu cách làm việc của bạn với AI không thay đổi trong vài tháng gần đây ấy thì rất có thể bạn vẫn đang dùng AI theo cách cũ." |
-| "AI agent là gì? Xem ngay!" | "Có một kỹ năng âm thầm trở thành kỹ năng chung của rất nhiều nghề." |
+Kiểm tra số từ theo thời lượng đích ở mức khoảng 130–160 từ/phút. Không cắt ý chỉ để ép đủ số giây; hãy giảm số luận điểm.
 
-### Chuyển đoạn — Nối tự nhiên
+## 6. Bài Facebook dài đăng kèm video
 
-- "Và tới khi cái [sự kiện] đấy xảy ra thì câu hỏi sẽ không phải là [X] mà sẽ là [Y]."
-- "Vậy thì [khoảng thời gian] tới các bạn nên làm gì?"
-- "Mình không nghĩ các bạn cần [điều lớn]. Mình nghĩ các bạn cần [điều thực tế hơn]."
-- "Nghe hơi [cảm xúc] đúng không? Nhưng mà đấy là cái [thực tế]."
+Dùng cùng Content Seed, big idea, proof, ranh giới và CTA với video. Mặc định viết 600–1.000 từ; chỉ dài hơn khi nguồn đủ sâu hoặc user yêu cầu. Đây là bài viết độc lập, không phải transcript được nối dài.
 
-### Kết — Trấn an, không gây FOMO
+Soạn nội bộ theo **CẢNH → NGHẼN → ĐỔI → HỆ → LÀM → CHỐT**, nhưng bỏ toàn bộ nhãn framework khỏi phần sẵn đăng:
 
-- "Các bạn không cần phải hoảng, chỉ cần đi trước một chút."
-- "Không phải để trở thành chuyên gia mà là để không bị bất ngờ."
-- "Chỉ cần [hành động nhỏ]. Không cần [hành động lớn]."
-- "Nếu bạn [đã làm X] thì bạn đã đi đúng hướng rồi đấy."
+```markdown
+## Bài Facebook dài
+
+[Câu mở hoặc cảnh thật cụ thể]
+
+[Điểm nghẽn/niềm tin cũ]
+
+[Cách nhìn mới và lý do]
+
+[Cơ chế hoặc hệ thống, có ví dụ và ranh giới]
+
+[3–5 bước áp dụng, chỉ đánh số khi trình tự thật sự quan trọng]
+
+[Câu chốt đáng nhớ]
+
+[Một CTA duy nhất, giống CTA của video]
+```
+
+Khi bàn giao, thay toàn bộ placeholder bằng copy hoàn chỉnh. Giữ đoạn ngắn 1–3 câu và khoảng trắng tự nhiên. Không để tiêu đề Markdown, bảng, ghi chú nguồn hoặc hashtag trong phần copy sẵn đăng trừ khi user yêu cầu. Không thêm claim, case hoặc chi tiết riêng tư chưa có trong Source Brief.
+
+## 7. Caption ngắn và CTA
+
+```markdown
+## Caption TikTok/Reels
+
+[Một câu mở cùng promise với video]
+
+[Một ý bổ sung hoặc việc làm ngay]
+
+[Một CTA duy nhất]
+```
+
+Không để caption hứa lớn hơn nội dung video.
+
+## 8. Quality Gate
+
+```markdown
+## Quality Gate
+
+- Hook 4S: PASS / REVISE
+- Triple-hook chữ–lời–hình: PASS / REVISE
+- Lock-in + trust anchor: PASS / REVISE
+- Nguồn và claim: PASS / REVISE / BLOCK
+- Brand voice: PASS / REVISE
+- Quyền riêng tư: PASS / REVISE / BLOCK
+- Khả năng quay/dựng: PASS / REVISE
+- Facebook CẢNH–NGHẼN–ĐỔI–HỆ–LÀM–CHỐT: PASS / REVISE
+- Độ sâu mindset + cách làm của bài Facebook: PASS / REVISE
+- Video ↔ Facebook cùng promise/proof/CTA: PASS / REVISE / BLOCK
+- Bài Facebook sẵn đăng, không phải transcript kéo dài: PASS / REVISE
+
+**Kết luận:** PASS / REVISE / BLOCK
+**Cần sửa hoặc cần người có thẩm quyền xác nhận:** ...
+```
+
+## 9. Năm động cơ câu chuyện
+
+### Niềm tin cũ → tương phản → cơ chế mới
+
+Dùng cho nội dung phản trực giác. Đặt hai cách nhìn đối lập nhưng cùng nói về một biến; không tạo tương phản giả.
+
+### Cảnh thật → điểm nghẽn → cách sửa
+
+Dùng cho nội dung SME và vận hành. Cho người xem thấy một tình huống cụ thể trước khi giải thích framework.
+
+### Kết quả → mổ xẻ → ranh giới
+
+Dùng khi có demo hoặc quy trình. Trình diễn thứ đã làm được, rồi nói điều kiện và phần AI không nên quyết định.
+
+### Khoảnh khắc → nhận ra → quyết định mới
+
+Dùng cho nhật ký. Kể ít bối cảnh nhất đủ hiểu; tập trung vào quyết định đã thay đổi. Không dùng chi tiết gia đình hoặc tổn thương chỉ để tăng cảm xúc.
+
+### Kết quả → 2–3 bước → việc làm ngay
+
+Dùng khi người xem cần checklist. Chỉ đánh số nếu thứ tự thật sự quan trọng.

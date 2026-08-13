@@ -26,7 +26,7 @@ tạo video keynote 16:9 có avatar về <topic>
 Skill sẽ tự động:
 1. Viết script (hoặc nhận user đưa) + chia beats
 2. **Phase 1**: TTS (parallel chunks) + alignment — ElevenLabs v3 mặc định, hoặc MiniMax speech-02 (`TTS_PROVIDER=minimax`)
-3. **Phase 2**: delegate `heygen-mp3-to-mp4` để lip-sync portrait 720×1280 (background mode, 60-180s)
+3. **Phase 2**: delegate `mkt-heygen-mp3-to-mp4` để lip-sync portrait 720×1280 (background mode, 60-180s)
 4. Parallel với Phase 2: tạo `design.md` + master scaffold skeleton + scene-01 reference
 5. **Phase 3**: fan out parallel sub-agents — 1 sub-agent / scene (1200×1080 `<template>` sub-comp)
 6. Compose `pip-schedule.json` (emphasis beats)
@@ -41,7 +41,7 @@ Skill sẽ tự động:
 ```bash
 TTS_PROVIDER=elevenlabs                         # elevenlabs (default) | minimax
 ELEVENLABS_API_KEY=sk_xxx                       # bắt buộc Phase 1 nếu provider=elevenlabs
-ELEVENLABS_VOICE_ID=K7ewtjKRNtwwt3lKQ6M0        # voice Hoàng
+ELEVENLABS_VOICE_ID=<ELEVENLABS_VOICE_ID>        # voice configured for the selected brand
 ELEVENLABS_MODEL_ID=eleven_v3
 MINIMAX_API_KEY=...                             # bắt buộc Phase 1 nếu provider=minimax
 MINIMAX_GROUP_ID=...
@@ -54,7 +54,7 @@ HEYGEN_AVATAR_LOOKS=look_id_1,look_id_2         # comma-separated pool
 
 Provider MiniMax cần thêm Whisper local cho alignment: `pip install -U openai-whisper`.
 
-Real HeyGen values ở `~/Documents/GitHub/hoang-ai-marketing/.env`.
+Real HeyGen values ở `<project-root>/.env`.
 
 ### Deps
 
@@ -67,9 +67,9 @@ brew install ffmpeg
 ### HeyGen MCP OAuth (lần đầu mỗi session)
 
 Nếu MCP báo "tool not found" cho `create_video_from_avatar`:
-1. Run `mcp__heygen__authenticate` → paste authorize URL cho user
+1. Run `mcp__codex_apps__heygen_authenticate` → paste authorize URL cho user
 2. User authorize browser → callback → paste lại
-3. `mcp__heygen__complete_authentication`
+3. `mcp__codex_apps__heygen_complete_authentication`
 4. Video tools mới load
 
 ## Skill structure

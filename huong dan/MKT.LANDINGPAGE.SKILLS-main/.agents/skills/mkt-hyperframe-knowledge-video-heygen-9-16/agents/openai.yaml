@@ -1,0 +1,4 @@
+interface:
+  display_name: "9:16 HeyGen Knowledge Video"
+  short_description: "Create vertical knowledge and news videos"
+  default_prompt: "Use $mkt-hyperframe-knowledge-video-heygen-9-16 to create this 9:16 knowledge or news video with a HeyGen presenter."

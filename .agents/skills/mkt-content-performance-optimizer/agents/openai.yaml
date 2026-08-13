@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Content Performance Optimizer"
+  short_description: "Tối ưu content từ dữ liệu hiệu suất thực tế"
+  default_prompt: "Use $mkt-content-performance-optimizer to decide which content to keep, repair, scale, or stop."

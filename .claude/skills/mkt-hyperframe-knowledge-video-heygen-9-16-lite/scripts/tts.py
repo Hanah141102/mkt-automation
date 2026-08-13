@@ -6,6 +6,9 @@ Takes a Markdown script (with optional ## beat headers), strips markdown,
 calls ElevenLabs `text-to-speech/<voice>/with-timestamps`, saves the
 MP3 + a word-level alignment JSON.
 
+Beat headings are metadata only. Entire heading lines are removed before
+the API call, so labels such as "Hook" or "Problem" are never spoken.
+
 ENV:
   ELEVENLABS_API_KEY    required
   ELEVENLABS_VOICE_ID   optional, defaults to "pNInz6obpgDQGcFmaJgB" (Adam)
@@ -64,8 +67,8 @@ def strip_markdown(md_text: str) -> str:
     """Strip markdown formatting so TTS reads cleanly.
 
     Removes:
-      - Heading markers (## Beat 1, # Title) — keeps the visible text on
-        a new line so paragraph breaks survive
+      - Entire Markdown heading lines (## Beat 1, # Title) — headings are
+        beat metadata, not narration, so they are removed completely
       - Bold/italic asterisks
       - Inline code backticks
       - Link syntax [text](url) → text
@@ -77,8 +80,9 @@ def strip_markdown(md_text: str) -> str:
     # Strip HTML comments
     text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
 
-    # Strip heading markers but keep the heading text as a sentence
-    text = re.sub(r"^#{1,6}\s+(.*)$", r"\1.", text, flags=re.MULTILINE)
+    # Drop complete heading lines. Headings label beats for the editor but
+    # must never become spoken narration (for example "Hook" / "Problem").
+    text = re.sub(r"^[ \t]*#{1,6}(?:[ \t]+.*)?(?:\n|$)", "", text, flags=re.MULTILINE)
 
     # Bold + italic markers
     text = re.sub(r"\*\*(.+?)\*\*", r"\1", text)

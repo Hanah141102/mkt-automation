@@ -1,0 +1,4 @@
+interface:
+  display_name: "crm-lifecycle-builder"
+  short_description: "Vận hành Fullstack Marketing có hệ thống"
+  default_prompt: "Use @crm-lifecycle-builder to solve this marketing task."

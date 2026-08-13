@@ -10,12 +10,12 @@ Orchestrator gọi script ở 2 path khác nhau giữa repo:
 
 | Repo | Skill install path |
 |---|---|
-| `claudeclaw-os` | `.claude/skills/<skill-name>/scripts/...` |
-| `hoang-ai-marketing` | `.claude/skills/<skill-name>/scripts/...` (project-local) hoặc `~/.claude/skills/<skill-name>/scripts/...` (user global) |
+| `claudeclaw-os` | `.agents/skills/<skill-name>/scripts/...` |
+| Workspace bất kỳ | `.agents/skills/<skill-name>/scripts/...` (project-local) hoặc skill root được cấu hình rõ |
 
 **Resolution order trong orchestrator commands:**
-1. Project-local: `.claude/skills/<skill-name>/scripts/...` (relative tới CWD = workspace folder OR git root)
-2. User global: `~/.claude/skills/<skill-name>/scripts/...`
+1. Project-local: `.agents/skills/<skill-name>/scripts/...` (relative tới CWD = workspace folder OR git root)
+2. User global: `.agents/skills/<skill-name>/scripts/...`
 
 Nếu cả 2 fail → báo user `<skill-name> not installed` và stop.
 
@@ -27,7 +27,7 @@ KHÔNG auto-truncate (sẽ mất ý đoạn cuối).
 
 ### MP3 > 300s
 
-Phase 2 `heygen-mp3-to-mp4` sẽ fail-fast (skill có guard). Orchestrator chỉ cần báo lỗi đó cho user, KHÔNG cần check duration trước.
+Phase 2 `mkt-heygen-mp3-to-mp4` sẽ fail-fast (skill có guard). Orchestrator chỉ cần báo lỗi đó cho user, KHÔNG cần check duration trước.
 
 ### Phase 2 + Phase 3a CPU contention (M-series Mac)
 
@@ -37,7 +37,7 @@ Whisper `medium` model + ffmpeg upload đồng thời có thể spike CPU > 100%
 
 **Mitigation:**
 1. Test trên 1 video 60-90s thật, đo `time` cho cả parallel và sequential mode.
-2. Nếu net-zero hoặc chậm hơn → fallback sequential. Edit orchestrator command để chạy `transcribe_audio.py` sau khi `heygen-mp3-to-mp4` poll done.
+2. Nếu net-zero hoặc chậm hơn → fallback sequential. Edit orchestrator command để chạy `transcribe_audio.py` sau khi `mkt-heygen-mp3-to-mp4` poll done.
 3. Whisper `small` thay vì `medium` giảm CPU 40% nhưng accuracy thấp hơn — chỉ fallback nếu user OK chất lượng caption thấp.
 
 ### 2 checkpoint cùng fire cho scenes outline
@@ -45,7 +45,7 @@ Whisper `medium` model + ffmpeg upload đồng thời có thể spike CPU > 100%
 `mkt-hyperframe-talking-head-video-16-9/scripts/detect_scenes.py` có checkpoint riêng (L155 trong skill SKILL.md). Khi orchestrator đã chạy `mkt-plan-short-video-edit-16-9` và có `visual-plan.json`, gọi `detect_scenes.py` MUST pass `--auto` để skip checkpoint nội bộ — không thì user sẽ thấy 2 prompt liên tiếp về cùng outline.
 
 ```bash
-python3 .claude/skills/mkt-hyperframe-talking-head-video-16-9/scripts/detect_scenes.py \
+python3 .agents/skills/mkt-hyperframe-talking-head-video-16-9/scripts/detect_scenes.py \
   --workspace . --auto    # khi visual-plan.json đã exist
 ```
 
@@ -78,6 +78,6 @@ Nếu HeyGen avatar đặc biệt (height khác hoặc face position khác) → 
 | Symptom | Skill xử lý |
 |---|---|
 | Script chưa viết, chỉ có topic | `mkt-create-script-storytelling-video` (chạy trước rồi quay lại skill này) |
-| Đã có MP3 sẵn, không cần Phase 1 | `heygen-mp3-to-mp4` rồi `mkt-hyperframe-talking-head-video-16-9` standalone |
+| Đã có MP3 sẵn, không cần Phase 1 | `mkt-heygen-mp3-to-mp4` rồi `mkt-hyperframe-talking-head-video-16-9` standalone |
 | Cần TikTok/Reels vertical 9:16 | `mkt-full-video-with-11-hyperframe-heygen` (sibling) |
 | Cần video montage / music video không talking-head | KHÔNG dùng skill này — talking-head spine là core assumption |

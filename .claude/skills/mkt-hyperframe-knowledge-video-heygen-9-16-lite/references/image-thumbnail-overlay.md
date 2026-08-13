@@ -36,7 +36,7 @@ Phân biệt với Pattern A (Image as hero, `image-feature` pattern): pattern A
   text-align: center;
   font: 500 10px/1 var(--font-mono);
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--accent-cyan);
+  color: var(--copper, #C96A2B);
 }
 ```
 

@@ -63,7 +63,7 @@ Each scene declares `mockup_variant` in `scenes.json`. Use the variant that matc
   "mockup_variant": "post-stack",
   "content": {
     "posts": [
-      { "name": "Hoàng · Tư vấn AI", "time": "30 ngày trước", "body": "Case #15 — ...", "stats": ["❤️ 1.2K", "💬 87", "📨 24 inbox"] },
+      { "name": "Thương hiệu · Chuyên gia", "time": "30 ngày trước", "body": "Case #15 — ...", "stats": ["❤️ 1.2K", "💬 87", "📨 24 inbox"] },
       { "name": "...", "time": "...", "body": "..." },
       { "name": "...", "time": "...", "body": "..." }
     ]

@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Social Media Audit"
+  short_description: "Rà soát hiện diện và hiệu suất mạng xã hội"
+  default_prompt: "Use $mkt-social-media-audit to audit these social channels against the brand goals."

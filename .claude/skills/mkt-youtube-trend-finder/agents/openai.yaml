@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT YouTube Trend Finder"
+  short_description: "Find recent videos from tracked channels"
+  default_prompt: "Use $mkt-youtube-trend-finder to find the latest long-form videos and trends from the tracked YouTube channels."

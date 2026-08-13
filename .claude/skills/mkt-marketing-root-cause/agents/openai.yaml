@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Marketing Root Cause"
+  short_description: "Truy nguyên nhân gốc của biến động marketing"
+  default_prompt: "Use $mkt-marketing-root-cause to investigate the root cause behind these marketing changes."

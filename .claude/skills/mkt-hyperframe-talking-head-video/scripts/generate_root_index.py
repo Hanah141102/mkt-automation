@@ -17,7 +17,7 @@ Usage:
     --scenes scenes.json \
     --total-duration 108.92 \
     --header-label "6 AI BUSINESS 2026" \
-    --footer-handle "@tranvanhoang.com"
+    --footer-handle "@brand"
 
 scenes.json schema (minimum):
 {
@@ -103,7 +103,7 @@ def render(scenes, total_duration, header_label, footer_handle):
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>{header_label} — Hoàng AI</title>
+  <title>{header_label}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -301,7 +301,7 @@ def main():
     p.add_argument("--scenes", required=True)
     p.add_argument("--total-duration", type=float, required=True)
     p.add_argument("--header-label", default="VIDEO")
-    p.add_argument("--footer-handle", default="@tranvanhoang.com")
+    p.add_argument("--footer-handle", default="@brand")
     args = p.parse_args()
 
     scenes_data = json.loads(Path(args.scenes).read_text())

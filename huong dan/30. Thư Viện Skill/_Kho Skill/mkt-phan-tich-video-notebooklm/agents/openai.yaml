@@ -1,0 +1,4 @@
+interface:
+  display_name: "Phân Tích Nguồn NotebookLM"
+  short_description: "Phân tích danh sách nguồn bằng NotebookLM"
+  default_prompt: "Use $mkt-phan-tich-video-notebooklm to analyze this list of sources with NotebookLM CLI."

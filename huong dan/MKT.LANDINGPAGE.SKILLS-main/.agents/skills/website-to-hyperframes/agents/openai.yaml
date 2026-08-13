@@ -1,0 +1,4 @@
+interface:
+  display_name: "Website to HyperFrames"
+  short_description: "Capture websites and create video compositions"
+  default_prompt: "Use $website-to-hyperframes to capture this website and turn it into a HyperFrames video composition."

@@ -123,7 +123,7 @@ skill.
 ## Duration impact (v3 vs v2 vs turbo)
 
 `eleven_v3` reads noticeably slower than older models — measured on
-Vietnamese (~170 từ, voice Hoàng `K7ewtjKRNtwwt3lKQ6M0`):
+Vietnamese (~170 từ, configured Vietnamese brand voice):
 
 | Model | Audio duration | Speed |
 |---|---|---|

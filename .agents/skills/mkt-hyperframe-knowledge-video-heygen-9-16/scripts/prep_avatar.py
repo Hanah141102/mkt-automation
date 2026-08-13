@@ -17,8 +17,8 @@ overlays on every scene.
 
 Usage:
   python prep_avatar.py \
-    --input  workspace/assets/brand/tony-avatar.jpg \
-    --output workspace/assets/brand/tony-avatar-circle.png \
+    --input  workspace/assets/brand/brand-avatar.jpg \
+    --output workspace/assets/brand/brand-avatar-circle.png \
     --size   240 \
     --ring   2 \
     --shadow

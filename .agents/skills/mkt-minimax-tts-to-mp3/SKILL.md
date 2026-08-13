@@ -1,14 +1,19 @@
 ---
 name: mkt-minimax-tts-to-mp3
-description: "Convert Vietnamese/English script text to MP3 voiceover using MiniMax T2A v2 API (speech-02). Drop-in alternative to mkt-elevenlabs-tts-to-mp3 — same input (script text) and output (MP3 file) contract, so downstream skills (heygen-mp3-to-mp4, mkt-full-video-with-11-hyperframe-heygen*) work unchanged. Reads MINIMAX_API_KEY, MINIMAX_GROUP_ID, MINIMAX_VOICE_ID from .env. USE WHEN user says 'tạo mp3 minimax', 'minimax tts', 'tạo voiceover minimax', 'text to speech minimax', 'đọc text bằng minimax', 'giọng minimax', 'hailuo voice', 'minimax script to mp3', or wants a voiceover MP3 and MiniMax is the chosen TTS provider."
+description: "Convert spoken-only Vietnamese/English narration to MP3 voiceover using MiniMax T2A v2 API (speech-02). Reject production briefs, headings, visual directions, and SFX notes before making a paid request. Drop-in alternative to mkt-elevenlabs-tts-to-mp3 with the same spoken-script input and MP3 output contract."
 ---
 
 # MiniMax TTS → MP3
 
 Chuyển script text thành file MP3 voiceover bằng MiniMax T2A v2 (`speech-02-hd` /
-`speech-02-turbo`). Output là MP3 chuẩn, dùng tiếp được cho `heygen-mp3-to-mp4`
+`speech-02-turbo`). Output là MP3 chuẩn, dùng tiếp được cho `mkt-heygen-mp3-to-mp4`
 và các pipeline `mkt-full-video-with-11-hyperframe-heygen*` (thay thế Phase 1
 ElevenLabs).
+
+**Input contract:** file đầu vào chỉ được chứa lời narrator nói thành tiếng.
+Không đưa production brief, heading beat, visual/camera direction, b-roll,
+SFX, music, caption hoặc ghi chú editor vào file TTS. Hãy tách chúng ra khỏi
+`voiceover.txt` trước khi gọi MiniMax.
 
 ## Env vars (đọc từ `.env` ở project root)
 
@@ -42,9 +47,23 @@ MINIMAX_API_BASE=       # optional — mặc định https://api.minimax.io
    API key sai thì trả `1004 login fail`. Cả hai đều trông giống nhau nếu
    chỉ nhìn status code; chỉ verify script mới phân biệt được trong 1 lần gọi.
 
-1. **Lấy script**: user đưa text trực tiếp hoặc đường dẫn file. Nếu script dài
+1. **Lấy spoken script**: user đưa text trực tiếp hoặc đường dẫn file. Chỉ
+   giữ nội dung narrator nói. Nếu script dài
    hơn ~10.000 ký tự, chia nhỏ theo đoạn và gọi nhiều lần, sau đó nối bằng
    ffmpeg (`concat` demuxer).
+
+   Không dùng trực tiếp file có `## Hook`, `Visual: ...`, `B-roll: ...`,
+   `[camera zoom]`, `SFX: ...`, hoặc các đoạn giải thích cho editor.
+
+1.5. **Spoken-script preflight (BẮT BUỘC trước API):**
+
+   ```bash
+   python3 <skill_dir>/scripts/validate_spoken_script.py \
+     --text-file /path/to/voiceover.txt
+   ```
+
+   Helper `minimax_tts.py` cũng chạy cùng kiểm tra và sẽ dừng trước request
+   nếu phát hiện nội dung không phải lời đọc.
 
 2. **Chạy helper script** (nằm trong `scripts/` của skill này):
 
@@ -96,3 +115,6 @@ MINIMAX_API_BASE=       # optional — mặc định https://api.minimax.io
   nào?" trước khi đã thử cả 2 — chỉ tốn 2 curl calls và trả lời được câu
   hỏi "key có hợp lệ không?" / "GroupId có cần không?" trong vòng 1 phút.
   Chỉ clarify khi 2 base URL cho kết quả khác nhau (key có thể region-specific).
+- **SPOKEN-CONTENT PITFALL:** TTS sẽ đọc mọi chữ được truyền vào. Luôn
+  validate file trước; MP3 skill không tự đoán hay tự diễn giải phần nào là
+  lời thoại.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "HyperFrames"
+  short_description: "Build animated HTML video compositions"
+  default_prompt: "Use $hyperframes to build this animated HTML video composition with synced media, captions, and transitions."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Proof & Story Miner"
+  short_description: "Tìm proof và câu chuyện có nguồn cho thương hiệu"
+  default_prompt: "Use $mkt-proof-story-miner to find verified proof and story seeds for this brand."

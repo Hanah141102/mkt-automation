@@ -1,6 +1,6 @@
 ---
 name: mkt-full-video-with-11-hyperframe-heygen
-description: End-to-end short-video pipeline — từ kịch bản (Việt/Anh) ra MP4 TikTok/Reels 9:16 hoàn chỉnh. Orchestrator 3 phase ghép 3 skill có sẵn — (1) `mkt-elevenlabs-tts-to-mp3` đọc script bằng voice của Hoàng, (2) `heygen-mp3-to-mp4` lip-sync avatar HeyGen, (3) delegate Phase 3 packaging cho sub-agent `mkt-full-video-phase3-packager` (transcribe + scene outline + fan-out N scene writers parallel + scaffold + render MP4). Chạy autopilot end-to-end: KHÔNG checkpoint, KHÔNG preview, tự chọn default khi thiếu info, render xong báo absolute path MP4. USE WHEN user nói "tạo full video từ script", "script to tiktok video", "pipeline full video heygen + hyperframe", "tạo video từ kịch bản đến mp4", "elevenlabs heygen hyperframe full pipeline", "kịch bản ra video tiktok", hoặc có sẵn 1 script + (optional) ảnh b-roll và muốn ra MP4 9:16 đóng gói có captions, SFX, b-roll.
+description: Create a complete 9:16 short video from a Vietnamese or English script using ElevenLabs TTS, HeyGen avatar lip-sync, and HyperFrames packaging. Use for end-to-end TikTok, Reels, or Shorts production with captions, sound effects, and optional b-roll.
 ---
 
 # mkt-full-video-with-11-hyperframe-heygen
@@ -16,9 +16,9 @@ End-to-end orchestrator: **script → final TikTok/Reels MP4 9:16**.
 - Muốn đi 1 mạch từ kịch bản đến MP4 cuối (autopilot, báo path khi xong)
 
 Không dùng skill này nếu:
-- User đã có MP3 sẵn → dùng thẳng `heygen-mp3-to-mp4`
+- User đã có MP3 sẵn → dùng thẳng `mkt-heygen-mp3-to-mp4`
 - User đã có MP4 talking-head sẵn → dùng thẳng `mkt-hyperframe-talking-head-video`
-- User cần HeyGen tự đọc text (không qua ElevenLabs) → dùng `heygen-script-to-mp4`
+- User cần HeyGen tự đọc text (không qua ElevenLabs) → dùng `mkt-heygen-script-to-mp4`
 - Script > 5000 ký tự → split semantic rồi gọi pipeline cho từng segment
 
 ## Pipeline overview
@@ -33,7 +33,7 @@ Phase 1 ── mkt-elevenlabs-tts-to-mp3 ───► voiceover.mp3
     │                              (autopilot — KHÔNG dừng duyệt MP3)
     │                                         │
     │                                         ▼
-Phase 2 ── heygen-mp3-to-mp4 ──────────► source.mp4 (9:16 lip-sync)
+Phase 2 ── mkt-heygen-mp3-to-mp4 ──────────► source.mp4 (9:16 lip-sync)
     │
     ▼
 Phase 3 ── spawn agent mkt-full-video-phase3-packager (isolated context)
@@ -93,16 +93,19 @@ workspace/content/YYYY-MM-DD/<slug>/
 
 1. Validate `len(script_text) <= 5000`. Vượt → stop, yêu cầu user split semantic.
 2. Derive slug nếu thiếu: 5 từ đầu → lowercase → bỏ dấu → space→dash.
-3. Tạo `workspace/content/YYYY-MM-DD/<slug>/`. Save `script.txt`.
+3. Tạo `workspace/content/YYYY-MM-DD/<slug>/`. Save `script.txt` chỉ gồm
+   lời narrator nói thành tiếng. Không đưa heading, visual direction, b-roll,
+   SFX, caption hay diễn giải editor vào file này; các thông tin đó để trong
+   design/beat metadata riêng.
 4. Nếu user có b-roll: tạo `<folder>/broll/`, copy file giữ tên gốc.
 5. Báo user: "Workspace tạo tại `<folder>`. Bắt đầu Phase 1 — ElevenLabs TTS."
 
 ### Step 1 — Phase 1: Script → MP3 (ElevenLabs)
 
 ```bash
-uv run .claude/skills/mkt-elevenlabs-tts-to-mp3/scripts/text_to_mp3.py \
-  --file workspace/content/YYYY-MM-DD/<slug>/script.txt \
-  -o workspace/content/YYYY-MM-DD/<slug>/voiceover.mp3
+uv run .agents/skills/mkt-elevenlabs-tts-to-mp3/scripts/elevenlabs_tts.py \
+  --text-file workspace/content/YYYY-MM-DD/<slug>/script.txt \
+  --out workspace/content/YYYY-MM-DD/<slug>/voiceover.mp3
 ```
 
 Voice settings overrides → thêm `--stability` / `--similarity_boost` / `--style`.
@@ -110,7 +113,7 @@ Voice settings overrides → thêm `--stability` / `--similarity_boost` / `--sty
 Sau khi xong, check duration:
 
 ```bash
-uv run .claude/skills/heygen-mp3-to-mp4/scripts/check_duration.py \
+uv run .agents/skills/mkt-heygen-mp3-to-mp4/scripts/check_duration.py \
   workspace/content/YYYY-MM-DD/<slug>/voiceover.mp3
 ```
 
@@ -124,11 +127,11 @@ KHÔNG dừng hỏi user. Verify MP3 tồn tại + duration ≤ 300s rồi auto-
 Phase 1 done — voiceover.mp3 (<X.X>s, <Y.Y>MB). Sang Phase 2 (HeyGen)…
 ```
 
-Nếu MP3 fail/empty → rerun `text_to_mp3.py` 1 lần; vẫn fail thì báo lỗi cho user.
+Nếu MP3 fail/empty → rerun `elevenlabs_tts.py` 1 lần; vẫn fail thì báo lỗi cho user.
 
 ### Step 3 — Phase 2: MP3 → HeyGen MP4 (auto)
 
-Theo sub-skill `heygen-mp3-to-mp4`:
+Theo sub-skill `mkt-heygen-mp3-to-mp4`:
 
 1. **Pick avatar ID** — read `HEYGEN_AVATAR_LOOKS` từ `.env` (comma-separated), random pick nếu user không chỉ định:
    ```bash
@@ -151,7 +154,7 @@ Theo sub-skill `heygen-mp3-to-mp4`:
 
 5. **Download MP4** → `workspace/content/YYYY-MM-DD/<slug>/source.mp4` (filename inviolable):
    ```bash
-   uv run .claude/skills/heygen-mp3-to-mp4/scripts/download_video.py \
+   uv run .agents/skills/mkt-heygen-mp3-to-mp4/scripts/download_video.py \
      "<video_url>" "workspace/content/YYYY-MM-DD/<slug>/source.mp4"
    ```
 
@@ -173,7 +176,7 @@ B-roll: [
 ]
 auto_scenes: true
 header_label: "3 BÀI HỌC AI"
-footer_handle: "@tranvanhoang.com"
+footer_handle: "@<brand-handle>"
 
 Run the full Phase 3 packaging pipeline per your agent definition. AUTOPILOT: skip scenes-outline checkpoint, no preview — render -q standard to <slug>.mp4 and return the absolute MP4 path.
 ```
@@ -208,9 +211,9 @@ When the sub-agent returns the MP4 path, format the final report với absolute 
 
 2. **Path conventions inviolable** — voiceover phải là `voiceover.mp3`, talking-head phải là `source.mp4`. HF sub-skill expect tên `source.mp4`.
 
-3. **HeyGen MCP only** — không bao giờ curl `https://api.heygen.com/...`. Hard constraint của `heygen-mp3-to-mp4`.
+3. **HeyGen MCP only** — không bao giờ curl `https://api.heygen.com/...`. Hard constraint của `mkt-heygen-mp3-to-mp4`.
 
-4. **Voice ID lock** — ElevenLabs default `K7ewtjKRNtwwt3lKQ6M0` (Hoàng's brand voice). Override qua `--voice_id` nhưng pipeline báo rõ pick nào.
+4. **Brand voice lock** — lấy `ELEVENLABS_VOICE_ID` từ cấu hình thương hiệu hoặc `--voice-id`; thiếu thì dừng, không dùng voice của lần chạy trước.
 
 5. **Script length hard cap 5000 ký tự** — fail fast ở Step 0.1.
 
@@ -226,9 +229,9 @@ When the sub-agent returns the MP4 path, format the final report với absolute 
 |---|---|
 | Script > 5000 ký tự | Stop, yêu cầu user split semantic |
 | ElevenLabs API fail | Báo error, suggest check `ELEVENLABS_API_KEY` trong `.env` |
-| MP3 > 300s sau Phase 1 | Stop pipeline, suggest `heygen-short-video` (chunking) |
+| MP3 > 300s sau Phase 1 | Stop pipeline, suggest `mkt-heygen-short-video` (chunking) |
 | HeyGen MCP not connected | Stop, báo `claude mcp list` để verify |
-| HeyGen render failed | Show error, gợi ý check credits qua `mcp__heygen__get_current_user` |
+| HeyGen render failed | Show error, gợi ý check credits qua `mcp__codex_apps__heygen_get_current_user` |
 | Phase 3 sub-agent fail | Đọc error trace, gợi ý user re-run Phase 3 standalone bằng `mkt-hyperframe-talking-head-video` skill |
 | Scene writer returns malformed JSON | Sub-agent tự re-spawn cho scene đó (không phải orchestrator's concern) |
 | User reject MP3 voice | Quay lại Phase 1 với voice settings tweak |
@@ -242,7 +245,7 @@ User:
 
 Pipeline:
 1. **Step 0** — slug `hom-nay-minh-chia-se`. Folder `workspace/content/2026-05-03/hom-nay-minh-chia-se/`. Save `script.txt`, copy b-roll.
-2. **Step 1** — `text_to_mp3.py` → `voiceover.mp3` (45s, 0.7MB).
+2. **Step 1** — `elevenlabs_tts.py` → `voiceover.mp3` (45s, 0.7MB).
 3. **Step 2 (AUTOPILOT)** — verify MP3 path + duration, in 1 dòng, KHÔNG dừng đợi reply.
 5. **Step 3** — Pick avatar (random từ `HEYGEN_AVATAR_LOOKS`, ví dụ `66e75e22…`). Upload MP3 → asset_id. Generate video → poll → download `source.mp4` (45s, 7.5MB).
 6. **Step 4** — Spawn `mkt-full-video-phase3-packager` sub-agent.
@@ -258,15 +261,15 @@ Total wall-clock: ~4–6 phút (vs 5–8 phút ở pipeline serial cũ).
 
 - KHÔNG viết script (dùng `mkt-create-script-short-video` hoặc `mkt-create-script-storytelling-video` trước).
 - KHÔNG handle script > 5000 ký tự (fail fast — user split semantic).
-- KHÔNG chunk MP3 (single-clip pipeline; > 300s dùng `heygen-short-video`).
+- KHÔNG chunk MP3 (single-clip pipeline; > 300s dùng `mkt-heygen-short-video`).
 - (Autopilot: CÓ auto-render MP4 cuối + báo path, KHÔNG preview gate.)
 - KHÔNG handle Phase 3 internals — delegate cho sub-agent `mkt-full-video-phase3-packager`.
 - KHÔNG override hard constraint của sub-skill (avatar allowlist, MCP-only, font Be Vietnam Pro, etc.).
 
 ## References
 
-- **Sub-skill `mkt-elevenlabs-tts-to-mp3`** — `.claude/skills/mkt-elevenlabs-tts-to-mp3/SKILL.md`
-- **Sub-skill `heygen-mp3-to-mp4`** — `.claude/skills/heygen-mp3-to-mp4/SKILL.md`
-- **Sub-skill `mkt-hyperframe-talking-head-video`** — `.claude/skills/mkt-hyperframe-talking-head-video/SKILL.md` (loaded by Phase 3 sub-agent)
+- **Sub-skill `mkt-elevenlabs-tts-to-mp3`** — `.agents/skills/mkt-elevenlabs-tts-to-mp3/SKILL.md`
+- **Sub-skill `mkt-heygen-mp3-to-mp4`** — `.agents/skills/mkt-heygen-mp3-to-mp4/SKILL.md`
+- **Sub-skill `mkt-hyperframe-talking-head-video`** — `.agents/skills/mkt-hyperframe-talking-head-video/SKILL.md` (loaded by Phase 3 sub-agent)
 - **Sub-agent `mkt-full-video-phase3-packager`** — `.claude/agents/mkt-full-video-phase3-packager.md`
 - **Reference HyperFrames project** — `workspace/video-projects/3-bai-hoc/`

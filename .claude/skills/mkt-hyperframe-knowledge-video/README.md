@@ -50,9 +50,9 @@ brew install ffmpeg                     # ffprobe cho duration check
 ### Prep brand avatar (chạy 1 lần)
 
 ```bash
-python agents/videoeditor/.claude/skills/mkt-hyperframe-knowledge-video/scripts/prep_avatar.py \
-  --input  workspace/assets/brand/tony-avatar.jpg \
-  --output workspace/assets/brand/tony-avatar-circle.png \
+python agents/videoeditor/.agents/skills/mkt-hyperframe-knowledge-video/scripts/prep_avatar.py \
+  --input  workspace/assets/brand/brand-avatar.jpg \
+  --output workspace/assets/brand/brand-avatar-circle.png \
   --size 240 --ring 2 --shadow
 ```
 

@@ -4,7 +4,7 @@ Khác skill gốc: HeyGen chỉ nhận **`audio/avatar.mp3`** (~30–40% thời 
 
 ## Delegation strategy — KHÔNG re-implement
 
-Skill `heygen-mp3-to-mp4` đã handle upload (REST helper) + create video (MCP) + poll + download. Delegate qua sub-agent `run_in_background: true`, orchestrator tự poll.
+Skill `mkt-heygen-mp3-to-mp4` đã handle upload (REST helper) + create video (MCP) + poll + download. Delegate qua sub-agent `run_in_background: true`, orchestrator tự poll.
 
 ## Env requirements
 
@@ -13,7 +13,7 @@ HEYGEN_API_KEY=...                            # REST upload
 HEYGEN_AVATAR_LOOKS=look_id_1,look_id_2,...   # pick random — 1 lần gọi = 1 look nhất quán mọi window
 ```
 
-Real values ở `~/Documents/GitHub/hoang-ai-marketing/.env`.
+Real values ở `<project-root>/.env`.
 
 ## Delegation prompt template
 
@@ -28,7 +28,7 @@ Phase 2 — Convert avatar-window MP3 to HeyGen lip-sync MP4 (LITE pipeline).
 - HeyGen avatar look: pick random from HEYGEN_AVATAR_LOOKS env
 - Render aspectRatio="9:16", resolution="720p" (= 720×1280 portrait)
 - Duration must match avatar.mp3 ±100ms
-- Use the `heygen-mp3-to-mp4` skill — its SKILL.md has the full workflow.
+- Use the `mkt-heygen-mp3-to-mp4` skill — its SKILL.md has the full workflow.
 
 # Status reporting
 **Status:** DONE | DONE_WITH_CONCERNS | BLOCKED | NEEDS_CONTEXT
@@ -36,14 +36,13 @@ Phase 2 — Convert avatar-window MP3 to HeyGen lip-sync MP4 (LITE pipeline).
 
 ## Polling (orchestrator — đừng tin sub-agent)
 
-Audio ~30s → HeyGen render thường **~4–6 phút** (ngắn hơn hẳn bản gốc 10–15 phút). HeyGen KHÔNG stuck nếu `failure_code = null` — chỉ đang queue. Poll `mcp__heygen__get_video` trực tiếp; sub-agent hay bịa elapsed time.
+Audio ~30s → HeyGen render thường **~4–6 phút** (ngắn hơn hẳn bản gốc 10–15 phút). HeyGen KHÔNG stuck nếu `failure_code = null` — chỉ đang queue. Poll `mcp__codex_apps__heygen_get_video` trực tiếp; sub-agent hay bịa elapsed time.
 
 ## Split sau khi download
 
 ```bash
 bash $SKILL/scripts/split_avatar_video.sh $OUT/avatar_heygen_raw.mp4 $OUT
 # → cut-plan.json (offset ĐO ĐƯỢC), avatar-clips/clip-NN.mp4 (re-encode keyframe dày),
-#   assets/pip-still.png (QA: Read ảnh — mắt mở, miệng đóng; xấu thì re-extract -ss khác)
 ```
 
 `data-duration` của mount lấy theo **ffprobe clip thật**.
@@ -117,6 +116,5 @@ Nếu `avatar-clips/` đã đủ clip khớp `avatar-windows.json` (số lượn
 | Gửi nhầm `full.mp3` lên HeyGen | Double-check input là `audio/avatar.mp3` — gửi full là mất luôn khoản tiết kiệm |
 | HeyGen render landscape | Set aspectRatio="9:16" resolution="720p" |
 | Clip duration lệch window | Trust ffprobe clip; mount `data-duration` theo clip, overlap 0.25s của scene mount che phần dư |
-| MCP chỉ expose `authenticate` | Chưa OAuth — run auth flow trước (xem skill `heygen-mp3-to-mp4`) |
+| MCP chỉ expose `authenticate` | Chưa OAuth — run auth flow trước (xem skill `mkt-heygen-mp3-to-mp4`) |
 | Sub-agent báo "stuck" | Poll trực tiếp `get_video`; `failure_code=null` = đang queue |
-| PIP still xấu | Re-extract frame khác: `ffmpeg -ss <t> -i clip-01.mp4 -frames:v 1 assets/pip-still.png` |

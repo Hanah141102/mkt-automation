@@ -1,0 +1,4 @@
+interface:
+  display_name: "9:16 Lite HeyGen Knowledge Video"
+  short_description: "Create cost-efficient vertical knowledge videos"
+  default_prompt: "Use $mkt-hyperframe-knowledge-video-heygen-9-16-lite to create this cost-efficient 9:16 knowledge video."

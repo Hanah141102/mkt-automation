@@ -1,6 +1,6 @@
 ---
 name: mkt-hyperframe-knowledge-video-heygen-9-16
-description: Tạo video chia sẻ kiến thức / tin tức 9:16 DỌC (1080×1920) cho TikTok/Reels/Shorts. HeyGen avatar lip-synced FULL-SCREEN khi nói trực tiếp, co xuống BOTTOM HALF (1080×960) khi slide motion-graphic hiện ở TOP HALF, với FULL↔SPLIT breath mechanic (avatar expand full cho punchline cuối mỗi beat) + breathing + scene-start punch-in + captions word-level track 60. Pipeline 3 phase giống sibling 16:9 — (1) TTS — ElevenLabs v3 (mặc định) hoặc MiniMax speech-02 (chọn qua TTS_PROVIDER=minimax hoặc user nói 'dùng minimax'), (2) heygen-mp3-to-mp4 lip-sync portrait 720×1280 + re-encode keyframe dày, (3) fan out parallel sub-agents author scene HTML 1080×960 standalone sub-comp (GSAP only, data-composition-src) → master index.html với #avatar-stage FULL↔SPLIT + SFX + captions → `npx hyperframes render`. Self-contained: templates ở assets/templates/. USE WHEN user nói 'video kiến thức 9:16 có avatar', 'knowledge video dọc heygen', 'tiktok keynote avatar', 'video dọc slide + avatar', 'avatar full screen và nửa màn hình', 'heygen full + split 9:16', 'video kiến thức tiktok có người dẫn', 'hyperframes heygen 9:16', 'slide trên avatar dưới', hoặc video knowledge 9:16 cần avatar HeyGen + slide motion graphic. KHÁC sibling 16-9 (avatar floating frame phải + SPLIT↔PIP) và KHÁC mkt-hyperframe-talking-head-video (dùng footage quay sẵn, infographic generator Python).
+description: Tạo video chia sẻ kiến thức / tin tức 9:16 DỌC (1080×1920) cho TikTok/Reels/Shorts. HeyGen avatar lip-synced FULL-SCREEN khi nói trực tiếp, co xuống BOTTOM HALF (1080×960) khi slide motion-graphic hiện ở TOP HALF, với FULL↔SPLIT breath mechanic (avatar expand full cho punchline cuối mỗi beat) + breathing + scene-start punch-in + captions word-level track 60. Pipeline 3 phase giống sibling 16:9 — (1) TTS — ElevenLabs v3 (mặc định) hoặc MiniMax speech-02 (chọn qua TTS_PROVIDER=minimax hoặc user nói 'dùng minimax'), (2) mkt-heygen-mp3-to-mp4 lip-sync portrait 720×1280 + re-encode keyframe dày, (3) fan out parallel sub-agents author scene HTML 1080×960 standalone sub-comp (GSAP only, data-composition-src) → master index.html với #avatar-stage FULL↔SPLIT + SFX + captions → `npx hyperframes render`. Self-contained: templates ở assets/templates/. USE WHEN user nói 'video kiến thức 9:16 có avatar', 'knowledge video dọc heygen', 'tiktok keynote avatar', 'video dọc slide + avatar', 'avatar full screen và nửa màn hình', 'heygen full + split 9:16', 'video kiến thức tiktok có người dẫn', 'hyperframes heygen 9:16', 'slide trên avatar dưới', hoặc video knowledge 9:16 cần avatar HeyGen + slide motion graphic. KHÁC sibling 16-9 (avatar floating frame phải + SPLIT↔PIP) và KHÁC mkt-hyperframe-talking-head-video (dùng footage quay sẵn, infographic generator Python).
 ---
 
 # HyperFrame Knowledge Video + HeyGen Pipeline (9:16 FULL↔SPLIT)
@@ -58,7 +58,7 @@ Chi tiết anti-patterns chung: `references/anti-patterns.md`. Layout chi tiết
 
 ```
 Phase 1 ── TTS (ElevenLabs scripts/tts.py | MiniMax scripts/tts_minimax.py) ──► audio/full.mp3 + alignment.json
-Phase 2 ── heygen-mp3-to-mp4 (sub-agent, background) ─────────► source_heygen_raw.mp4
+Phase 2 ── mkt-heygen-mp3-to-mp4 (sub-agent, background) ─────────► source_heygen_raw.mp4
               └─ prep_source_video.sh reencode ───────────────► source.mp4 (dense keyframes)
 Phase 3 ── design.md + beats.json + master scaffold (song song Phase 2)
        ── transcribe + clean + captions (cần source.mp4)
@@ -122,7 +122,7 @@ Khác biệt cần biết khi dùng MiniMax:
 
 ## Step 5 — Phase 2: HeyGen (background) + re-encode
 
-Delegate skill `heygen-mp3-to-mp4` qua sub-agent `run_in_background: true` (portrait 720×1280). Poll `mcp__heygen__get_video` TRỰC TIẾP (render thật mất 10-15 phút, KHÔNG stuck nếu failure_code=null). Download xong:
+Delegate skill `mkt-heygen-mp3-to-mp4` qua sub-agent `run_in_background: true` (portrait 720×1280). Poll `mcp__codex_apps__heygen_get_video` TRỰC TIẾP (render thật mất 10-15 phút, KHÔNG stuck nếu failure_code=null). Download xong:
 
 ```bash
 bash $SKILL/scripts/prep_source_video.sh reencode $OUT/source_heygen_raw.mp4 $OUT/source.mp4

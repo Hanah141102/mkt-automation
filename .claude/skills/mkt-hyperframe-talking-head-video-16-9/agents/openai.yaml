@@ -1,0 +1,4 @@
+interface:
+  display_name: "16:9 Talking Head Video"
+  short_description: "Edit talking-head footage into landscape video"
+  default_prompt: "Use $mkt-hyperframe-talking-head-video-16-9 to edit this talking-head footage into a polished 16:9 HyperFrames video."

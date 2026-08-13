@@ -1,11 +1,13 @@
 # --- Secrets: NEVER commit ---
-.env
+.env*
 !.env.example
+!**/.env.example
 *.key
 *credential*
 *secret*
 
 # --- Generated video artifacts / large media ---
+.media-library/
 workspace/
 b-rolls/
 *.mp4
@@ -20,6 +22,10 @@ dist/
 build/
 .cache/
 out/
+
+# --- Imported guide runtime output ---
+huong dan/MKT.LANDINGPAGE.SKILLS-main/output/
+huong dan/**/.env
 
 # --- Python ---
 __pycache__/

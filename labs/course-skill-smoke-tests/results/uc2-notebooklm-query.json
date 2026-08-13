@@ -1,0 +1,26 @@
+{
+  "value": {
+    "answer": "**Báo** và **YouTube** có các vai trò khác nhau như sau:\n\n*   **Báo:** Giúp nhóm nghiên cứu kiểm tra **ngày xuất bản, bối cảnh và dữ kiện** [1].\n*   **YouTube:** Giúp nhận ra các **chủ đề và cách diễn đạt** đang được quan tâm [2].\n\n**Cảnh báo về lượt xem:** Lượt xem cao trên YouTube chỉ là **tín hiệu để nghiên cứu**, không phải là bằng chứng cho thấy người xem sẽ mua hàng [2].",
+    "conversation_id": "c0a1bf22-6878-42ad-8638-4d1e0c5bd684",
+    "sources_used": [
+      "68dda29c-71dd-4497-ba34-2b1e120ac9db",
+      "44f98272-2fe1-4a1a-b011-00d7413febbb"
+    ],
+    "citations": {
+      "1": "68dda29c-71dd-4497-ba34-2b1e120ac9db",
+      "2": "44f98272-2fe1-4a1a-b011-00d7413febbb"
+    },
+    "references": [
+      {
+        "source_id": "68dda29c-71dd-4497-ba34-2b1e120ac9db",
+        "citation_number": 1,
+        "cited_text": "Nguồn A: Báo giúp nhóm nghiên cứu kiểm tra ngày xuất bản, bối cảnh và dữ kiện. Một kết luận quan trọng phải quay về nguồn có thể mở lại."
+      },
+      {
+        "source_id": "44f98272-2fe1-4a1a-b011-00d7413febbb",
+        "citation_number": 2,
+        "cited_text": "Nguồn B: Video YouTube giúp nhận ra chủ đề và cách diễn đạt đang được quan tâm. Lượt xem cao là tín hiệu để nghiên cứu, không phải bằng chứng rằng người xem sẽ mua hàng."
+      }
+    ]
+  }
+}

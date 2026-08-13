@@ -3,7 +3,7 @@
   ============================================================================
   MASTER index.html REFERENCE — 9:16 LITE / AVATAR WINDOWS (1080×1920).
   Avatar chỉ xuất hiện trong các WINDOW (hook / re-hook / CTA, 30-40% tổng
-  thời lượng). Ngoài window: scene motion-graphic FULL-CANVAS + PIP tĩnh.
+  thời lượng). Ngoài window: Pexels hoặc scene motion-graphic FULL-CANVAS, không PIP.
   Audio spine là audio/full.mp3 (ElevenLabs) — KHÔNG phải video HeyGen.
 
   Copy into project as index.html, then REPLACE only the marked bits:
@@ -20,7 +20,7 @@
     [6] WINDOWS[] const                      → {start, end} per avatar window
     [7] MOUNTS[] / BROLLS[] consts           → mount starts for fade+punch wiring
     [8] TOTAL const                          → same as [2]
-    [9] PIP <img src>                        → assets/pip-still.png (from split script)
+    [9] no PIP                              → không tạo DOM/GSAP presenter thumbnail
   DO NOT touch: CSS, #avatar-stage wrapper DOM, #root selector, breathing/punch
   logic, data-layout-allow-overflow attrs, gsap 3.14.2 CDN tag.
   ============================================================================
@@ -31,17 +31,20 @@
 <meta name="viewport" content="width=1080, height=1920" />
 <title>REPLACE-WITH-TITLE — Knowledge Lite 9:16</title>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
+  @font-face { font-family:'Be Vietnam Pro'; src:url('assets/fonts/BeVietnamPro-500.ttf') format('truetype'); font-style:normal; font-weight:500; }
+  @font-face { font-family:'Be Vietnam Pro'; src:url('assets/fonts/BeVietnamPro-600.ttf') format('truetype'); font-style:normal; font-weight:600; }
+  @font-face { font-family:'Be Vietnam Pro'; src:url('assets/fonts/BeVietnamPro-700.ttf') format('truetype'); font-style:normal; font-weight:700; }
+  @font-face { font-family:'Be Vietnam Pro'; src:url('assets/fonts/BeVietnamPro-800.ttf') format('truetype'); font-style:normal; font-weight:800; }
+  @font-face { font-family:'JetBrains Mono'; src:url('assets/fonts/JetBrainsMono-500.ttf') format('truetype'); font-style:normal; font-weight:500; }
+  @font-face { font-family:'JetBrains Mono'; src:url('assets/fonts/JetBrainsMono-600.ttf') format('truetype'); font-style:normal; font-weight:600; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #02040a; font-family: 'Inter', sans-serif; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #1F2430; font-family: 'Be Vietnam Pro', sans-serif; }
 
   #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
 
   /* Full-canvas dark base (visible in the 1-frame gap between clips, if any) */
-  #scene-bg { position: absolute; inset: 0; background: #02040a; z-index: 5; }
+  #scene-bg { position: absolute; inset: 0; background: #1F2430; z-index: 5; }
 
   /* Avatar stage — ALWAYS full-screen; visibility is driven purely by the
      avatar clips' mount windows (no height/top tweens in the lite pipeline). */
@@ -64,49 +67,40 @@
     position: absolute !important; top: 0; left: 0;
   }
 
-  /* B-roll filler videos — full-canvas above scenes, below PIP/captions */
+  /* B-roll filler videos — full-canvas above scenes, below captions */
   .broll-clip {
     position: absolute; top: 0; left: 0; width: 1080px; height: 1920px;
     object-fit: cover; z-index: 25;
   }
   #broll-shade {
     position: absolute; left: 0; bottom: 0; width: 1080px; height: 620px;
-    background: linear-gradient(180deg, transparent, rgba(2,4,10,0.78));
+    background: linear-gradient(180deg, transparent, rgba(31,36,48,0.84));
     z-index: 26; opacity: 0; pointer-events: none;
   }
-
-  /* PIP tĩnh — static presenter thumbnail, shown during scene segments only.
-     Top-right so it never collides with captions (bottom) / meta-badge (top-left). */
-  #pip-still {
-    position: absolute; top: 80px; right: 48px; z-index: 35;
-    width: 180px; height: 180px; border-radius: 50%;
-    border: 3px solid #d97757; box-shadow: 0 0 28px rgba(217,119,87,0.45);
-    overflow: hidden; opacity: 0; will-change: transform, opacity;
-  }
-  #pip-still img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 
   /* Transition overlays — full canvas (scenes are full-screen in lite) */
   #scene-wipe {
     position: absolute; top: 0; height: 1920px; left: -220px;
     width: 160px; z-index: 50; opacity: 0; pointer-events: none;
   }
-  #scene-wipe.coral { background: linear-gradient(90deg, transparent, #d97757 50%, transparent); box-shadow: 0 0 160px 36px rgba(217,119,87,0.55); }
-  #scene-wipe.cyan  { background: linear-gradient(90deg, transparent, #4fc3f7 50%, transparent); box-shadow: 0 0 160px 36px rgba(79,195,247,0.55); }
-  #scene-wipe.cream { background: linear-gradient(90deg, transparent, #faf9f5 50%, transparent); box-shadow: 0 0 160px 36px rgba(255,255,255,0.42); }
+  #scene-wipe.copper { background: linear-gradient(90deg, transparent, #C96A2B 50%, transparent); box-shadow: 0 0 120px 26px rgba(201,106,43,0.32); }
+  #scene-wipe.ivory { background: linear-gradient(90deg, transparent, #F7F3EE 50%, transparent); box-shadow: 0 0 120px 26px rgba(247,243,238,0.26); }
   #scene-flash {
-    position: absolute; inset: 0; background: #faf9f5;
+    position: absolute; inset: 0; background: #F7F3EE;
     z-index: 51; opacity: 0; pointer-events: none; mix-blend-mode: screen;
   }
 
   /* Brand mark top-left (text only) */
   #brand-mark {
-    position: absolute; top: 40px; left: 48px; z-index: 45;
-    font: 600 14px/1 'JetBrains Mono', monospace;
-    letter-spacing: 0.18em; text-transform: uppercase; color: #8b95a8;
-    display: inline-flex; align-items: center; gap: 10px; opacity: 0;
+    position: absolute; top: 38px; left: 42px; z-index: 45;
+    padding: 11px 15px 12px; border: 1px solid rgba(242,178,119,.32); border-radius: 10px;
+    background: rgba(247,243,238,.90); box-shadow: 0 8px 24px rgba(31,36,48,.10);
+    font: 600 13px/1 'JetBrains Mono', monospace;
+    letter-spacing: 0.07em; text-transform: uppercase; color: #1F2430;
+    display: inline-flex; align-items: center; gap: 9px; opacity: 0;
   }
-  #brand-mark .dot { width: 8px; height: 8px; border-radius: 50%; background: #d97757; box-shadow: 0 0 10px #d97757; }
-  #brand-mark .at  { color: #f48fb1; }
+  #brand-mark .dot { width: 8px; height: 8px; border-radius: 50%; background: #C96A2B; box-shadow: 0 0 12px rgba(201,106,43,.45); }
+  #brand-mark .at  { color: #C96A2B; }
   #brand-mark .sep { opacity: 0.4; }
 </style>
 </head>
@@ -120,7 +114,7 @@
   <!-- AUDIO SPINE: the full ElevenLabs voiceover (NOT the HeyGen video) -->
   <audio id="a-source" class="clip" data-start="0" data-duration="87.300" data-track-index="1" data-volume="1.0" src="audio/full.mp3"></audio>
 
-  <!-- [3] SFX layer (track 70+) — always a hit at every avatar↔scene boundary -->
+  <!-- [3] SFX layer (track 70+) — only at insight/major transition -->
   <audio id="sfx-hook-flash" class="clip" data-start="0.20"  data-duration="1.6"  data-track-index="70" data-volume="0.42" src="assets/sfx/camera-flash.mp3"></audio>
   <audio id="sfx-b1-whoosh"  class="clip" data-start="7.00"  data-duration="0.8"  data-track-index="71" data-volume="0.45" src="assets/sfx/whoosh.mp3"></audio>
 
@@ -147,19 +141,16 @@
   <!-- <video id="br1" class="clip broll-clip" data-start="30.000" data-duration="4.500" data-track-index="45" src="broll-clips/factory.mp4" muted playsinline></video> -->
   <div id="broll-shade"></div>
 
-  <!-- [9] PIP tĩnh — presenter presence during scene segments (0 HeyGen credit) -->
-  <div id="pip-still"><img src="assets/pip-still.png" alt="" /></div>
-
   <!-- transition overlays -->
-  <div id="scene-wipe" class="clip coral" data-start="0" data-duration="87.300" data-track-index="55"></div>
+  <div id="scene-wipe" class="clip copper" data-start="0" data-duration="87.300" data-track-index="55"></div>
   <div id="scene-flash" class="clip" data-start="0" data-duration="87.300" data-track-index="56"></div>
 
   <!-- brand mark -->
   <div id="brand-mark" class="clip" data-start="0" data-duration="87.300" data-track-index="2">
     <span class="dot"></span>
-    <span><span class="at">@</span>tranvanhoang.com</span>
+    <span><span class="at">BRAND</span></span>
     <span class="sep">·</span>
-    <span>Knowledge AI</span>
+    <span>AI SYSTEMS</span>
   </div>
 
   <!-- captions LAST (track 60 + z-index 100) -->
@@ -199,8 +190,8 @@
   // ---- Initial entrance ----
   tl.fromTo('#brand-mark', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 0.3);
 
-  // ---- Hook punch-zoom opener (sync camera-flash SFX @0.2) ----
-  tl.fromTo('.avatar-punch', { scale: 1.16 }, { scale: 1.0, duration: 0.85, ease: 'power3.out', transformOrigin: 'center center' }, 0.05);
+  // ---- Hook: restrained authority push, no camera-flash preset ----
+  tl.fromTo('.avatar-punch', { scale: 1.06 }, { scale: 1.0, duration: 0.75, ease: 'power3.out', transformOrigin: 'center center' }, 0.05);
 
   // ---- Per-window avatar life: punch-in at window start + ken-burns push ----
   WINDOWS.forEach((w, i) => {
@@ -211,45 +202,27 @@
     tl.fromTo(w.clip, { scale: 1.0 }, { scale: 1.06, duration: push, ease: 'sine.inOut', transformOrigin: 'center 30%', overwrite: 'auto' }, w.start + 0.1);
   });
 
-  // ---- Scene mounts: fade in + alternating punch-zoom ----
-  MOUNTS.forEach((m, i) => {
-    tl.fromTo(m.id, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out', overwrite: 'auto' }, m.start);
-    const fromScale = (i % 2 === 0) ? 1.06 : 0.95;
-    tl.fromTo(m.id, { scale: fromScale }, { scale: 1.0, duration: 0.65, ease: 'power3.out', transformOrigin: 'center center', overwrite: 'auto' }, m.start);
+  // ---- Scene mounts: clean cut; each scene owns its internal hero motion ----
+  MOUNTS.forEach((m) => {
+    tl.set(m.id, { opacity: 1, x: 0 }, m.start);
   });
 
   // ---- B-roll fillers: quick fade + slow ken-burns + bottom shade ----
   BROLLS.forEach((b) => {
     tl.fromTo(b.id, { opacity: 0, scale: 1.0 }, { opacity: 1, duration: 0.35, ease: 'power2.out', overwrite: 'auto' }, b.start);
-    tl.to(b.id, { scale: 1.06, duration: Math.max(0.5, b.dur - 0.3), ease: 'sine.inOut', transformOrigin: 'center center', overwrite: 'auto' }, b.start + 0.1);
+    tl.to(b.id, { scale: 1.025, duration: Math.max(0.5, b.dur - 0.3), ease: 'sine.inOut', transformOrigin: 'center center', overwrite: 'auto' }, b.start + 0.1);
     tl.fromTo('#broll-shade', { opacity: 0 }, { opacity: 1, duration: 0.4, overwrite: 'auto' }, b.start);
     tl.to('#broll-shade', { opacity: 0, duration: 0.3, overwrite: 'auto' }, b.start + b.dur - 0.3);
     tl.set('#broll-shade', { opacity: 0 }, b.start + b.dur + 0.05);
   });
 
-  // ---- Boundary flash at every avatar↔scene switch (hides the seam) ----
+  // ---- Optional loud-moment flash. Do not auto-call at every boundary. ----
   function boundaryFlash(t) {
     tl.fromTo('#scene-flash', { opacity: 0 }, { opacity: 0.34, duration: 0.09, ease: 'power2.out', overwrite: 'auto' }, t - 0.05);
     tl.to('#scene-flash', { opacity: 0, duration: 0.22, ease: 'power2.in', overwrite: 'auto' }, t + 0.05);
     tl.set('#scene-flash', { opacity: 0 }, t + 0.30);
   }
-  WINDOWS.forEach((w, i) => {
-    if (w.end < TOTAL - 0.5) boundaryFlash(w.end - 0.10);   // avatar → scene
-    if (i > 0) boundaryFlash(w.start - 0.05);               // scene → avatar
-  });
-
-  // ---- PIP tĩnh: visible only during scene segments ----
-  tl.set('#pip-still', { opacity: 0, scale: 0.6 }, 0);
-  WINDOWS.forEach((w, i) => {
-    const segStart = w.end, segEnd = (WINDOWS[i + 1] ? WINDOWS[i + 1].start : TOTAL);
-    if (segEnd - segStart < 2) return; // no real scene segment after this window
-    tl.to('#pip-still', { opacity: 1, scale: 1.0, duration: 0.5, ease: 'back.out(1.6)', overwrite: 'auto' }, segStart + 0.4);
-    tl.to('#pip-still', { opacity: 0, scale: 0.6, duration: 0.35, ease: 'power2.in', overwrite: 'auto' }, segEnd - 0.35);
-    tl.set('#pip-still', { opacity: 0 }, segEnd);
-  });
-  // PIP subtle breathing (finite repeats computed from TOTAL — no runaway loops)
-  tl.to('#pip-still', { scale: 1.04, duration: 3.5, ease: 'sine.inOut',
-    yoyo: true, repeat: Math.max(1, Math.ceil(TOTAL / 7) - 1), transformOrigin: 'center center' }, 1);
+  // Example: boundaryFlash(<one approved insight timestamp>);
 
   // ---- Avatar breathing (subtle yoyo, finite) ----
   tl.to('.avatar-breathing', { scale: 1.025, duration: 4.5, ease: 'sine.inOut',

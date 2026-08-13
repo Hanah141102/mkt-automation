@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Marketing Performance Analysis"
+  short_description: "Phân tích hiệu suất và driver marketing"
+  default_prompt: "Use $mkt-marketing-performance-analysis to analyze this marketing performance dataset."

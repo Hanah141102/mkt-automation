@@ -1,0 +1,61 @@
+# Framework chuyên môn — Phát triển ý tưởng nội dung
+
+## Câu hỏi quyết định
+
+Mọi lần sử dụng phải trả lời: đầu ra này giúp ai đưa ra quyết định gì, trong thời gian nào và dựa trên bằng chứng nào?
+
+## Logic đầu vào → xử lý → đầu ra
+
+### Đầu vào trọng yếu
+
+- Trụ cột nội dung đã duyệt
+- Insight và nấc nhận thức
+- Mục tiêu của giai đoạn
+- Kênh, định dạng, bằng chứng và giới hạn
+
+### Chuỗi xử lý
+
+1. Chốt phạm vi ý tưởng.
+2. Tách tension, câu hỏi và rào cản.
+3. Mở rộng góc tiếp cận.
+4. Tạo hook theo từng góc.
+5. Gắn bằng chứng và lời kêu gọi.
+6. Loại ý tưởng trùng hoặc chung chung.
+7. Chấm điểm giá trị, khác biệt và khả thi.
+8. Xếp ngân hàng ý tưởng theo ưu tiên.
+
+### Đầu ra tối thiểu
+
+- Ngân hàng ý tưởng
+- Góc tiếp cận và hook
+- Vai trò trong hành trình
+- Bằng chứng cần dùng
+- Điểm ưu tiên và giả thuyết kiểm chứng
+
+## Khung Fullstack Marketing
+
+Đặt nhiệm vụ trong toàn hệ thống:
+
+1. Mục tiêu kinh doanh và kinh tế đơn vị.
+2. Thị trường, khách hàng, đối thủ và bằng chứng.
+3. Định vị, offer và thông điệp.
+4. Hành trình khách hàng, kênh và điểm chạm.
+5. Nội dung, quảng cáo, thiết kế và chuyển đổi.
+6. Dữ liệu, đo lường, học hỏi và quyết định.
+
+Không tối ưu một mắt xích theo cách làm suy yếu mắt xích khác. Nếu điểm nghẽn nằm ngoài phạm vi Skill, nêu rõ nơi cần bàn giao.
+
+## Hệ thống bằng chứng
+
+- Dữ kiện nội bộ đã xác nhận.
+- Dữ liệu hiệu suất có định nghĩa và kỳ đo rõ.
+- Tiếng nói khách hàng có nguồn.
+- Quan sát thị trường có thời điểm và giới hạn.
+- Giả thuyết chưa kiểm chứng phải có điều kiện bác bỏ.
+
+## Các lỗi chuyên môn cần tránh
+
+- Nhầm chủ đề với ý tưởng
+- Tạo số lượng lớn nhưng không gắn mục tiêu
+- Hook giật gân vượt bằng chứng
+- Lặp lại một góc dưới nhiều cách diễn đạt

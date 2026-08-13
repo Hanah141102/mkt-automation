@@ -1,6 +1,6 @@
 # Design Tokens (Default Brand)
 
-Default brand: Hoàng AI Marketing — Anthropic-inspired cream + burnt sienna + Be Vietnam Pro. Read `../DESIGN.md` at project root for full brand guidelines.
+Default visual theme: cream + burnt sienna + Be Vietnam Pro. Override bằng brand context và design tokens của thương hiệu hiện hành.
 
 ## Colors
 
@@ -132,7 +132,7 @@ Inter is fallback if Be Vietnam Pro fails — has decent Vietnamese coverage. Ar
 
 ## Brand voice in templates
 
-- **Footer**: `@<handle>` (default `@tranvanhoang.com` for Hoàng) — burnt sienna `@`, ink text, cream pill bg
+- **Footer**: `@<handle>` lấy từ brand context — burnt sienna `@`, ink text, cream pill bg
 - **Header pill**: `<accent>N</accent> <topic>` (e.g., "3 Bài học · Alphabet") — UPPERCASE, weight 600
 - **Hook eyebrow**: Một câu mô tả ngắn, UPPERCASE letter-spacing 0.18em
 - **Hook title**: `<accent>N keyword</accent> mình học được` (or similar; user customizes)

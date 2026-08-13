@@ -1,14 +1,10 @@
 <template id="captions-template">
-  <div data-composition-id="captions" data-start="0" data-width="1080" data-height="1920">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
+  <div id="captions" data-composition-id="captions" data-start="0" data-width="1080" data-height="1920">
     <style>
-      [data-composition-id="captions"] {
+      @font-face { font-family:'Be Vietnam Pro'; src:url('assets/fonts/BeVietnamPro-500.ttf') format('truetype'); font-style:normal; font-weight:500; }
+      @font-face { font-family:'Be Vietnam Pro'; src:url('assets/fonts/BeVietnamPro-600.ttf') format('truetype'); font-style:normal; font-weight:600; }
+      @font-face { font-family:'Be Vietnam Pro'; src:url('assets/fonts/BeVietnamPro-700.ttf') format('truetype'); font-style:normal; font-weight:700; }
+      #captions {
         width: 100%;
         height: 100%;
         background: transparent;
@@ -16,37 +12,39 @@
         overflow: hidden;
         pointer-events: none;
       }
-      [data-composition-id="captions"] .caption-stage {
+      #captions .caption-stage {
         position: absolute;
         left: 0;
         right: 0;
-        bottom: 280px;
+        bottom: 240px;
       }
-      [data-composition-id="captions"] .caption-group {
+      #captions .caption-group {
         position: absolute;
         left: 0;
         right: 0;
         bottom: 0;
-        padding: 0 60px;
+        padding: 0 72px;
         box-sizing: border-box;
         text-align: center;
         opacity: 0;
         visibility: hidden;
         will-change: transform, opacity;
       }
-      [data-composition-id="captions"] .caption-group .text {
+      #captions .caption-group .text {
         display: inline-block;
         font-family: 'Be Vietnam Pro', 'Inter', sans-serif;
         font-weight: 700;
-        font-size: 58px;
-        line-height: 1.25;
-        color: #faf9f5;
-        background: rgba(20, 20, 19, 0.84);
-        padding: 18px 28px;
-        border-radius: 14px;
-        letter-spacing: -0.005em;
+        max-width: 900px;
+        font-size: 48px;
+        line-height: 1.3;
+        color: #F7F3EE;
+        background: rgba(31, 36, 48, 0.90);
+        padding: 15px 24px 17px;
+        border: 1px solid rgba(242, 178, 119, 0.22);
+        border-radius: 12px;
+        letter-spacing: 0;
         -webkit-text-stroke: 0;
-        box-shadow: 0 6px 20px rgba(20, 20, 19, 0.35);
+        box-shadow: 0 10px 34px rgba(31, 36, 48, 0.24);
       }
     </style>
 

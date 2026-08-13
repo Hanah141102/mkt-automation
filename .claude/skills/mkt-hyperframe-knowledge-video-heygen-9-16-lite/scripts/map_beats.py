@@ -84,7 +84,6 @@ def main() -> int:
             "duration_ms": end_ms - start_ms,
             "duration_s": round((end_ms - start_ms) / 1000, 3),
             "start_s": round(start_ms / 1000, 3),
-            "pip": b.get("pip"),
             "avatar": b.get("avatar", False),
             "role": b.get("role"),
             "anchor_context": ctx,

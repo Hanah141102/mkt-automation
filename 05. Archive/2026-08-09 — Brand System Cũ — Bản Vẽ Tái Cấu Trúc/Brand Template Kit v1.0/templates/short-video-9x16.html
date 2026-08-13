@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <link rel="stylesheet" href="../assets/brand-tokens.css" />
+    <style>
+      body { width: 1080px; height: 1920px; overflow: hidden; }
+      .canvas { width: 1080px; height: 1920px; padding: 92px 82px 80px; background: var(--brand-abyss); color: var(--brand-mist); }
+      .brand-grid { --grid-size: 68px; opacity: .68; mask-image: linear-gradient(#000 0 72%, transparent 96%); }
+      .top { display: flex; align-items: center; justify-content: space-between; }
+      .identity { display: flex; align-items: center; gap: 20px; }
+      .identity img { width: 76px; height: 76px; }
+      .identity strong { display: block; font: 800 25px/1 var(--brand-display); letter-spacing: -.02em; }
+      .identity span, .episode { color: var(--brand-aqua); font: 600 16px/1.3 var(--brand-spec); letter-spacing: .11em; text-transform: uppercase; }
+      .hook { position: relative; margin-top: 190px; max-width: 880px; }
+      .hook h1 { margin: 0; font: 900 112px/.89 var(--brand-display); letter-spacing: -.065em; text-transform: uppercase; }
+      .hook h1 em { color: var(--brand-aqua); font-style: normal; }
+      .hook p { margin: 46px 0 0; width: 760px; font: 500 37px/1.35 var(--brand-body); color: var(--brand-mist); }
+      .gap { left: 82px; top: 558px; width: 13px; height: 112px; }
+      .diagnostic { position: absolute; left: 82px; right: 82px; bottom: 106px; height: 610px; }
+      .diagnostic-title { color: var(--brand-aqua); font: 600 18px/1 var(--brand-spec); letter-spacing: .12em; }
+      .nodes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
+      .node { min-height: 190px; padding: 28px 26px; border: 2px solid var(--brand-steel); background: rgba(6,26,43,.86); }
+      .node:nth-child(1) { transform: translate(-9px, 8px); }
+      .node:nth-child(2) { transform: translate(7px, -6px); }
+      .node:nth-child(3), .node:nth-child(4) { border-color: var(--brand-aqua); }
+      .node b { display: block; color: var(--brand-aqua); font: 700 18px/1 var(--brand-spec); letter-spacing: .08em; }
+      .node span { display: block; margin-top: 28px; font: 700 31px/1.16 var(--brand-display); letter-spacing: -.03em; }
+      .handoff { display: flex; align-items: center; gap: 18px; margin-top: 38px; }
+      .handoff-line { height: 3px; flex: 1; background: var(--brand-aqua); }
+      .handoff-dot { width: 16px; height: 16px; background: var(--brand-aqua); transform: rotate(45deg); }
+      .handoff-label { color: var(--brand-mist); font: 600 17px/1 var(--brand-spec); letter-spacing: .1em; }
+    </style>
+  </head>
+  <body>
+    <main class="canvas brand-canvas brand-registration">
+      <div class="brand-grid"></div>
+      <header class="top">
+        <div class="identity">
+          <img src="../assets/logo-mark-dark.svg" alt="" />
+          <div><strong>TONY HOANG</strong><span>Tái cấu trúc doanh nghiệp bằng AI</span></div>
+        </div>
+        <div class="episode">FIELD NOTE / 01</div>
+      </header>
+
+      <section class="hook">
+        <div class="brand-reframe-gap gap"></div>
+        <h1>Đừng mua<br />thêm <em>AI</em></h1>
+        <p>nếu doanh nghiệp chưa trả lời được bốn câu hỏi này.</p>
+      </section>
+
+      <section class="diagnostic">
+        <div class="diagnostic-title">01 / QUÉT ĐIỂM NGHẼN</div>
+        <div class="nodes">
+          <div class="node"><b>START</b><span>Bắt đầu<br />ở đâu?</span></div>
+          <div class="node"><b>BLOCK</b><span>Chậm lại<br />ở đâu?</span></div>
+          <div class="node"><b>OWNER</b><span>Ai chịu<br />trách nhiệm?</span></div>
+          <div class="node"><b>OUTPUT</b><span>Đo bằng<br />chỉ số nào?</span></div>
+        </div>
+        <div class="handoff"><div class="handoff-line"></div><div class="handoff-dot"></div><div class="handoff-label">TÁI CẤU TRÚC TRƯỚC</div></div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -34,7 +34,7 @@ Tìm kiếm và phân tích video YouTube theo chủ đề/keyword. Lọc theo s
 ### Cú pháp
 
 ```bash
-uv run .claude/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "KEYWORD" [OPTIONS]
+uv run .agents/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "KEYWORD" [OPTIONS]
 ```
 
 ### Options
@@ -54,19 +54,19 @@ uv run .claude/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "KE
 
 ```bash
 # Tìm video về "claude code" nhiều views nhất tháng này
-uv run .claude/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "claude code"
+uv run .agents/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "claude code"
 
 # Tìm video AI agents, ít nhất 50K views, trong tuần
-uv run .claude/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "ai agents" --min-views 50000 --date week
+uv run .agents/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "ai agents" --min-views 50000 --date week
 
 # Sắp xếp theo breakout ratio
-uv run .claude/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "mcp server" --sort ratio
+uv run .agents/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "mcp server" --sort ratio
 
 # Video tiếng Việt về AI
-uv run .claude/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "AI automation" --lang vi --min-views 5000
+uv run .agents/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "AI automation" --lang vi --min-views 5000
 
 # Chỉ in ra terminal
-uv run .claude/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "vibe coding" --no-save
+uv run .agents/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "vibe coding" --no-save
 ```
 
 ---
@@ -158,7 +158,7 @@ Hỏi user nếu chưa rõ:
 ### Bước 2: Chạy script
 
 ```bash
-uv run .claude/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "KEYWORD" --min-views MIN --date DATE --sort SORT
+uv run .agents/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "KEYWORD" --min-views MIN --date DATE --sort SORT
 ```
 
 ### Bước 3: Trình bày kết quả
@@ -170,7 +170,7 @@ uv run .claude/skills/mkt-youtube-topic-researcher/scripts/research_topic.py "KE
 ### Bước 4: (Tùy chọn) Phân tích sâu
 
 Nếu user muốn đi sâu hơn:
-- Lấy transcript của top videos (dùng skill `youtube-transcript`)
+- Phân tích nội dung công khai và metadata của các video nổi bật.
 - Phân tích content strategy (dùng skill `mkt-competitor-video-strategy-analyzer`)
 - Bóc insight (dùng skill `mkt-insight-extractor`)
 

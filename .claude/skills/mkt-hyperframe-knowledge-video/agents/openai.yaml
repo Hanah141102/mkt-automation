@@ -1,0 +1,4 @@
+interface:
+  display_name: "HyperFrame Knowledge Video"
+  short_description: "Create animated knowledge and news videos"
+  default_prompt: "Use $mkt-hyperframe-knowledge-video to create this knowledge or news video in HyperFrames."

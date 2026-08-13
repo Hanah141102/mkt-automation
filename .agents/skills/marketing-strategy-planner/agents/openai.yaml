@@ -1,0 +1,4 @@
+interface:
+  display_name: "marketing-strategy-planner"
+  short_description: "Vận hành Fullstack Marketing có hệ thống"
+  default_prompt: "Use @marketing-strategy-planner to solve this marketing task."

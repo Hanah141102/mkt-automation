@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Defuddle"
+  short_description: "Trích nội dung sạch từ bài báo và website"
+  default_prompt: "Use $mkt-defuddle to extract clean readable content from these web sources."

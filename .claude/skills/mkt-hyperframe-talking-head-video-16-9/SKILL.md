@@ -1,6 +1,6 @@
 ---
 name: mkt-hyperframe-talking-head-video-16-9
-description: Build a TikTok/Reels/YouTube **landscape 16:9 (1920×1080)** short video from a pre-recorded talking-head MP4 using HyperFrames — transcribe Vietnamese audio, scaffold a complete preview-ready 1920×1080 project with a slide pane (1200px) on the left and a floating avatar frame on the right, GSAP timeline có SPLIT↔PIP transitions (slide full-screen + avatar PIP corner thumbnail), breathing yoyo zoom + beat-driven punch-in trên avatar, 5 scene compositions kiểu "tier-row" pattern (post-stack hook / chats-stack problem / hero-orb solution / counter-row recap / terminal-row CTA), optional cream-paper editorial infographic image slots với `<img onerror>` fallback, 6 SFX wired tại scene boundaries, **NO captions** (giọng avatar là spine). USE WHEN user nói "edit video 16:9 từ HeyGen MP4", "scaffold project landscape", "podcast keynote editor", "talking head + slide editor", "build hyperframes 1920×1080", "tạo project 16:9 từ avatar mp4", "scaffold 16:9 hyperframes", "hyperframe landscape video editor", "edit 16:9 từ source.mp4 + voiceover.mp3", or has a HeyGen avatar MP4 + ElevenLabs voiceover MP3 + script.txt và muốn ra preview-ready 16:9 HyperFrames project. ALSO trigger as Phase 3 delegate cho `mkt-full-video-with-11-hyperframe-heygen-16-9` orchestrator. KHÁC với sibling `mkt-hyperframe-talking-head-video` (sibling là 9:16 vertical với captions là spine; skill này là 16:9 landscape với avatar voice là spine, không captions).
+description: Edit a pre-recorded HeyGen talking-head MP4 into a 16:9 HyperFrames podcast keynote with slide panels, avatar PIP transitions, motion graphics, and sound effects. Use when the user has an avatar MP4 and voiceover and wants a landscape project without captions.
 ---
 
 # mkt-hyperframe-talking-head-video-16-9
@@ -54,7 +54,7 @@ Canvas:
 
 | File | Required | Note |
 |---|---|---|
-| `voiceover.mp3` | Yes | ElevenLabs TTS output (Hoàng's voice). |
+| `voiceover.mp3` | Yes | ElevenLabs TTS output với voice của thương hiệu hiện hành. |
 | `source.mp4` | Yes | HeyGen avatar lip-sync. **Currently 9:16 portrait** — landscape frame uses `object-fit: cover; object-position: center 25%` để crop hợp lý. See `references/source-mp4-cropping.md`. |
 | `script.txt` | Yes | Vietnamese script that produced `voiceover.mp3`. Used for typo correction + scene heading derivation. |
 | `scenes-outline.json` | No | If user pre-defined 5 scenes, skip auto-detection. Schema: see Step 3. |
@@ -365,17 +365,17 @@ The planner skill ships its own `references/visual-thinking-library.md` with 25 
 # contains voiceover.mp3 + source.mp4 + script.txt. Now call this editor:
 
 cd <workspace_folder>
-python3 ~/.claude/skills/mkt-hyperframe-talking-head-video-16-9/scripts/transcribe_audio.py --workspace .
-python3 ~/.claude/skills/mkt-hyperframe-talking-head-video-16-9/scripts/clean_transcript.py transcript.json
+python3 .agents/skills/mkt-hyperframe-talking-head-video-16-9/scripts/transcribe_audio.py --workspace .
+python3 .agents/skills/mkt-hyperframe-talking-head-video-16-9/scripts/clean_transcript.py transcript.json
 
 # Phase 3b: planner skill writes visual-plan.json + prompts.md
-python3 ~/.claude/skills/mkt-plan-short-video-edit-16-9/scripts/plan_visuals.py --workspace . --brand claude
-python3 ~/.claude/skills/mkt-plan-short-video-edit-16-9/scripts/render_infographic_prompts.py --workspace .
+python3 .agents/skills/mkt-plan-short-video-edit-16-9/scripts/plan_visuals.py --workspace . --brand claude
+python3 .agents/skills/mkt-plan-short-video-edit-16-9/scripts/render_infographic_prompts.py --workspace .
 # AUTOPILOT — KHÔNG checkpoint. LLM tự customize visual-plan.json (per-scene metaphor/tier-letter) rồi chạy thẳng, KHÔNG hỏi user duyệt.
-python3 ~/.claude/skills/mkt-plan-short-video-edit-16-9/scripts/apply_plan_to_scenes.py --workspace .
+python3 .agents/skills/mkt-plan-short-video-edit-16-9/scripts/apply_plan_to_scenes.py --workspace .
 
 # Phase 3c: scaffold (sfx + logos + avatar.jpg + yt-lower-third.html)
-python3 ~/.claude/skills/mkt-hyperframe-talking-head-video-16-9/scripts/scaffold_project.py --workspace .
+python3 .agents/skills/mkt-hyperframe-talking-head-video-16-9/scripts/scaffold_project.py --workspace .
 
 # Phase 3d: 🔥 LLM SUB-AGENT FANOUT 🔥
 # Orchestrator (or user) spawns N parallel general-purpose Agents in 1 message —
@@ -383,7 +383,7 @@ python3 ~/.claude/skills/mkt-hyperframe-talking-head-video-16-9/scripts/scaffold
 # DO NOT call generate_compositions.py (deprecated).
 
 # Phase 3e: root index.html (mounts scene-N.html + broll layer + PIP + SFX + brand)
-python3 ~/.claude/skills/mkt-hyperframe-talking-head-video-16-9/scripts/generate_root_index.py --workspace .
+python3 .agents/skills/mkt-hyperframe-talking-head-video-16-9/scripts/generate_root_index.py --workspace .
 
 # Phase 3f: lint + render (AUTOPILOT — KHÔNG preview)
 npx hyperframes lint                         # fix errors rồi lint lại

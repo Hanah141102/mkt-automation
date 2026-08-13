@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>3 Bài Học từ Alphabet — Hoàng AI</title>
+  <title>Video thương hiệu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -238,7 +238,7 @@
       data-duration="106.94"
       data-track-index="2"
     >
-      <span class="at">@</span>tranvanhoang.com
+      <span class="at">@</span>brand
     </div>
 
     <div
@@ -394,7 +394,7 @@
 
       // -------- SOURCE VIDEO ZOOM PULSES --------
       // Punch zoom moments — sync với SFX, face vẫn hiện cả 3s đầu.
-      // Pattern từ heygen-short-video sound-design + zoomPulses references.
+      // Pattern từ mkt-heygen-short-video sound-design + zoomPulses references.
       const SOURCE_PUNCHES = [
         { t: 0.0,  scale: 1.10, dur: 0.6  }, // entry punch — sync camera flash
         { t: 13.0, scale: 1.10, dur: 0.55 }, // sau lesson 1 b-roll

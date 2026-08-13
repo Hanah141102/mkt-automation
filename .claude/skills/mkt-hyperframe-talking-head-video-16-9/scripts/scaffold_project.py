@@ -14,13 +14,11 @@ import sys
 from pathlib import Path
 
 
-# Try to find a bundled SFX folder; fall back to none if missing.
-# Priority: skill-bundled assets (self-contained), then legacy workspace paths.
+# Try skill-bundled assets only. Brand-specific assets must be passed explicitly
+# or configured in the current workspace.
 _SKILL_DIR = Path(__file__).resolve().parent.parent
 SFX_CANDIDATE_DIRS = [
     _SKILL_DIR / 'assets' / 'sfx',
-    Path.home() / 'Documents' / 'GitHub' / 'claudeclaw-os' / 'workspace' / 'assets' / 'reels' / 'sfx',
-    Path.home() / 'Documents' / 'GitHub' / 'hoang-ai-marketing' / 'workspace' / 'assets' / 'reels' / 'sfx',
 ]
 
 SFX_FILES = [
@@ -37,8 +35,6 @@ SFX_FILES = [
 # Avatar.jpg is used by yt-lower-third subscribe banner.
 LOGO_CANDIDATE_DIRS = [
     _SKILL_DIR / 'assets' / 'logos',
-    Path.home() / 'Documents' / 'GitHub' / 'claudeclaw-os' / 'workspace' / 'assets' / 'logos',
-    Path.home() / 'Documents' / 'GitHub' / 'hoang-ai-marketing' / 'workspace' / 'assets' / 'logos',
 ]
 LOGO_FILE_MAP = {
     # source-name (with spaces accepted) → workspace target name (no spaces)
@@ -53,15 +49,7 @@ LOGO_FILE_MAP = {
 }
 
 AVATAR_CANDIDATE_PATHS = [
-    # Prefer skill-bundled (self-contained, real Hoang avatar 1280×1280).
     _SKILL_DIR / 'assets' / 'avatar.jpg',
-    # Then look in workspace/assets/brand/ which is where the canonical
-    # Hoang avatar lives in the claudeclaw-os repo.
-    Path.home() / 'Documents' / 'GitHub' / 'claudeclaw-os' / 'workspace' / 'assets' / 'brand' / 'tony-avatar.jpg',
-    Path.home() / 'Documents' / 'GitHub' / 'claudeclaw-os' / 'workspace' / 'assets' / 'brand' / 'Hoang profile.jpg',
-    Path.home() / 'Documents' / 'GitHub' / 'hoang-ai-marketing' / 'workspace' / 'assets' / 'brand' / 'tony-avatar.jpg',
-    # Last resort: small placeholder.
-    Path.home() / 'Documents' / 'GitHub' / 'claudeclaw-os' / 'assets' / 'avatar.jpg',
 ]
 
 
@@ -119,13 +107,15 @@ def copy_logos(workspace: Path):
         print(f'[scaffold] logos ← {src} ({copied} copied)')
 
 
-def copy_avatar(workspace: Path):
+def copy_avatar(workspace: Path, explicit_avatar: str | None = None):
     """Copy avatar.jpg (used by yt-lower-third subscribe banner) into
     workspace/assets/avatar.jpg if a source is available."""
     dst = workspace / 'assets' / 'avatar.jpg'
     if dst.exists():
         return
-    for src in AVATAR_CANDIDATE_PATHS:
+    configured = explicit_avatar or os.environ.get('MKT_BRAND_AVATAR')
+    candidates = ([Path(configured).expanduser()] if configured else []) + AVATAR_CANDIDATE_PATHS
+    for src in candidates:
         if src.exists():
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dst)
@@ -141,7 +131,6 @@ def copy_yt_lower_third(workspace: Path):
         return
     candidates = [
         _SKILL_DIR / 'assets' / 'compositions' / 'yt-lower-third.html',
-        Path.home() / 'Documents' / 'GitHub' / 'claudeclaw-os' / 'compositions' / 'yt-lower-third.html',
     ]
     for src in candidates:
         if src.exists():
@@ -306,11 +295,12 @@ def maybe_apply_visual_plan(workspace: Path) -> bool:
     if not plan_path.exists():
         return False
 
+    root = Path.cwd().resolve()
     candidates = [
-        Path.home() / 'Documents' / 'GitHub' / 'claudeclaw-os' / '.claude' / 'skills'
-            / 'mkt-plan-short-video-edit-16-9' / 'scripts' / 'apply_plan_to_scenes.py',
-        Path.home() / 'Documents' / 'GitHub' / 'hoang-ai-marketing' / '.claude' / 'skills'
-            / 'mkt-plan-short-video-edit-16-9' / 'scripts' / 'apply_plan_to_scenes.py',
+        root / '.agents' / 'skills' / 'mkt-plan-short-video-edit-16-9' / 'scripts' / 'apply_plan_to_scenes.py',
+        root / '.claude' / 'skills' / 'mkt-plan-short-video-edit-16-9' / 'scripts' / 'apply_plan_to_scenes.py',
+        Path.home() / '.codex' / 'skills' / 'mkt-plan-short-video-edit-16-9'
+            / 'scripts' / 'apply_plan_to_scenes.py',
         Path.home() / '.claude' / 'skills' / 'mkt-plan-short-video-edit-16-9'
             / 'scripts' / 'apply_plan_to_scenes.py',
     ]
@@ -330,6 +320,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--workspace', '-w', default='.', help='Workspace folder')
     ap.add_argument('--no-sfx', action='store_true', help='Skip SFX copy')
+    ap.add_argument('--avatar', help='Brand avatar image; alternatively set MKT_BRAND_AVATAR')
     args = ap.parse_args()
 
     workspace = Path(args.workspace).resolve()
@@ -340,7 +331,7 @@ def main():
         if not args.no_sfx:
             copy_sfx(workspace)
         copy_logos(workspace)
-        copy_avatar(workspace)
+        copy_avatar(workspace, args.avatar)
         copy_yt_lower_third(workspace)
         return
 
@@ -385,7 +376,7 @@ def main():
     if not args.no_sfx:
         copy_sfx(workspace)
     copy_logos(workspace)
-    copy_avatar(workspace)
+    copy_avatar(workspace, args.avatar)
     copy_yt_lower_third(workspace)
 
 

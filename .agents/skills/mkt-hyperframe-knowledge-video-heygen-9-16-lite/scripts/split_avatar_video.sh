@@ -5,7 +5,6 @@
 #
 # Reads  <project_dir>/avatar-windows.json (concatMap from cut_avatar_audio.py)
 # Writes <project_dir>/avatar-clips/clip-NN.mp4  (dense keyframes, 30fps)
-#        <project_dir>/assets/pip-still.png      (static frame for the PIP)
 #
 # If the HeyGen MP4 duration drifts from the expected avatar.mp3 duration
 # (HeyGen sometimes pads/truncates silence), offsets are rescaled
@@ -17,7 +16,7 @@ OUT="${2:?usage: split_avatar_video.sh <avatar_heygen_raw.mp4> <project_dir>}"
 MANIFEST="$OUT/avatar-windows.json"
 [ -f "$MANIFEST" ] || { echo "!! $MANIFEST not found — run cut_avatar_audio.py first" >&2; exit 1; }
 
-mkdir -p "$OUT/avatar-clips" "$OUT/assets"
+mkdir -p "$OUT/avatar-clips"
 
 # Where each window REALLY sits inside the HeyGen MP4 is measured, not assumed:
 # verify_avatar_sync.py correlates each avatar.mp3 chunk against the returned
@@ -53,14 +52,10 @@ while read -r IDX OFF DUR; do
   # lip-sync error. Re-encode with dense keyframes (1s GOP) like
   # prep_source_video.sh — the hyperframes renderer seeks per-frame and
   # freezes on sparse-keyframe sources.
-  ffmpeg -y -i "$RAW" -ss "$OFF" -t "$DUR" \
+  # -nostdin prevents ffmpeg from consuming the next line of PLAN from this
+  # loop's here-string (which otherwise corrupts IDX/OFF/DUR after clip 1).
+  ffmpeg -nostdin -y -i "$RAW" -ss "$OFF" -t "$DUR" \
     -c:v libx264 -r 30 -g 30 -keyint_min 30 -pix_fmt yuv420p -movflags +faststart \
     -an "$CLIP" 2>/dev/null
   echo "clip-$IDX: offset=${OFF}s dur=${DUR}s -> $CLIP ($(ffprobe -v error -show_entries format=duration -of default=nk=1:nw=1 "$CLIP")s)"
 done <<< "$PLAN"
-
-# PIP still: grab a frame 1s into clip-01 (mouth usually mid-word — the
-# orchestrator MUST Read the png and re-extract at another -ss if eyes are
-# closed / mouth wide open).
-ffmpeg -y -ss 1.0 -i "$OUT/avatar-clips/clip-01.mp4" -frames:v 1 "$OUT/assets/pip-still.png" 2>/dev/null
-echo "pip still -> $OUT/assets/pip-still.png (QA it: Read the image, re-extract if the face looks bad)"

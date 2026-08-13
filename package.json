@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "broll:seed": "node scripts/pexels/seed-broll-library.mjs"
+  },
   "dependencies": {
     "puppeteer": "^25.3.0"
   }

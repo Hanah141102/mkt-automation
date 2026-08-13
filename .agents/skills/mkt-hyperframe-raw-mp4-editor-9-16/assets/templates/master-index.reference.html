@@ -1,0 +1,90 @@
+<!doctype html>
+<!--
+  MASTER 9:16 RAW MP4 — replace marked examples only.
+  [1] title and TOTAL
+  [2] rough-cut.mp4 source (contains the original spoken audio)
+  [3] Pexels/HyperFrames mounts from enhancement-plan.json
+  [4] SFX and text effects
+  [5] captions duration
+  Never add a separate voice-over audio track.
+-->
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, height=1920" />
+  <title>REPLACE-WITH-TITLE</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: 'Be Vietnam Pro'; src: url('assets/fonts/BeVietnamPro-700.ttf') format('truetype'); font-weight: 700; }
+    @font-face { font-family: 'Be Vietnam Pro'; src: url('assets/fonts/BeVietnamPro-800.ttf') format('truetype'); font-weight: 800; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+    #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; font-family: 'Be Vietnam Pro', sans-serif; }
+    #source-stage, #source-motion { position: absolute; inset: 0; overflow: hidden; }
+    #source-stage { z-index: 10; }
+    #source-video { width: 1080px; height: 1920px; object-fit: cover; object-position: center center; }
+    .visual-overlay { position: absolute; inset: 0; width: 1080px; height: 1920px; z-index: 40; overflow: hidden; background: transparent; }
+    .visual-overlay > [data-composition-id] { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; }
+    .broll { position: absolute; inset: 0; width: 1080px; height: 1920px; object-fit: cover; z-index: 45; }
+    .broll-shade { position: absolute; inset: auto 0 0; height: 580px; z-index: 46; background: linear-gradient(180deg, transparent, rgba(0,0,0,.30)); pointer-events: none; }
+    .impact-text { position: absolute; z-index: 52; left: 80px; right: 80px; top: 230px; text-align: center; color: #fff; font: 800 88px/1.04 'Be Vietnam Pro', sans-serif; letter-spacing: -.018em; paint-order: stroke fill; -webkit-text-stroke: 7px #0a0a0a; text-shadow: 0 4px 12px rgba(0,0,0,.45); opacity: 0; }
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="main" data-start="0" data-duration="42.800" data-width="1080" data-height="1920">
+    <!-- [2] This MP4 is the only spoken-audio spine. Do not mute it. -->
+    <div id="source-stage">
+      <div id="source-motion" data-layout-allow-overflow>
+        <video id="source-video" class="clip" data-start="0" data-duration="42.800" data-track-index="10" data-has-audio="true" src="rough-cut.mp4" playsinline></video>
+      </div>
+    </div>
+
+    <!-- [3] Example overlays; replace from approved enhancement-plan.json. -->
+    <!-- <div id="hf-01" class="clip visual-overlay" data-start="8.400" data-duration="4.000" data-track-index="40" data-composition-id="scene-01" data-composition-src="scenes/scene-01.html"></div> -->
+    <!-- <video id="br-01" class="clip broll" data-start="14.200" data-duration="3.600" data-track-index="45" src="broll-clips/br-01.mp4" muted playsinline></video> -->
+    <!-- <div id="br-shade-01" class="clip broll-shade" data-start="14.200" data-duration="3.600" data-track-index="46"></div> -->
+
+    <!-- [4] Text effects and SFX. SFX files are not voice-over. -->
+    <!-- <div id="tx-01" class="clip impact-text" data-start="20.100" data-duration="1.800" data-track-index="52">NHANH HƠN 3×</div> -->
+    <!-- SFX_MOUNTS: add approved local files only; track 70+, volume 0.12–0.30. -->
+
+    <!-- [5] Captions always mount last. -->
+    <div class="clip" data-composition-src="compositions/captions.html" data-composition-id="captions" data-start="0" data-duration="42.800" data-track-index="60" style="z-index:100;"></div>
+  </div>
+
+  <script>
+    (() => {
+      window.__timelines = window.__timelines || {};
+      const TOTAL = 42.800;
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo('#source-motion', { scale: 1.055 }, { scale: 1, duration: 0.70, ease: 'power3.out', transformOrigin: 'center center' }, 0.03);
+
+      const SOURCE_PUNCHES = [
+        /* { time: 12.40, scale: 1.075 }, */
+      ];
+      SOURCE_PUNCHES.forEach((punch) => {
+        tl.fromTo('#source-motion', { scale: punch.scale }, { scale: 1, duration: 0.55, ease: 'power3.out', transformOrigin: 'center center', overwrite: 'auto' }, punch.time);
+      });
+
+      const BROLLS = [
+        /* { selector: '#br-01', start: 14.20, duration: 3.60 }, */
+      ];
+      BROLLS.forEach((item) => {
+        tl.fromTo(item.selector, { opacity: 0, scale: 1 }, { opacity: 1, scale: 1.025, duration: Math.max(0.5, item.duration), ease: 'sine.inOut' }, item.start);
+      });
+
+      const TEXT_EFFECTS = [
+        /* { selector: '#tx-01', start: 20.10, end: 21.90 }, */
+      ];
+      TEXT_EFFECTS.forEach((item) => {
+        tl.fromTo(item.selector, { opacity: 0, y: 18, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.18, ease: 'power2.out' }, item.start);
+        tl.to(item.selector, { opacity: 0, duration: 0.16, ease: 'power2.in' }, item.end - 0.16);
+      });
+
+      tl.to('#source-stage', { opacity: 0, duration: 0.25, ease: 'power2.in' }, Math.max(0, TOTAL - 0.25));
+      window.__timelines.main = tl;
+    })();
+  </script>
+</body>
+</html>

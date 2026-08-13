@@ -1,0 +1,1 @@
+{"status": "ok", "runs": 2, "records": 3, "report": "/Users/tonyhoang/Documents/GitHub/mkt-automation/labs/course-skill-smoke-tests/uc1-apify/output-mock/competitor-social-report.md"}

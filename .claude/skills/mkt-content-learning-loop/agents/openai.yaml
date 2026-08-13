@@ -1,0 +1,4 @@
+interface:
+  display_name: "MKT Content Learning Loop"
+  short_description: "Biến hiệu suất content thành quyết định vòng sau"
+  default_prompt: "Use $mkt-content-learning-loop to analyze this brand content performance and choose the next experiment."

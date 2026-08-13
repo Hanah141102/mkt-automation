@@ -1,0 +1,4 @@
+interface:
+  display_name: "fullstack-marketing-operator"
+  short_description: "Vận hành Fullstack Marketing có hệ thống"
+  default_prompt: "Use @fullstack-marketing-operator to solve this marketing task."

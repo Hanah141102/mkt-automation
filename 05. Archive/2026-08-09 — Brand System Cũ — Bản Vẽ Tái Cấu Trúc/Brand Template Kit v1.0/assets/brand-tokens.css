@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap");
+
+:root {
+  --brand-abyss: #061a2b;
+  --brand-deep: #0c3358;
+  --brand-steel: #3f6470;
+  --brand-tide: #0e7c8b;
+  --brand-aqua: #57d6c6;
+  --brand-mist: #e8eff2;
+  --brand-ember: #da3c0c;
+  --brand-gold: #ffb43d;
+
+  --brand-display: "Archivo", Arial, sans-serif;
+  --brand-body: "Inter", Arial, sans-serif;
+  --brand-spec: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  --brand-line: rgba(87, 214, 198, 0.28);
+  --brand-grid: rgba(63, 100, 112, 0.2);
+  --brand-panel: rgba(12, 51, 88, 0.88);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: #c8d2d6;
+  color: var(--brand-abyss);
+  font-family: var(--brand-body);
+}
+
+.brand-canvas {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.brand-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(var(--brand-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px);
+  background-size: var(--grid-size, 72px) var(--grid-size, 72px);
+}
+
+.brand-spec {
+  font-family: var(--brand-spec);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.brand-display {
+  font-family: var(--brand-display);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.94;
+}
+
+.brand-reframe-gap {
+  position: absolute;
+  background: var(--brand-ember);
+}
+
+.brand-registration::before,
+.brand-registration::after {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-color: var(--brand-aqua);
+  opacity: 0.8;
+}
+
+.brand-registration::before {
+  top: 5%;
+  left: 5%;
+  border-top: 3px solid;
+  border-left: 3px solid;
+}
+
+.brand-registration::after {
+  right: 5%;
+  bottom: 5%;
+  border-right: 3px solid;
+  border-bottom: 3px solid;
+}
+
+.brand-node {
+  border: 2px solid var(--brand-steel);
+  background: rgba(6, 26, 43, 0.76);
+}
+
+.brand-node.is-clear {
+  border-color: var(--brand-aqua);
+}
+
+.brand-photo {
+  object-fit: cover;
+  object-position: 50% 26%;
+  filter: saturate(0.84) contrast(1.05);
+}
+
+.brand-photo-overlay {
+  background: linear-gradient(90deg, rgba(6, 26, 43, 0) 36%, rgba(6, 26, 43, 0.9) 82%);
+}
+
+.brand-safe-dark {
+  color: var(--brand-mist);
+  background: var(--brand-abyss);
+}
+
+.brand-safe-light {
+  color: var(--brand-abyss);
+  background: var(--brand-mist);
+}
+
+.brand-ember-text {
+  color: var(--brand-ember);
+}
+
+.brand-aqua-text {
+  color: var(--brand-aqua);
+}
+
+@media print {
+  html,
+  body {
+    background: white;
+  }
+}

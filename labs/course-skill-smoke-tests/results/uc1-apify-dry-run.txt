@@ -1,0 +1,1 @@
+{"status": "dry-run", "runs": 2, "output_dir": "/Users/tonyhoang/Documents/GitHub/mkt-automation/labs/course-skill-smoke-tests/uc1-apify/output-dry"}
