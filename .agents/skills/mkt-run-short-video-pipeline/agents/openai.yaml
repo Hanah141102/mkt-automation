@@ -1,0 +1,4 @@
+interface:
+  display_name: "Điều Phối Video Ngắn Đa Kênh"
+  short_description: "Từ ý tưởng đến video và đăng đa nền tảng"
+  default_prompt: "Use $mkt-run-short-video-pipeline để biến một ý tưởng hoặc video mẫu thành video ngắn và phân phối lên các kênh đã chọn."

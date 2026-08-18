@@ -15,6 +15,7 @@ Danh sách các chuyên gia muốn theo dõi, học hỏi và quan sát cách h�
 | # | Chuyên gia | Kênh chính | Trạng thái | Ghi chú |
 |---|---|---|---|---|
 | 1 | Hannah Weng | [LinkedIn](https://www.linkedin.com/in/hannah-weng-ny/) | Chưa bắt đầu | Theo dõi và học theo |
+| 2 | Chưa xác định tên — Facebook profile `61573080077101` | [Facebook](https://www.facebook.com/profile.php?id=61573080077101) | Chưa bắt đầu | Follow và theo dõi nội dung chuyên môn |
 
 ## Ghi chú sử dụng
 

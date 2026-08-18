@@ -1,0 +1,125 @@
+<!doctype html>
+<!--
+  TECHNICAL SCAFFOLD ONLY.
+  Replace the entire visual system from the approved design.md and STORYBOARD.md.
+  Do not copy this neutral appearance as an art direction.
+-->
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @font-face {
+    font-family: "Be Vietnam Pro";
+    src: url("assets/fonts/BeVietnamPro-500.ttf") format("truetype");
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: "Be Vietnam Pro";
+    src: url("assets/fonts/BeVietnamPro-700.ttf") format("truetype");
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "Be Vietnam Pro";
+    src: url("assets/fonts/BeVietnamPro-800.ttf") format("truetype");
+    font-weight: 800;
+  }
+
+  #scene-NN-slug,
+  #scene-NN-slug * {
+    box-sizing: border-box;
+  }
+
+  #scene-NN-slug {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    font-family: "Be Vietnam Pro", sans-serif;
+    color: #ffffff;
+    background: #111111;
+  }
+
+  /* Keep essential content above y=1480. Replace all geometry and colors. */
+  #scene-NN-slug .content-safe {
+    position: absolute;
+    inset: 0 0 440px;
+  }
+
+  #scene-NN-slug .headline {
+    position: absolute;
+    left: 64px;
+    right: 64px;
+    top: 140px;
+    margin: 0;
+    font-size: 76px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+
+  #scene-NN-slug .hero-object {
+    position: absolute;
+    left: 64px;
+    right: 64px;
+    top: 420px;
+    height: 850px;
+  }
+
+  #scene-NN-slug .takeaway {
+    position: absolute;
+    left: 64px;
+    right: 64px;
+    top: 1320px;
+    font-size: 32px;
+    line-height: 1.3;
+  }
+</style>
+</head>
+<body>
+<div
+  id="scene-NN-slug"
+  data-composition-id="scene-NN-slug"
+  data-start="0"
+  data-duration="8"
+  data-width="1080"
+  data-height="1920"
+>
+  <div class="content-safe">
+    <h1 class="headline">Thay bằng headline đã duyệt</h1>
+    <div class="hero-object" aria-label="Replace with the storyboard source object"></div>
+    <div class="takeaway">Thay bằng proof/takeaway đã duyệt</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  window.__timelines = window.__timelines || {};
+  const root = document.querySelector("#scene-NN-slug");
+  const q = (selector) => root.querySelector(selector);
+  const tl = gsap.timeline({ paused: true });
+
+  /* Replace with VO-cued start → transformation → proof animation. */
+  tl.fromTo(
+    q(".headline"),
+    { opacity: 0, y: 24 },
+    { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+    0.1
+  );
+  tl.fromTo(
+    q(".hero-object"),
+    { opacity: 0, scale: 0.96 },
+    { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" },
+    0.5
+  );
+  tl.fromTo(
+    q(".takeaway"),
+    { opacity: 0, y: 18 },
+    { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+    5.8
+  );
+
+  window.__timelines["scene-NN-slug"] = tl;
+})();
+</script>
+</body>
+</html>

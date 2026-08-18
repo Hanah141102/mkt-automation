@@ -1,0 +1,20 @@
+{
+  "runs": [
+    {
+      "competitor": "Nguyễn Tiệp",
+      "platform": "facebook",
+      "target": "https://www.facebook.com/nguyen.tiep.454727",
+      "actor_id": "apify/facebook-posts-scraper",
+      "run_input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/nguyen.tiep.454727"
+          }
+        ],
+        "resultsLimit": 300,
+        "captionText": false,
+        "onlyPostsNewerThan": "61 days"
+      }
+    }
+  ]
+}

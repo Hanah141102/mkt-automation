@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Second Brain giúp em level up việc học — Nhật Minh</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:block;src:url(media/fonts/bvp-400-vietnamese.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:block;src:url(media/fonts/bvp-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:block;src:url(media/fonts/bvp-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:block;src:url(media/fonts/bvp-500-vietnamese.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:block;src:url(media/fonts/bvp-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:block;src:url(media/fonts/bvp-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:block;src:url(media/fonts/bvp-600-vietnamese.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:block;src:url(media/fonts/bvp-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:block;src:url(media/fonts/bvp-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:block;src:url(media/fonts/bvp-700-vietnamese.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:block;src:url(media/fonts/bvp-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:block;src:url(media/fonts/bvp-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:800;font-display:block;src:url(media/fonts/bvp-800-vietnamese.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:800;font-display:block;src:url(media/fonts/bvp-800-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:800;font-display:block;src:url(media/fonts/bvp-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:900;font-display:block;src:url(media/fonts/bvp-900-vietnamese.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:900;font-display:block;src:url(media/fonts/bvp-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:900;font-display:block;src:url(media/fonts/bvp-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#070B16}
+body{font-family:'Be Vietnam Pro',sans-serif;color:#F2F5FC;-webkit-font-smoothing:antialiased}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden}
+#bg{position:absolute;inset:0;background:
+ radial-gradient(1200px 700px at 78% 18%,rgba(56,214,200,.09),transparent 60%),
+ radial-gradient(900px 600px at 12% 82%,rgba(196,43,84,.10),transparent 62%),#070B16;z-index:0}
+.vwrap{position:absolute;inset:0;z-index:1}
+.vwrap video{position:absolute;width:1920px;height:1080px;object-fit:cover;left:0;top:0}
+#w-cam1 video,#w-cam2 video{width:592px;height:1000px;object-fit:cover;left:132px;top:40px;
+ border-radius:26px;box-shadow:0 40px 90px rgba(0,0,0,.6)}
+#w-cam3{z-index:3}
+#w-cam3 video{width:592px;height:1000px;object-fit:cover;left:132px;top:40px;
+ border-radius:26px;box-shadow:0 40px 90px rgba(0,0,0,.6);border:6px solid rgba(242,245,252,.28)}
+.scene{position:absolute;inset:0;z-index:5}
+.stage{position:absolute;inset:0}
+.tint{position:absolute;inset:0;background:rgba(7,11,22,.52)}
+.tint.t60{background:rgba(7,11,22,.60)}
+.tint.t70{background:rgba(7,11,22,.70)}
+.tint.t75{background:rgba(7,11,22,.78)}
+
+/* khung xương */
+.rail{position:absolute;left:830px;right:110px;top:50%;transform:translateY(-50%)}
+.rail-wide{left:330px;right:760px}
+.mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+ justify-content:center;text-align:center;padding:0 150px;gap:26px}
+.mid-tight{gap:34px}
+.wide{position:absolute;left:150px;right:150px;top:50%;transform:translateY(-50%)}
+.wide-top{top:46%}
+.wide-inset{left:400px}
+.veil-r{position:absolute;right:0;top:0;width:1060px;height:1080px;background:rgba(7,11,22,.45)}
+.scrim-full{position:absolute;inset:0;background:radial-gradient(1100px 720px at 50% 50%,rgba(7,11,22,.62),rgba(7,11,22,.90))}
+
+/* chữ */
+.mask{display:block;overflow:hidden;padding-top:.16em;padding-bottom:.12em}
+.mi{display:block}
+.h0{font-size:138px;font-weight:800;letter-spacing:-.024em;line-height:1.13}
+.h0.tight{font-size:116px}
+.h1{font-size:88px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.h2{font-size:58px;font-weight:700;letter-spacing:-.01em;line-height:1.32}
+.kick{font-size:22px;font-weight:800;letter-spacing:.34em;color:#F2BC57;margin-bottom:14px}
+.eyebrow{font-size:26px;font-weight:800;letter-spacing:.24em;color:#93A4C4}
+.eyebrow.teal{color:#38D6C8}
+.sub{font-size:30px;font-weight:500;color:#C6D2E8;letter-spacing:.03em;margin-top:16px}
+.sub2{font-size:34px;font-weight:600;color:#93A4C4}
+.tiny{font-size:20px;font-weight:500;color:#6E7E9E;letter-spacing:.06em}
+.dimtxt{color:#9FB0CD}
+.amber{color:#F2BC57}
+.amber b,.dimtxt b{color:#F2F5FC;font-weight:900}
+.gap{margin-top:18px}
+.ln{height:5px;width:280px;background:#C42B54;border-radius:3px;margin-top:22px;
+ transform-origin:left center;display:block}
+.wide-ln{width:520px;margin:8px auto 0}
+.ul{height:4px;width:760px;background:#F2BC57;border-radius:3px;margin-top:26px;
+ transform-origin:left center;display:block}
+.box,.boxed{background:#C42B54;padding:0 18px;border-radius:12px;display:inline-block}
+.cap{font-size:28px;font-weight:500;color:#93A4C4;margin-top:26px;font-style:italic}
+
+/* chip · thẻ */
+.chip{display:inline-block;background:rgba(255,255,255,.06);border:2px solid #33415F;
+ border-radius:46px;padding:18px 34px;font-size:34px;font-weight:650;color:#C7D3EA;margin-bottom:22px}
+.chip.on{background:#C42B54;border-color:#C42B54;color:#fff;font-weight:800}
+.def{background:rgba(10,16,30,.92);border:2px solid #35446A;border-left:7px solid #38D6C8;
+ border-radius:14px;padding:22px 26px;font-size:38px;font-weight:750;margin-bottom:20px}
+.def.d2,.def.d3{font-size:33px;font-weight:600;color:#C6D2E8}
+.def.on{border-left-color:#F2BC57;color:#fff}
+.qcard{background:rgba(10,16,30,.94);border:2px solid #35446A;border-radius:16px;
+ padding:24px 28px;font-size:40px;font-weight:750;margin-top:22px}
+.qcard.on{border-color:#F2BC57}
+.qcard .n{display:block;font-size:20px;color:#38D6C8;font-weight:900;letter-spacing:.16em;margin-bottom:8px}
+.teal-label{font-size:34px;font-weight:800;letter-spacing:.3em;color:#38D6C8;text-transform:uppercase}
+
+/* bong bóng câu hỏi */
+.bubble{background:#F2F4F8;color:#131A26;border-radius:30px;padding:38px 46px;font-size:44px;
+ font-weight:600;max-width:1260px;line-height:1.46;text-align:left}
+.hl{border-radius:6px;padding:0 6px}
+.proof{width:900px;border-radius:10px;opacity:.42;border:1px solid #33415F}
+
+/* trạng thái AI */
+.status{background:rgba(10,16,30,.90);border:2px solid #38D6C8;border-radius:60px;
+ padding:22px 52px;font-size:38px;font-weight:600;color:#CFF6F1}
+.status b{color:#fff;font-weight:800}
+
+/* thẻ đôi */
+.duo{display:flex;gap:34px;justify-content:center;width:100%}
+.scard{flex:1;max-width:520px;background:rgba(10,16,30,.94);border:2px solid #35446A;
+ border-radius:20px;padding:40px 30px}
+.scard.ok{border-color:#38D6C8}
+.scard.warn{border-color:#F2BC57}
+.scard.warn .st{color:#F2BC57}
+.bdg{font-size:54px;margin-bottom:14px}
+.st{font-size:42px;font-weight:800;line-height:1.26}
+.tcard{flex:1;max-width:560px;background:rgba(10,16,30,.94);border:2px solid #35446A;
+ border-radius:20px;padding:34px 32px;text-align:left}
+.tcard.on{border-color:#F2BC57}
+.tcard .n{display:block;font-size:22px;color:#38D6C8;font-weight:900;letter-spacing:.14em;margin-bottom:12px}
+.tcard b{font-size:38px;font-weight:800;display:block;line-height:1.2}
+.tcard small{display:block;font-size:26px;color:#93A4C4;font-weight:500;margin-top:8px}
+
+/* nhãn tiêu chí */
+.tag{display:inline-flex;align-items:center;gap:16px;border-radius:14px;padding:18px 30px;
+ font-size:32px;font-weight:800;letter-spacing:.05em;line-height:1.25}
+.tag.ok{background:rgba(56,214,200,.14);border:2px solid #38D6C8;color:#38D6C8}
+.tag.warn{background:rgba(242,188,87,.14);border:2px solid #F2BC57;color:#F2BC57}
+.tnum{font-family:"IBM Plex Mono",monospace;opacity:.8}
+.tmark{font-size:30px}
+.chiprow{display:flex;align-items:center;gap:14px;margin-top:40px;flex-wrap:wrap}
+.cc{background:rgba(10,16,30,.94);border:2px solid #3A4A6E;border-radius:12px;
+ padding:16px 24px;font-size:32px;font-weight:700}
+.lnk{display:block;width:34px;height:3px;background:#38D6C8;transform-origin:left center}
+.bigchip{display:block;width:max-content;background:#C42B54;border-radius:20px;padding:20px 50px;
+ font-size:78px;font-weight:800;letter-spacing:-.012em;margin-top:36px;line-height:1.2}
+.strike{display:block;font-size:32px;color:#93A4C4;text-decoration:line-through;margin-top:26px}
+
+/* trụ cột */
+.trio{display:flex;gap:26px;justify-content:center;width:100%}
+.pil{flex:1;max-width:420px;background:rgba(10,16,30,.88);border:2px solid #38D6C8;
+ border-radius:18px;padding:30px 18px;font-size:32px;font-weight:800;letter-spacing:.02em;line-height:1.32}
+.pil.on{background:#38D6C8;color:#062120}
+
+/* dòng chảy */
+.flowline{display:flex;align-items:center;gap:34px;justify-content:center;flex-wrap:wrap}
+.arw{color:#F2BC57;font-size:76px;display:inline-block}
+.flow2{display:flex;align-items:center;gap:40px;justify-content:center;flex-wrap:wrap}
+.fw{font-size:58px;font-weight:800;letter-spacing:-.012em;line-height:1.2}
+.arw2{color:#F2BC57;font-size:82px;display:inline-block}
+.lvl{margin-top:34px;color:#F2BC57;font-weight:900;font-size:44px;letter-spacing:.14em;display:inline-block}
+.quiet{font-size:42px;font-weight:500;color:#D6E0F2;font-style:italic;line-height:1.54}
+.lock{letter-spacing:.01em}
+
+/* ảnh thẻ góc dưới phải */
+.ava{position:absolute;right:0;bottom:0;left:auto;top:auto;width:100%;height:100%;
+ pointer-events:none;z-index:8}
+.avaimg{position:absolute;right:62px;bottom:58px;width:132px;height:132px;border-radius:50%;
+ object-fit:cover;border:4px solid rgba(242,245,252,.92);box-shadow:0 18px 46px rgba(0,0,0,.8)}
+.avaname{position:absolute;right:200px;bottom:92px;font-size:23px;font-weight:700;
+ letter-spacing:.04em;color:#EDF1FA;white-space:nowrap;background:rgba(9,13,24,.88);
+ border:1px solid rgba(242,245,252,.22);border-radius:22px;padding:8px 18px}
+
+/* cửa sổ Obsidian thật — chiếu rõ, không phải nền mờ */
+.win{position:absolute;border-radius:22px;overflow:hidden;background:#0A0F1E;
+ border:2px solid rgba(242,245,252,.18);box-shadow:0 44px 110px rgba(0,0,0,.72)}
+.win img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.win-r{right:78px;top:72px;width:1015px;height:940px}
+.win-strip{right:78px;top:50%;transform:translateY(-50%);width:1015px;height:240px}
+.col-l{position:absolute;left:104px;top:50%;transform:translateY(-50%);width:660px}
+
+/* thẻ có ảnh minh hoạ */
+.tile{flex:1;max-width:640px;background:rgba(10,16,30,.96);border:2px solid #35446A;
+ border-radius:22px;overflow:hidden;text-align:left}
+.tile.on{border-color:#F2BC57}
+.th{height:300px;overflow:hidden}
+.th img{width:100%;height:100%;object-fit:cover;display:block}
+.tx{padding:26px 30px 30px}
+.tile .n{display:block;font-size:22px;color:#38D6C8;font-weight:900;letter-spacing:.14em;margin-bottom:10px}
+.tile b{font-size:35px;font-weight:700;display:block;line-height:1.3}
+.tile small{display:block;font-size:26px;color:#93A4C4;font-weight:500;margin-top:8px}
+
+/* ảnh nền */
+.bgimg{position:absolute;object-fit:cover}
+.bgimg.left-strip{left:0;top:0;width:262px;height:1080px;opacity:.42}
+.strip-fade{position:absolute;left:0;top:0;width:400px;height:1080px;background:linear-gradient(90deg,rgba(7,11,22,0) 0%,rgba(7,11,22,.55) 55%,#070B16 100%)}
+.bgimg.full{left:0;top:0;width:1920px;height:1080px}
+.bgimg.faint{opacity:.30}
+.bgimg.faint2{opacity:.32}
+.kb{position:absolute;overflow:hidden}
+.kb img{width:100%;height:100%;object-fit:cover;display:block}
+.kb-right{right:0;top:0;width:1060px;height:1080px;opacity:.38}
+.kb-left{left:0;top:0;width:700px;height:1080px}
+.scrim-r{position:absolute;left:700px;top:0;width:520px;height:1080px;
+ background:linear-gradient(90deg,#070B16 0%,rgba(7,11,22,.86) 55%,rgba(7,11,22,0) 100%)}
+</style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="172.546"
+         data-width="1920" data-height="1080" data-fps="30">
+      <div id="bg" class="clip" data-start="0" data-duration="172.546" data-track-index="0"></div>
+      <div class="vwrap" id="w-cam1" style=""><video id="v-cam1" src="media/f01_cam.mp4" data-start="0.0" data-duration="5.023" data-track-index="2" style="" muted playsinline></video></div>
+      <div id="f01" class="clip scene" data-start="0.0" data-duration="5.023" data-track-index="5"><div class="stage" id="f01-stage">
+ <div class="rail">
+   <div class="kick"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">BÀI THUYẾT TRÌNH</span></span></div>
+   <h1 class="h1"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">NHẬT MINH</span></span></h1>
+   <div class="ln" id="f01-ln"></div>
+   <div class="sub"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">Lớp 3A05 · Vinschool Ocean Park</span></span></div>
+ </div></div></div>
+      <audio id="a-f01" src="media/f01.wav" data-start="0.0" data-duration="5.023" data-track-index="10" data-volume="1"></audio>
+      <div class="vwrap" id="w-px2" style="z-index:1"><video id="v-px2" src="media/pexels/f02_ban.mp4" data-start="5.023" data-duration="8.841" data-track-index="3" style="" muted playsinline></video></div>
+      <div class="vwrap" id="w-cam2" style="z-index:2"><video id="v-cam2" src="media/f02_cam.mp4" data-start="5.023" data-duration="8.841" data-track-index="7" style="" muted playsinline></video></div>
+      <div id="f02" class="clip scene" data-start="5.023" data-duration="8.841" data-track-index="6"><div class="stage" id="f02-stage">
+ <div class="tint t75"></div>
+ <div class="rail">
+   <div class="chip c1">Kỳ nghỉ hè dài</div>
+   <div class="chip c2">Bố &amp; chú đồng hành</div>
+   <div class="chip c3 on">Một phương pháp học mới</div>
+ </div></div></div>
+      <audio id="a-f02" src="media/f02.wav" data-start="5.023" data-duration="8.841" data-track-index="11" data-volume="1"></audio>
+      <div class="vwrap" id="w-e1" style="z-index:1"><video id="v-e1" src="media/e1.mp4" data-start="15.464" data-duration="5.238" data-track-index="2" style="" muted playsinline></video></div>
+      <div class="vwrap" id="w-cam3" style="z-index:3"><video id="v-cam3" src="media/f03_cam.mp4" data-start="13.864" data-duration="6.838" data-track-index="6" style="" muted playsinline></video></div>
+      <div id="f03" class="clip scene" data-start="13.864" data-duration="6.838" data-track-index="5"><div class="stage" id="f03-stage">
+ <div class="tint" id="f03-tint"></div>
+ <div class="mid">
+   <h1 class="h0"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">SECOND BRAIN</span></span></h1>
+   <div class="teal-label"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">bộ não thứ hai</span></span></div>
+ </div></div></div>
+      <audio id="a-f03" src="media/f03.wav" data-start="13.864" data-duration="6.838" data-track-index="10" data-volume="1"></audio>
+      <div class="vwrap" id="w-px4" style="z-index:1"><video id="v-px4" src="media/pexels/f04_sach.mp4" data-start="20.702" data-duration="6.805" data-track-index="3" style="" muted playsinline></video></div>
+      <div id="f04" class="clip scene" data-start="20.702" data-duration="6.805" data-track-index="6"><div class="stage" id="f04-stage">
+ <div class="tint t75"></div>
+ <div class="wide">
+   <div class="h2 dimtxt"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">Có những tuần em <b>học rất nhiều</b>…</span></span></div>
+   <div class="h2 amber gap"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">…nhưng cuối tuần không nhớ</span></span><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">mình đã tiến bộ ở đâu.</span></span></div>
+   <div class="ul" id="f04-ul"></div>
+ </div></div></div>
+      <audio id="a-f04" src="media/f04.wav" data-start="20.702" data-duration="6.805" data-track-index="11" data-volume="1"></audio>
+      <div id="f05" class="clip scene" data-start="27.507" data-duration="7.334" data-track-index="5"><div class="stage" id="f05-stage">
+ <div class="win win-r" id="f05-win"><img id="im1" src="media/ob_vault.jpg" alt=""></div>
+ <div class="col-l">
+   <div class="def d1">MindMirror</div>
+   <div class="def d2">= Second Brain · bộ não thứ hai</div>
+   <div class="def d3 on">= chiếc gương soi lại việc học mỗi ngày</div>
+ </div></div></div>
+      <audio id="a-f05" src="media/f05.wav" data-start="27.507" data-duration="7.334" data-track-index="10" data-volume="1"></audio>
+      <div id="f06" class="clip scene" data-start="34.841" data-duration="8.06" data-track-index="6"><div class="stage" id="f06-stage">
+ <div class="win win-r" id="f06-win"><img id="im2" src="media/ob_daily_body.jpg" alt=""></div>
+ <div class="col-l">
+   <div class="eyebrow"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">MỖI NGÀY EM GHI VÀI DÒNG</span></span></div>
+   <div class="qcard q1"><span class="n">1</span>Em học thêm gì?</div>
+   <div class="qcard q2"><span class="n">2</span>Còn chưa hiểu gì?</div>
+   <div class="qcard q3 on"><span class="n">3</span>Vận động, thể thao thế nào?</div>
+ </div></div></div>
+      <audio id="a-f06" src="media/f06.wav" data-start="34.841" data-duration="8.06" data-track-index="11" data-volume="1"></audio>
+      <div id="f07" class="clip scene" data-start="42.901" data-duration="9.954" data-track-index="5"><div class="stage" id="f07-stage">
+ <div class="mid mid-tight">
+   <div class="eyebrow teal"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">CUỐI TUẦN EM HỎI AI TRONG SECOND BRAIN</span></span></div>
+   <div class="bubble" id="f07-bub">Những việc tuần này có giúp em
+     <span class="hl">tiến gần hơn tới người em muốn trở thành</span> không?</div>
+   <img id="im3" class="proof" src="media/s_prompt.jpg" alt="">
+ </div></div></div>
+      <audio id="a-f07" src="media/f07.wav" data-start="42.901" data-duration="9.954" data-track-index="10" data-volume="1"></audio>
+      <div class="vwrap" id="w-e2" style="z-index:1"><video id="v-e2" src="media/e2.mp4" data-start="52.855" data-duration="2.368" data-track-index="3" style="" muted playsinline></video></div>
+      <div id="f08" class="clip scene" data-start="52.855" data-duration="2.368" data-track-index="6"><div class="stage" id="f08-stage">
+ <div class="tint"></div>
+ <div class="mid"><div class="status" id="f08-st">Đang đọc lại nhật ký
+   <b>10/08 → 16/08</b>…</div></div></div></div>
+      <audio id="a-f08" src="media/f08.wav" data-start="52.855" data-duration="2.368" data-track-index="11" data-volume="1"></audio>
+      <div id="f09" class="clip scene" data-start="55.223" data-duration="12.903" data-track-index="5"><div class="stage" id="f09-stage">
+ <img id="im4" class="bgimg full faint" src="media/s_answer_bg.jpg" alt=""><div class="scrim-full"></div>
+ <div class="mid">
+   <div class="eyebrow teal"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">AI TRẢ LỜI</span></span></div>
+   <div class="duo">
+     <div class="scard ok s1"><div class="bdg">✔</div><div class="st">ĐANG ĐI<br>ĐÚNG HƯỚNG</div></div>
+     <div class="scard warn s2"><div class="bdg">⚠</div><div class="st">CHƯA ĐỦ<br>BẰNG CHỨNG</div></div>
+   </div>
+   <div class="cap">“…chưa đủ bằng chứng để nói em đã hoàn thành.”</div>
+ </div></div></div>
+      <audio id="a-f09" src="media/f09.wav" data-start="55.223" data-duration="12.903" data-track-index="10" data-volume="1"></audio>
+      <div id="f10" class="clip scene" data-start="68.126" data-duration="9.607" data-track-index="6"><div class="stage" id="f10-stage">
+     <img id="im5" class="bgimg full faint" src="media/s_answer_bg.jpg" alt=""><div class="scrim-full"></div>
+     <div class="win win-r" id="f10-win"><img id="im6" src="media/ob_frame_gpt.jpg" alt=""></div>
+     <div class="col-l">
+       <div class="tag ok"><span class="tnum">01</span>HAM HỌC<span class="tmark">✔</span></div>
+       <div class="chiprow"><span class="cc cc0">Đặt câu hỏi</span><span class="lnk lnk0"></span><span class="cc cc1">Python</span><span class="lnk lnk1"></span><span class="cc cc2">Robot</span><span class="lnk lnk2"></span><span class="cc cc3">Tiếng Anh</span></div><div class="cap">…và nối chúng với nhau.</div>
+     </div></div></div>
+      <audio id="a-f10" src="media/f10.wav" data-start="68.126" data-duration="9.607" data-track-index="11" data-volume="1"></audio>
+      <div id="f11" class="clip scene" data-start="77.733" data-duration="8.97" data-track-index="5"><div class="stage" id="f11-stage">
+     <img id="im7" class="bgimg full faint" src="media/s_answer_bg.jpg" alt=""><div class="scrim-full"></div>
+     <div class="win win-r" id="f11-win"><img id="im8" src="media/ob_whybot.jpg" alt=""></div>
+     <div class="col-l">
+       <div class="tag ok"><span class="tnum">02</span>DÙNG CÔNG NGHỆ TẠO ĐIỀU CÓ ÍCH<span class="tmark">✔</span></div>
+       <div class="bigchip" id="f11-bc">WhyBot</div><div class="strike" id="f11-sk">không chỉ dùng AI để lấy đáp án</div>
+     </div></div></div>
+      <audio id="a-f11" src="media/f11.wav" data-start="77.733" data-duration="8.97" data-track-index="10" data-volume="1"></audio>
+      <div id="f12" class="clip scene" data-start="86.703" data-duration="7.296" data-track-index="6"><div class="stage" id="f12-stage">
+     <div class="tint t70"></div>
+     
+     <div class="wide wide-top">
+       <div class="tag warn"><span class="tnum">03</span>KHỎE MẠNH<span class="tmark">⚠</span></div>
+       <div class="h2 amber" id="f12-tx"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">Tuần này chưa có ghi chép xác nhận</span></span><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">về vận động hoặc bơi.</span></span></div>
+     </div></div></div>
+      <audio id="a-f12" src="media/f12.wav" data-start="86.703" data-duration="7.296" data-track-index="11" data-volume="1"></audio>
+      <div class="vwrap" id="w-px12" style="z-index:1"><video id="v-px12" src="media/pexels/f12_boi.mp4" data-start="86.703" data-duration="7.296" data-track-index="4" style="" muted playsinline></video></div>
+      <div id="f13" class="clip scene" data-start="93.999" data-duration="7.925" data-track-index="5"><div class="stage" id="f13-stage">
+ <div class="mid">
+   <h1 class="h0 tight"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">AI KHÔNG</span></span><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">QUYẾT ĐỊNH THAY EM.</span></span></h1>
+   <div class="ln wide-ln" id="f13-ln"></div>
+   <div class="sub2"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">AI chỉ giúp em nhìn thấy điều cần cố gắng.</span></span></div>
+ </div></div></div>
+      <audio id="a-f13" src="media/f13.wav" data-start="93.999" data-duration="7.925" data-track-index="10" data-volume="1"></audio>
+      <div id="f14" class="clip scene" data-start="101.924" data-duration="7.523" data-track-index="6"><div class="stage" id="f14-stage">
+ <div class="mid">
+   <div class="eyebrow"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">HAI VIỆC CHO TUẦN MỚI</span></span></div>
+   <div class="duo">
+     <div class="tile t1"><div class="th"><img id="im9" src="media/ob_english.jpg" alt=""></div>
+       <div class="tx"><span class="n">01</span><b>Mỗi ngày ôn 5 từ tiếng Anh</b><small>về giao tiếp</small></div></div>
+     <div class="tile t2 on"><div class="th"><img id="im10" src="media/ob_pygraph.jpg" alt=""></div>
+       <div class="tx"><span class="n">02</span><b>Làm lại một bài tập hàm</b><small>trong Python</small></div></div>
+   </div>
+ </div></div></div>
+      <audio id="a-f14" src="media/f14.wav" data-start="101.924" data-duration="7.523" data-track-index="11" data-volume="1"></audio>
+      <div class="vwrap" id="w-e3" style="z-index:1"><video id="v-e3" src="media/e3.mp4" data-start="109.447" data-duration="13.843" data-track-index="2" style="" muted playsinline></video></div>
+      <div id="f15" class="clip scene" data-start="109.447" data-duration="13.843" data-track-index="5"><div class="stage" id="f15-stage">
+ <div class="tint t60"></div>
+ <div class="mid">
+   <div class="eyebrow"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">EM MUỐN TRỞ THÀNH MỘT NGƯỜI</span></span></div>
+   <div class="trio">
+     <div class="pil p1">HAM HỌC</div>
+     <div class="pil p2">KHỎE MẠNH</div>
+     <div class="pil p3 on">DÙNG CÔNG NGHỆ<br>TẠO ĐIỀU CÓ ÍCH</div>
+   </div>
+ </div></div></div>
+      <audio id="a-f15" src="media/f15.wav" data-start="109.447" data-duration="13.843" data-track-index="10" data-volume="1"></audio>
+      <div id="f16" class="clip scene" data-start="123.29" data-duration="8.28" data-track-index="6"><div class="stage" id="f16-stage">
+ <div class="mid">
+   <h1 class="h1 flowline"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">NHÌN RÕ</span></span><span class="arw" id="f16-ar">→</span><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">CHỌN BƯỚC TIẾP THEO</span></span></h1>
+ </div></div></div>
+      <audio id="a-f16" src="media/f16.wav" data-start="123.29" data-duration="8.28" data-track-index="11" data-volume="1"></audio>
+      <div class="vwrap" id="w-e4" style="z-index:1"><video id="v-e4" src="media/e4.mp4" data-start="131.57" data-duration="10.057" data-track-index="2" style="" muted playsinline></video></div>
+      <div id="f17" class="clip scene" data-start="131.57" data-duration="10.057" data-track-index="5"><div class="stage" id="f17-stage">
+ <div class="tint t70"></div>
+ <div class="mid">
+   <div class="eyebrow teal"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">SỨC MẠNH CỦA SECOND BRAIN</span></span></div>
+   <div class="flow2">
+     <div class="fw f1">Ý TƯỞNG TRONG ĐẦU</div>
+     <div class="arw2" id="f17-ar">→</div>
+     <div class="fw f2 boxed">HÀNH ĐỘNG</div>
+   </div>
+ </div></div></div>
+      <audio id="a-f17" src="media/f17.wav" data-start="131.57" data-duration="10.057" data-track-index="10" data-volume="1"></audio>
+      <div id="f18" class="clip scene" data-start="141.627" data-duration="9.036" data-track-index="6"><div class="stage" id="f18-stage">
+ <div class="kb kb-left" data-layout-allow-overflow="true"><img id="im11" src="media/s_kid_smile.jpg" alt=""></div>
+ <div class="rail">
+   <h1 class="h1"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">NGƯỜI CHỌN</span></span><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">VẪN LÀ <span class="box">EM</span></span></span></h1>
+   <div class="lvl" id="f18-lv">LEVEL UP ↑</div>
+ </div></div></div>
+      <audio id="a-f18" src="media/f18.wav" data-start="141.627" data-duration="9.036" data-track-index="11" data-volume="1"></audio>
+      <div class="vwrap" id="w-px19" style="z-index:1"><video id="v-px19" src="media/pexels/f19_lop.mp4" data-start="150.863" data-duration="11.636" data-track-index="2" style="" muted playsinline></video></div>
+      <div id="f19" class="clip scene" data-start="150.663" data-duration="11.836" data-track-index="5"><div class="stage" id="f19-stage">
+ <div class="tint t75"></div>
+ <div class="kb kb-left" data-layout-allow-overflow="true"><img id="im12" src="media/s_kid_calm.jpg" alt=""></div>
+ <div class="rail">
+   <div class="quiet" id="f19-q">“Em hy vọng cách học của em sẽ giúp nhiều bạn tìm ra
+     phương pháp học mới và hiệu quả hơn trong thời đại số.”</div>
+ </div></div></div>
+      <audio id="a-f19" src="media/f19.wav" data-start="150.663" data-duration="11.836" data-track-index="10" data-volume="1"></audio>
+      <div id="f20" class="clip scene" data-start="162.499" data-duration="5.047" data-track-index="6"><div class="stage" id="f20-stage">
+ <div class="mid">
+   <h1 class="h1"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">CẢM ƠN MỌI NGƯỜI</span></span><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">ĐÃ LẮNG NGHE</span></span></h1>
+ </div></div></div>
+      <audio id="a-f20" src="media/f20.wav" data-start="162.499" data-duration="5.047" data-track-index="11" data-volume="1"></audio>
+      <div class="vwrap" id="w-e5" style="z-index:1"><video id="v-e5" src="media/e5.mp4" data-start="167.546" data-duration="5.0" data-track-index="2" style="" muted playsinline></video></div>
+      <div id="f21" class="clip scene" data-start="167.546" data-duration="5.0" data-track-index="5"><div class="stage" id="f21-stage">
+ <div class="tint t75"></div>
+ <div class="mid">
+   <h1 class="h2 lock"><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">SECOND BRAIN GIÚP EM</span></span><span class="mask " data-layout-allow-overlap="true"><span class="mi" data-layout-allow-overlap="true" data-layout-allow-overflow="true">LEVEL UP VIỆC HỌC</span></span></h1>
+   <div class="ln wide-ln" id="f21-ln"></div>
+   <div class="sub">Nhật Minh — Lớp 3A05, Vinschool Ocean Park</div>
+   <div class="tiny">Dựng từ nhật ký học tập tháng 8/2026</div>
+ </div></div></div>
+      <div id="ava1" class="clip ava" data-start="20.702" data-duration="120.925" data-track-index="8" data-layout-allow-overlap="true"><img id="im13" class="avaimg" src="media/avatar.jpg" alt=""><span class="avaname">Nhật Minh</span></div>
+      <div id="ava2" class="clip ava" data-start="162.499" data-duration="10.047" data-track-index="9" data-layout-allow-overlap="true"><img id="im14" class="avaimg" src="media/avatar.jpg" alt=""><span class="avaname">Nhật Minh</span></div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#f01 .kick .mi",{yPercent:110},{yPercent:0,duration:0.62,ease:"power3.out",stagger:0.09},0.35);
+      tl.fromTo("#f01 .h1 .mi",{yPercent:110},{yPercent:0,duration:0.72,ease:"power3.out",stagger:0.09},0.55);
+      tl.fromTo("#f01-ln",{scaleX:0},{scaleX:1,duration:0.7,ease:"power2.out",stagger:0.0},1.05);
+      tl.fromTo("#f01 .sub .mi",{yPercent:110},{yPercent:0,duration:0.62,ease:"power3.out",stagger:0.09},1.25);
+      tl.fromTo("#f02 .c1",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},5.923);
+      tl.fromTo("#f02 .c2",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},8.523);
+      tl.to("#f02 .c1",{opacity:0.32,duration:0.7,ease:"power2.inOut"},8.523);
+      tl.fromTo("#f02 .c3",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},11.423);
+      tl.to("#f02 .c2",{opacity:0.32,duration:0.7,ease:"power2.inOut"},11.423);
+      tl.fromTo("#w-cam3",{scale:1,x:0,y:0},{scale:0.30,x:921,y:320,duration:0.9,ease:"power3.inOut"},15.364);
+      tl.fromTo("#f03-tint",{opacity:0},{opacity:1,duration:0.5,ease:"power1.out"},15.364);
+      tl.fromTo("#f03 .h0 .mi",{yPercent:110},{yPercent:0,duration:0.8,ease:"power3.out",stagger:0.09},15.864);
+      tl.fromTo("#f03 .teal-label .mi",{yPercent:110},{yPercent:0,duration:0.62,ease:"power3.out",stagger:0.09},16.364);
+      tl.fromTo("#w-e1 video",{scale:1.0},{scale:1.09,duration:5.2379999999999995,ease:"none"},15.464);
+      tl.fromTo("#f04 .dimtxt .mi",{yPercent:110},{yPercent:0,duration:0.7,ease:"power3.out",stagger:0.09},20.952);
+      tl.fromTo("#f04 .amber .mi",{yPercent:110},{yPercent:0,duration:0.7,ease:"power3.out",stagger:0.12},23.302);
+      tl.fromTo("#f04-ul",{scaleX:0},{scaleX:1,duration:0.9,ease:"power2.out",stagger:0.0},25.002);
+      tl.fromTo("#f05-win",{opacity:0,y:34},{opacity:1,y:0,duration:0.7,ease:"power2.out",stagger:0.0},27.657);
+      tl.fromTo("#f05-win img",{scale:1.0},{scale:1.08,duration:7.183999999999999,ease:"none"},27.657);
+      tl.fromTo("#f05 .d1",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},28.207);
+      tl.fromTo("#f05 .d2",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},30.007);
+      tl.fromTo("#f05 .d3",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},32.107);
+      tl.fromTo("#f06-win",{opacity:0,y:34},{opacity:1,y:0,duration:0.7,ease:"power2.out",stagger:0.0},34.991);
+      tl.fromTo("#f06-win img",{scale:1.0},{scale:1.06,duration:7.91,ease:"none"},34.991);
+      tl.fromTo("#f06 .eyebrow .mi",{yPercent:110},{yPercent:0,duration:0.62,ease:"power3.out",stagger:0.09},35.041);
+      tl.fromTo("#f06 .q1",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},36.341);
+      tl.fromTo("#f06 .q2",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},38.141);
+      tl.fromTo("#f06 .q3",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},39.941);
+      tl.fromTo("#f07 .eyebrow .mi",{yPercent:110},{yPercent:0,duration:0.62,ease:"power3.out",stagger:0.09},43.101);
+      tl.fromTo("#f07-bub",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.6,ease:"back.out(1.7)",stagger:0.11},44.301);
+      tl.fromTo("#f07 .hl",{backgroundColor:"rgba(242,188,87,0)"},{backgroundColor:"rgba(242,188,87,0.55)",duration:0.7,ease:"power2.out"},48.101);
+      tl.fromTo("#f07 .proof",{opacity:0,y:14},{opacity:1,y:0,duration:0.6,ease:"power2.out",stagger:0.0},50.301);
+      tl.fromTo("#f08-stage",{opacity:0},{opacity:1,duration:0.35,ease:"power1.out"},52.855);
+      tl.fromTo("#f08-st",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},53.155);
+      tl.fromTo("#f09 .eyebrow .mi",{yPercent:110},{yPercent:0,duration:0.62,ease:"power3.out",stagger:0.09},55.523);
+      tl.fromTo("#f09 .s1",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.55,ease:"back.out(1.7)",stagger:0.11},57.623);
+      tl.fromTo("#f09 .s2",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.55,ease:"back.out(1.7)",stagger:0.11},60.823);
+      tl.fromTo("#f09 .cap",{opacity:0,y:18},{opacity:1,y:0,duration:0.6,ease:"power2.out",stagger:0.0},63.823);
+      tl.fromTo("#f10 .tag",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},68.376);
+      tl.fromTo("#f11 .tag",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},77.983);
+      tl.fromTo("#f12 .tag",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.7)",stagger:0.11},86.953);
+      tl.fromTo("#f10-win",{opacity:0,y:34},{opacity:1,y:0,duration:0.7,ease:"power2.out",stagger:0.0},69.026);
+      tl.fromTo("#f10-win img",{scale:1.0},{scale:1.06,duration:8.706999999999999,ease:"none"},69.026);
+      tl.fromTo("#f11-win",{opacity:0,y:34},{opacity:1,y:0,duration:0.7,ease:"power2.out",stagger:0.0},78.633);
+      tl.fromTo("#f11-win img",{scale:1.0},{scale:1.06,duration:8.07,ease:"none"},78.633);
+      tl.fromTo("#f10 .cc",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.45,ease:"back.out(1.7)",stagger:0.8},69.726);
+      tl.fromTo("#f10 .lnk",{scaleX:0},{scaleX:1,duration:0.4,ease:"power2.out",stagger:0.8},70.276);
+      tl.set("#f10 .lnk",{transformOrigin:"left center"},0);
+      tl.fromTo("#f10 .cap",{opacity:0,y:16},{opacity:1,y:0,duration:0.6,ease:"power2.out",stagger:0.0},74.526);
+      tl.fromTo("#f11-bc",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.6,ease:"back.out(1.7)",stagger:0.11},81.133);
+      tl.fromTo("#f11-sk",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out",stagger:0.0},83.733);
+      tl.fromTo("#f11-sk",{color:"#93A4C4"},{color:"#697690",duration:0.6},84.333);
+      tl.fromTo("#f12-tx .mi",{yPercent:110},{yPercent:0,duration:0.7,ease:"power3.out",stagger:0.12},88.303);
+      tl.fromTo("#f13 .h0 .mi",{yPercent:110},{yPercent:0,duration:0.75,ease:"power3.out",stagger:0.14},94.199);
+      tl.fromTo("#f13-ln",{scaleX:0},{scaleX:1,duration:0.8,ease:"power2.out",stagger:0.0},95.499);
+      tl.fromTo("#f13 .sub2 .mi",{yPercent:110},{yPercent:0,duration:0.7,ease:"power3.out",stagger:0.09},96.599);
+      tl.fromTo("#f14 .eyebrow .mi",{yPercent:110},{yPercent:0,duration:0.62,ease:"power3.out",stagger:0.09},102.124);
+      tl.fromTo("#f14 .t1",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.55,ease:"back.out(1.7)",stagger:0.11},103.424);
+      tl.fromTo("#f14 .t2",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.55,ease:"back.out(1.7)",stagger:0.11},106.324);
+      tl.fromTo("#f15-stage",{opacity:0},{opacity:1,duration:0.45,ease:"power1.out"},109.447);
+      tl.fromTo("#w-e3 video",{scale:1.0},{scale:1.08,duration:13.843,ease:"none"},109.447);
+      tl.fromTo("#f15 .eyebrow .mi",{yPercent:110},{yPercent:0,duration:0.62,ease:"power3.out",stagger:0.09},112.847);
+      tl.fromTo("#f15 .p1",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.55,ease:"back.out(1.7)",stagger:0.11},117.047);
+      tl.fromTo("#f15 .p2",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.55,ease:"back.out(1.7)",stagger:0.11},118.047);
+      tl.fromTo("#f15 .p3",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.55,ease:"back.out(1.7)",stagger:0.11},119.147);
+      tl.fromTo("#f16-stage",{opacity:0},{opacity:1,duration:0.4,ease:"power1.out"},123.29);
+      tl.fromTo("#f16 .mi",{yPercent:110},{yPercent:0,duration:0.7,ease:"power3.out",stagger:0.55},123.89);
+      tl.fromTo("#f16-ar",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.45,ease:"back.out(1.7)",stagger:0.11},124.49);
+      tl.fromTo("#f17-stage",{opacity:0},{opacity:1,duration:0.4,ease:"power1.out"},131.57);
+      tl.fromTo("#w-e4 video",{scale:1.0},{scale:1.07,duration:10.057,ease:"none"},131.57);
+      tl.fromTo("#f17 .eyebrow .mi",{yPercent:110},{yPercent:0,duration:0.62,ease:"power3.out",stagger:0.09},131.87);
+      tl.fromTo("#f17 .f1",{opacity:0,y:22},{opacity:1,y:0,duration:0.6,ease:"power2.out",stagger:0.0},136.17);
+      tl.fromTo("#f17-ar",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.45,ease:"back.out(1.7)",stagger:0.11},137.17);
+      tl.fromTo("#f17 .f2",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.55,ease:"back.out(1.7)",stagger:0.11},137.77);
+      tl.fromTo("#f18 .kb img",{scale:1.0},{scale:1.06,duration:9.036,ease:"none"},141.627);
+      tl.fromTo("#f18 .h1 .mi",{yPercent:110},{yPercent:0,duration:0.75,ease:"power3.out",stagger:0.16},142.427);
+      tl.fromTo("#f18-lv",{opacity:0,scale:0.84},{opacity:1,scale:1,duration:0.6,ease:"back.out(1.7)",stagger:0.11},147.227);
+      tl.fromTo("#f19 .kb img",{scale:1.0},{scale:1.05,duration:11.836,ease:"none"},150.663);
+      tl.fromTo("#f19-q",{opacity:0,y:30},{opacity:1,y:0,duration:0.9,ease:"power2.out",stagger:0.0},151.863);
+      tl.fromTo("#f20 .mi",{yPercent:110},{yPercent:0,duration:0.7,ease:"power3.out",stagger:0.14},162.799);
+      tl.fromTo("#f21-stage",{opacity:0},{opacity:1,duration:0.5,ease:"power1.out"},167.546);
+      tl.fromTo("#f21 .lock .mi",{yPercent:110},{yPercent:0,duration:0.7,ease:"power3.out",stagger:0.12},167.946);
+      tl.fromTo("#f21-ln",{scaleX:0},{scaleX:1,duration:0.7,ease:"power2.out",stagger:0.0},168.846);
+      tl.fromTo("#f21 .sub",{opacity:0,y:18},{opacity:1,y:0,duration:0.6,ease:"power2.out",stagger:0.0},169.246);
+      tl.fromTo("#f21 .tiny",{opacity:0,y:14},{opacity:1,y:0,duration:0.6,ease:"power2.out",stagger:0.0},169.646);
+      tl.to("#f21-stage",{opacity:0,duration:0.7,ease:"power2.in"},171.796);
+      tl.fromTo("#ava1 .avaimg",{opacity:0,scale:0.7},{opacity:1,scale:1,duration:0.55,ease:"back.out(1.7)"},21.052);
+      tl.fromTo("#ava1 .avaname",{opacity:0,x:16},{opacity:1,x:0,duration:0.45,ease:"power2.out"},21.402);
+      tl.fromTo("#ava2 .avaimg",{opacity:0,scale:0.7},{opacity:1,scale:1,duration:0.55,ease:"back.out(1.7)"},162.849);
+      tl.fromTo("#ava2 .avaname",{opacity:0,x:16},{opacity:1,x:0,duration:0.45,ease:"power2.out"},163.199);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

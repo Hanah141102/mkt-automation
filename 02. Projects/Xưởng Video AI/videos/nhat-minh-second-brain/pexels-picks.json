@@ -1,0 +1,52 @@
+[
+ {
+  "name": "f04_sach",
+  "kind": "videos",
+  "ss": 0.05,
+  "dur": 6.9,
+  "blur": 0,
+  "by": "Cup of Couple",
+  "page": "https://www.pexels.com/video/hand-flipping-through-empty-notebook-pages-6177794/",
+  "link": "https://videos.pexels.com/video-files/6177794/6177794-hd_1920_1080_25fps.mp4"
+ },
+ {
+  "name": "f12_boi",
+  "kind": "videos",
+  "ss": 0.0,
+  "dur": 6.95,
+  "speed": 1.06,
+  "blur": 0,
+  "by": "Tima Miroshnichenko",
+  "page": "https://www.pexels.com/video/an-indoor-swimming-pool-used-in-training-6011926/",
+  "link": "https://videos.pexels.com/video-files/6011926/6011926-hd_1920_1080_25fps.mp4"
+ },
+ {
+  "name": "f14_anh",
+  "kind": "photos",
+  "by": "Thirdman",
+  "page": "https://www.pexels.com/photo/words-spelled-on-scrabble-tiles-6503036/",
+  "link": "https://images.pexels.com/photos/6503036/pexels-photo-6503036.jpeg?auto=compress&cs=tinysrgb&w=1920"
+ },
+ {
+  "name": "f02_ban",
+  "kind": "videos",
+  "ss": 1.0,
+  "dur": 9.0,
+  "speed": 1.0,
+  "blur": 0,
+  "by": "Polina",
+  "page": "https://www.pexels.com/video/video-of-notebooks-and-pens-5546878/",
+  "link": "https://videos.pexels.com/video-files/5546878/5546878-hd_1920_1080_25fps.mp4"
+ },
+ {
+  "name": "f19_lop",
+  "kind": "videos",
+  "ss": 2.0,
+  "dur": 12.0,
+  "speed": 1.0,
+  "blur": 0,
+  "by": "Pavel Danilyuk",
+  "page": "https://www.pexels.com/video/tables-and-chairs-inside-the-classroom-8342690/",
+  "link": "https://videos.pexels.com/video-files/8342690/8342690-hd_1920_1080_25fps.mp4"
+ }
+]

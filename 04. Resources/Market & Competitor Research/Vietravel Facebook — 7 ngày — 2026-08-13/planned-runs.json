@@ -1,0 +1,20 @@
+{
+  "runs": [
+    {
+      "competitor": "Vietravel",
+      "platform": "facebook",
+      "target": "https://www.facebook.com/vietravel",
+      "actor_id": "apify/facebook-posts-scraper",
+      "run_input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/vietravel"
+          }
+        ],
+        "resultsLimit": 30,
+        "captionText": false,
+        "onlyPostsNewerThan": "7 days"
+      }
+    }
+  ]
+}

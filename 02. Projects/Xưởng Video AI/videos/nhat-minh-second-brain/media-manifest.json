@@ -1,0 +1,110 @@
+{
+ "frames": [
+  {
+   "id": "f01",
+   "audio": "media/f01.wav",
+   "duration": 5.023
+  },
+  {
+   "id": "f02",
+   "audio": "media/f02.wav",
+   "duration": 8.841
+  },
+  {
+   "id": "f03",
+   "audio": "media/f03.wav",
+   "duration": 6.838
+  },
+  {
+   "id": "f04",
+   "audio": "media/f04.wav",
+   "duration": 6.805
+  },
+  {
+   "id": "f05",
+   "audio": "media/f05.wav",
+   "duration": 7.334
+  },
+  {
+   "id": "f06",
+   "audio": "media/f06.wav",
+   "duration": 8.06
+  },
+  {
+   "id": "f07",
+   "audio": "media/f07.wav",
+   "duration": 9.954
+  },
+  {
+   "id": "f08",
+   "audio": "media/f08.wav",
+   "duration": 2.368
+  },
+  {
+   "id": "f09",
+   "audio": "media/f09.wav",
+   "duration": 12.903
+  },
+  {
+   "id": "f10",
+   "audio": "media/f10.wav",
+   "duration": 9.607
+  },
+  {
+   "id": "f11",
+   "audio": "media/f11.wav",
+   "duration": 8.97
+  },
+  {
+   "id": "f12",
+   "audio": "media/f12.wav",
+   "duration": 7.296
+  },
+  {
+   "id": "f13",
+   "audio": "media/f13.wav",
+   "duration": 7.925
+  },
+  {
+   "id": "f14",
+   "audio": "media/f14.wav",
+   "duration": 7.523
+  },
+  {
+   "id": "f15",
+   "audio": "media/f15.wav",
+   "duration": 13.843
+  },
+  {
+   "id": "f16",
+   "audio": "media/f16.wav",
+   "duration": 8.28
+  },
+  {
+   "id": "f17",
+   "audio": "media/f17.wav",
+   "duration": 10.057
+  },
+  {
+   "id": "f18",
+   "audio": "media/f18.wav",
+   "duration": 9.036
+  },
+  {
+   "id": "f19",
+   "audio": "media/f19.wav",
+   "duration": 11.836
+  },
+  {
+   "id": "f20",
+   "audio": "media/f20.wav",
+   "duration": 5.047
+  },
+  {
+   "id": "f21",
+   "audio": null,
+   "duration": 5.0
+  }
+ ],
+ "total": 172.546
+}

@@ -30,6 +30,7 @@ Schema item:
   "noun": "chủ doanh nghiệp",
   "verb": "giao việc",
   "purpose": "evidence",
+  "source_type": "user | pexels | library | screen-recording",
   "covers_cut": "seg-003→seg-004",
   "status": "proposed"
 }
@@ -70,6 +71,12 @@ Text effect phải có `spoken_anchor` và xuất hiện trong ±0,12s quanh t�
 {
   "version": 1,
   "total_duration": 42.8,
+  "visual_mix": {
+    "min_real_media_ratio": 0.30,
+    "max_hyperframes_ratio": 0.20,
+    "approved_override": false,
+    "override_reason": ""
+  },
   "face_moments": [{"start": 0, "end": 3.2, "reason": "hook"}],
   "broll": [],
   "hyperframes": [],

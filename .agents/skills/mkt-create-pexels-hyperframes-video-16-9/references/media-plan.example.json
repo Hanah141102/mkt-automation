@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "canvas": {"width": 1920, "height": 1080, "fps": 30},
+  "total_duration_s": 12.4,
+  "beats": [
+    {
+      "id": "b001",
+      "start_s": 0.0,
+      "end_s": 4.8,
+      "voice": "Một cuộc họp kéo dài sáu mươi phút.",
+      "mode": "BROLL_PRIMARY",
+      "transition": "push-left",
+      "cues": [{"at_s": 0.9, "kind": "text", "value": "60 PHÚT"}],
+      "assets": [{
+        "asset_id": "pexels-325185",
+        "type": "video",
+        "provider": "pexels",
+        "pexels_id": "325185",
+        "path": "media/trims/b001-pexels-325185.mp4",
+        "source_url": "https://www.pexels.com/video/325185/",
+        "author": "Example creator",
+        "query": "business team meeting office wide shot",
+        "width": 1920,
+        "height": 1080,
+        "start_s": 0.0,
+        "end_s": 4.8
+      }]
+    },
+    {
+      "id": "b002",
+      "start_s": 4.8,
+      "end_s": 8.2,
+      "voice": "Quy trình này gồm bốn bước.",
+      "mode": "HYPERFRAME_FULL",
+      "transition": "wipe",
+      "cues": [{"at_s": 5.4, "kind": "card", "value": "Bước 1 — Ghi lại"}],
+      "assets": []
+    },
+    {
+      "id": "b003",
+      "start_s": 8.2,
+      "end_s": 12.4,
+      "voice": "Gửi biên bản cho đội nhóm.",
+      "mode": "BROLL_PLUS_OVERLAY",
+      "transition": "zoom",
+      "cues": [{"at_s": 9.1, "kind": "text", "value": "BIÊN BẢN ĐÃ KIỂM TRA"}],
+      "assets": [{
+        "asset_id": "pexels-3184465",
+        "type": "video",
+        "provider": "pexels",
+        "pexels_id": "3184465",
+        "path": "media/trims/b003-pexels-3184465.mp4",
+        "source_url": "https://www.pexels.com/video/3184465/",
+        "author": "Example creator",
+        "query": "team receiving project update laptop office",
+        "width": 1920,
+        "height": 1080,
+        "start_s": 8.2,
+        "end_s": 12.4
+      }]
+    }
+  ]
+}

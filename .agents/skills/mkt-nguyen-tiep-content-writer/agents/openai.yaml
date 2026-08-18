@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nguyễn Tiệp Content Writer"
+  short_description: "Viết bài AI tri thức theo cấu trúc Nguyễn Tiệp"
+  default_prompt: "Use $mkt-nguyen-tiep-content-writer để viết một bài Facebook tiếng Việt từ chủ đề và tài liệu nguồn của tôi."

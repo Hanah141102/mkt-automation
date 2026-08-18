@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tạo video Pexels + HyperFrames 16:9"
+  short_description: "Dựng video 16:9 theo voice, hình và sound effect"
+  default_prompt: "Dùng $mkt-create-pexels-hyperframes-video-16-9 để biến kịch bản này thành video 16:9 có voice, storyboard HTML, Pexels, HyperFrames và sound effect đúng từ khóa."

@@ -136,8 +136,8 @@ def validate_config(config: dict[str, Any], max_posts_override: int | None) -> d
         raise ValueError("'competitors' must be a non-empty array")
 
     max_posts = max_posts_override if max_posts_override is not None else config.get("max_posts", 10)
-    if not isinstance(max_posts, int) or not 1 <= max_posts <= 100:
-        raise ValueError("max_posts must be an integer from 1 to 100")
+    if not isinstance(max_posts, int) or not 1 <= max_posts <= 500:
+        raise ValueError("max_posts must be an integer from 1 to 500")
 
     clean_competitors = []
     seen_names = set()
@@ -170,15 +170,37 @@ def validate_config(config: dict[str, Any], max_posts_override: int | None) -> d
         if platform not in SUPPORTED_PLATFORMS:
             raise ValueError(f"unsupported actor override platform: {platform}")
 
+    older_than_raw = config.get("older_than")
+    older_than = str(older_than_raw).strip() if older_than_raw is not None else None
+
     return {
         "competitors": clean_competitors,
         "max_posts": max_posts,
         "newer_than": str(config.get("newer_than", "30 days")).strip() or "30 days",
+        "older_than": older_than or None,
         "actor_overrides": {str(key): str(value) for key, value in overrides.items()},
     }
 
 
-def actor_input(platform: str, target: str, max_posts: int, newer_than: str) -> dict[str, Any]:
+def date_range_from_newer_than(newer_than: str) -> tuple[str, str]:
+    match = re.fullmatch(r"\s*(\d+)\s+days?\s*", newer_than, flags=re.IGNORECASE)
+    if not match:
+        raise ValueError(
+            "api-ninja/facebook-pages-scraper requires newer_than in the form 'N days'"
+        )
+    end_date = datetime.now(timezone.utc).date()
+    start_date = end_date - timedelta(days=int(match.group(1)))
+    return start_date.isoformat(), end_date.isoformat()
+
+
+def actor_input(
+    platform: str,
+    target: str,
+    max_posts: int,
+    newer_than: str,
+    older_than: str | None,
+    actor_id: str,
+) -> dict[str, Any]:
     if platform == "instagram":
         return {
             "directUrls": [target],
@@ -188,12 +210,44 @@ def actor_input(platform: str, target: str, max_posts: int, newer_than: str) -> 
             "addParentData": True,
         }
     if platform == "facebook":
-        return {
+        if older_than and actor_id != ACTORS["facebook"]:
+            raise ValueError("older_than is currently supported only by the default Facebook Actor")
+        if actor_id == "khadinakbar/facebook-posts-scraper":
+            start_date, _ = date_range_from_newer_than(newer_than)
+            return {
+                "startUrls": [{"url": target}],
+                "resultsLimit": max_posts,
+                "maxPostsPerSource": max_posts,
+                "scrapeDetails": False,
+                "fallbackProvider": "auto",
+                "onlyPostsNewerThan": start_date,
+                "includeRawHtml": False,
+                "proxyConfiguration": {
+                    "useApifyProxy": True,
+                    "apifyProxyGroups": ["RESIDENTIAL"],
+                },
+            }
+        if actor_id == "api-ninja/facebook-pages-scraper":
+            start_date, end_date = date_range_from_newer_than(newer_than)
+            return {
+                "urls": [target],
+                "type": "posts",
+                # The Actor schema enforces a minimum of 20 even when the
+                # requested analysis limit is lower.
+                "maxResults": max(20, max_posts),
+                "parseAllResults": False,
+                "startDate": start_date,
+                "endDate": end_date,
+            }
+        run_input = {
             "startUrls": [{"url": target}],
             "resultsLimit": max_posts,
             "captionText": False,
             "onlyPostsNewerThan": newer_than,
         }
+        if older_than:
+            run_input["onlyPostsOlderThan"] = older_than
+        return run_input
     if platform == "tiktok":
         return {
             "profiles": [normalize_tiktok_handle(target)],
@@ -233,6 +287,8 @@ def build_plan(config: dict[str, Any]) -> list[dict[str, Any]]:
                     target,
                     config["max_posts"],
                     config["newer_than"],
+                    config["older_than"],
+                    actor_id,
                 ),
             })
     return plan
@@ -267,6 +323,7 @@ def first_value(item: dict[str, Any], keys: tuple[str, ...], default: Any = None
 def normalize_item(item: dict[str, Any], run_meta: dict[str, Any]) -> dict[str, Any]:
     likes = numeric(first_value(item, (
         "likesCount", "likeCount", "likes", "diggCount", "stats.diggCount", "reactionsCount",
+        "reactions_count",
     )))
     comments = numeric(first_value(item, (
         "commentsCount", "commentCount", "comments", "stats.commentCount", "comments_count",
@@ -311,6 +368,13 @@ def normalize_item(item: dict[str, Any], run_meta: dict[str, Any]) -> dict[str, 
         "engagement": round(engagement),
         "engagement_rate_by_view": round(engagement_rate, 4) if engagement_rate is not None else None,
     }
+
+
+def is_diagnostic_item(item: dict[str, Any]) -> bool:
+    if item.get("error"):
+        return True
+    text = str(first_value(item, ("text", "message", "errorDescription"), "")).lower()
+    return text.startswith("no posts extracted.")
 
 
 def theme_tokens(records: list[dict[str, Any]], limit: int = 12) -> list[dict[str, Any]]:
@@ -506,9 +570,15 @@ def main() -> int:
             "actor_id": str(run.get("actor_id", "mock")),
             "target": str(run.get("target", "")),
         }
-        items = [item for item in run.get("items", []) if isinstance(item, dict)]
+        raw_items = [item for item in run.get("items", []) if isinstance(item, dict)]
+        items = [item for item in raw_items if not is_diagnostic_item(item)]
         records.extend(normalize_item(item, meta) for item in items)
-        run_summaries.append({**meta, "items": len(items), "dataset_id": run.get("dataset_id")})
+        run_summaries.append({
+            **meta,
+            "items": len(items),
+            "raw_items": len(raw_items),
+            "dataset_id": run.get("dataset_id"),
+        })
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),

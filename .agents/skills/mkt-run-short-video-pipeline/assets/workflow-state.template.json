@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "workflow": "mkt-run-short-video-pipeline",
+  "run_id": "",
+  "mode": "review",
+  "current_stage": "INTAKE",
+  "stop_after": "video",
+  "input": {
+    "type": "idea",
+    "value": ""
+  },
+  "brief": {
+    "duration_s": 45,
+    "audience": "",
+    "goal": "",
+    "cta": "",
+    "tone": ""
+  },
+  "versions": {
+    "idea": 0,
+    "script": 0,
+    "storyboard": 0,
+    "video": 0
+  },
+  "approvals": {
+    "idea": {
+      "status": "pending",
+      "version": 0,
+      "approved_at": null,
+      "approved_by": null
+    },
+    "script": {
+      "status": "pending",
+      "version": 0,
+      "approved_at": null,
+      "approved_by": null
+    },
+    "storyboard": {
+      "status": "pending",
+      "version": 0,
+      "approved_at": null,
+      "approved_by": null
+    }
+  },
+  "dependencies": {
+    "script": {
+      "idea_version": null
+    },
+    "storyboard": {
+      "script_version": null
+    },
+    "video": {
+      "script_version": null,
+      "storyboard_version": null
+    },
+    "publish": {
+      "video_version": null
+    }
+  },
+  "artifacts": {
+    "source_analysis": null,
+    "idea_review": null,
+    "script": null,
+    "design": null,
+    "storyboard": null,
+    "storyboard_preview": null,
+    "storyboard_contact_sheet": null,
+    "video": null,
+    "publish_report": null
+  },
+  "publish": {
+    "action": "prepare_only",
+    "scheduled_time_utc": null,
+    "targets": [],
+    "submission_ids": {},
+    "public_urls": {}
+  },
+  "assumptions": [],
+  "concerns": [],
+  "blocked_reason": null,
+  "updated_at": null
+}

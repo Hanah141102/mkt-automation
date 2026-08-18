@@ -27,6 +27,7 @@ out/
 huong dan/MKT.LANDINGPAGE.SKILLS-main/output/
 huong dan/**/.env
 
+
 # --- Python ---
 __pycache__/
 *.pyc
@@ -40,3 +41,4 @@ Thumbs.db
 .idea/
 .vscode/
 config.bat
+.mac brandon/

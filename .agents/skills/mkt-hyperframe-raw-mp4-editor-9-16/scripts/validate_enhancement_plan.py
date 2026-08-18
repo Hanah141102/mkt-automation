@@ -18,6 +18,22 @@ def interval(item: dict) -> tuple[float, float]:
   return float(item["start"]), float(item["end"])
 
 
+def merge_intervals(intervals: list[tuple[float, float]]) -> list[tuple[float, float]]:
+  merged: list[list[float]] = []
+  for start, end in sorted(intervals):
+    if end <= start:
+      continue
+    if not merged or start > merged[-1][1] + 1e-9:
+      merged.append([start, end])
+    else:
+      merged[-1][1] = max(merged[-1][1], end)
+  return [(start, end) for start, end in merged]
+
+
+def covered_duration(intervals: list[tuple[float, float]]) -> float:
+  return sum(end - start for start, end in merge_intervals(intervals))
+
+
 def main() -> int:
   parser = argparse.ArgumentParser(description="Validate enhancement-plan.json")
   parser.add_argument("--project", type=Path, required=True)
@@ -66,8 +82,8 @@ def main() -> int:
     if not item_id or item_id in broll_ids:
       errors.append(f"{prefix}: id thiếu hoặc trùng")
     broll_ids.add(item_id)
-    if bounds[0] < 3.0 or bounds[1] > total + 0.05 or not 0.8 <= bounds[1] - bounds[0] <= 8.0:
-      errors.append(f"{prefix}: phải nằm sau 3s, dài 0.8–8.0s và trong timeline")
+    if bounds[0] < 3.0 or bounds[1] > total + 0.05 or not 0.8 <= bounds[1] - bounds[0] <= 15.0:
+      errors.append(f"{prefix}: phải nằm sau 3s, dài 0.8–15.0s và trong timeline")
     for field in ("intent_vi", "query_en", "noun", "verb", "purpose"):
       if not str(item.get(field) or "").strip():
         errors.append(f"{prefix}: thiếu {field}")
@@ -77,6 +93,7 @@ def main() -> int:
       errors.append(f"{prefix}: chồng B-roll khác")
     broll_intervals.append(bounds)
 
+  hyperframe_intervals = []
   for index, item in enumerate(plan.get("hyperframes", []), start=1):
     prefix = f"hyperframes[{index}]"
     try:
@@ -93,6 +110,32 @@ def main() -> int:
       errors.append(f"{prefix}: đè face moment bắt buộc")
     if any(overlaps(bounds, broll) for broll in broll_intervals):
       errors.append(f"{prefix}: chồng B-roll")
+    hyperframe_intervals.append(bounds)
+
+  mix = plan.get("visual_mix", {})
+  approved_override = bool(mix.get("approved_override", False))
+  try:
+    max_hyperframes_ratio = float(mix.get("max_hyperframes_ratio", 0.20))
+    min_real_media_ratio = float(mix.get("min_real_media_ratio", 0.30))
+  except (TypeError, ValueError):
+    errors.append("visual_mix ratio không hợp lệ")
+    max_hyperframes_ratio, min_real_media_ratio = 0.20, 0.30
+  real_media_ratio = covered_duration(broll_intervals) / total
+  hyperframes_ratio = covered_duration(hyperframe_intervals) / total
+  if approved_override:
+    if not str(mix.get("override_reason") or "").strip():
+      errors.append("visual_mix override thiếu override_reason")
+  else:
+    if hyperframes_ratio > max_hyperframes_ratio + 0.001:
+      errors.append(
+        f"HyperFrames {hyperframes_ratio:.1%} vượt trần {max_hyperframes_ratio:.0%}; "
+        "ưu tiên media user/Pexels hoặc ghi approved_override"
+      )
+    if real_media_ratio + 0.001 < min_real_media_ratio:
+      errors.append(
+        f"Real media {real_media_ratio:.1%} dưới mức {min_real_media_ratio:.0%}; "
+        "bổ sung media user/Pexels hoặc ghi approved_override"
+      )
 
   sfx = sorted(plan.get("sfx", []), key=lambda item: float(item.get("time", -1)))
   max_hits = max(1, math.ceil(total / 60 * 6))
@@ -138,7 +181,8 @@ def main() -> int:
   print(
     f"{status}: {len(plan.get('broll', []))} B-roll · "
     f"{len(plan.get('hyperframes', []))} HyperFrames · "
-    f"{len(sfx)} SFX · {len(plan.get('text_effects', []))} text effects"
+    f"{len(sfx)} SFX · {len(plan.get('text_effects', []))} text effects · "
+    f"real media {real_media_ratio:.1%} · HyperFrames {hyperframes_ratio:.1%}"
   )
   for error in errors:
     print(f"- {error}")

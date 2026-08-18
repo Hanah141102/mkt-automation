@@ -1,4 +1,4 @@
 interface:
-  display_name: "Biên tập MP4 thô 9:16"
-  short_description: "Cắt ghép MP4 thô, B-roll và subtitle"
-  default_prompt: "Dùng $mkt-hyperframe-raw-mp4-editor-9-16 để biên tập các MP4 dọc thô của tôi thành video ngắn tiếng Việt hoàn chỉnh."
+  display_name: "Raw MP4 Editor 9:16 — Full Pipeline"
+  short_description: "Edit raw, Pexels, Obsidian, SFX và render 9:16"
+  default_prompt: "Dùng $mkt-hyperframe-raw-mp4-editor-9-16 để phân tích toàn bộ folder raw của tôi, đưa storyboard cho tôi duyệt rồi dựng và render video 9:16 hoàn chỉnh."

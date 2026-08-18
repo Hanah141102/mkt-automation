@@ -1,0 +1,4 @@
+interface:
+  display_name: "Creative HyperFrame Video 9:16 Lite"
+  short_description: "Video dọc sáng tạo theo nội dung kịch bản"
+  default_prompt: "Dùng $mkt-hyperframe-knowledge-video-heygen-9-16-creative-lite để tạo video dọc với HyperFrames do AI tự thiết kế theo kịch bản."
