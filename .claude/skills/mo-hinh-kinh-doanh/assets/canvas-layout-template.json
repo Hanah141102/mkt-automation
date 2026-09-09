@@ -1,29 +1,188 @@
 {
-  "_ghi_chu": "Template bố cục JSON Canvas cho Business Model Canvas 9 ô (chuẩn Osterwalder). Copy toàn bộ nội dung này sang file .canvas mới, XOÁ khoá _ghi_chu này, giữ nguyên id/x/y/width/height, chỉ thay các chuỗi {{...}} bằng nội dung thật. Toạ độ đã được kiểm chứng hiển thị đẹp trong Obsidian Canvas.",
+  "_huong_dan": "Khung toạ độ chuẩn cho Business Model Canvas.canvas. Giữ nguyên x/y/width/height/color của 10 node đầu; chỉ thay text. Các node có id bắt đầu bằng 'bmc-file-' là MẪU cho 1 phân khúc (PK) và 1 giá trị (GT): nhân bản theo số PK/GT thật, x tăng 285 mỗi thẻ, PK màu 5, GT màu 3, PK xếp trái rồi GT xếp phải trong cùng hàng y=1590. Tổng chiều rộng hàng thẻ = 265×n + 20×(n−1); nếu vượt 2300 thì xếp thành 2 hàng, hàng 2 y=2030. Xoá key _huong_dan trước khi ghi file. Trong text của Customer Segments và Value Propositions, mỗi PK/GT ghi dạng [[PKn — Tên File|PKn — tên ngắn]] để bấm được. Cạnh bmc-edge-06 là MẪU cho mối 'GT phục vụ PK': tạo một cạnh cho mỗi GT, label ghi rõ GT nào phục vụ PK nào.",
   "nodes": [
-    {"id": "bmc-title", "type": "text", "text": "# {{ICON}} BUSINESS MODEL CANVAS — {{TEN_DU_AN}}\n{{MO_TA_NGAN_1_2_CAU}} · Chi tiết: [[Business Model Canvas — {{TEN_DU_AN}}]]", "x": 0, "y": -200, "width": 2300, "height": 120, "color": "#7c3aed"},
-
-    {"id": "bmc-key-partnerships", "type": "text", "text": "## 🤝 Key Partnerships\n(Đối tác chính)\n\n{{TOM_TAT_3_6_DONG}}", "x": 0, "y": 0, "width": 440, "height": 1000, "color": "6"},
-
-    {"id": "bmc-key-activities", "type": "text", "text": "## ⚙️ Key Activities\n(Hoạt động chính)\n\n{{TOM_TAT_3_6_DONG}}", "x": 460, "y": 0, "width": 440, "height": 460, "color": "6"},
-
-    {"id": "bmc-key-resources", "type": "text", "text": "## 🧱 Key Resources\n(Nguồn lực chính)\n\n{{TOM_TAT_3_6_DONG}}", "x": 460, "y": 480, "width": 440, "height": 400, "color": "6"},
-
-    {"id": "bmc-value-propositions", "type": "text", "text": "## 🎁 Value Propositions\n(Giá trị cốt lõi)\n\n{{TOM_TAT_3_6_DONG_MOI_PHAN_KHUC}}", "x": 920, "y": 0, "width": 460, "height": 1000, "color": "3"},
-
-    {"id": "bmc-customer-relationships", "type": "text", "text": "## ❤️ Customer Relationships\n(Quan hệ khách hàng)\n\n{{TOM_TAT_3_6_DONG}}", "x": 1400, "y": 0, "width": 440, "height": 400, "color": "5"},
-
-    {"id": "bmc-channels", "type": "text", "text": "## 📢 Channels\n(Kênh phân phối)\n\n{{TOM_TAT_3_6_DONG}}", "x": 1400, "y": 420, "width": 440, "height": 460, "color": "5"},
-
-    {"id": "bmc-customer-segments", "type": "text", "text": "## 👥 Customer Segments\n(Phân khúc khách hàng)\n\n{{TOM_TAT_3_6_DONG_MOI_PHAN_KHUC}}", "x": 1860, "y": 0, "width": 440, "height": 1000, "color": "5"},
-
-    {"id": "bmc-cost-structure", "type": "text", "text": "## 💸 Cost Structure\n(Cơ cấu chi phí)\n\n{{TOM_TAT_3_6_DONG}}", "x": 0, "y": 1040, "width": 1140, "height": 340, "color": "1"},
-
-    {"id": "bmc-revenue-streams", "type": "text", "text": "## 💰 Revenue Streams\n(Dòng doanh thu)\n\n{{TOM_TAT_3_6_DONG}}", "x": 1160, "y": 1040, "width": 1140, "height": 340, "color": "4"}
+    {
+      "id": "bmc-title",
+      "type": "text",
+      "text": "# {{ICON}} BUSINESS MODEL CANVAS — {{TÊN DOANH NGHIỆP VIẾT HOA}}\n{{Mô tả 1 đến 2 câu: làm gì, cho ai, giai đoạn nào}} · Bản chi tiết: [[Business Model Canvas — {{TÊN}}]] · Đánh giá: [[Đánh Giá Mô Hình Kinh Doanh — {{TÊN}}]] · Tham số: [[Hồ Sơ Mô Hình Kinh Doanh]]",
+      "x": 0,
+      "y": -240,
+      "width": 2300,
+      "height": 160,
+      "color": "#7c3aed"
+    },
+    {
+      "id": "bmc-key-partnerships",
+      "type": "text",
+      "text": "## 🤝 Key Partnerships\n(Đối tác chính)\n\n{{TÓM TẮT 3 ĐẾN 6 DÒNG: mỗi nhóm đối tác một dòng, in đậm tên nhóm, sau đó lý do cần}}",
+      "x": 0,
+      "y": 0,
+      "width": 440,
+      "height": 1000,
+      "color": "6"
+    },
+    {
+      "id": "bmc-key-activities",
+      "type": "text",
+      "text": "## ⚙️ Key Activities\n(Hoạt động chính)\n\n{{TÓM TẮT 3 ĐẾN 6 DÒNG, đánh số, hoạt động nào dừng 1 tuần là sụp thì ghi rõ}}",
+      "x": 460,
+      "y": 0,
+      "width": 440,
+      "height": 460,
+      "color": "6"
+    },
+    {
+      "id": "bmc-key-resources",
+      "type": "text",
+      "text": "## 🧱 Key Resources\n(Nguồn lực chính)\n\n{{TÓM TẮT 3 ĐẾN 6 DÒNG theo 4 loại: con người, trí tuệ, vật lý, tài chính; ghi cái ĐÃ CÓ và cái THIẾU}}",
+      "x": 460,
+      "y": 480,
+      "width": 440,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "bmc-value-propositions",
+      "type": "text",
+      "text": "## 🎁 Value Propositions\n(Giá trị cốt lõi)\n\n**{{🥇 nếu có nhãn ưu tiên}} [[GT1 — {{Tên File}}|GT1 — {{tên ngắn}}]]**\n{{1 đến 2 dòng: giải gì cho phân khúc nào, khác đối thủ ở đâu}}\n\n**[[GT2 — {{Tên File}}|GT2 — {{tên ngắn}}]]**\n{{...}}\n\n---\n{{Ghi chú ⚠️ giả định nếu có}}",
+      "x": 920,
+      "y": 0,
+      "width": 460,
+      "height": 1000,
+      "color": "3"
+    },
+    {
+      "id": "bmc-customer-relationships",
+      "type": "text",
+      "text": "## ❤️ Customer Relationships\n(Quan hệ khách hàng)\n\n**[[PK1 — {{Tên File}}|PK1]]:** {{kiểu quan hệ, cách giữ khách}}\n**[[PK2 — {{Tên File}}|PK2]]:** {{...}}",
+      "x": 1400,
+      "y": 0,
+      "width": 440,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "bmc-channels",
+      "type": "text",
+      "text": "## 📢 Channels\n(Kênh phân phối)\n\n**[[PK1 — {{Tên File}}|PK1]]:** {{kênh biết → đánh giá → mua → giao → hậu mãi}}\n**[[PK2 — {{Tên File}}|PK2]]:** {{...}}\n\n{{Kênh sở hữu và kênh qua đối tác}}",
+      "x": 1400,
+      "y": 420,
+      "width": 440,
+      "height": 460,
+      "color": "5"
+    },
+    {
+      "id": "bmc-customer-segments",
+      "type": "text",
+      "text": "## 👥 Customer Segments\n(Phân khúc khách hàng)\n\n**{{🥇 nếu có nhãn ưu tiên}} [[PK1 — {{Tên File}}|PK1 — {{tên ngắn}}]]** ({{quy mô, ngành}})\n{{Ai ký · Đau chính}}\n{{~% doanh thu ⚠️ nếu là giả định}}\n\n**[[PK2 — {{Tên File}}|PK2 — {{tên ngắn}}]]** ({{...}})\n{{...}}\n\n---\n{{Ghi chú: người mua ≠ người dùng ở PK nào, nếu có}}",
+      "x": 1860,
+      "y": 0,
+      "width": 440,
+      "height": 1000,
+      "color": "5"
+    },
+    {
+      "id": "bmc-cost-structure",
+      "type": "text",
+      "text": "## 💸 Cost Structure\n(Cơ cấu chi phí){{ — tỷ trọng ⚠️ giả định, nếu chưa có số thật}}\n\n| Khoản | % | Loại |\n|---|---|---|\n| {{...}} | {{...}} | {{cố định / biến đổi}} |\n\n{{Thiên về chi phí thấp hay tạo giá trị}}",
+      "x": 0,
+      "y": 1040,
+      "width": 1140,
+      "height": 340,
+      "color": "1"
+    },
+    {
+      "id": "bmc-revenue-streams",
+      "type": "text",
+      "text": "## 💰 Revenue Streams\n(Dòng doanh thu){{ — mức giá ⚠️ giả định, nếu chưa có bảng giá thật}}\n\n| Dòng | Phân khúc | Cơ chế giá | Đều đặn / một lần | ~% |\n|---|---|---|---|---|\n| {{...}} | [[PK1 — {{Tên File}}|PK1]] | {{...}} | {{...}} | {{...}} |",
+      "x": 1160,
+      "y": 1040,
+      "width": 1140,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "bmc-detail-label",
+      "type": "text",
+      "text": "## 📂 TRANG CHI TIẾT — bấm vào từng thẻ để mở\n👥 **Phân khúc khách hàng** (PK1–PK{{n}}) · 🎁 **Giá trị cốt lõi** (GT1–GT{{m}}) · Hub: [[_MHKD {{TÊN}} — Tổng Quan]] · Bản đồ AI: [[Bản Đồ Ứng Dụng AI — Sale & Marketing]]",
+      "x": 0,
+      "y": 1440,
+      "width": 2300,
+      "height": 110,
+      "color": "#7c3aed"
+    },
+    {
+      "id": "bmc-file-pk1",
+      "type": "file",
+      "file": "00. Business Context/MHKD/Phân Khúc Khách Hàng/PK1 — {{Tên File}}.md",
+      "x": 0,
+      "y": 1590,
+      "width": 265,
+      "height": 420,
+      "color": "5"
+    },
+    {
+      "id": "bmc-file-gt1",
+      "type": "file",
+      "file": "00. Business Context/MHKD/Giá Trị Cốt Lõi/GT1 — {{Tên File}}.md",
+      "x": 1180,
+      "y": 1590,
+      "width": 265,
+      "height": 420,
+      "color": "3"
+    }
   ],
   "edges": [
-    {"id": "bmc-edge-01", "fromNode": "bmc-key-partnerships", "fromSide": "right", "toNode": "bmc-key-activities", "toSide": "left"},
-    {"id": "bmc-edge-02", "fromNode": "bmc-value-propositions", "fromSide": "right", "toNode": "bmc-customer-segments", "toSide": "left", "label": "giá trị → khách"},
-    {"id": "bmc-edge-03", "fromNode": "bmc-cost-structure", "fromSide": "right", "toNode": "bmc-revenue-streams", "toSide": "left", "color": "4", "label": "lợi nhuận = DT − CP"}
+    {
+      "id": "bmc-edge-01",
+      "fromNode": "bmc-key-partnerships",
+      "fromSide": "right",
+      "toNode": "bmc-key-activities",
+      "toSide": "left"
+    },
+    {
+      "id": "bmc-edge-02",
+      "fromNode": "bmc-value-propositions",
+      "fromSide": "right",
+      "toNode": "bmc-customer-segments",
+      "toSide": "left",
+      "label": "giá trị → khách"
+    },
+    {
+      "id": "bmc-edge-03",
+      "fromNode": "bmc-cost-structure",
+      "fromSide": "right",
+      "toNode": "bmc-revenue-streams",
+      "toSide": "left",
+      "color": "4",
+      "label": "lợi nhuận = DT − CP"
+    },
+    {
+      "id": "bmc-edge-04",
+      "fromNode": "bmc-customer-segments",
+      "fromSide": "bottom",
+      "toNode": "bmc-detail-label",
+      "toSide": "right",
+      "color": "5",
+      "label": "chi tiết từng phân khúc"
+    },
+    {
+      "id": "bmc-edge-05",
+      "fromNode": "bmc-value-propositions",
+      "fromSide": "bottom",
+      "toNode": "bmc-detail-label",
+      "toSide": "left",
+      "color": "3",
+      "label": "chi tiết từng giá trị"
+    },
+    {
+      "id": "bmc-edge-06",
+      "fromNode": "bmc-file-gt1",
+      "fromSide": "top",
+      "toNode": "bmc-file-pk1",
+      "toSide": "top",
+      "color": "3",
+      "label": "GT1 phục vụ PK1"
+    }
   ]
 }

@@ -1,1 +1,0 @@
-{"status": "ok", "apify_client_version": "3.1.2"}

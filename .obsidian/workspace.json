@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b1ae2f8b8538a1b2",
+        "id": "ed7ee651b474531d",
         "type": "tabs",
         "children": [
           {
-            "id": "50e5c43839779094",
+            "id": "11247c3aa06f0d99",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5. Toolbox/English/Cards/ai-tech/a designer's eye.md",
+                "file": "huong dan/20. Khung Vận Hành A-Z/08. Bán Hàng & Chốt Đơn/Bước 08.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,144 +28,10 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "a designer's eye"
-            }
-          },
-          {
-            "id": "f7dc1a8720a9c192",
-            "type": "leaf",
-            "state": {
-              "type": "mindmirror-course-factory",
-              "state": {},
-              "icon": "graduation-cap",
-              "title": "MindMirror Course Factory"
-            }
-          },
-          {
-            "id": "1677105f8c076c64",
-            "type": "leaf",
-            "state": {
-              "type": "vocab-forge-review",
-              "state": {},
-              "icon": "graduation-cap",
-              "title": "Vocab Forge"
-            }
-          },
-          {
-            "id": "2560821b857ff3cc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Clippings/How To Use Claude AI to Create 100 Trendy T-Shirt Designs in Minutes (Print on Demand).md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "How To Use Claude AI to Create 100 Trendy T-Shirt Designs in Minutes (Print on Demand)"
-            }
-          },
-          {
-            "id": "4c79eae03caed89a",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "4. Mint/Active/Rocket AI/Business Model Canvas.canvas",
-                "viewState": {
-                  "x": 1150,
-                  "y": 1060,
-                  "zoom": -1.6635723354175227
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Business Model Canvas"
-            }
-          },
-          {
-            "id": "cfffb4b9c227f7b5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Clippings/Every High Performer Should Think In First Principles, Here's Why.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Every High Performer Should Think In First Principles, Here's Why"
-            }
-          },
-          {
-            "id": "322f2b5efd839e8a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Clippings/How I made 100 Sales on a BRAND NEW store (No Ads or Marketing).md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "How I made 100 Sales on a BRAND NEW store (No Ads or Marketing)"
-            }
-          },
-          {
-            "id": "670d0525917b94a7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Bước 08"
             }
           }
-        ],
-        "currentTab": 7
+        ]
       }
     ],
     "direction": "vertical"
@@ -259,8 +125,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 245.44725799560547,
-    "collapsed": true
+    "width": 1031.10546875
   },
   "right": {
     "id": "ab3fe6a04aa7fa3c",
@@ -439,7 +304,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "vocab-forge:Vocab Forge: Ôn tập": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -449,61 +313,63 @@
       "bases:Create new base": false,
       "obsidian-excalidraw-plugin:New drawing": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "periodic-notes:Open today": false,
       "obsidian-kanban:Create new board": false,
       "templater-obsidian:Templater": false,
       "callout-manager:Insert Callout": false,
       "mindmirror-course-factory:MindMirror Course Factory": false,
-      "periodic-notes:Open today": false
+      "vocab-forge:Vocab Forge: Ôn tập": false
     }
   },
-  "active": "670d0525917b94a7",
+  "active": "11247c3aa06f0d99",
   "lastOpenFiles": [
-    "2. Mine/Literature Notes/LN — Format Jarvis POV — Công Thức Reel Đối Thoại Với AI (1,41 Comment_Like).md",
+    "00. Business Context/Đánh Giá Mô Hình Kinh Doanh — [Tên Doanh Nghiệp].md",
+    "00. Business Context/Business Model Canvas — [Tên Doanh Nghiệp].md",
+    "Giáo Án 5 Buổi Chuyển Giao.md",
+    "huong dan/20. Khung Vận Hành A-Z/08. Bán Hàng & Chốt Đơn/Bước 08.md",
+    "huong dan/20. Khung Vận Hành A-Z/07. Quảng Cáo & Tăng Trưởng/Bước 07.md",
+    "huong dan/20. Khung Vận Hành A-Z/06. Nội Dung & Kênh/Bước 06.md",
+    "huong dan/20. Khung Vận Hành A-Z/01. Nền Móng — Quản Trị & Nguồn Chuẩn/Bước 01.md",
+    "huong dan/20. Khung Vận Hành A-Z/12. Cải Tiến — Kaizen/Bước 12.md",
+    "huong dan/20. Khung Vận Hành A-Z/00 — Bản Đồ A-Z.md",
+    "huong dan/20. Khung Vận Hành A-Z/11. Đo Lường & Báo Cáo/Bước 11.md",
+    "huong dan/20. Khung Vận Hành A-Z/10. Chăm Sóc & Giữ Khách/Bước 10.md",
+    "huong dan/20. Khung Vận Hành A-Z/09. Giao Hàng & Đào Tạo/Bước 09.md",
+    "huong dan/20. Khung Vận Hành A-Z/03. Nghiên Cứu — Thị Trường, Khách, Đối Thủ/Bước 03.md",
+    "huong dan/20. Khung Vận Hành A-Z/02. Định Vị — Doanh Nghiệp & Thương Hiệu/Bước 02.md",
+    "huong dan/00. Bắt Đầu Từ Đây/05 — Ba Ngành Thử Khung & Ba Vòng Kaizen.md",
+    "huong dan/00. Bắt Đầu Từ Đây/04 — Diễn Mẫu Một CEO Dùng Hệ Thống.md",
+    "huong dan/00. Bắt Đầu Từ Đây/03 — Cẩm Nang Kiến Trúc Toàn Hệ Thống.md",
+    "huong dan/00. Bắt Đầu Từ Đây/02 — Team Nhỏ Vận Hành Thế Nào.md",
+    "huong dan/00. Bắt Đầu Từ Đây/01 — Đi Theo Thứ Tự Nào.md",
+    "huong dan/00. Bắt Đầu Từ Đây/00 — Bạn Đang Cầm Gì.md",
+    "Vault SME — Hướng Dẫn.md",
+    "workspace/assets/brand/tony-avatar-circle.png",
+    "workspace/assets/brand/tony-avatar.jpg",
+    "workspace/apify-nguyet-china-14-ngay/competitor-social-report.md",
+    "workspace/ai-news-review-2026-08-13/official/chatgpt-ads-interface-02.webp",
+    "workspace/ai-news-review-2026-08-13/official/chatgpt-ads-interface-01.webp",
+    "workspace/ai-news-review-2026-08-13/analysis-reference/meta-muse-glimmer-artificial-analysis.png",
+    "workspace/ai-news-review-2026-08-13/analysis-reference/grok-4-6-artificial-analysis.png",
+    "workspace/ai-stack-poster-tranvanhoang.png",
+    "workspace/ai-stack-poster-claude-vi.png",
+    "workspace/ai-stack-poster-tranvanhoang-vi.png",
+    "05. Archive/2026-08-09 — Brand System Cũ — Bản Vẽ Tái Cấu Trúc/Brand Template Kit v1.0/README — Brand Template Kit — Tony Hoang.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "Hướng Dẫn Agent Cài Đặt Skills và ENV.md",
+    "02. Projects/Xưởng Video AI/Tư Liệu Cũ/hoang-gioi-thieu-v3.mp3",
+    "00. Business Context/Business Model Canvas.canvas",
+    "preview-footer.png",
     "5. Toolbox/Attachments/Reel Format Jarvis — Transcript.txt",
     "5. Toolbox/Attachments/Reel Format Jarvis — Transcript.srt",
-    "5. Toolbox/Attachments/Reel Format Jarvis — Contact Sheet.jpg",
     "5. Toolbox/Attachments/Reel — Format Jarvis POV (downey.ai).mp4",
-    "2. Mine/Literature Notes/LN — Reel Claude Fable 5.1 Giết Shopify — Giải Phẫu Một Cú News-Jacking.md",
     "5. Toolbox/Attachments/Reel Fable-Shopify — Transcript.txt",
     "5. Toolbox/Attachments/Reel Fable-Shopify — Transcript.srt",
-    "5. Toolbox/Attachments/Reel Fable-Shopify — Backend Amboras.jpg",
-    "5. Toolbox/Attachments/Reel Fable-Shopify — Analytics 192K.jpg",
-    "5. Toolbox/Attachments/Reel Fable-Shopify — Bảng A-B Testing (682 ngày).jpg",
-    "5. Toolbox/Attachments/Reel Fable-Shopify — Contact Sheet 30 Khung Hình.jpg",
     "5. Toolbox/Attachments/Reel — Claude Fable 5.1 Killed Shopify (ty.buildssites).mp4",
-    "Clippings/The Art of Yapping (full guide to talking on video).md",
-    "Untitled.md",
-    "Pasted image 20260909103531.png",
-    "Pasted image 20260909100258.png",
-    "Pasted image 20260909100139.png",
-    "Pasted image 20260909095922.png",
-    "Pasted image 20260909095918.png",
-    "Clippings/How I made 100 Sales on a BRAND NEW store (No Ads or Marketing).md",
-    "Clippings/How I Spot an Etsy Design Trend BEFORE It Gets Saturated.md",
-    "Clippings/From $95 To $3,905 Monthly PROFIT In 4 Months (NO ADS).md",
-    "Clippings/The Easiest Side Hustle of 2026 - Print on Demand Ornaments (Full Tutorial).md",
-    "Clippings/Work-From-Home Mom $0 to $100K Blueprint (7-Figure Etsy POD Seller).md",
-    "Clippings/I Sold 50,000 Ornaments on Etsy — Here's What I'd Do in 2026.md",
-    "Clippings/New AI seller + phone for your agent + OpenClaw 2.0 boy-is-it-bad.md",
-    "Clippings/I Built An $85M AI Startup in 5 Months (here's my playbook).md",
-    "Clippings/How She Makes $1,600 a Day With AI (Started With $100).md",
-    "Clippings/I Built a Shopify Store with Claude Code (In Minutes).md",
-    "Clippings/How To Use Claude to Create 100 Trendy T-Shirt Designs For Any Niche in Minutes.md",
-    "1. Raw/FN — Kiến Trúc Kỹ Năng Máy Săn Ngách Etsy — 2026-08-28.md",
-    "4. Mint/Active/POD Factory/POD Factory — Sổ Tay Ngách & Sản Phẩm High-Margin 2026 (Heather Studio).md",
-    "2. Mine/Literature Notes/LN — Heather Studio — Bản Đồ Ngách & Hệ Thống POD 2026.md",
-    "Clippings/This $100K Etsy POD Product is Blowing Up Right Now!.md",
-    "Clippings/Every High Performer Should Think In First Principles, Here's Why.md",
     "5. Toolbox/Scripts/fetch_youtube_transcripts.py",
     "5. Toolbox/Scripts",
-    "1. Raw/Transcripts - Heather Studio 2026/00 — Tổng Quan Transcripts Heather Studio 2026.md",
-    "1. Raw/Transcripts - Heather Studio 2026/2026-05-22 — 7 HIGHLY Profitable Unsaturated Etsy Trends that are Blowing Up Right Now.md",
-    "1. Raw/Transcripts - Heather Studio 2026/2026-01-02 — Starting Etsy in 2026 Watch This First (New Seller Survival Guide).md",
-    "1. Raw/Transcripts - Heather Studio 2026/2026-01-11 — The 30 MinDay System EVERY Etsy Seller Should Be Doing.md",
-    "1. Raw/Transcripts - Heather Studio 2026/2026-01-19 — Most Profitable Etsy Niches to Sell in 2026.md",
-    "1. Raw/Transcripts - Heather Studio 2026/2026-02-04 — I Revived My Dead Etsy Shop (Here’s How You Can Too).md",
     "1. Raw/Transcripts - Heather Studio 2026",
-    "4. Mint/Active/InkSpire Studios",
     "Untitled.canvas",
     "4. Mint/Active/Agent Builders/Bước A — Analyze/Ví Dụ — Bản Đồ Lợi Thế Cá Nhân (George · WrestleAI).canvas",
     "4. Mint/Active/Agent Builders/Bước A — Analyze/Untitled.canvas",
@@ -512,7 +378,6 @@
     "2. Mine/Literature Notes/2. Visual Thinking PKM Zolts - Original/Visual Thinking Workshop/01 BoaPs/Emergence/Canvas - Emergence.canvas",
     "2. Mine/Literature Notes/2. Visual Thinking PKM Zolts - Original/Visual Thinking Workshop 2/01 BoaPs/Emergence/Canvas - Emergence.canvas",
     "5. Toolbox/2. Visual Thinking PKM Zolts - Original/Visual Thinking Workshop/01 BoaPs/Emergence/Canvas - Emergence.canvas",
-    "4. Mint/Active/AI Marketing CRM/Bản Đồ Đối Thủ.canvas",
-    "3. Core/Maps/MOCs/Grand Slam Offer — Bản Đồ Tri Thức.canvas"
+    "4. Mint/Active/AI Marketing CRM/Bản Đồ Đối Thủ.canvas"
   ]
 }

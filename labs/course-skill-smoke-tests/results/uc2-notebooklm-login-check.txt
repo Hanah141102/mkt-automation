@@ -1,5 +1,0 @@
-Checking credentials for profile: default...
-✓ Authentication valid!
-  Profile: default
-  Notebooks found: 19
-  Account: kientruc.ocean@gmail.com

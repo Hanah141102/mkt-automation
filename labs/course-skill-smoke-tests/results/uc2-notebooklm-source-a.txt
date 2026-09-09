@@ -1,3 +1,0 @@
-Adding text and waiting for processing...
-✓ Added source: Nguồn mẫu A — Vai trò của báo (ready)
-Source ID: 68dda29c-71dd-4497-ba34-2b1e120ac9db

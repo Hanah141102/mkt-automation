@@ -151,7 +151,17 @@ Viết nội dung từng ô dựa trên câu trả lời phỏng vấn thực t�
 
 Đường dẫn: `00. Business Context/Business Model Canvas.canvas` (chế độ 1 công ty) hoặc `[thư mục dự án]/Business Model Canvas.canvas` (chế độ nhiều dự án).
 
-Dùng `assets/canvas-layout-template.json` làm khung toạ độ — đây là bố cục chuẩn Osterwalder (Key Partnerships / Key Activities + Key Resources / Value Propositions / Customer Relationships + Channels / Customer Segments ở hàng trên, Cost Structure + Revenue Streams ở hàng dưới), đã test hiển thị đẹp trong Obsidian. Copy file này, giữ nguyên toạ độ `x/y/width/height`, chỉ thay nội dung `text` của từng node bằng bản tóm tắt 3-6 dòng của khối tương ứng (ngắn hơn nhiều so với bản Markdown — canvas là bản nhìn nhanh, không phải bản đầy đủ). Thêm 1 node tiêu đề ở trên cùng ghi tên dự án + link `[[Business Model Canvas — Tên Dự Án]]` để mở bản chi tiết.
+Dùng `assets/canvas-layout-template.json` làm khung toạ độ — đây là bố cục chuẩn Osterwalder (Key Partnerships / Key Activities + Key Resources / Value Propositions / Customer Relationships + Channels / Customer Segments ở hàng trên, Cost Structure + Revenue Streams ở hàng dưới), đã test hiển thị đẹp trong Obsidian. Copy file này, **xoá key `_huong_dan`**, giữ nguyên toạ độ `x/y/width/height/color` của 10 node đầu, chỉ thay nội dung `text` bằng bản tóm tắt 3-6 dòng của khối tương ứng (ngắn hơn nhiều so với bản Markdown — canvas là bản nhìn nhanh, không phải bản đầy đủ).
+
+**Canvas phải có đủ 3 tầng, không chỉ 9 ô:**
+
+1. **Tầng tiêu đề** (`bmc-title`, y = −240, cao 160): tên doanh nghiệp viết hoa, mô tả 1-2 câu, và link tới bản Markdown chi tiết, file Đánh Giá, và Hồ Sơ Mô Hình Kinh Doanh.
+2. **Tầng 9 ô** (y từ 0 đến 1380): trong ô Customer Segments, **mỗi phân khúc là một wikilink có bí danh** dạng `[[PK1 — Tên File|PK1 — tên ngắn]]`, kèm nhãn ưu tiên 🥇🥈🥉 nếu đã chốt ở Bước 2, quy mô, ai ký, nỗi đau, ~% doanh thu (gắn ⚠️ nếu giả định). Ô Value Propositions làm tương tự với `[[GT1 — ...|GT1 — ...]]`. Ô Customer Relationships, Channels và Revenue Streams tham chiếu phân khúc bằng `[[PK1 — Tên File|PK1]]` thay vì viết tên trần, để bấm được từ mọi ô.
+3. **Tầng trang chi tiết** (y = 1440 trở xuống): một node nhãn `bmc-detail-label` rộng 2300, rồi **một node kiểu `file` cho MỖI trang PK và MỖI trang GT** đã tạo ở Bước 5. Node kiểu `file` hiển thị nội dung trang ngay trên canvas và mở được bằng một cú bấm. Quy tắc xếp: rộng 265, cao 420, y = 1590, x tăng 285 mỗi thẻ; PK xếp từ trái (màu `5`), GT xếp tiếp bên phải (màu `3`). Nếu tổng số thẻ vượt 8, xếp hàng hai ở y = 2030. Đường dẫn `file` là đường dẫn đầy đủ từ gốc vault, ví dụ `00. Business Context/MHKD/Phân Khúc Khách Hàng/PK1 — Tên.md`.
+
+**Cạnh nối (edges) tối thiểu:** Key Partnerships → Key Activities; Value Propositions → Customer Segments (nhãn "giá trị → khách"); Cost Structure → Revenue Streams (nhãn "lợi nhuận = DT − CP"); Customer Segments và Value Propositions → nhãn trang chi tiết; và **một cạnh cho mỗi GT** nối thẻ GT tới thẻ PK mà nó phục vụ chính, nhãn "GTx phục vụ PKy" (nếu một GT phục vụ nhiều PK, ghi hết trong nhãn, ví dụ "GT2 phục vụ PK2 · PK4"). Mối GT ↔ PK lấy từ câu trả lời ở ô Value Propositions, không tự suy.
+
+Vì các node `file` trỏ tới trang PK/GT tạo ở Bước 5, **ghi file `.canvas` sau khi đã tạo xong các trang đó** hoặc quay lại sửa đường dẫn cho khớp tên file thật. Đường dẫn sai thì Obsidian hiện thẻ trống.
 
 Toạ độ trong template là điểm khởi đầu, không phải khuôn cứng: nếu một ô có nhiều phân khúc/giá trị khác nhau (ví dụ Customer Segments hoặc Value Propositions có 2-3 nhóm rõ rệt), gộp chúng thành các dòng ngắn có tiêu đề phụ trong cùng 1 node (không tạo thêm node) — và nếu nội dung thật sự cần nhiều chỗ hơn, cứ tăng `height` của node đó (và các node cùng cột nếu cần dịch xuống) thay vì nhồi nhét gây tràn chữ trong Obsidian.
 
@@ -248,14 +258,14 @@ Cho người dùng xác nhận. Nếu họ thấy ngưỡng nào vô lý so vớ
 
 ## Giai đoạn 2 — Bản đồ ứng dụng AI vào Sale & Marketing (BẮT BUỘC)
 
-Sau khi sáu tham số đã được xác nhận, **không dừng lại**. Hỏi người dùng: "Mô hình đã xong. Giờ tôi đi tiếp 25 đến 40 phút nữa để vẽ quy trình bán hàng và marketing hiện tại của anh chị, rồi chỉ ra nên đưa AI vào điểm nào trước. Làm luôn bây giờ hay hẹn buổi sau?" Nếu họ hẹn buổi sau, ghi vào cuối `Hồ Sơ Mô Hình Kinh Doanh.md` một dòng "Giai đoạn 2 chưa làm — chạy `/ban-do-ai-sale-mkt`" để không ai quên.
+Sau khi sáu tham số đã được xác nhận, **không dừng lại**. Hỏi người dùng: "Mô hình đã xong. Giờ tôi đi tiếp 40 đến 60 phút nữa để vẽ quy trình bán hàng và marketing hiện tại của anh chị, rồi chỉ ra nên đưa AI vào điểm nào trước. Làm luôn bây giờ hay hẹn buổi sau?" Nếu họ hẹn buổi sau, ghi vào cuối `Hồ Sơ Mô Hình Kinh Doanh.md` một dòng "Giai đoạn 2 chưa làm — chạy `/ban-do-ai-sale-mkt`" để không ai quên.
 
 **Vì sao bắt buộc:** chủ doanh nghiệp không dựng mô hình kinh doanh để ngắm. Câu hỏi thật của họ là "vậy tôi nên làm gì với AI". Trả lời câu đó ngay khi bối cảnh còn nóng, trong cùng buổi phỏng vấn, cho ra đề xuất bám sát thực tế hơn nhiều so với một buổi riêng sau đó.
 
 **Cách làm:** giai đoạn này **dùng nguyên quy trình của skill `/ban-do-ai-sale-mkt`**, không viết lại ở đây để tránh hai bản lệch nhau. Mở và làm theo:
 
 - `../ban-do-ai-sale-mkt/SKILL.md` — quy trình 7 bước, phạm vi chỉ Sale & Marketing, tám họ hệ thống agent A1 đến A8
-- `../ban-do-ai-sale-mkt/references/cau-hoi-phong-van-ai-sale-mkt.md` — sáu lượt phỏng vấn theo quy trình thật
+- `../ban-do-ai-sale-mkt/references/cau-hoi-phong-van-ai-sale-mkt.md` — bảy lượt phỏng vấn theo quy trình thật, mỗi lượt kết thúc bằng bảng kiểm Người / Công cụ / Tự động / Không làm
 - `../ban-do-ai-sale-mkt/references/khung-cham-diem-va-diem-ung-dung.md` — khung 10 điểm, ba điều kiện chặn, danh mục agent, bối cảnh doanh nghiệp Việt
 - `../ban-do-ai-sale-mkt/assets/ban-do-ai-sale-mkt-template.md` — mẫu file đầu ra
 

@@ -33,6 +33,20 @@ Người dùng có thể clone template, điền ngữ cảnh doanh nghiệp m�
 | **Automation** | SOP, workflow người–AI, email automation, tích hợp công cụ và pipeline xuất bản |
 | **Quản trị tri thức** | Lưu quyết định, dữ liệu, bài học và tài sản tái sử dụng trong Obsidian PARA + AI Brain |
 
+## Đào tạo và chuyển giao
+
+📘 **[Giáo Án 5 Buổi Chuyển Giao](Giáo%20Án%205%20Buổi%20Chuyển%20Giao.md)** — giáo án cho lớp có người hướng dẫn ngồi cùng, mỗi buổi có cổng nghiệm thu:
+
+| Buổi | Nội dung |
+|:--:|---|
+| 1 | Mô hình kinh doanh và tìm điểm nghẽn |
+| 2 | Hệ thống marketing tự động — nghiên cứu, nội dung, xưởng video AI (HyperFrames + HeyGen) |
+| 3 | Đo hiệu quả social, tạo quảng cáo và hành lang tự bật tắt |
+| 4 | Nhân sự AI chăm khách Zalo — phần mềm Zalo CRM chạy trên desktop |
+| 5 | Nhân sự AI đa kênh Facebook · WhatsApp · website và luồng giữ khách |
+
+Chạy dài hơi hơn thì đi theo `huong dan/50. Triển Khai 90 Ngày/00 — Lộ Trình 8 Tuần.md`.
+
 ## Cách bắt đầu
 
 1. Clone repo và mở thư mục này bằng Codex, Claude Code hoặc agent hỗ trợ `AGENTS.md`/`SKILL.md`.
