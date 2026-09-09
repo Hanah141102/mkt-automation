@@ -1,0 +1,283 @@
+{
+  "main": {
+    "id": "0c69b6c68cb23b7f",
+    "type": "split",
+    "children": [
+      {
+        "id": "ffdd5031910b04de",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "960035054523b009",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "3. Core/Dots/Frameworks/Framework — 10X Free Zoom Formula — 17 Bước Thiết Kế Zoom Miễn Phí Chuyển Đổi Cao.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Framework — 10X Free Zoom Formula — 17 Bước Thiết Kế Zoom Miễn Phí Chuyển Đổi Cao"
+            }
+          },
+          {
+            "id": "c69d538ae5359717",
+            "type": "leaf",
+            "state": {
+              "type": "vocab-forge-review",
+              "state": {},
+              "icon": "graduation-cap",
+              "title": "Vocab Forge"
+            }
+          },
+          {
+            "id": "f08c00ad85934b9e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "5. Toolbox/English/Cards/balloon.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "balloon"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dec7f578c5dc8cde",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "a672f283ae6cee62",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Trình duyệt tệp"
+        }
+      },
+      {
+        "id": "feb4a66df1ee7af4",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Tìm kiếm"
+        }
+      },
+      {
+        "id": "f70636dd34700408",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-tags",
+          "title": "Thẻ"
+        }
+      },
+      {
+        "id": "2097876d233e0aef",
+        "type": "leaf",
+        "state": {
+          "type": "all-properties",
+          "state": {
+            "sortOrder": "frequency",
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-archive",
+          "title": "Tất cả thuộc tính"
+        }
+      },
+      {
+        "id": "9c89834da953b927",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Đánh dấu"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "269b09fab3b249bd",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "ad96b700f1afbfa2",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "5. Toolbox/English/Cards/balloon.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Liên kết đến"
+        }
+      },
+      {
+        "id": "7a42b8e24153b62b",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Liên kết đi ra"
+        }
+      },
+      {
+        "id": "2bbd8fe6fa7d8160",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "followCursor": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-list",
+          "title": "Đề cương"
+        }
+      },
+      {
+        "id": "89a600e5abf5da72",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {},
+          "icon": "calendar-with-checkmark",
+          "title": "Calendar"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-kanban:Create new board": false,
+      "templater-obsidian:Templater": false,
+      "callout-manager:Insert Callout": false,
+      "switcher:Mở bộ chuyển đổi nhanh": false,
+      "graph:Mở xem biểu đồ": false,
+      "canvas:Tạo bảng mới": false,
+      "daily-notes:Mở ghi chú hôm nay": false,
+      "templates:Chèn mẫu": false,
+      "command-palette:Mở khay lệnh": false,
+      "bases:Tạo cơ sở mới": false,
+      "vocab-forge:Vocab Forge: Ôn tập": false,
+      "periodic-notes:Open today": false
+    }
+  },
+  "active": "c69d538ae5359717",
+  "lastOpenFiles": [
+    "3. Core/Dots/Frameworks/Framework — 10X Free Zoom Formula — 17 Bước Thiết Kế Zoom Miễn Phí Chuyển Đổi Cao.md",
+    "Clippings/How To Use Claude AI to Create 100 Trendy T-Shirt Designs in Minutes (Print on Demand).md",
+    "5. Toolbox/English/My English Errors.md",
+    "5. Toolbox/English/Cards/business/overlapping audience.md",
+    "5. Toolbox/English/Cards/business/data-backed.md",
+    "5. Toolbox/English/Cards/business/quick and easy.md",
+    "5. Toolbox/English/Cards/business/hit subscribe.md",
+    "5. Toolbox/English/Cards/business/take this a step further.md",
+    "5. Toolbox/English/Cards/business/to no surprise.md",
+    "5. Toolbox/English/Cards/business/at no extra cost.md",
+    "5. Toolbox/English/Cards/business/turn out.md",
+    "5. Toolbox/English/Cards/business/stay up to date.md",
+    "5. Toolbox/English/Cards/business/moment of truth.md",
+    "5. Toolbox/English/Cards/business/build on.md",
+    "5. Toolbox/English/Cards/business/blow your mind.md",
+    "5. Toolbox/Attachments/Vocab/soak up the sun.png",
+    "5. Toolbox/Attachments/Vocab/pack a punch.png",
+    "5. Toolbox/Attachments/Vocab/local delicacy.png",
+    "5. Toolbox/Attachments/Vocab/off the beaten track.png",
+    "5. Toolbox/Attachments/Vocab/dress.png",
+    "5. Toolbox/Attachments/Vocab/travel on a shoestring.png",
+    "5. Toolbox/Attachments/Vocab/hit the road.png",
+    "5. Toolbox/Attachments/Vocab/catch the travel bug.png",
+    "5. Toolbox/Attachments/Vocab/eco-tourism.png",
+    "5. Toolbox/Attachments/Vocab/door.png",
+    "3. Core/Dots/Frameworks/make-it-viral-package/Day-Chuyen-San-Xuat-Khoa-Hoc-Quay-San/02-Cau-Lenh-AI-Viet-Kich-Ban-Mot-Bai.md",
+    "3. Core/Dots/Frameworks/make-it-viral-package/Day-Chuyen-San-Xuat-Khoa-Hoc-Quay-San/03-Cau-Lenh-AI-Sinh-Chu-Cho-Bo-Anh.md",
+    "3. Core/Dots/Frameworks/make-it-viral-package/Day-Chuyen-San-Xuat-Khoa-Hoc-Quay-San/00-Doc-Truoc.md",
+    "3. Core/Dots/Frameworks/make-it-viral-package/Day-Chuyen-San-Xuat-Khoa-Hoc-Quay-San/01-Cau-Lenh-AI-Chot-Khoa-Va-Dung-Lo-Trinh.md",
+    "3. Core/Dots/Frameworks/make-it-viral-package/Day-Chuyen-San-Xuat-Khoa-Hoc-Quay-San",
+    "1. Raw/Bao_cao_RD_Thi_truong_POD_My_2026_1.docx",
+    "5. Toolbox/English/Cards/startup/acqui-hire.md",
+    "4. Mint/Later/AIOS for CEO SME/01. Module 01 — Business Core và Kiến Trúc AIOS/Module 01 — Business Core và Kiến Trúc AIOS.md",
+    "3. Core/Dots/Frameworks/Framework — 10X Ebook Formula — Công Thức Tạo Ebook Lead Magnet Chuyển Đổi Cao.md",
+    "6.Inbox/AI Agents are the new SaaS.md",
+    "Clippings/Copy This System, It’ll Blow Up Your Social Media 1.md",
+    "3. Core/Dots/Frameworks/4MAT Video Learning Loop/Framework — 4MAT Video Learning Loop — Từ Chú Ý Đến Tự Áp Dụng.md",
+    "3. Core/Dots/Frameworks/4MAT Video Learning Loop/Plan — 4MAT Video Learning Loop Trên 1 Trang (kiểu MindSET).md",
+    "5. Toolbox/Attachments/books/Alex/leads_bonus_pages",
+    "4. Mint/Active/Tradewize/Biên Bản Họp/2026-06-22 Zafar Meeting - Test Pyramid & CICD.pdf",
+    "4. Mint/Later/Khoá Học Hermes Agent/output/khoa-hoc-hermes-agent/khoa-hoc-hermes-agent.html",
+    "4. Mint/Later/Khoá Học Hermes Agent/output/khoa-hoc-hermes-agent",
+    "4. Mint/Later/Khoá Học Hermes Agent/output",
+    "4. Mint/Active/Dự Án Tập Đoàn IPA/Đề Xuất Giải Pháp Marketing–Sales AI Agent — Tập Đoàn IPA (Gửi Khách).docx",
+    "4. Mint/Active/Dự Án Tập Đoàn IPA/Rocket AI — Đề Xuất Hợp Tác & Báo Giá 3 Nhóm Giải Pháp — Tập Đoàn IPA.docx",
+    "1. Raw/Imports/mp3/transcripts (NotebookLM)/Park City Hanoi 3.txt",
+    "3. Core/Dots/Frameworks/make-it-viral-package/Bản Đồ Trực Quan.canvas"
+  ]
+}

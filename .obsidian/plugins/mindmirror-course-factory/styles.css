@@ -1,0 +1,1232 @@
+/* ═══════════════════════════════════════════════════════════════════
+   MindMirror Course Factory — giao diện theo MOCKUP SẾP THIẾT KẾ (12/08/2026):
+   sidebar Deep Water Indigo + nội dung nền Soft Pearl sáng cam kết,
+   stepper mũi tên 8 bước, thẻ trắng, Amber chỉ cho CTA.
+   (Sếp chốt: bản vẽ này ghi đè công thức "mượn theme" cho Mini App này.)
+   Palette khoá cứng Water & Metal — audit.mjs soát tự động.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.cf-host {
+  padding: 0 !important;
+  height: 100%;
+}
+.cf-host * {
+  box-sizing: border-box;
+}
+
+.cf-app {
+  display: flex;
+  height: 100%;
+  container-type: inline-size;
+  container-name: cfapp;
+  background: #f5f7f8;
+  color: rgba(16, 42, 67, 0.9);
+  font-size: 13.5px;
+}
+
+/* ── Sidebar indigo ── */
+.cf-side {
+  flex: 0 0 206px;
+  background: #102a43;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 12px;
+  gap: 10px;
+}
+.cf-logo-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cf-logo-card img {
+  width: 100%;
+  max-width: 156px;
+  height: auto;
+  display: block;
+}
+.cf-logo-card strong {
+  color: #102a43;
+}
+.cf-side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 4px;
+}
+.cf-side-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  color: rgba(245, 247, 248, 0.82);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: none;
+}
+.cf-side-item:hover {
+  background: rgba(245, 247, 248, 0.08);
+}
+.cf-side-item--active {
+  background: #1f6f78;
+  color: #ffffff;
+  font-weight: 700;
+}
+.cf-side-foot {
+  margin-top: auto;
+}
+.cf-side-new {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  border: 1px solid rgba(245, 247, 248, 0.35);
+  background: rgba(245, 247, 248, 0.06);
+  color: #f5f7f8;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: none;
+}
+.cf-side-new:hover {
+  background: rgba(245, 247, 248, 0.14);
+}
+.cf-side-ver {
+  font-size: 10.5px;
+  color: rgba(245, 247, 248, 0.5);
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ── Khung nội dung ── */
+.cf-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 16px 22px 30px;
+}
+.cf-topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.cf-course-select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(167, 176, 184, 0.55);
+  background: #ffffff;
+  color: #102a43;
+  font-size: 12.5px;
+  max-width: 360px;
+}
+.cf-demo-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(214, 168, 79, 0.18);
+  border: 1px solid rgba(214, 168, 79, 0.6);
+  color: #102a43;
+}
+.cf-job-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: #1f6f78;
+  font-weight: 600;
+}
+.cf-spin {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid rgba(31, 111, 120, 0.25);
+  border-top-color: #1f6f78;
+  animation: cf-quay 0.9s linear infinite;
+}
+@keyframes cf-quay {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cf-spin {
+    animation: none;
+  }
+}
+
+.cf-h1 {
+  font-size: 25px;
+  font-weight: 800;
+  color: #102a43;
+  letter-spacing: -0.012em;
+  margin: 8px 0 2px;
+}
+.cf-sub {
+  color: #5e6b75;
+  margin: 0 0 12px;
+  font-size: 13.5px;
+}
+
+/* ── Stepper mũi tên 8 bước ── */
+.cf-chevrons {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 4px 2px 10px;
+}
+.cf-chev {
+  flex: 1 0 106px;
+  min-width: 102px;
+  background: #ffffff;
+  padding: 8px 12px 9px 22px;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%);
+  filter: drop-shadow(0 1px 1.5px rgba(16, 42, 67, 0.16));
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.cf-chev:first-child {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+  border-radius: 10px 0 0 10px;
+  padding-left: 14px;
+}
+.cf-chev-num {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid #1f6f78;
+  color: #1f6f78;
+  font-size: 10.5px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+.cf-chev-ic {
+  color: #1f6f78;
+  display: inline-flex;
+}
+.cf-chev-ten {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #102a43;
+  white-space: nowrap;
+}
+.cf-chev--done {
+  background: rgba(31, 111, 120, 0.1);
+}
+.cf-chev--now {
+  background: #1f6f78;
+}
+.cf-chev--now .cf-chev-num {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.cf-chev--now .cf-chev-ic,
+.cf-chev--now .cf-chev-ten {
+  color: #ffffff;
+}
+
+/* ── Thẻ trắng ── */
+.cf-wcard,
+.cf-card {
+  background: #ffffff;
+  border: 1px solid rgba(167, 176, 184, 0.35);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 2px rgba(16, 42, 67, 0.05);
+}
+.cf-card {
+  margin-bottom: 10px;
+}
+.cf-wcard-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #102a43;
+}
+.cf-wcard-head svg {
+  color: #1f6f78;
+}
+.cf-wcard-head b {
+  font-size: 13.5px;
+}
+
+/* ── Hàng thống kê ── */
+.cf-statrow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 12px;
+  margin: 4px 0 14px;
+}
+.cf-statcard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cf-stat-to {
+  font-size: 22px;
+  font-weight: 800;
+  color: #102a43;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.cf-stat-to small {
+  font-size: 13px;
+  color: #5e6b75;
+  font-weight: 700;
+}
+.cf-stat-nhan {
+  font-size: 12px;
+  color: #5e6b75;
+}
+.cf-ic-tron {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(31, 111, 120, 0.5);
+  color: #1f6f78;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.cf-ring-num {
+  fill: #1f6f78;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* ── Lưới chính ── */
+.cf-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr) 1.5fr;
+  gap: 12px;
+  align-items: start;
+}
+.cf-grid-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cf-grid-duoi {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+/* Curriculum card */
+.cf-cur-mod {
+  border-top: 1px solid rgba(167, 176, 184, 0.25);
+}
+.cf-cur-mod:first-of-type {
+  border-top: none;
+}
+.cf-cur-mod summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 2px;
+  cursor: pointer;
+  list-style: none;
+}
+.cf-cur-mod summary::-webkit-details-marker {
+  display: none;
+}
+.cf-cur-mod summary::after {
+  content: '▾';
+  margin-left: auto;
+  color: rgba(167, 176, 184, 0.9);
+  font-size: 11px;
+  transition: transform 0.15s;
+}
+.cf-cur-mod[open] summary::after {
+  transform: rotate(180deg);
+}
+.cf-cur-ic {
+  color: #1f6f78;
+  display: inline-flex;
+}
+.cf-cur-mod summary b {
+  font-size: 12.5px;
+  color: #102a43;
+  white-space: nowrap;
+}
+.cf-cur-ten {
+  font-size: 12.5px;
+  color: #5e6b75;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cf-cur-bai {
+  font-size: 12px;
+  color: #5e6b75;
+  padding: 3px 6px 3px 30px;
+}
+.cf-cur-tt {
+  color: #1f6f78;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* AI Agent pipeline */
+.cf-agents {
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding: 2px 0 4px;
+}
+.cf-agent-wrap {
+  display: flex;
+  align-items: flex-start;
+  flex: 1 1 0;
+  min-width: 88px;
+}
+.cf-agent-noi {
+  flex: 1 1 12px;
+  border-top: 2px dashed rgba(167, 176, 184, 0.6);
+  margin: 21px 4px 0;
+}
+.cf-agent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 74px;
+  text-align: center;
+}
+.cf-agent-ic {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(167, 176, 184, 0.6);
+  background: #ffffff;
+  color: #5e6b75;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cf-agent--xong .cf-agent-ic {
+  border-color: #1f6f78;
+  color: #1f6f78;
+  background: rgba(31, 111, 120, 0.08);
+}
+.cf-agent--san-sang .cf-agent-ic {
+  border-color: #d6a84f;
+  color: #102a43;
+  background: rgba(214, 168, 79, 0.12);
+}
+.cf-agent-ten {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #102a43;
+  white-space: nowrap;
+}
+.cf-agent-chu {
+  font-size: 10.5px;
+  color: #5e6b75;
+  white-space: nowrap;
+}
+
+/* Production Hub mini */
+.cf-hubmini {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.cf-hubcot {
+  text-align: left;
+  background: #f5f7f8;
+  border: 1px solid rgba(167, 176, 184, 0.35);
+  border-radius: 10px;
+  padding: 8px 9px;
+  cursor: pointer;
+  box-shadow: none;
+}
+.cf-hubcot:hover {
+  border-color: rgba(31, 111, 120, 0.5);
+}
+.cf-hubcot-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #102a43;
+  white-space: nowrap;
+}
+.cf-cham {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1f6f78;
+  flex: 0 0 auto;
+}
+.cf-hubcot-so {
+  margin-left: auto;
+  background: #ffffff;
+  border: 1px solid rgba(167, 176, 184, 0.4);
+  border-radius: 999px;
+  padding: 0 7px;
+  font-size: 10.5px;
+  color: #5e6b75;
+  font-variant-numeric: tabular-nums;
+}
+.cf-skel {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(167, 176, 184, 0.3);
+  margin-top: 7px;
+}
+.cf-skel--ngan {
+  width: 62%;
+}
+
+/* QA card + CTA */
+.cf-qa-card {
+  display: flex;
+  flex-direction: column;
+}
+.cf-qa-ring {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.cf-qa-chu {
+  font-weight: 800;
+  color: #102a43;
+  font-size: 15px;
+}
+.cf-cta {
+  margin-top: auto;
+  background: #d6a84f;
+  color: #102a43;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: none;
+}
+.cf-cta:hover {
+  background: rgba(214, 168, 79, 0.85);
+}
+
+/* ── Nút, chip, bảng, khối chung ── */
+.cf-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(167, 176, 184, 0.55);
+  background: #ffffff;
+  color: #102a43;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  cursor: pointer;
+  box-shadow: none;
+}
+.cf-btn:hover {
+  background: rgba(167, 176, 184, 0.15);
+}
+.cf-btn--primary {
+  background: #1f6f78;
+  border-color: #1f6f78;
+  color: #ffffff;
+  font-weight: 700;
+}
+.cf-btn--primary:hover {
+  background: #185a61;
+}
+.cf-btn--amber {
+  background: #d6a84f;
+  border-color: #d6a84f;
+  color: #102a43;
+  font-weight: 800;
+}
+.cf-btn--nho {
+  padding: 3px 9px;
+  font-size: 11.5px;
+}
+.cf-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.cf-linkbtn {
+  border: none;
+  background: transparent;
+  color: #1f6f78;
+  cursor: pointer;
+  padding: 2px 4px;
+  box-shadow: none;
+  display: inline-flex;
+  vertical-align: middle;
+}
+.cf-chip {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  border: 1px solid rgba(167, 176, 184, 0.5);
+  color: #102a43;
+}
+.cf-chip--teal {
+  background: rgba(31, 111, 120, 0.1);
+  border-color: rgba(31, 111, 120, 0.45);
+  color: #1f6f78;
+}
+.cf-chip--amber {
+  background: rgba(214, 168, 79, 0.15);
+  border-color: rgba(214, 168, 79, 0.6);
+}
+.cf-chip--indigo {
+  background: rgba(16, 42, 67, 0.06);
+  border-color: rgba(16, 42, 67, 0.25);
+}
+.cf-chip--muted {
+  background: rgba(167, 176, 184, 0.16);
+  color: #5e6b75;
+}
+.cf-demo-banner {
+  border: 1px solid rgba(214, 168, 79, 0.55);
+  background: rgba(214, 168, 79, 0.1);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin: 2px 0 12px;
+  font-size: 12.5px;
+}
+.cf-gd-note {
+  border-left: 3px solid rgba(167, 176, 184, 0.5);
+  color: #5e6b75;
+  padding: 4px 10px;
+  margin: 14px 0 4px;
+  font-size: 12px;
+}
+.cf-man-title h2 {
+  margin: 8px 0 2px;
+  font-size: 18px;
+  color: #102a43;
+}
+.cf-man-title p {
+  margin: 0 0 10px;
+  color: #5e6b75;
+  font-size: 12.5px;
+}
+.cf-next-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1f6f78;
+  margin-bottom: 6px;
+}
+.cf-empty {
+  border: 1.5px dashed rgba(167, 176, 184, 0.55);
+  border-radius: 10px;
+  padding: 16px;
+  color: #5e6b75;
+  font-size: 12.5px;
+}
+.cf-empty--man {
+  margin-top: 12px;
+}
+.cf-mo {
+  font-size: 11px;
+  color: #5e6b75;
+}
+.cf-chuthich {
+  font-size: 11.5px;
+  color: #5e6b75;
+  margin-top: 12px;
+}
+.cf-chuthich code {
+  font-size: 10.5px;
+}
+
+.cf-tbl-wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(167, 176, 184, 0.35);
+  border-radius: 12px;
+  background: #ffffff;
+}
+.cf-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.cf-tbl th {
+  text-align: left;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #5e6b75;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(167, 176, 184, 0.35);
+  white-space: nowrap;
+  background: rgba(16, 42, 67, 0.03);
+}
+.cf-tbl td {
+  padding: 7px 12px;
+  border-bottom: 1px solid rgba(167, 176, 184, 0.22);
+  vertical-align: top;
+  color: rgba(16, 42, 67, 0.9);
+}
+.cf-tbl tr:last-child td {
+  border-bottom: none;
+}
+.cf-num {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.cf-hanhdong {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Insight cụm */
+.cf-cum {
+  border-top: 1px solid rgba(167, 176, 184, 0.25);
+  padding: 6px 0;
+}
+.cf-cum:first-of-type {
+  border-top: none;
+}
+.cf-cum-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 6px;
+}
+.cf-ins-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 4px;
+  font-size: 12.5px;
+  flex-wrap: wrap;
+}
+.cf-ins-row:hover {
+  background: rgba(167, 176, 184, 0.12);
+  border-radius: 6px;
+}
+.cf-ins-diem {
+  color: #1f6f78;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  flex: 0 0 34px;
+}
+.cf-ins-ten {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.cf-md {
+  background: #f5f7f8;
+  border: 1px solid rgba(167, 176, 184, 0.35);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: rgba(16, 42, 67, 0.9);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 55vh;
+  overflow-y: auto;
+  margin: 0;
+}
+.cf-studio-refs a {
+  color: #1f6f78;
+  cursor: pointer;
+}
+
+.cf-keo {
+  cursor: grab;
+  color: rgba(167, 176, 184, 0.9);
+  font-size: 13px;
+  flex: 0 0 auto;
+  user-select: none;
+}
+.cf-drop-over {
+  outline: 2px dashed #1f6f78;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+.cf-visao {
+  font-size: 11.5px;
+  font-style: italic;
+  color: #5e6b75;
+  border-left: 3px solid rgba(214, 168, 79, 0.6);
+  padding: 2px 8px;
+  margin: 0 0 8px;
+}
+
+.cf-ta {
+  width: 100%;
+  border: 1px solid rgba(167, 176, 184, 0.55);
+  border-radius: 8px;
+  background: #ffffff;
+  color: rgba(16, 42, 67, 0.9);
+  font-size: 12.5px;
+  padding: 7px 10px;
+  resize: vertical;
+  font-family: inherit;
+}
+.cf-ta:focus {
+  outline: none;
+  border-color: #1f6f78;
+}
+
+/* ── Modal ── */
+.cf-modal label {
+  display: block;
+  margin: 10px 0 4px;
+  font-weight: 700;
+  font-size: 12.5px;
+}
+.cf-modal input,
+.cf-modal textarea,
+.cf-modal select {
+  width: 100%;
+}
+.cf-modal-btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.cf-modal-note {
+  font-size: 11.5px;
+  color: #5e6b75;
+  border-left: 3px solid rgba(214, 168, 79, 0.7);
+  padding: 3px 8px;
+  margin-top: 6px;
+}
+
+/* ── Các màn demo GĐ 1 (Brief · Curriculum · Lesson · Production · QA) ── */
+.cf-dinh-vi {
+  border: 1px solid rgba(214, 168, 79, 0.55);
+  background: rgba(214, 168, 79, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.cf-brief-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 10px;
+}
+.cf-brief-item b {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #1f6f78;
+  margin-bottom: 3px;
+}
+.cf-brief-item div {
+  font-size: 12.5px;
+}
+.cf-module {
+  margin-bottom: 10px;
+}
+.cf-module-head {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.cf-module-head h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #102a43;
+}
+.cf-module-meta {
+  font-size: 11.5px;
+  color: #5e6b75;
+  margin: 3px 0 8px;
+}
+.cf-bai-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+.cf-bai-row:hover {
+  background: rgba(167, 176, 184, 0.12);
+}
+.cf-bai-tt {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: #1f6f78;
+  flex: 0 0 28px;
+}
+.cf-bai-ten {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.cf-bai-meta {
+  font-size: 11px;
+  color: #5e6b75;
+  white-space: nowrap;
+}
+.cf-studio {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.cf-studio-tree {
+  flex: 0 0 215px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.cf-studio-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.cf-studio-refs {
+  flex: 0 0 200px;
+}
+.cf-tree-mod {
+  font-weight: 700;
+  font-size: 12px;
+  margin: 8px 0 3px;
+  color: #102a43;
+}
+.cf-tree-bai {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 7px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: rgba(16, 42, 67, 0.9);
+  cursor: pointer;
+  box-shadow: none;
+}
+.cf-tree-bai:hover {
+  background: rgba(167, 176, 184, 0.15);
+}
+.cf-tree-bai--active {
+  background: rgba(31, 111, 120, 0.1);
+  border-color: rgba(31, 111, 120, 0.45);
+  font-weight: 700;
+}
+.cf-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.cf-tab {
+  border: 1px solid rgba(167, 176, 184, 0.5);
+  background: #ffffff;
+  border-radius: 7px;
+  padding: 3px 9px;
+  font-size: 11px;
+  color: #5e6b75;
+  cursor: default;
+  box-shadow: none;
+}
+.cf-tab--active {
+  border-color: #1f6f78;
+  color: #102a43;
+  font-weight: 700;
+  background: rgba(31, 111, 120, 0.08);
+}
+.cf-bp-phan {
+  border-left: 3px solid rgba(31, 111, 120, 0.4);
+  padding: 4px 10px;
+  margin-bottom: 6px;
+}
+.cf-bp-phan b {
+  font-size: 12px;
+  color: #102a43;
+}
+.cf-bp-phan p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #5e6b75;
+}
+.cf-kanban {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.cf-col {
+  flex: 0 0 152px;
+  background: #f5f7f8;
+  border: 1px solid rgba(167, 176, 184, 0.35);
+  border-radius: 10px;
+  padding: 8px;
+}
+.cf-col-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #102a43;
+}
+.cf-col-count {
+  font-variant-numeric: tabular-nums;
+  color: #5e6b75;
+  font-weight: 700;
+}
+.cf-kcard {
+  background: #ffffff;
+  border: 1px solid rgba(167, 176, 184, 0.4);
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin-bottom: 6px;
+  font-size: 11.5px;
+}
+.cf-kcard-meta {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #5e6b75;
+  font-size: 10.5px;
+  margin-top: 3px;
+  flex-wrap: wrap;
+}
+.cf-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(167, 176, 184, 0.5);
+}
+.cf-dot--on {
+  background: #1f6f78;
+}
+.cf-qa-hero {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cf-qa-loi {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 6px 8px;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+.cf-qa-loi:hover {
+  background: rgba(167, 176, 184, 0.12);
+}
+.cf-qa-loi-tag {
+  flex: 0 0 auto;
+}
+
+/* ═══ VÁ ĐÈ THEME — Obsidian style button mạnh hơn class thường, phải buộc màu ═══
+   (bài học MOC Mini App: "nút nằm trên nền sáng/gradient phải buộc màu, không theo theme") */
+.cf-app button.cf-btn {
+  background: #ffffff !important;
+  color: #102a43 !important;
+  border: 1px solid rgba(94, 107, 117, 0.65) !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+  box-shadow: 0 1px 1.5px rgba(16, 42, 67, 0.08) !important;
+}
+.cf-app button.cf-btn:hover {
+  background: rgba(31, 111, 120, 0.08) !important;
+  border-color: #1f6f78 !important;
+}
+.cf-app button.cf-btn--primary {
+  background: #1f6f78 !important;
+  color: #ffffff !important;
+  border-color: #1f6f78 !important;
+  font-weight: 700 !important;
+}
+.cf-app button.cf-btn--primary:hover {
+  background: #185a61 !important;
+}
+.cf-app button.cf-btn--amber {
+  background: #d6a84f !important;
+  color: #102a43 !important;
+  border-color: #d6a84f !important;
+  font-weight: 800 !important;
+}
+.cf-app button.cf-btn--amber:hover {
+  background: rgba(214, 168, 79, 0.85) !important;
+}
+/* Nút bị khoá: xám RÕ RÀNG vẫn đọc được, không mờ tàng hình */
+.cf-app button.cf-btn:disabled {
+  background: rgba(167, 176, 184, 0.18) !important;
+  color: #5e6b75 !important;
+  border-color: rgba(167, 176, 184, 0.5) !important;
+  opacity: 1 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+.cf-app button.cf-btn--primary:disabled {
+  background: rgba(31, 111, 120, 0.3) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+.cf-app button.cf-btn--amber:disabled {
+  background: rgba(214, 168, 79, 0.35) !important;
+  color: rgba(16, 42, 67, 0.75) !important;
+}
+.cf-app button.cf-cta {
+  background: #d6a84f !important;
+  color: #102a43 !important;
+  border: none !important;
+  font-weight: 800 !important;
+}
+.cf-app button.cf-side-item {
+  background: transparent !important;
+  color: rgba(245, 247, 248, 0.85) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.cf-app button.cf-side-item:hover {
+  background: rgba(245, 247, 248, 0.1) !important;
+}
+.cf-app button.cf-side-item--active {
+  background: #1f6f78 !important;
+  color: #ffffff !important;
+}
+.cf-app button.cf-side-new {
+  background: rgba(245, 247, 248, 0.08) !important;
+  color: #f5f7f8 !important;
+  border: 1px solid rgba(245, 247, 248, 0.4) !important;
+}
+.cf-app button.cf-linkbtn {
+  background: transparent !important;
+  color: #1f6f78 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.cf-app button.cf-tab {
+  background: #ffffff !important;
+  color: #5e6b75 !important;
+  border: 1px solid rgba(167, 176, 184, 0.55) !important;
+  box-shadow: none !important;
+}
+.cf-app button.cf-tab--active {
+  background: rgba(31, 111, 120, 0.1) !important;
+  color: #102a43 !important;
+  border-color: #1f6f78 !important;
+}
+.cf-app button.cf-tree-bai {
+  background: transparent !important;
+  color: rgba(16, 42, 67, 0.9) !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+}
+.cf-app button.cf-tree-bai--active {
+  background: rgba(31, 111, 120, 0.1) !important;
+  border-color: rgba(31, 111, 120, 0.45) !important;
+}
+.cf-app button.cf-hubcot {
+  background: #f5f7f8 !important;
+  color: #102a43 !important;
+  border: 1px solid rgba(167, 176, 184, 0.4) !important;
+}
+.cf-app .cf-course-select {
+  background: #ffffff !important;
+  color: #102a43 !important;
+  border: 1px solid rgba(167, 176, 184, 0.55) !important;
+}
+
+/* ── Pane hẹp ── */
+@container cfapp (max-width: 900px) {
+  .cf-grid,
+  .cf-grid-duoi {
+    grid-template-columns: 1fr;
+  }
+  .cf-hubmini {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cf-studio {
+    flex-direction: column;
+  }
+  .cf-studio-tree,
+  .cf-studio-refs {
+    flex: 1 1 auto;
+    width: 100%;
+    max-height: none;
+  }
+}
+@container cfapp (max-width: 640px) {
+  .cf-app {
+    flex-direction: column;
+  }
+  .cf-side {
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 10px;
+  }
+  .cf-logo-card {
+    flex: 0 0 auto;
+    width: 108px;
+    padding: 6px 8px;
+  }
+  .cf-side-nav {
+    flex-direction: row;
+    margin-top: 0;
+  }
+  .cf-side-item span {
+    display: none;
+  }
+  .cf-side-item {
+    padding: 8px;
+  }
+  .cf-side-foot {
+    margin-top: 0;
+  }
+  .cf-side-new span {
+    display: none;
+  }
+  .cf-side-ver {
+    display: none;
+  }
+  .cf-content {
+    padding: 12px 14px 24px;
+  }
+}

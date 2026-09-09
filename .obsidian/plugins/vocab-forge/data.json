@@ -1,0 +1,110 @@
+{
+  "settings": {
+    "cardsFolder": "5. Toolbox/English/Cards",
+    "newPerDay": 10,
+    "requestRetention": 0.9,
+    "ttsRate": 0.95,
+    "ttsVoice": "",
+    "ttsEngine": "neural",
+    "ttsAccent": "en-US",
+    "openAiTtsVoice": "alloy",
+    "dailyReviewGoal": 20,
+    "dailyNewGoal": 5,
+    "dailyPracticeGoal": 10,
+    "highlightEnabled": true,
+    "grokPath": "grok",
+    "aiProvider": "auto",
+    "claudePath": "claude",
+    "codexPath": "codex",
+    "geminiPath": "gemini",
+    "aiMode": "auto",
+    "apiProvider": "deepseek",
+    "apiKeys": {
+      "deepseek": "",
+      "minimax": "",
+      "openai": "",
+      "claude": "",
+      "gemini": "",
+      "openrouter": ""
+    },
+    "apiModels": {
+      "deepseek": "deepseek-chat",
+      "minimax": "MiniMax-M2",
+      "openai": "gpt-5-mini",
+      "claude": "claude-opus-5",
+      "gemini": "gemini-3.7-flash",
+      "openrouter": "openrouter/auto"
+    },
+    "learningGoal": "business",
+    "dailyMinutes": 10,
+    "errorNotebookPath": "5. Toolbox/English/My English Errors.md",
+    "voiceLocale": "en-US",
+    "audioInputDeviceId": "",
+    "reverseEnabled": true,
+    "reminderHour": 20
+  },
+  "stats": {
+    "2026-08-18": {
+      "reviews": 26,
+      "newCards": 10,
+      "practice": 21
+    },
+    "2026-08-21": {
+      "reviews": 3,
+      "newCards": 1,
+      "pass": 2,
+      "practice": 12
+    }
+  },
+  "xp": 414,
+  "freezes": 0,
+  "frozenDays": [
+    "2026-08-20",
+    "2026-08-19"
+  ],
+  "questRewardDates": [
+    "2026-08-18"
+  ],
+  "story": {
+    "date": "2026-08-18",
+    "words": [
+      "win-win",
+      "speak",
+      "plausible",
+      "ice cream",
+      "statistically significant",
+      "close the loop",
+      "fall out with"
+    ],
+    "en": "Maya built a small online shop for handmade stickers. Her first plan felt **plausible**, yet she waited for real proof. After one busy month, the rise in sales was **statistically significant**, so she kept going. She learned to **speak** with buyers each week and hear their wishes. One fan asked for an **ice cream** design for summer, and that set sold out fast. Later she almost began to **fall out with** a partner over money, but she stayed calm and offered a fair share. Both sides gained, a clear **win-win**. To **close the loop**, she answered every review and fixed each small problem. Kind care turned her shop into a steady business.",
+    "vi": "Maya xây một cửa hàng trực tuyến nhỏ bán sticker thủ công. Kế hoạch đầu tiên của cô trông **hợp lý**, nhưng cô vẫn chờ bằng chứng thật. Sau một tháng bận rộn, mức tăng doanh số đã **có ý nghĩa thống kê**, nên cô tiếp tục. Cô học cách **nói chuyện** với khách mỗi tuần và lắng nghe mong muốn của họ. Một người hâm mộ xin mẫu **kem** cho mùa hè, và bộ đó bán hết rất nhanh. Sau đó cô suýt **cãi nhau** với một đối tác vì tiền, nhưng cô giữ bình tĩnh và đề nghị chia phần công bằng. Cả hai bên đều được lợi, một cuộc chơi **đôi bên cùng thắng**. Để **khép lại vòng phản hồi**, cô trả lời mọi đánh giá và sửa từng vấn đề nhỏ. Sự quan tâm chân thành biến cửa hàng của cô thành một công việc ổn định."
+  },
+  "badges": {
+    "first-review": "2026-08-18",
+    "decks-5": "2026-08-18"
+  },
+  "lastReminder": "2026-09-06",
+  "skillStats": {
+    "memory": {
+      "attempts": 2,
+      "totalScore": 200,
+      "lastAt": "2026-08-21T11:50:57.821Z"
+    },
+    "listening": {
+      "attempts": 0,
+      "totalScore": 0,
+      "lastAt": ""
+    },
+    "speaking": {
+      "attempts": 0,
+      "totalScore": 0,
+      "lastAt": ""
+    },
+    "writing": {
+      "attempts": 1,
+      "totalScore": 0,
+      "lastAt": "2026-08-27T06:14:10.889Z",
+      "recentScore": 0
+    }
+  }
+}

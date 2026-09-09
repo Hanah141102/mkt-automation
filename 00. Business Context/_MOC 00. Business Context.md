@@ -17,13 +17,14 @@ Nguồn sự thật duy nhất về doanh nghiệp. **Mọi skill đọc ngượ
 | `Định Vị Thương Hiệu.md` | ⭐⭐ | `/brand-positioning-builder` | ☐ |
 | [[Chân Dung CEO — Tony Hoang]] | ⭐ | `/hoan-tat-business-context` | 🟡 Bản làm việc |
 | [[AI-Sale-Assistant]] | ⭐ | `/hoan-tat-business-context` | 🟡 Bản làm việc |
+| `Bản Đồ Ứng Dụng AI — Sale & Marketing.md` | ⭐⭐ | `/mo-hinh-kinh-doanh` (Giai đoạn 2) · `/ban-do-ai-sale-mkt` | ☐ |
 
 ⭐⭐⭐ không có thì hệ thống không chạy được · ⭐⭐ nên có · ⭐ có thì tốt
 
 ## Làm theo thứ tự này
 
 ```
-1. /mo-hinh-kinh-doanh          → 9 ô canvas + 6 tham số điều khiển + PK/GT
+1. /mo-hinh-kinh-doanh          → 9 ô canvas + PK/GT + 6 tham số điều khiển + bản đồ AI Sale & Marketing
 2. /hoan-tat-business-context   → quét xem còn thiếu gì, hỏi để điền nốt
 3. /brand-voice-guide           → giọng thương hiệu
 4. /kiem-tra-cong 02            → chấm cổng, xem đã qua chưa

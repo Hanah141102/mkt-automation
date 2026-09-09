@@ -1,6 +1,6 @@
 ---
 name: mo-hinh-kinh-doanh
-description: "Phỏng vấn đủ 9 ô mô hình kinh doanh (phân khúc khách, giá trị cốt lõi, kênh, quan hệ khách hàng, dòng doanh thu, nguồn lực, hoạt động, đối tác, cơ cấu chi phí) rồi tự sinh toàn bộ file trong `00. Business Context/` kèm sơ đồ trực quan. Dùng đầu tiên khi mới mở vault, hoặc khi cần định vị lại mô hình."
+description: "Phỏng vấn đủ 9 ô mô hình kinh doanh (phân khúc khách, giá trị cốt lõi, kênh, quan hệ khách hàng, dòng doanh thu, nguồn lực, hoạt động, đối tác, cơ cấu chi phí), tự sinh toàn bộ file MHKD trong `00. Business Context/` kèm sơ đồ trực quan, hỏi 6 tham số điều khiển, rồi đi tiếp Giai đoạn 2: phỏng vấn kỹ quy trình Sale & Marketing hiện tại để chỉ ra doanh nghiệp Việt nên đưa AI (dạng hệ thống agent) vào điểm nào trước. Dùng đầu tiên khi mới mở vault, hoặc khi cần định vị lại mô hình."
 ten-viet: "Mô Hình Kinh Doanh 9 Ô"
 nhom: "01. Chiến Lược & Điều Hành"
 ten-goc: "Business Model Canvas — Phỏng vấn & Tạo File"
@@ -23,6 +23,10 @@ Một bộ mẫu rất chi tiết nằm ở `40. Bài Mẫu — Công Ty Demo/` 
 5. Sinh trang chi tiết riêng cho MỖI phân khúc khách hàng và MỖI giá trị cốt lõi (thư mục `MHKD/`) — mặc định luôn làm, không phải tuỳ chọn
 6. Sinh file Đánh Giá Mô Hình Kinh Doanh
 7. Gợi ý bước tiếp theo (tuỳ chọn)
+8. **Giai đoạn 1 — Sáu tham số điều khiển** → `Hồ Sơ Mô Hình Kinh Doanh.md` (bắt buộc)
+9. **Giai đoạn 2 — Bản đồ ứng dụng AI vào Sale & Marketing** → `Bản Đồ Ứng Dụng AI — Sale & Marketing.md` (bắt buộc, dùng chung bộ câu hỏi với `/ban-do-ai-sale-mkt`)
+
+Bước 1 đến 7 cho ra **mô hình kinh doanh**. Giai đoạn 1 biến nó thành **tham số điều khiển hệ thống**. Giai đoạn 2 biến nó thành **đề xuất AI cụ thể** cho bán hàng và marketing. Thiếu giai đoạn nào thì người dùng có một bản canvas đẹp nhưng không biết làm gì tiếp.
 
 ## Bước 1 — Xác định dự án và chế độ vault
 
@@ -211,7 +215,7 @@ Nếu đánh giá ở Bước 6 phát hiện rủi ro 🔴 nghiêm trọng hoặ
 
 ---
 
-## Giai đoạn cuối — Sáu tham số điều khiển (BẮT BUỘC, không được bỏ)
+## Giai đoạn 1 — Sáu tham số điều khiển (BẮT BUỘC, không được bỏ)
 
 Sau khi xong 9 ô canvas, hỏi tiếp sáu câu dưới đây rồi ghi vào `00. Business Context/Hồ Sơ Mô Hình Kinh Doanh.md`.
 
@@ -239,3 +243,30 @@ Từ chu kỳ bán [X] ngày, hệ thống sẽ dùng các ngưỡng sau:
 ```
 
 Cho người dùng xác nhận. Nếu họ thấy ngưỡng nào vô lý so với thực tế ngành, sửa lại `chu-ky-ban-ngay` chứ đừng sửa từng ngưỡng rời rạc.
+
+---
+
+## Giai đoạn 2 — Bản đồ ứng dụng AI vào Sale & Marketing (BẮT BUỘC)
+
+Sau khi sáu tham số đã được xác nhận, **không dừng lại**. Hỏi người dùng: "Mô hình đã xong. Giờ tôi đi tiếp 25 đến 40 phút nữa để vẽ quy trình bán hàng và marketing hiện tại của anh chị, rồi chỉ ra nên đưa AI vào điểm nào trước. Làm luôn bây giờ hay hẹn buổi sau?" Nếu họ hẹn buổi sau, ghi vào cuối `Hồ Sơ Mô Hình Kinh Doanh.md` một dòng "Giai đoạn 2 chưa làm — chạy `/ban-do-ai-sale-mkt`" để không ai quên.
+
+**Vì sao bắt buộc:** chủ doanh nghiệp không dựng mô hình kinh doanh để ngắm. Câu hỏi thật của họ là "vậy tôi nên làm gì với AI". Trả lời câu đó ngay khi bối cảnh còn nóng, trong cùng buổi phỏng vấn, cho ra đề xuất bám sát thực tế hơn nhiều so với một buổi riêng sau đó.
+
+**Cách làm:** giai đoạn này **dùng nguyên quy trình của skill `/ban-do-ai-sale-mkt`**, không viết lại ở đây để tránh hai bản lệch nhau. Mở và làm theo:
+
+- `../ban-do-ai-sale-mkt/SKILL.md` — quy trình 7 bước, phạm vi chỉ Sale & Marketing, tám họ hệ thống agent A1 đến A8
+- `../ban-do-ai-sale-mkt/references/cau-hoi-phong-van-ai-sale-mkt.md` — sáu lượt phỏng vấn theo quy trình thật
+- `../ban-do-ai-sale-mkt/references/khung-cham-diem-va-diem-ung-dung.md` — khung 10 điểm, ba điều kiện chặn, danh mục agent, bối cảnh doanh nghiệp Việt
+- `../ban-do-ai-sale-mkt/assets/ban-do-ai-sale-mkt-template.md` — mẫu file đầu ra
+
+**Điểm khác khi chạy trong `/mo-hinh-kinh-doanh`:** bỏ Bước 0 "đọc vault" của skill kia, vì toàn bộ bối cảnh vừa được phỏng vấn xong và còn trong cuộc trò chuyện. Thay bằng một đoạn tóm tắt 8 đến 12 dòng những gì đã biết từ 9 ô và 6 tham số, hỏi xác nhận, rồi vào thẳng lượt 1.
+
+**Ba quy tắc không đổi dù chạy ở đâu:**
+
+1. Chỉ đề xuất trong Sale & Marketing. Điểm đau về kho, kế toán, nhân sự ghi một dòng ngoài phạm vi.
+2. Đề xuất đóng gói thành hệ thống agent, mô tả bài toán và việc agent làm, **không nêu tên công cụ hay nhà cung cấp**.
+3. Quy trình chưa mô tả rõ thì chưa giao AI. Mỗi đề xuất phải ghi người vẫn duyệt gì.
+
+Đầu ra: `00. Business Context/Bản Đồ Ứng Dụng AI — Sale & Marketing.md`. Sau khi ghi, thêm link vào mục "Kết nối với" của file BMC tổng quan và vào `_MOC 00. Business Context.md`.
+
+Kết thúc toàn bộ skill bằng ba dòng: mô hình kinh doanh đã có ở đâu, sáu tham số đang là gì, và đề xuất AI số 1 kèm bước đầu tiên trong tuần này.

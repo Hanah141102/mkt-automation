@@ -1,7 +1,7 @@
 {
   "cssTheme": "Soft Paper",
   "theme": "moonstone",
-  "accentColor": "#029400",
+  "accentColor": "#0E7C8B",
   "enabledCssSnippets": [
     "highlight-color",
     "callouts",
@@ -10,6 +10,7 @@
     "popover-tweek",
     "highlighter",
     "workspace",
-    "markdown-embed"
+    "markdown-embed",
+    "thuy-v2"
   ]
 }

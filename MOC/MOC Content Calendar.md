@@ -327,6 +327,94 @@ Không mặc định dùng ví dụ Marketing, Sale hoặc ngành từ bài gố
 - Theo dõi theo từng cặp `bài gốc → bài Tony`: format, chiều dài, loại visual, reach, lưu/chia sẻ và hội thoại đúng ICP.
 - Sau hai tuần, giữ format tạo save/share và đúng tệp; không kết luận từ một bài đơn lẻ.
 
+## 15. Bản ý tưởng 7 ngày 21–27/08/2026 — Chờ Tony duyệt
+
+> [!question] Phạm vi duyệt
+> Đây mới là chiến lược và ý tưởng cho **14 bài Facebook + 7 video ngắn**. Chưa viết caption, kịch bản, brief hình hay sản xuất video. Vì ngày lập kế hoạch là 20/08/2026, lịch dùng **7 ngày kế tiếp** để đội ngũ có đủ một chu kỳ sản xuất trọn vẹn.
+
+### Mục tiêu tuần
+
+- Giúp chủ/CEO SME tự nhận ra vì sao dự án AI thường sai trước khi chọn công cụ.
+- Xây liên tưởng: **Tony Hoang = người giúp doanh nghiệp mổ xẻ quy trình, chọn đúng điểm nghẽn và đưa AI vào lúc đội ngũ có thể dùng thật.**
+- Tạo hội thoại đúng tệp về quy trình Marketing–Sale cần chẩn đoán; chưa đặt mục tiêu chuyển đổi khi chưa có baseline.
+
+### Big idea và nhịp nội dung
+
+**Series:** `7 ngày mổ xẻ một quy trình trước khi giao cho AI`
+
+Mỗi ngày chỉ dùng một hạt ý tưởng:
+
+1. **Bài sáng — Gọi đúng vấn đề:** quan điểm, cảnh báo hoặc niềm tin cần thay đổi.
+2. **Bài tối — Cho cách làm:** checklist, sơ đồ, ma trận hoặc mẫu tự kiểm có thể lưu lại.
+3. **Video ngắn — Mở rộng tiếp cận:** một hook, một cơ chế, một câu hỏi chẩn đoán; không đọc lại nguyên bài viết.
+
+### Lịch ý tưởng 14 bài viết + 7 video ngắn
+
+| Ngày | Chủ đề ngày | Bài viết 1 — Quan điểm | Bài viết 2 — Ứng dụng | Video ngắn | CTA mặc định |
+|---|---|---|---|---|---|
+| **T6 21/08** | Chọn đúng quy trình | **Quy trình tệ nhất chưa chắc là nơi nên đưa AI vào đầu tiên.** Giải thích vì sao phải cân bằng tác động, độ lặp lại và khả năng kiểm tra. | **Ma trận 2×2 chọn quick win AI:** tác động × độ khả thi; kèm bốn câu hỏi tự chấm. | **Ba dấu hiệu một quy trình chưa nên tự động hóa.** | Ghi lại một quy trình đang được cân nhắc. |
+| **T7 22/08** | Làm rõ đầu ra | **AI không thể làm việc rõ hơn bản mô tả công việc của doanh nghiệp.** Tập trung vào đầu vào, đầu ra và tiêu chí hoàn tất. | **Mẫu giao việc 5 ô:** đầu vào, đầu ra, owner, điều kiện đạt, điểm chuyển cho người. | **Nếu không nói được “xong” nghĩa là gì, đừng giao việc đó cho AI.** | Lưu mẫu giao việc. |
+| **CN 23/08** | Bóc điểm bàn giao | **Phần chậm nhất của Marketing–Sale thường nằm giữa hai người, không nằm trong từng phòng.** Gọi tên chi phí chờ, hỏi lại và mất ngữ cảnh. | **Sơ đồ handoff Marketing → Sale:** sáu trường thông tin cần có trước khi chuyển một lead. | **Lead không mất ở CRM; lead mất ở khoảnh khắc không ai biết ai phải làm tiếp.** | Tự chỉ ra một điểm bàn giao đang bị đứt. |
+| **T2 24/08** | Tách quy tắc và ngoại lệ | **AI nên nhận việc có quy tắc; con người giữ phần cần phán đoán và chịu trách nhiệm.** Tránh hai cực: tự động hóa hết hoặc bắt người duyệt mọi thứ. | **Ma trận Người – AI bốn ô:** AI làm, AI đề xuất, người duyệt, người tự xử lý. | **Một câu hỏi để biết việc nào phải chuyển về người thật.** | Chọn một ngoại lệ cần giữ human review. |
+| **T3 25/08** | Kiểm tra dữ liệu | **Dữ liệu nhiều không đồng nghĩa dữ liệu sẵn sàng cho AI.** Vấn đề thật là nguồn, phiên bản, quyền truy cập và người chịu trách nhiệm. | **Checklist dữ liệu 7 điểm trước pilot:** nguồn, độ mới, cấu trúc, quyền, dữ liệu nhạy cảm, bản sai, cơ chế sửa. | **Bốn câu hỏi phải trả lời trước khi cho AI đọc dữ liệu công ty.** | Lưu checklist và kiểm một nguồn dữ liệu. |
+| **T4 26/08** | Thiết kế pilot đo được | **Demo chạy được chỉ chứng minh công nghệ hoạt động; chưa chứng minh doanh nghiệp vận hành tốt hơn.** Phân biệt demo, pilot và case. | **Phiếu pilot một trang:** baseline, phạm vi, owner, đầu ra, tiêu chí kiểm tra, ngoại lệ, lịch review. | **Pilot AI thiếu ba thứ này thì kết quả tốt vẫn không đáng tin.** | Lưu phiếu pilot. |
+| **T5 27/08** | Đưa vào dùng thật | **Dự án AI thường chết sau bàn giao vì thay đổi thói quen không có owner.** Nối công nghệ với hướng dẫn, phản hồi và quyền xử lý lỗi. | **Roadmap 30–60–90 ngày dạng khung, không phải cam kết:** thử một luồng → đo và sửa → chỉ mở rộng khi đạt điều kiện. | **Dấu hiệu thành công không phải agent chạy; là đội ngũ biết khi nào dùng và khi nào dừng.** | Trả lời: điểm nghẽn hiện ở công nghệ hay tiếp nhận? |
+
+### Quan hệ nội dung gốc và chuyển thể
+
+- Mỗi ngày tạo **một research pack** và một visual gốc.
+- Bài quan điểm là nội dung gốc; bài ứng dụng biến cơ chế thành tài sản có thể lưu.
+- Video dùng lại luận điểm, nhưng mở bằng hệ quả và kết bằng một câu tự chẩn đoán.
+- Reels, TikTok và Shorts dùng chung video lõi; caption và dòng chữ đầu được điều chỉnh theo từng kênh.
+
+### Phân vai kênh
+
+| Kênh | Vai trò | Đầu ra tuần |
+|---|---|---:|
+| Facebook cá nhân | Xây quan điểm, chiều sâu và hội thoại đúng ICP | 14 bài |
+| TikTok | Thử hook và mở rộng tiếp cận | 7 video ngắn |
+| Reels/Shorts | Phân phối lại video lõi theo định dạng native | 7 bản chuyển thể, không tính là ý tưởng mới |
+
+### Quy trình duyệt và sản xuất
+
+1. Tony duyệt big idea, bảy chủ đề ngày và việc có dùng trục ví dụ Marketing–Sale xuyên suốt hay không.
+2. AI/đội ngũ tạo bảy research pack, kiểm tra claim và đề xuất visual.
+3. Tony duyệt luận điểm, ví dụ, proof và CTA trước khi viết bản hoàn chỉnh.
+4. AI/đội ngũ viết 14 caption và 7 kịch bản; mỗi asset qua quality gate 7/7.
+5. Tony duyệt bản cuối trước khi đăng; sau đăng lưu vào `Content Đã Đăng/` và cập nhật URL, nguồn, trạng thái, tín hiệu ban đầu.
+
+### Chỉ số theo dõi
+
+| Câu hỏi | Chỉ số | Kỳ đọc |
+|---|---|---|
+| Hook nào giữ được sự chú ý? | Tỷ lệ giữ người xem đầu video, thời gian xem, tỷ lệ xem hết | Theo ngày; so sánh sau một tuần |
+| Tài sản nào hữu ích? | Lượt lưu/chia sẻ theo từng format | Tuần; không so bài chữ với video như nhau |
+| Chủ đề có đúng ICP? | Bình luận/tin nhắn từ CEO hoặc người vận hành nêu một quy trình cụ thể | Tuần |
+| Nội dung có tạo nhu cầu chẩn đoán? | Yêu cầu nhận Bản Đồ, câu hỏi về pilot hoặc lịch chẩn đoán có nguồn content | Hai tuần đến 30–90 ngày |
+
+Không đặt target số cứng khi chưa có baseline. CTA `BẢN ĐỒ` chỉ bật nếu tài sản nhận lead, consent, điểm đến và tracking đã sẵn sàng.
+
+### Quyết định Tony cần duyệt trước khi triển khai
+
+- Giữ series `7 ngày mổ xẻ một quy trình trước khi giao cho AI` hay đổi big idea.
+- Dùng một ví dụ Marketing–Sale xuyên suốt, hay để mỗi ngày là một tình huống độc lập.
+- Bật CTA `BẢN ĐỒ` ở ngày 7, hay giữ CTA tự kiểm/lưu bài cho cả tuần.
+
+## 16. Bản nháp 14 bài Facebook — 10 sub-agent thực hiện
+
+> [!warning] Chờ Tony duyệt trước khi đăng
+> Các bài dưới đây đã qua kiểm tra cấu trúc, giọng, tuyên bố và liên kết nội bộ. Trạng thái hiện tại là `ban-nhap-cho-duyet`; chưa được coi là nội dung đã phát hành.
+
+| Ngày | Bài quan điểm | Bài ứng dụng |
+|---|---|---|
+| **21/08** | [[2026-08-21 — Facebook — Quy Trình Tệ Nhất Chưa Chắc Nên Giao AI Trước]] | [[2026-08-21 — Facebook — Ma Trận 2×2 Chọn Quick Win AI]] |
+| **22/08** | [[2026-08-22 — Facebook — AI Không Thể Làm Việc Rõ Hơn Mô Tả Công Việc]] | [[2026-08-22 — Facebook — Mẫu Giao Việc 5 Ô Trước Khi Dùng AI]] |
+| **23/08** | [[2026-08-23 — Facebook — Điểm Nghẽn Nằm Ở Khoảnh Khắc Bàn Giao]] | [[2026-08-23 — Facebook — Sáu Trường Thông Tin Trước Khi Chuyển Lead]] |
+| **24/08** | [[2026-08-24 — Facebook — Đừng Giao Hết Cho AI Cũng Đừng Duyệt Mọi Việc]] | [[2026-08-24 — Facebook — Ma Trận Người – AI Bốn Ô]] |
+| **25/08** | [[2026-08-25 — Facebook — Dữ Liệu Nhiều Chưa Chắc Sẵn Sàng Cho AI]] | [[2026-08-25 — Facebook — Checklist Bảy Điểm Kiểm Tra Dữ Liệu Trước Pilot AI]] |
+| **26/08** | [[2026-08-26 — Facebook — Bản Chạy Được Chưa Phải Kết Quả]] | [[2026-08-26 — Facebook — Phiếu Pilot AI Một Trang]] |
+| **27/08** | [[2026-08-27 — Facebook — Dự Án AI Không Kết Thúc Khi Bàn Giao]] | [[2026-08-27 — Facebook — Roadmap 30–60–90 Để Đưa AI Vào Dùng Thật]] |
+
 ## Liên kết
 
 - [[Định Vị Thương Hiệu]]

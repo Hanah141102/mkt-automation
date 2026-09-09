@@ -1,0 +1,9 @@
+{
+  "id": "mindmirror-course-factory",
+  "name": "MindMirror Course Factory",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Dây chuyền biến kho tri thức trong vault thành khoá E-learning sẵn sàng quay: nhập nguồn → khai phá IP → Course Brief → Curriculum → thiết kế bài → tài liệu sản xuất → Production Hub → QA & xuất Course Production Pack.",
+  "author": "Trọng Đinh × Claude",
+  "isDesktopOnly": true
+}

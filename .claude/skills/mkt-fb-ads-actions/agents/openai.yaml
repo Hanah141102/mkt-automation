@@ -1,0 +1,4 @@
+interface:
+  display_name: "FB Ads Actions"
+  short_description: "Tắt/bật, đổi ngân sách Facebook Ads sau khi được duyệt"
+  default_prompt: "Use $mkt-fb-ads-actions to execute one confirmed Meta Ads change (pause, budget ±10–30%, spend cap), verify it and log it to Decisions/."

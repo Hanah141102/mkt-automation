@@ -21,6 +21,8 @@ Skill này **quét trạng thái từng file identity, chỉ ra cái gì còn th
 | 9 ô Business Model Canvas (`Business Model Canvas — [Tên].md` + `.canvas`) | **`/mo-hinh-kinh-doanh`** |
 | Trang chi tiết `MHKD/Phân Khúc Khách Hàng/PK*.md` và `MHKD/Giá Trị Cốt Lõi/GT*.md` | **`/mo-hinh-kinh-doanh`** |
 | `Đánh Giá Mô Hình Kinh Doanh — [Tên].md` | **`/mo-hinh-kinh-doanh`** |
+| `Hồ Sơ Mô Hình Kinh Doanh.md` (6 tham số) | **`/mo-hinh-kinh-doanh`** (Giai đoạn 1) |
+| `Bản Đồ Ứng Dụng AI — Sale & Marketing.md` | **`/mo-hinh-kinh-doanh`** (Giai đoạn 2) hoặc **`/ban-do-ai-sale-mkt`** |
 | `Chân Dung Doanh Nghiệp.md` (định vị, ICP) | **skill này** |
 | `Brand Voice — Giọng Thương Hiệu.md` | **skill này** |
 | `Chân Dung CEO — [Tên].md` (personal brand CEO, CÓ ĐIỀU KIỆN) | **skill này** |
@@ -49,6 +51,7 @@ Các mục cần chấm:
 6. *(BMC — giao `/mo-hinh-kinh-doanh`)* `Business Model Canvas — [Tên].md` + `Business Model Canvas.canvas`.
 7. *(BMC — giao `/mo-hinh-kinh-doanh`)* `MHKD/Phân Khúc Khách Hàng/PK*.md` và `MHKD/Giá Trị Cốt Lõi/GT*.md`.
 8. *(BMC — giao `/mo-hinh-kinh-doanh`)* `Đánh Giá Mô Hình Kinh Doanh — [Tên].md`.
+9. *(giao `/ban-do-ai-sale-mkt`)* `Bản Đồ Ứng Dụng AI — Sale & Marketing.md` — nếu chưa có mà MHKD đã xong, nhắc người dùng chạy skill đó.
 
 In ra một **checklist gọn** cho người dùng, đánh dấu rõ mục nào skill này lo, mục nào giao `/mo-hinh-kinh-doanh`. Ví dụ:
 

@@ -52,6 +52,7 @@ Toàn bộ ngữ cảnh doanh nghiệp nằm ở **`00. Business Context/`**. Đ
 | `Sản Phẩm & Dịch Vụ/` | Hồ sơ từng gói: tính năng, **giá**, USP | Báo giá, viết bán hàng |
 | `Chân Dung CEO — [Tên].md` | Thương hiệu cá nhân người sáng lập | Khi thương hiệu gắn với CEO |
 | `AI-Sale-Assistant.md` | AI được và không được tự làm gì | Trước khi tự động hoá |
+| `Bản Đồ Ứng Dụng AI — Sale & Marketing.md` | Điểm nên và chưa nên đưa AI vào phễu, người duyệt gì, dữ liệu cần gom | Trước khi đề xuất hay dựng bất kỳ agent nào cho sale và marketing; tạo bằng `/mo-hinh-kinh-doanh` Giai đoạn 2 hoặc `/ban-do-ai-sale-mkt` |
 
 **Nếu file nào còn là bản mẫu trống:** báo cho người dùng biết đang thiếu ngữ cảnh gì và gợi ý chạy `/mo-hinh-kinh-doanh` rồi `/hoan-tat-business-context`. **Tuyệt đối không bịa** thông tin về doanh nghiệp.
 

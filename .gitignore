@@ -42,3 +42,6 @@ Thumbs.db
 .vscode/
 config.bat
 .mac brandon/
+
+# Thông tin truy cập máy từ xa — không đẩy lên git
+.orca-ssh/

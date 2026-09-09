@@ -1,0 +1,4 @@
+interface:
+  display_name: "FB Ads Anomaly Detector"
+  short_description: "Phát hiện bất thường Facebook Ads theo giờ, đề xuất hành động"
+  default_prompt: "Use $mkt-fb-ads-anomaly-detector on the latest hourly.json to find real anomalies (deviation, sample, persistence), locate the funnel break-point and recommend an action level."

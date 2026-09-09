@@ -1,0 +1,235 @@
+/* ============================================================
+   Thủy v2 — "Thép Tôi Trong Nước"
+   Bảng màu thương hiệu Trần Văn Hoàng · FreedomBuilders
+   Nguồn: 4. Mint/Background/Bảng Màu v2 — Thủy · Thép Tôi Trong Nước.md
+   Tạo: 2026-08-01
+
+   Nguyên tắc: 70% Thủy · 20% trung tính · 10% Lửa.
+   Ember chỉ xuất hiện ở nơi thật sự chịu lực (lỗi, callout quan
+   trọng, con trỏ) — không dùng cho mảng lớn, không dùng cho chữ nhỏ.
+   TUYỆT ĐỐI không dùng xanh lá (Mộc, không phải Thủy).
+
+   Snippet này chủ yếu ghi đè BIẾN CSS để không đụng độ với theme
+   Soft Paper và các snippet khác đang bật.
+   ============================================================ */
+
+body {
+  /* --- màu lõi, dùng chung cho cả hai chế độ --- */
+  --tv-muc-sau:    #061A2B;
+  --tv-dong-sau:   #0C3358;
+  --tv-thep:       #3F6470;
+  --tv-trieu:      #0E7C8B;
+  --tv-ngoc-bien:  #57D6C6;
+  --tv-suong-bien: #E8EFF2;
+  --tv-ember:      #DA3C0C;
+  --tv-gold:       #FFB43D;
+}
+
+/* ============================================================
+   CHẾ ĐỘ SÁNG — nền Sương Biển
+   ============================================================ */
+
+.theme-light {
+  /* nền */
+  --background-primary:            #F7FAFC;
+  --background-primary-alt:        #EDF3F6;
+  --background-secondary:          #E8EFF2;
+  --background-secondary-alt:      #DCE7EC;
+  --background-modifier-border:        rgba(63, 100, 112, .22);
+  --background-modifier-border-hover:  rgba(63, 100, 112, .38);
+  --background-modifier-border-focus:  rgba(14, 124, 139, .55);
+  --background-modifier-hover:         rgba(14, 124, 139, .08);
+  --background-modifier-active-hover:  rgba(14, 124, 139, .14);
+  --background-modifier-form-field:    #FFFFFF;
+
+  /* chữ */
+  --text-normal:    #0F2B40;
+  --text-muted:     #47707E;
+  --text-faint:     #7C9AA6;
+  --text-accent:        #0E7C8B;
+  --text-accent-hover:  #0A6373;
+  --text-on-accent:     #FFFFFF;
+  --text-selection:     rgba(87, 214, 198, .34);
+  --text-highlight-bg:  rgba(255, 180, 61, .40);   /* Forge Gold — đúng 1 điểm nhiệt */
+  --text-error:         #DA3C0C;                    /* Ember chịu lực */
+
+  /* tương tác */
+  --interactive-accent:        #0E7C8B;
+  --interactive-accent-hover:  #0A6373;
+  --interactive-normal:        #EDF3F6;
+  --interactive-hover:         #DCE7EC;
+
+  /* thành phần */
+  --link-color:            #0E7C8B;
+  --link-color-hover:      #0A6373;
+  --link-external-color:   #0C3358;
+  --link-unresolved-color: #DA3C0C;
+  --blockquote-border-color: #0E7C8B;
+  --hr-color:      rgba(63, 100, 112, .28);
+  --divider-color: rgba(63, 100, 112, .22);
+  --code-normal:     #0C3358;
+  --code-background: rgba(63, 100, 112, .10);
+  --tag-color:      #0E7C8B;
+  --tag-background: rgba(14, 124, 139, .12);
+  --checkbox-color:       #0E7C8B;
+  --checkbox-color-hover: #0A6373;
+  --checkbox-border-color: rgba(63, 100, 112, .45);
+  --titlebar-background:         #E8EFF2;
+  --titlebar-background-focused: #E8EFF2;
+  --nav-item-color-active: #061A2B;
+  --caret-color: #DA3C0C;
+
+  /* tiêu đề — đi xuống dần theo thang Thủy */
+  --h1-color: #061A2B;
+  --h2-color: #0C3358;
+  --h3-color: #0E7C8B;
+  --h4-color: #3F6470;
+  --h5-color: #47707E;
+  --h6-color: #47707E;
+
+  /* đồ thị (graph view) */
+  --graph-line:            rgba(63, 100, 112, .28);
+  --graph-node:            #0C3358;
+  --graph-node-tag:        #0E7C8B;
+  --graph-node-attachment: #3F6470;
+  --graph-node-unresolved: rgba(218, 60, 12, .55);
+  --graph-node-focused:    #DA3C0C;
+}
+
+/* ============================================================
+   CHẾ ĐỘ TỐI — nền Mực Sâu
+   ============================================================ */
+
+.theme-dark {
+  /* nền */
+  --background-primary:            #061A2B;
+  --background-primary-alt:        #0A2338;
+  --background-secondary:          #04121F;
+  --background-secondary-alt:      #0C3358;
+  --background-modifier-border:        rgba(87, 214, 198, .16);
+  --background-modifier-border-hover:  rgba(87, 214, 198, .30);
+  --background-modifier-border-focus:  rgba(87, 214, 198, .55);
+  --background-modifier-hover:         rgba(87, 214, 198, .08);
+  --background-modifier-active-hover:  rgba(87, 214, 198, .14);
+  --background-modifier-form-field:    #0A2338;
+
+  /* chữ */
+  --text-normal:    #DDE9EE;
+  --text-muted:     #8FB2BF;
+  --text-faint:     #5E8494;
+  --text-accent:        #57D6C6;
+  --text-accent-hover:  #7FE4D7;
+  --text-on-accent:     #04121F;
+  --text-selection:     rgba(87, 214, 198, .22);
+  --text-highlight-bg:  rgba(255, 180, 61, .28);
+  --text-error:         #FF6326;                    /* Ember sáng lên cho nền tối */
+
+  /* tương tác */
+  --interactive-accent:        #0E7C8B;
+  --interactive-accent-hover:  #12A0B3;
+  --interactive-normal:        #0A2338;
+  --interactive-hover:         #0C3358;
+
+  /* thành phần */
+  --link-color:            #57D6C6;
+  --link-color-hover:      #7FE4D7;
+  --link-external-color:   #6FBBCB;
+  --link-unresolved-color: #FF6326;
+  --blockquote-border-color: #57D6C6;
+  --hr-color:      rgba(87, 214, 198, .22);
+  --divider-color: rgba(87, 214, 198, .18);
+  --code-normal:     #57D6C6;
+  --code-background: rgba(87, 214, 198, .09);
+  --tag-color:      #57D6C6;
+  --tag-background: rgba(87, 214, 198, .13);
+  --checkbox-color:       #0E7C8B;
+  --checkbox-color-hover: #12A0B3;
+  --checkbox-border-color: rgba(87, 214, 198, .40);
+  --titlebar-background:         #04121F;
+  --titlebar-background-focused: #04121F;
+  --nav-item-color-active: #E8EFF2;
+  --caret-color: #FF6326;
+
+  /* tiêu đề */
+  --h1-color: #E8EFF2;
+  --h2-color: #57D6C6;
+  --h3-color: #6FBBCB;
+  --h4-color: #8FB2BF;
+  --h5-color: #6E93A0;
+  --h6-color: #6E93A0;
+
+  /* đồ thị */
+  --graph-line:            rgba(87, 214, 198, .20);
+  --graph-node:            #8FB2BF;
+  --graph-node-tag:        #57D6C6;
+  --graph-node-attachment: #3F6470;
+  --graph-node-unresolved: rgba(255, 99, 38, .55);
+  --graph-node-focused:    #FF6326;
+}
+
+/* ============================================================
+   Vài chi tiết cần tay chỉnh — giữ tối thiểu để tránh
+   đụng độ với callouts.css / nick-milo-callouts.css / highlighter.css
+   ============================================================ */
+
+/* Tiêu đề: theme không phải lúc nào cũng đọc biến --hN-color */
+.markdown-preview-view h1,
+.markdown-source-view.mod-cm6 .HyperMD-header-1 { color: var(--h1-color); }
+.markdown-preview-view h2,
+.markdown-source-view.mod-cm6 .HyperMD-header-2 { color: var(--h2-color); }
+.markdown-preview-view h3,
+.markdown-source-view.mod-cm6 .HyperMD-header-3 { color: var(--h3-color); }
+
+/* Thẻ tag: viên thuốc bo tròn nhẹ, tông Triều Xanh */
+.markdown-preview-view a.tag,
+.cm-s-obsidian .cm-hashtag {
+  background: var(--tag-background);
+  color: var(--tag-color);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 3px;
+}
+
+/* Trích dẫn: gạch Thủy bên trái, nền rất nhạt */
+.markdown-preview-view blockquote {
+  border-left: 3px solid var(--blockquote-border-color);
+  background: var(--background-modifier-hover);
+}
+
+/* Đường kẻ ngang mảnh như nét bản vẽ */
+.markdown-preview-view hr {
+  border: 0;
+  border-top: 1px solid var(--hr-color);
+}
+
+/* Ember chỉ dành cho callout thật sự chịu lực */
+.callout[data-callout="important"],
+.callout[data-callout="danger"],
+.callout[data-callout="error"] {
+  --callout-color: 218, 60, 12;
+}
+
+.callout[data-callout="warning"],
+.callout[data-callout="caution"] {
+  --callout-color: 255, 180, 61;
+}
+
+/* Mọi callout còn lại kéo về hệ Thủy — kể cả loại vốn là xanh lá */
+.callout[data-callout="tip"],
+.callout[data-callout="hint"],
+.callout[data-callout="success"],
+.callout[data-callout="check"],
+.callout[data-callout="done"],
+.callout[data-callout="info"],
+.callout[data-callout="todo"],
+.callout[data-callout="note"],
+.callout[data-callout="abstract"],
+.callout[data-callout="summary"],
+.callout[data-callout="quote"] {
+  --callout-color: 14, 124, 139;
+}
+
+/* Ô tick: bỏ xanh lá mặc định của theme */
+input[type="checkbox"]:checked {
+  background-color: var(--checkbox-color);
+  border-color: var(--checkbox-color);
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "FB Ads Pull Hourly"
+  short_description: "Kéo insight Facebook Ads theo giờ qua Composio"
+  default_prompt: "Use $mkt-fb-ads-pull-hourly to pull hourly Meta Ads insights for the given ad accounts into workspace/fb-ads/<act>/<date>/hourly.json."

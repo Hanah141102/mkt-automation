@@ -1,0 +1,161 @@
+/* ==========================================================================
+   10X REVIEW CARDS — bộ thẻ màu cho note Review Tuần / Coaching
+   Bật tại: Settings → Appearance → CSS snippets → 10x-review-cards
+   --------------------------------------------------------------------------
+   Callout dùng được:
+     [!muc-tieu]   thanh tiêu đề mục lớn (🎯)
+     [!coach]      thanh tiêu đề mục lớn (🗣)
+     [!keo-gan]    thẻ xanh  — việc kéo mình lại gần mục tiêu
+     [!lac-huong]  thẻ vàng  — việc làm lạc hướng
+     [!tro-thanh]  thẻ xanh dương — con người muốn trở thành
+     [!khen]       thẻ viền xanh
+     [!mang]       thẻ viền đỏ
+     [!cot]        khung chia 2 cột (bọc ngoài, chứa 2 callout con)
+   Thêm dấu + sau tên để có mũi tên gập:  > [!khen]+ 🖐 KHEN
+   ========================================================================== */
+
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 {
+  --10x-mint-1: #a9e06a;
+  --10x-mint-2: #dcf3b4;
+  --10x-ink: #102a15;
+  --10x-panel-green: #0a2412;
+  --10x-panel-dark: #0d1a10;
+  --10x-panel-navy: #0b1c2b;
+  --10x-text: #e8f2e4;
+  --10x-red: #e8646b;
+  --10x-amber: #e3b341;
+}
+
+/* ---------- 1. Thanh tiêu đề mục lớn ---------------------------------- */
+
+.callout[data-callout="muc-tieu"],
+.callout[data-callout="coach"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 1.6em 0 0.7em;
+  mix-blend-mode: normal;
+}
+
+.callout[data-callout="muc-tieu"] > .callout-title,
+.callout[data-callout="coach"] > .callout-title,
+.callout[data-callout="keo-gan"] > .callout-title,
+.callout[data-callout="lac-huong"] > .callout-title,
+.callout[data-callout="tro-thanh"] > .callout-title,
+.callout[data-callout="khen"] > .callout-title,
+.callout[data-callout="mang"] > .callout-title {
+  background: linear-gradient(100deg, var(--10x-mint-1) 0%, var(--10x-mint-2) 100%);
+  color: var(--10x-ink);
+  font-weight: 800;
+  font-size: 1.05em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.75em 1.1em;
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+}
+
+/* Ẩn icon mặc định — dùng emoji gõ thẳng trong tiêu đề */
+.callout[data-callout="muc-tieu"] .callout-icon,
+.callout[data-callout="coach"] .callout-icon,
+.callout[data-callout="keo-gan"] .callout-icon,
+.callout[data-callout="lac-huong"] .callout-icon,
+.callout[data-callout="tro-thanh"] .callout-icon,
+.callout[data-callout="khen"] .callout-icon,
+.callout[data-callout="mang"] .callout-icon {
+  display: none;
+}
+
+.callout[data-callout="muc-tieu"] > .callout-content,
+.callout[data-callout="coach"] > .callout-content {
+  padding: 0.4em 0 0;
+}
+
+/* ---------- 2. Thẻ nội dung ------------------------------------------- */
+
+.callout[data-callout="keo-gan"],
+.callout[data-callout="lac-huong"],
+.callout[data-callout="tro-thanh"],
+.callout[data-callout="khen"],
+.callout[data-callout="mang"] {
+  border-radius: 16px;
+  padding: 0.9em;
+  margin: 0.8em 0;
+  color: var(--10x-text);
+  border: 1px solid rgba(169, 224, 106, 0.25);
+  border-left-width: 5px;
+}
+
+.callout[data-callout="keo-gan"] { background: var(--10x-panel-green); border-left-color: var(--10x-mint-1); }
+.callout[data-callout="lac-huong"] { background: var(--10x-panel-dark); border-left-color: var(--10x-amber); }
+.callout[data-callout="tro-thanh"] { background: var(--10x-panel-navy); border-left-color: #3f8fd0; }
+.callout[data-callout="khen"] { background: var(--10x-panel-green); border-left-color: var(--10x-mint-1); }
+.callout[data-callout="mang"] { background: var(--10x-panel-dark); border-left-color: var(--10x-red); }
+
+.callout[data-callout="keo-gan"] > .callout-content,
+.callout[data-callout="lac-huong"] > .callout-content,
+.callout[data-callout="tro-thanh"] > .callout-content,
+.callout[data-callout="khen"] > .callout-content,
+.callout[data-callout="mang"] > .callout-content {
+  padding: 0.9em 0.6em 0.2em;
+  line-height: 1.65;
+}
+
+/* ---------- 3. Khung 2 cột -------------------------------------------- */
+
+.callout[data-callout="cot"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.callout[data-callout="cot"] > .callout-title { display: none; }
+
+.callout[data-callout="cot"] > .callout-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  padding: 0;
+}
+
+.callout[data-callout="cot"] > .callout-content > .callout { margin: 0; }
+
+@media (max-width: 800px) {
+  .callout[data-callout="cot"] > .callout-content { grid-template-columns: 1fr; }
+}
+
+/* ---------- 4. Thanh điểm số ------------------------------------------ */
+/* Dùng:  <div class="diem" style="--diem:45">45/100</div>                  */
+
+.diem {
+  position: relative;
+  height: 34px;
+  border-radius: 8px;
+  background: #0c1a0f;
+  border: 1px solid rgba(169, 224, 106, 0.2);
+  overflow: hidden;
+  margin: 0.6em 0 1em;
+  font-weight: 700;
+  font-size: 0.9em;
+  color: var(--10x-text);
+}
+
+.diem::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--diem, 0) * 1%);
+  background: linear-gradient(90deg, #e0a92c 0%, #f0cf5a 100%);
+  border-radius: 8px 0 0 8px;
+}
+
+.diem::after {
+  content: attr(data-nhan);
+  position: absolute;
+  left: calc(var(--diem, 0) * 1%);
+  padding-left: 14px;
+  line-height: 34px;
+  white-space: nowrap;
+}

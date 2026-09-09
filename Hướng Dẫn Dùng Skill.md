@@ -37,7 +37,8 @@ Mọi skill đều lấy ngữ cảnh từ `00. Business Context/`. Hiện trạ
 
 | Skill | Làm được gì |
 |---|---|
-| `/mo-hinh-kinh-doanh` | Phỏng vấn 9 ô mô hình kinh doanh, tự sinh toàn bộ file Business Context + sơ đồ |
+| `/mo-hinh-kinh-doanh` | Phỏng vấn 9 ô mô hình kinh doanh, tự sinh toàn bộ file Business Context + sơ đồ, hỏi 6 tham số, rồi vẽ bản đồ nên đưa AI vào điểm nào trong Sale & Marketing |
+| `/ban-do-ai-sale-mkt` | Chạy riêng phần bản đồ AI Sale & Marketing khi MHKD đã có: phỏng vấn quy trình thật, chấm điểm, đề xuất hệ thống agent theo 3 tầng |
 | `/hoan-tat-business-context` | Quét chỗ còn thiếu trong `00. Business Context/`, hỏi để điền nốt |
 | `/chan-doan-nhanh` | Chấm điểm 12 bước, chỉ ra bước yếu nhất — dùng ở buổi đầu tiên |
 | `/kiem-tra-cong` | Chấm cổng "Xong" của một bước bằng bằng chứng thật trong vault, chỉ rõ thiếu file nào |

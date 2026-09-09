@@ -4,27 +4,168 @@
     "type": "split",
     "children": [
       {
-        "id": "1d31054c29577ac8",
+        "id": "b1ae2f8b8538a1b2",
         "type": "tabs",
         "children": [
           {
-            "id": "153337a2334be989",
+            "id": "50e5c43839779094",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "5. Toolbox/English/Cards/ai-tech/a designer's eye.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "a designer's eye"
+            }
+          },
+          {
+            "id": "f7dc1a8720a9c192",
+            "type": "leaf",
+            "state": {
+              "type": "mindmirror-course-factory",
+              "state": {},
+              "icon": "graduation-cap",
+              "title": "MindMirror Course Factory"
+            }
+          },
+          {
+            "id": "1677105f8c076c64",
+            "type": "leaf",
+            "state": {
+              "type": "vocab-forge-review",
+              "state": {},
+              "icon": "graduation-cap",
+              "title": "Vocab Forge"
+            }
+          },
+          {
+            "id": "2560821b857ff3cc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Clippings/How To Use Claude AI to Create 100 Trendy T-Shirt Designs in Minutes (Print on Demand).md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "How To Use Claude AI to Create 100 Trendy T-Shirt Designs in Minutes (Print on Demand)"
+            }
+          },
+          {
+            "id": "4c79eae03caed89a",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
-                "file": "00. Business Context/Business Model Canvas.canvas",
+                "file": "4. Mint/Active/Rocket AI/Business Model Canvas.canvas",
                 "viewState": {
-                  "x": 1627.0822480252396,
-                  "y": 875.9158095677263,
-                  "zoom": -1.034101455431736
+                  "x": 1150,
+                  "y": 1060,
+                  "zoom": -1.6635723354175227
                 }
               },
               "icon": "lucide-layout-dashboard",
               "title": "Business Model Canvas"
             }
+          },
+          {
+            "id": "cfffb4b9c227f7b5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Clippings/Every High Performer Should Think In First Principles, Here's Why.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Every High Performer Should Think In First Principles, Here's Why"
+            }
+          },
+          {
+            "id": "322f2b5efd839e8a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Clippings/How I made 100 Sales on a BRAND NEW store (No Ads or Marketing).md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "How I made 100 Sales on a BRAND NEW store (No Ads or Marketing)"
+            }
+          },
+          {
+            "id": "670d0525917b94a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
           }
-        ]
+        ],
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -36,7 +177,7 @@
       {
         "id": "ce24b7efcb5d2922",
         "type": "tabs",
-        "dimension": 46.77222898903776,
+        "dimension": 56.09220636663008,
         "children": [
           {
             "id": "08f850d44849a9f8",
@@ -85,7 +226,7 @@
       {
         "id": "7ad02a0e9e379d67",
         "type": "tabs",
-        "dimension": 28.867235079171742,
+        "dimension": 21.953896816684964,
         "children": [
           {
             "id": "0860d2a24a06decc",
@@ -96,23 +237,13 @@
               "icon": "clock",
               "title": "Recent files"
             }
-          },
-          {
-            "id": "bfee3dce57e95215",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
           }
         ]
       },
       {
         "id": "79abf6dc54705d48",
         "type": "tabs",
-        "dimension": 24.3605359317905,
+        "dimension": 21.953896816684964,
         "children": [
           {
             "id": "c508968003dd2261",
@@ -128,7 +259,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 499
+    "width": 245.44725799560547,
+    "collapsed": true
   },
   "right": {
     "id": "ab3fe6a04aa7fa3c",
@@ -137,7 +269,7 @@
       {
         "id": "ebbbb9a311989c66",
         "type": "tabs",
-        "dimension": 39.48100092678406,
+        "dimension": 44.979367262723514,
         "children": [
           {
             "id": "e69018b000d8ced2",
@@ -164,12 +296,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "5. Toolbox/ExcaliBrain.md",
+                "file": "3. Core/Dots/Frameworks/Framework — WHO NOT HOW — 10 Bước Đổi Câu Hỏi Từ Làm Thế Nào Sang Ai Làm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Liên kết đi ra từ ExcaliBrain"
+              "title": "Outgoing links from Framework — WHO NOT HOW — 10 Bước Đổi Câu Hỏi Từ Làm Thế Nào Sang Ai Làm"
             }
           },
           {
@@ -232,7 +364,7 @@
       {
         "id": "70a1c54fa3994134",
         "type": "tabs",
-        "dimension": 22.1501390176089,
+        "dimension": 27.510316368638243,
         "children": [
           {
             "id": "dfab54527df266fa",
@@ -240,7 +372,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "00. Business Context/Sản Phẩm & Dịch Vụ/_MOC Sản Phẩm & Dịch Vụ.md",
+                "file": "1. Raw/FN — Họp Feroz — team quá nhiều manager, cần goal riêng từng người — 2026-07-13.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -263,12 +395,12 @@
                   "repelStrength": 7.77083333333333,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.4021756815521898,
-                  "close": false
+                  "scale": 1.1109156961781856,
+                  "close": true
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of _MOC Sản Phẩm & Dịch Vụ"
+              "title": "Graph of FN — Họp Feroz — team quá nhiều manager, cần goal riêng từng người — 2026-07-13"
             }
           },
           {
@@ -286,7 +418,7 @@
       {
         "id": "02cbb974989ac984",
         "type": "tabs",
-        "dimension": 38.368860055607044,
+        "dimension": 27.510316368638243,
         "children": [
           {
             "id": "b6df80cc4cffaf19",
@@ -302,84 +434,85 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287,
+    "width": 270,
     "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
+      "vocab-forge:Vocab Forge: Ôn tập": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "audio-recorder:Start/stop recording": false,
       "bases:Create new base": false,
       "obsidian-excalidraw-plugin:New drawing": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-kanban:Create new board": false,
       "templater-obsidian:Templater": false,
       "callout-manager:Insert Callout": false,
+      "mindmirror-course-factory:MindMirror Course Factory": false,
       "periodic-notes:Open today": false
     }
   },
-  "active": "153337a2334be989",
+  "active": "670d0525917b94a7",
   "lastOpenFiles": [
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/nhat minh brain 1.png",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/nhat minh brain nhat ky.png",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/nhat minh brain chatgpt.png",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/nhat minh brain python.png",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/captured-frames/frame_000126.jpg",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/captured-frames/frame_000125.jpg",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/captured-frames/frame_000123.jpg",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/captured-frames/frame_000124.jpg",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/captured-frames/frame_000120.jpg",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/captured-frames/frame_000122.jpg",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/captured-frames/frame_000121.jpg",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/capture-attempt-0/worker-5",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/capture-attempt-0/worker-4",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/capture-attempt-0/worker-1",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/capture-attempt-0/worker-3",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/capture-attempt-0/worker-2",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/capture-attempt-0/worker-0",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/capture-attempt-0",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/worker-1/diagnostics",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/worker-0/diagnostics",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/renders/work-eac0a30f-e0cb-4deb-a3cd-e50379911602-RTXbEO/worker-2/diagnostics",
-    "03. Areas/Brand & Content/Content Đã Đăng/2026-08-15 — Facebook — Claude Không Chỉ Viết Email.md",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/frame.md",
-    "04. Resources/Market & Competitor Research/Video AI/NotebookLM/2026-08-15 — Quy Trình Amazon KDP 12 Tuần.md",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/STORYBOARD.md",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/BRIEF.md",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/CLAUDE.md",
-    "02. Projects/Xưởng Video AI/videos/nhat-minh-second-brain/AGENTS.md",
-    "nhat minh/Second Brain giúp em level up học tập_transcript.md",
-    "nhat minh/Ghi nhớ tiến bộ học tập cuối tuần_transcript.md",
-    "nhat minh/ChatGPT - 15 August 2026_transcript.md",
-    "nhat minh/1_transcript.md",
-    "nhat minh/TRANSCRIPT_CHINH_XAC_KEM_TIMESTAMPS.md",
-    "04. Resources/Market & Competitor Research/Đối Thủ Social/2026-08-14 — Facebook — Nguyễn Tiệp — 2 tháng.md",
-    "04. Resources/Market & Competitor Research/Nguyễn Tiệp Facebook — 2 tháng — 2026-08-14/bổ sung 14-22-06/competitor-social-report.md",
-    "04. Resources/Market & Competitor Research/Nguyễn Tiệp Facebook — 2 tháng — 2026-08-14/competitor-social-report.md",
-    "04. Resources/Market & Competitor Research/Đối Thủ Social/2026-08-13 — Facebook — Vietravel — 7 ngày.md",
-    "04. Resources/Market & Competitor Research/Vietravel Facebook — 7 ngày — 2026-08-13/competitor-social-report.md",
-    "04. Resources/Market & Competitor Research/Đối Thủ Social/2026-08-13 — Facebook — VN Express Tour — 7 ngày.md",
-    "workspace/competitor-social/vn-express-tour-7-days/live/competitor-social-report.md",
-    "workspace/apify-nguyet-china-14-ngay-khadinakbar/competitor-social-report.md",
-    "workspace/apify-nguyet-china-14-ngay-api-ninja/competitor-social-report.md",
-    "workspace/apify-nguyet-china-14-ngay-lan-2/competitor-social-report.md",
-    "workspace/apify-nguyet-china-14-ngay/competitor-social-report.md",
-    "00. Business Context/MHKD/Phân Khúc Khách Hàng/PK1 — Công Ty Công Nghệ Mỹ Thuê Phát Triển.md",
-    "00. Business Context/Business Model Canvas.canvas",
-    "00. Business Context/MHKD/Giá Trị Cốt Lõi/GT1 — Đội Kỹ Sư Chất Lượng Mỹ Chi Phí Việt Nam.md",
-    "01. Projects/[Test] An Nhiên Spa/Business Model Canvas.canvas",
-    "04. Resources/Market & Competitor Research/Nghiên Cứu Thị Trường/[Ví dụ] Niche AI Tools Freelancer VN.canvas",
-    "05. Archive/[Test] An Nhiên Spa/Business Model Canvas.canvas",
-    "04. Archive/[Test] An Nhiên Spa/Business Model Canvas.canvas",
-    "4. Mint/Active/AI-HUB/AI-HUB Phương Pháp Luận.canvas",
+    "2. Mine/Literature Notes/LN — Format Jarvis POV — Công Thức Reel Đối Thoại Với AI (1,41 Comment_Like).md",
+    "5. Toolbox/Attachments/Reel Format Jarvis — Transcript.txt",
+    "5. Toolbox/Attachments/Reel Format Jarvis — Transcript.srt",
+    "5. Toolbox/Attachments/Reel Format Jarvis — Contact Sheet.jpg",
+    "5. Toolbox/Attachments/Reel — Format Jarvis POV (downey.ai).mp4",
+    "2. Mine/Literature Notes/LN — Reel Claude Fable 5.1 Giết Shopify — Giải Phẫu Một Cú News-Jacking.md",
+    "5. Toolbox/Attachments/Reel Fable-Shopify — Transcript.txt",
+    "5. Toolbox/Attachments/Reel Fable-Shopify — Transcript.srt",
+    "5. Toolbox/Attachments/Reel Fable-Shopify — Backend Amboras.jpg",
+    "5. Toolbox/Attachments/Reel Fable-Shopify — Analytics 192K.jpg",
+    "5. Toolbox/Attachments/Reel Fable-Shopify — Bảng A-B Testing (682 ngày).jpg",
+    "5. Toolbox/Attachments/Reel Fable-Shopify — Contact Sheet 30 Khung Hình.jpg",
+    "5. Toolbox/Attachments/Reel — Claude Fable 5.1 Killed Shopify (ty.buildssites).mp4",
+    "Clippings/The Art of Yapping (full guide to talking on video).md",
+    "Untitled.md",
+    "Pasted image 20260909103531.png",
+    "Pasted image 20260909100258.png",
+    "Pasted image 20260909100139.png",
+    "Pasted image 20260909095922.png",
+    "Pasted image 20260909095918.png",
+    "Clippings/How I made 100 Sales on a BRAND NEW store (No Ads or Marketing).md",
+    "Clippings/How I Spot an Etsy Design Trend BEFORE It Gets Saturated.md",
+    "Clippings/From $95 To $3,905 Monthly PROFIT In 4 Months (NO ADS).md",
+    "Clippings/The Easiest Side Hustle of 2026 - Print on Demand Ornaments (Full Tutorial).md",
+    "Clippings/Work-From-Home Mom $0 to $100K Blueprint (7-Figure Etsy POD Seller).md",
+    "Clippings/I Sold 50,000 Ornaments on Etsy — Here's What I'd Do in 2026.md",
+    "Clippings/New AI seller + phone for your agent + OpenClaw 2.0 boy-is-it-bad.md",
+    "Clippings/I Built An $85M AI Startup in 5 Months (here's my playbook).md",
+    "Clippings/How She Makes $1,600 a Day With AI (Started With $100).md",
+    "Clippings/I Built a Shopify Store with Claude Code (In Minutes).md",
+    "Clippings/How To Use Claude to Create 100 Trendy T-Shirt Designs For Any Niche in Minutes.md",
+    "1. Raw/FN — Kiến Trúc Kỹ Năng Máy Săn Ngách Etsy — 2026-08-28.md",
+    "4. Mint/Active/POD Factory/POD Factory — Sổ Tay Ngách & Sản Phẩm High-Margin 2026 (Heather Studio).md",
+    "2. Mine/Literature Notes/LN — Heather Studio — Bản Đồ Ngách & Hệ Thống POD 2026.md",
+    "Clippings/This $100K Etsy POD Product is Blowing Up Right Now!.md",
+    "Clippings/Every High Performer Should Think In First Principles, Here's Why.md",
+    "5. Toolbox/Scripts/fetch_youtube_transcripts.py",
+    "5. Toolbox/Scripts",
+    "1. Raw/Transcripts - Heather Studio 2026/00 — Tổng Quan Transcripts Heather Studio 2026.md",
+    "1. Raw/Transcripts - Heather Studio 2026/2026-05-22 — 7 HIGHLY Profitable Unsaturated Etsy Trends that are Blowing Up Right Now.md",
+    "1. Raw/Transcripts - Heather Studio 2026/2026-01-02 — Starting Etsy in 2026 Watch This First (New Seller Survival Guide).md",
+    "1. Raw/Transcripts - Heather Studio 2026/2026-01-11 — The 30 MinDay System EVERY Etsy Seller Should Be Doing.md",
+    "1. Raw/Transcripts - Heather Studio 2026/2026-01-19 — Most Profitable Etsy Niches to Sell in 2026.md",
+    "1. Raw/Transcripts - Heather Studio 2026/2026-02-04 — I Revived My Dead Etsy Shop (Here’s How You Can Too).md",
+    "1. Raw/Transcripts - Heather Studio 2026",
+    "4. Mint/Active/InkSpire Studios",
+    "Untitled.canvas",
+    "4. Mint/Active/Agent Builders/Bước A — Analyze/Ví Dụ — Bản Đồ Lợi Thế Cá Nhân (George · WrestleAI).canvas",
+    "4. Mint/Active/Agent Builders/Bước A — Analyze/Untitled.canvas",
     "4. Mint/Active/Rocket AI/Business Model Canvas.canvas",
+    "4. Mint/Active/AI-HUB/AI-HUB Phương Pháp Luận.canvas",
     "2. Mine/Literature Notes/2. Visual Thinking PKM Zolts - Original/Visual Thinking Workshop/01 BoaPs/Emergence/Canvas - Emergence.canvas",
     "2. Mine/Literature Notes/2. Visual Thinking PKM Zolts - Original/Visual Thinking Workshop 2/01 BoaPs/Emergence/Canvas - Emergence.canvas",
-    "5. Toolbox/2. Visual Thinking PKM Zolts - Original/Visual Thinking Workshop/01 BoaPs/Emergence/Canvas - Emergence.canvas"
+    "5. Toolbox/2. Visual Thinking PKM Zolts - Original/Visual Thinking Workshop/01 BoaPs/Emergence/Canvas - Emergence.canvas",
+    "4. Mint/Active/AI Marketing CRM/Bản Đồ Đối Thủ.canvas",
+    "3. Core/Maps/MOCs/Grand Slam Offer — Bản Đồ Tri Thức.canvas"
   ]
 }
