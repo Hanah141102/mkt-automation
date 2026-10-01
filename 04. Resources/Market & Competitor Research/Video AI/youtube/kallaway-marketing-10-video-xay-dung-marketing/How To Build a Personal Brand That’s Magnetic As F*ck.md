@@ -1,5 +1,5 @@
 ---
-title: "How To Build a Personal Brand That’s Magnetic As F*ck"
+title: "How To Build a Personal Brand That’s Magnetic As Fck"
 source: "https://www.youtube.com/watch?v=xw_hhw1V1A8"
 author:
   - "[[Kallaway]]"
