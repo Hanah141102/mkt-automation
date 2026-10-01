@@ -5,7 +5,7 @@ cot-loi: false
 cong-doan: "5. Dây chuyền trọn gói"
 ---
 
-# Video Kiến Thức 16:9
+# Video Kiến Thức 16-9.md
 
 Tạo video chia sẻ kiến thức 16:9 bằng slide động và giọng đọc tự động, khớp chữ với lời nói. Dùng khi làm video giảng giải không cần xuất hiện mặt người.
 
